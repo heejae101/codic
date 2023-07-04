@@ -12,6 +12,6 @@
 DBManager.getConnection();
 %>
 <h1>test</h1>
-wdqw
+코코코코코코코딩
 </body>
 </html>
