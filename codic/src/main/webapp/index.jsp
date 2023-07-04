@@ -11,11 +11,8 @@
 <%
 DBManager.getConnection();
 %>
-<<<<<<< HEAD
 <h1>ㅇㅇ</h1>
-=======
 <h1>test</h1>
 코코코코코코코딩
->>>>>>> refs/heads/joobal
 </body>
 </html>
