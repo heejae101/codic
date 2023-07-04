@@ -11,5 +11,7 @@
 <%
 DBManager.getConnection();
 %>
+<h1>test</h1>
+wdqw
 </body>
 </html>
