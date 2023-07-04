@@ -12,6 +12,6 @@
 DBManager.getConnection();
 %>
 <h1>test</h1>
-wdqw
+희재 바보 똥꾸멍
 </body>
 </html>
