@@ -11,9 +11,5 @@
 <%
 DBManager.getConnection();
 %>
-<h1>ㅇㅇ</h1>
-<h1>test</h1>
-코코코코코코코딩
-희재 바보 똥꾸멍
 </body>
 </html>
