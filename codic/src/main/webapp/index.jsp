@@ -11,6 +11,6 @@
 <%
 DBManager.getConnection();
 %>
-..
+...
 </body>
 </html>
