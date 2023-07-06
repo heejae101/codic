@@ -1,5 +1,7 @@
 package model.board;
 
+import java.sql.Timestamp;
+
 public class Board {
 
 	private int board_id;
@@ -60,5 +62,34 @@ public class Board {
 	public String getModified_timestamp() {
 		return modified_timestamp;
 	}
+
+	public void setBoard_id(int board_id) {
+		this.board_id = board_id;
+	}
+
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+
+	public void setBoard_title(String board_title) {
+		this.board_title = board_title;
+	}
+
+	public void setBoard_text(String board_text) {
+		this.board_text = board_text;
+	}
+
+	public void setBoard_view_count(int board_view_count) {
+		this.board_view_count = board_view_count;
+	}
+
+	public void setCurrent_timestamp(String current_timestamp) {
+		this.current_timestamp = current_timestamp;
+	}
+
+	public void setModified_timestamp(String modified_timestamp) {
+		this.modified_timestamp = modified_timestamp;
+	}
+	
 	
 }
