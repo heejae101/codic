@@ -14,51 +14,7 @@
 		<welcome-file>default.htm</welcome-file>
 	</welcome-file-list>
 
-	<!-- 1. 서블릿 페이지 맵핑 -->
-	
-	<servlet>
-		<servlet-name>BoardFormAction</servlet-name>
-		<servlet-class>controller.BoardFormAction</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>BoardFormAction</servlet-name>
-		<url-pattern>/BoardWrite</url-pattern>
-	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>BoardRequest</servlet-name>
-		<servlet-class>controller.BoardRequest</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>BoardRequest</servlet-name>
-		<url-pattern>/BoardRead</url-pattern>
-	</servlet-mapping>
-
-
-
-	<!-- JSP 페이지 맵핑 -->
-
-	<servlet>
-		<servlet-name>Write</servlet-name>
-		<jsp-file>/Write.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>Write</servlet-name>
-		<url-pattern>/Write</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>board</servlet-name>
-		<jsp-file>/board.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>board</servlet-name>
-		<url-pattern>/board</url-pattern>
-	</servlet-mapping>
   
 </web-app>
 

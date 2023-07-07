@@ -24,37 +24,25 @@ public class BoardDao {
 	
 	// C
 	public boolean createBoard(BoardRequestDto boardDto) {
-		Board result = getBoardByNo(boardDto.getBoard_id());
-
-		if (result != null) {
-			return false;
-		}
 
 		boolean check = true;
 
-		int board_id = boardDto.getBoard_id();
 		String user_email = boardDto.getUser_email();
 		String board_title = boardDto.getBoard_title();
 		String board_text = boardDto.getBoard_text();
 		int board_view_count = boardDto.getBoard_view_count();
-		Timestamp current_timestamp = boardDto.getCurrent_timestamp();
-		Timestamp modified_timestamp = boardDto.getModified_timestamp();
 
-		if (user_email != null && board_title != null && board_text != null && current_timestamp != null
-				&& modified_timestamp != null) {
+		if (user_email != null && board_title != null && board_text != null) {
 			this.conn = DBManager.getConnection();
 			if (this.conn != null) {
-				String sql = "INSERT INTO board VALUES(?, ?, ?, ?, ?, ?, ?)";
+				String sql = "INSERT INTO board(user_email, board_title, board_text, board_view_count) VALUES(?,?,?,?)";
 
 				try {
 					this.pstmt = this.conn.prepareStatement(sql);
-					this.pstmt.setInt(1, board_view_count);
-					this.pstmt.setString(2, user_email);
-					this.pstmt.setString(3, board_title);
-					this.pstmt.setString(4, board_text);
-					this.pstmt.setInt(5, board_view_count);
-					this.pstmt.setTimestamp(board_view_count, modified_timestamp);
-					this.pstmt.setTimestamp(7, modified_timestamp);
+					this.pstmt.setString(1, user_email);
+					this.pstmt.setString(2, board_title);
+					this.pstmt.setString(3, board_text);
+					this.pstmt.setInt(4, board_view_count);
 
 					this.pstmt.execute();
 
@@ -118,14 +106,6 @@ public class BoardDao {
 		if (this.conn != null) {
 			String sql = "SELECT * FROM board WHERE board_id=?";
 			
-//			private int board_id;
-//			private String user_email;
-//			private String board_title;
-//			private String board_text;
-//			private int board_view_count;
-//			private String current_timestamp;
-//			private String modified_timestamp;
-			
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
 				this.pstmt.setInt(1, board_id);
@@ -153,6 +133,8 @@ public class BoardDao {
 
 		return board;
 	}
+	
+
 	
 	// U
 	public void updateBoard(BoardRequestDto boardDto) {

@@ -6,13 +6,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.board.Board;
 import model.board.BoardDao;
 import model.board.BoardRequestDto;
 
 /**
  * Servlet implementation class BoardFormAction
  */
+@WebServlet("/BoardFormAction")
 public class BoardFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,27 +43,25 @@ public class BoardFormAction extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		int board_id = Integer.parseInt(request.getParameter("board_id"));
-		String user_email = request.getParameter("user_email");
-		String board_title = request.getParameter("board_title");
-		String board_text = request.getParameter("board_text");
-		int board_view_count = Integer.parseInt(request.getParameter("board_view_count"));
-		String current_timestamp = request.getParameter("current_timestamp");
-		String modified_timestamp = request.getParameter("modified_timestamp");
+
+		String user_email = request.getParameter("email");
+		String board_title = request.getParameter("title");
+		String board_text = request.getParameter("text");
+		int board_view_count = Integer.parseInt(request.getParameter("view_count"));
 		
-		BoardRequestDto board = new BoardRequestDto(board_id, user_email, board_title, board_text, board_view_count, current_timestamp, modified_timestamp);
+		BoardRequestDto board = new BoardRequestDto(user_email, board_title, board_text, board_view_count);
 		
 		BoardDao boardDao = BoardDao.getInstance();
-		
 		boolean result = boardDao.createBoard(board);
 		
 		String url = "";
 		
 		if(result) 
-			url = "폼액션 수정 필요";
+			url = "/views/write.jsp";
 		else
-			url = "폼액션 수정 필요";
+			url = "board";
 
+		System.out.println(url);
 		response.sendRedirect(url);
 		
 	}
