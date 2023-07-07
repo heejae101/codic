@@ -16,7 +16,7 @@ XXX-XXXX-XXXX 포멧으로 15자리 제한을 둡니다.
 user_nickname
 
 user_check 
-14세 미만 동의 1 동의 안할시 0
+14세 이상 동의 0 동의 안할시 1
 
 user_joindate 
 

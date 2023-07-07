@@ -16,7 +16,7 @@ public class UserRequestDto {//복제품
 	private Timestamp user_joinDate; //가입 날짜
 	private int user_status; //회원 상태
 		
-		//생성자
+    //생성자
 	public UserRequestDto(String user_email, String user_password, String user_name, String user_phone_num) {
 		this.user_email = user_email;
 		this.user_password = user_password;
@@ -34,6 +34,19 @@ public class UserRequestDto {//복제품
 		this.user_phone_num = user_phone_num;
 		this.user_nickname = user_nickname;
 	}
+	
+	public UserRequestDto(String user_email, String user_password, String user_name, String user_phone_num, String user_nickname,
+			int user_check, int user_status) {
+		super();
+		this.user_email = user_email;
+		this.user_password = user_password;
+		this.user_name = user_name;
+		this.user_phone_num = user_phone_num;
+		this.user_nickname = user_nickname;
+		this.user_check = user_check;
+		this.user_status = user_status;
+	}
+	
 
 
 

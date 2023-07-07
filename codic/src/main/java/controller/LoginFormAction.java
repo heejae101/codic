@@ -47,13 +47,16 @@ public class LoginFormAction extends HttpServlet {
 		UserDao userDao=UserDao.getInstance();
 		User user = userDao.getUserByEmail(email);
 		String url="/views/loginForm.jsp";
+		String nickname=userDao.getNicknameByEmail(email);
+	    
+		System.out.println("닉네임"+nickname);
 		
-		if(user!=null && user.getUser_password().equals(password)) {
+		if(user!=null && user.getUser_password().equals(password)&&nickname!=null) {
 			url="/views/main.jsp";//임시로
 			
 			//로그인한 회원의 아이디를->session에 속성값으로 저장
 			HttpSession session=request.getSession();
-			session.setAttribute("log",email);//닉네임으로 바꾸고 싶음
+			session.setAttribute("log",nickname);//닉네임으로 바꾸고 싶음
 			
 		}
 		response.sendRedirect(url);
