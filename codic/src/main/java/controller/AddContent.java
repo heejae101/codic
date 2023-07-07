@@ -9,12 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.content.Content;
 import model.content.ContentDao;
-import model.content.ContentRequestDto;
 
 /**
  * Servlet implementation class AddContent
  */
-@WebServlet("/DummyContent")
+@WebServlet("/SelectContent")
 public class AddContent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,11 +29,10 @@ public class AddContent extends HttpServlet {
 		
 		System.out.println(text);
 		
-		ContentRequestDto content = new ContentRequestDto(text);
 		ContentDao contentDao = ContentDao.getInstance();
 		Content result = contentDao.getDataBytext(text);
 		
-		String url ="content.jsp";
+		String url ="/views/content.jsp";
 		request.setAttribute("result", result); // result 값을 request에 저장
 		request.getRequestDispatcher(url).forward(request, response); // content.jsp로 forward
 	}

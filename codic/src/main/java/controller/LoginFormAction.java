@@ -50,7 +50,7 @@ public class LoginFormAction extends HttpServlet {
 		
 		if(user!=null && user.getUser_password().equals(password)) {
 			url="/views/main.jsp";//임시로
-			
+			userDao.
 			//로그인한 회원의 아이디를->session에 속성값으로 저장
 			HttpSession session=request.getSession();
 			session.setAttribute("log",email);//닉네임으로 바꾸고 싶음

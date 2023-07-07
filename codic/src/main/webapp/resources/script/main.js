@@ -1,7 +1,11 @@
 function checkValue(htmlForm){
 	const text = htmlForm.text.value;
 	
-	let status = true; 
+	let status = false; 
+	
+	if (event.keyCode === 13){
+		status = true;
+	}
 	
 	if(text === ""){
 		status = false;

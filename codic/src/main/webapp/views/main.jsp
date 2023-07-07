@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,13 +16,9 @@
 		</svg>
 	</div>
 	<div>
-		<form method="get" action="">
-			<input type="text" id="text" name="text" placeholder="무엇이든 물어보세요!">
-			<input type="button" id="submit-btn" value="회원가입" onclick="checkValue(form)">
+		<form method="GET" action="/SelectContent">
+			<input type="text" id="text" name="text" placeholder="무엇이든 물어보세요!" onkeypress="checkValue(form)">
 		</form>
-	</div>
-	<div>
-		<li><a href="join">더미데이터 넣기</a></li>
 	</div>
 </div>
 <script src="../resources/script/main.js"></script>

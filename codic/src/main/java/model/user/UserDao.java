@@ -95,6 +95,8 @@ public class UserDao {
 		
 	}
 	
+	// TODO getNicknameByEmail(String email)
+	
 	
 	public User getUserByEmail(String email) {
 		//user 객체
