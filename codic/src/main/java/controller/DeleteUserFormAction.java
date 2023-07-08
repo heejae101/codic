@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.user.UserDao;
+
 /**
  * Servlet implementation class DeleteUserFormAction
  */
@@ -34,8 +36,24 @@ public class DeleteUserFormAction extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String email= request.getParameter("user_email");
+		String password=request.getParameter("user_password");
+		
+		UserDao userDao=UserDao.getInstance();
+		boolean result=userDao.deleteUserByEmail(email, password);
+		
+		String url="/views/deleUserForm.jsp";
+		
+		if(result) {
+			request.getSession().removeAttribute("log");
+			url="/views/loginForm.jsp";
+		}
+		
+		response.sendRedirect(url);
+		
+		
+		
+		
 	}
 
 }

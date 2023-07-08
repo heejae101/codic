@@ -14,6 +14,7 @@ import model.board.BoardRequestDto;
 /**
  * Servlet implementation class BoardReadFormAction
  */
+@WebServlet("/BoardRequest")
 public class BoardRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,7 +33,7 @@ public class BoardRequest extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		// 보드 1번 선택 지정
-		int boardNo = Integer.parseInt(request.getParameter("1"));
+		int boardNo = Integer.parseInt(request.getParameter("board_No"));
 		
 		BoardDao boardDao = BoardDao.getInstance();
 		
@@ -48,6 +49,7 @@ public class BoardRequest extends HttpServlet {
 		
 		String url = "board";
 		
+		// 데이터베이스에서 가져온 정보를 다른페이지로 넘길떼 -> responseDto, 사용자가 입력한 정보를 다른페이지로 넘길때 -> requestDto
 		if(board !=null) {
 			BoardRequestDto BoardDto = new BoardRequestDto(board_id, user_email, board_title, board_text, board_view_count, current_timestamp, modified_timestamp);
 			

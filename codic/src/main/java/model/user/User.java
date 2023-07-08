@@ -16,6 +16,7 @@ public class User {
 	
 	
 	//생성자
+	
 	public User(String user_email, String user_password, String user_name, String user_phone_num) {
 		this.user_email = user_email;
 		this.user_password = user_password;
@@ -32,6 +33,22 @@ public class User {
 		this.user_name = user_name;
 		this.user_phone_num = user_phone_num;
 		this.user_nickname = user_nickname;
+	}
+	
+	
+
+
+
+	public User(String user_email, String user_password, String user_name, String user_phone_num, String user_nickname,
+			int user_check, int user_status) {
+		super();
+		this.user_email = user_email;
+		this.user_password = user_password;
+		this.user_name = user_name;
+		this.user_phone_num = user_phone_num;
+		this.user_nickname = user_nickname;
+		this.user_check = user_check;
+		this.user_status = user_status;
 	}
 
 

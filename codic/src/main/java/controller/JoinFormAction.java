@@ -33,8 +33,9 @@ public class JoinFormAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 	}
 
 	/**
@@ -50,10 +51,9 @@ public class JoinFormAction extends HttpServlet {
 		String phone=request.getParameter("user_phone_num");
 		String nickname=request.getParameter("user_nickname");
 		int check=Integer.parseInt(request.getParameter("user_check"));
-	    Timestamp joinDate=java.sql.Timestamp.valueOf(request.getParameter("user_joinDate"));
 	    int status=Integer.parseInt(request.getParameter("user_status"));
 	    
-	    UserRequestDto user= new UserRequestDto(email, password, name, phone, nickname, check, joinDate, status);
+	    UserRequestDto user= new UserRequestDto(email, password, name, phone, nickname, check, status);
 		
 	 
 		UserDao userDao=UserDao.getInstance();

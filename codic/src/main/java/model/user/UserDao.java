@@ -22,8 +22,7 @@ public class UserDao {
 		return instance;
 	}
 	
-	
-	
+	//CRUD
 	//Create
 	public boolean createUser(UserRequestDto userDto) {
 		User result=getUserByEmail(userDto.getUser_email());
@@ -37,7 +36,6 @@ public class UserDao {
 		String phone_num=userDto.getUser_phone_num();
 		String nickname=userDto.getUser_nickname();
 		int check=userDto.getUser_check();
-		//Timestamp joinDate=userDto.getUser_joinDate();
 		int status=userDto.getUser_status();
 		
 		boolean confirm =true;
@@ -47,7 +45,7 @@ public class UserDao {
 			if(this.conn!=null) {
 				if(!email.equals("")) {//이메일 값이 있을때
 					String sql="INSERT INTO user_info(user_email, user_password, user_name, user_phone_num, user_nickname,user_check,user_status)VALUES(?,?,?,?,?,?,?)";
-					//DB에서는 joinDate 안넣자나 값을 여기서 어떻게 처리?
+				
 					try {
 						this.pstmt=this.conn.prepareStatement(sql);
 						this.pstmt.setString(1, email);
@@ -98,6 +96,38 @@ public class UserDao {
 	// TODO getNicknameByEmail(String email)
 	
 	
+	//이메일값으로 닉네임값 불러오기
+	public String getNicknameByEmail(String email) {
+		String nickname=null;
+		
+		this.conn=DBManager.getConnection();
+		
+		if(this.conn!=null) {
+		 String sql="SELECT user_email,user_nickname FROM user_info WHERE user_email=?";	
+		
+	     try {
+	    	this.pstmt=this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, email);
+			
+			this.rs=this.pstmt.executeQuery();
+			if(this.rs.next()) {
+			String nick=this.rs.getString(2);
+			nickname=nick;
+			
+			}
+		} catch (Exception e) {
+		     e.printStackTrace();
+		
+		}finally {
+		DBManager.close(this.conn, this.pstmt, this.rs);
+		}
+		
+		}
+		return nickname; 
+		
+		
+	}
+	
 	public User getUserByEmail(String email) {
 		//user 객체
 		User user =null;
@@ -120,6 +150,7 @@ public class UserDao {
 					int check=Integer.parseInt(this.rs.getString(6));
 					Timestamp joinDate= java.sql.Timestamp.valueOf(this.rs.getString(7));
 					int status=Integer.parseInt(this.rs.getString(8));
+					
 					user=new User(email,password,name,phone_num,nickname,check,joinDate, status);
 					
 					
@@ -127,7 +158,7 @@ public class UserDao {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}finally {
-				DBManager.close(conn, pstmt, rs);
+				DBManager.close(this.conn, this.pstmt, this.rs);
 			}
 			
 		}
@@ -160,10 +191,9 @@ public class UserDao {
 			String phone_num=this.rs.getString(4);
 			String nickname=this.rs.getString(5);
 			int check=Integer.parseInt(this.rs.getString(6));
-			Timestamp joinDate= java.sql.Timestamp.valueOf(this.rs.getString(7));
-			int status=Integer.parseInt(this.rs.getString(8));
+			int status=Integer.parseInt(this.rs.getString(7));
 			
-			User user=new User(email,password,name,phone_num,nickname,check,null, status);
+			User user=new User(email,password,name,phone_num,nickname,check, status);
 			list.add(user);
 			}
 			
@@ -181,6 +211,73 @@ public class UserDao {
 		
 	}
 	
+	//update
+	public void updateUser(UserRequestDto userDto, String password) {
+		this.conn=DBManager.getConnection();
+		
+		if(this.conn!=null && userDto.getUser_password()!=null &&userDto.getUser_email()!=null) {
+			if(userDto.getUser_password()!="") {
+				String sql="UPDATE user SET user_password=? user_nickname=? WHERE user_email=? AND user_password=?";
+				
+			   try {
+				   this.pstmt=this.conn.prepareStatement(sql);
+				   this.pstmt.setString(1, userDto.getUser_password());
+				   this.pstmt.setString(2, userDto.getUser_nickname());
+				   this.pstmt.setString(3, userDto.getUser_email());
+				   this.pstmt.setString(4, password);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				DBManager.close(this.conn, this.pstmt);
+			}
+				
+			}else {
+				String sql="UPDATE user SET user_nickname=? WHERE user_email=? AND user_password=?";
+				try {
+					this.pstmt=this.conn.prepareStatement(sql);
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				
+			}
+		}
+		
+	}
+	
+	//delete
+	public boolean deleteUserByEmail(String email, String password) {
+		this.conn=DBManager.getConnection();
+		
+		boolean confirm=true;
+		
+		if(this.conn!=null) {
+			String sql="DELETE FROM user_info WHERE user_email=? AND user_password=?";
+			
+			try {
+				this.pstmt=this.conn.prepareStatement(sql);
+				this.pstmt.setString(1,email);
+				this.pstmt.setString(2,password);
+				
+				this.pstmt.execute();
+				
+			} catch (Exception e) {
+			  e.printStackTrace();
+			  confirm=false;
+			}finally {
+				DBManager.close(this.conn,this.pstmt);
+			}
+			
+			}else{
+				confirm=false;
+			}
+			
+			return confirm;
+		}
+		
+		
 	
 	
 	
