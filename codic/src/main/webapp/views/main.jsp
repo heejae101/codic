@@ -17,10 +17,10 @@
 	</div>
 	<div>
 		<form method="GET" action="/SelectContent">
-			<input type="text" id="text" name="text" placeholder="무엇이든 물어보세요!" onkeypress="checkValue(form)">
+			<input type="text" id="text" name="text" placeholder="무엇이든 물어보세요!" onkeypress="checkValue(this, event)">
 		</form>
 	</div>
 </div>
-<script src="../resources/script/main.js"></script>
+<script src="../resources/script/search.js"></script>
 </body>
 </html>
