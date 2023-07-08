@@ -133,8 +133,63 @@ public class BoardDao {
 
 		return board;
 	}
-	
+	// 게시판 목록 출력
+	public ArrayList<Board> getBoard10() {
+		
+		ArrayList<Board> list = new ArrayList<Board>();
+		String sql = "SELECT * FROM board ORDER BY modified_timestamp DESC LIMIT 10";
+		
+		this.conn = DBManager.getConnection();
 
+		if (this.conn != null) {
+			
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+
+				while (this.rs.next()) {
+
+					int board_id = this.rs.getInt(1);
+					String user_email = this.rs.getString(2);
+					String board_title = this.rs.getString(3);
+					String board_text = this.rs.getString(4);
+					int board_view_count = this.rs.getInt(5);
+					String current_timestamp = this.rs.getString(6);
+					String modified_timestamp = this.rs.getString(7);
+
+					Board board = new Board(board_id, user_email, board_title, board_text, board_view_count,
+							current_timestamp, modified_timestamp);
+					
+					list.add(board);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return list;
+	}
+	
+	public boolean nextPage(int pageNum) {
+		String sql = "SELECT * FROM board ORDER BY modified_timestamp DESC LIMIT 10";
+		
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+
+				if(rs.next()) {
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		
+		return false;
+		
+	}
 	
 	// U
 	public void updateBoard(BoardRequestDto boardDto) {
