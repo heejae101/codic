@@ -47,6 +47,7 @@
 </div>
 
 <div>
+<label for="name">이름</label>
 	<input type="text" id="user_name" name="user_name" placeholder="이름">
 </div>
 <div>
@@ -55,12 +56,13 @@
 </div>
 
 <div>
+<label for="nicekname">닉네임</label>
 	<input type="text" id="user_nickname" name="user_nickname"
 		placeholder="닉네임">
 </div>
 
 <div class="label-wrapper">
-	<label><input type="checkbox" name="user_check" value="check" >약관
+	<label><input type="checkbox" name="user_check" value="1" onclick="chk()" >약관
 		동의</label> 
 		<label><input type="checkbox" name="user_check"
 		value="1" onclick="chk()">만 14세 이상입니다.</label>
@@ -71,8 +73,6 @@
 
 </form>
 	</section>
-
-
 
 	<script src="resources/script/validation_join.js"></script>
 

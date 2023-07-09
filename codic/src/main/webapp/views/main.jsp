@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>content</title>
 </head>
 <body>
@@ -23,6 +25,10 @@
 	<div>
 		<li><a href="join">더미데이터 넣기</a></li>
 	</div>
+	<div>
+	<input type="button" id="logout-btn" value="로그아웃" >
+	</div>
+	
 </div>
 <script src="../resources/script/main.js"></script>
 </body>
