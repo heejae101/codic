@@ -33,19 +33,7 @@
 		</div>
 		<section id="board-list-sec">
 		
-			<c:out value="${board_id}" />
-			<c:out value="${board_id}" />
-			<c:out value="${requestScope.board}" />
-			<c:out value="${requestScope.board_id}" />
-			<c:out value="${requestScope.board.board_id}" />
-
-
-			<p>${board.board_id}</p>
-			<p>${request.board_id}</p>
-			<p>${boardDto.board_title}</p>
-			<p>${boardDto.user_email}</p>
-			<p>${boardDto.current_timestamp}</p>
-			<p>${boardDto.board_view_count}</p>
+			<c:out value="${board.board_id}" />
 
 			<c:if test="${not empty board}">
 				<h3>Board ID: ${board.board_id}</h3>
@@ -62,25 +50,27 @@
 
 	</div>
 	<script>
-		$(function() {
+	$(function() {
 
-			const num = 4;
+	    const num = 4;
 
-			$.ajax({
-				url : "/BoardRequest",
-				type : "GET",
-				data : {
-					board_No : num
-				},
-				success : function(data) {
-					console.log(data);
-				},
-				error : function() {
-					console.log("Error occurred");
-				}
-			})
+	    $.ajax({
+	        url : "/BoardRequest",
+	        type : "GET",
+	        data : {
+	            board_No : num
+	        },
+	        success : function(data) {
+	            console.log(data);
+	            // 태그를 만들어서 해당 위치에 삽입
+	            $("#contents-container").html(data);
+	        },
+	        error : function() {
+	            console.log("Error occurred");
+	        }
+	    })
 
-		});
+	});
 	</script>
 </body>
 </html>

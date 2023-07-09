@@ -40,6 +40,8 @@ public class BoardRequest extends HttpServlet {
 		
 		int boardNo = Integer.parseInt(request.getParameter("board_No"));
 		
+		System.out.println("boardNo"+boardNo);
+		
 		BoardDao boardDao = BoardDao.getInstance();
 		Board board = boardDao.getBoardByNo(boardNo);
 		
