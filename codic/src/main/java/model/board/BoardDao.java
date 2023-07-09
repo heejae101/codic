@@ -133,9 +133,44 @@ public class BoardDao {
 
 		return board;
 	}
+	
+	public Board getBoardById(String user_email) {
+		Board board = null;
+
+		this.conn = DBManager.getConnection();
+
+		if (this.conn != null) {
+			String sql = "SELECT * FROM board WHERE board_id=?";
+			
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(2, user_email);
+				
+				this.rs = this.pstmt.executeQuery();
+				
+				if(this.rs.next()) {
+					int board_id = this.rs.getInt(1);
+					String board_title = this.rs.getString(3);
+					String board_text = this.rs.getString(4);
+					int board_view_count = this.rs.getInt(5);
+					String current_timestamp = this.rs.getString(6);
+					String modified_timestamp = this.rs.getString(7);
+					
+					board = new Board(board_id, user_email, board_title, board_text, board_view_count, current_timestamp,
+							modified_timestamp);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+
+		return board;
+	}
 	// 게시판 목록 출력
 	public ArrayList<Board> getBoard10() {
-		
 		ArrayList<Board> list = new ArrayList<Board>();
 		String sql = "SELECT * FROM board ORDER BY modified_timestamp DESC LIMIT 10";
 		
@@ -192,15 +227,16 @@ public class BoardDao {
 	}
 	
 	// U
-	public void updateBoard(String title, String text) {
+	public void updateBoard(String email, String title, String text) {
 		this.conn = DBManager.getConnection();
 		
-		String sql = "UPDATE board SET board_title=?, board_text=?";
+		String sql = "UPDATE board SET board_title=?, board_text=? where user_email=?";
 		
 		try {
 			this.pstmt= this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, title);
 			this.pstmt.setString(2, text);
+			this.pstmt.setString(3, email);
 			
 			this.pstmt.execute();
 		} catch (Exception e) {

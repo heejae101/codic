@@ -17,6 +17,5 @@ DBManager.getConnection();
 	<div>
 			<li><a href="views/board.jsp">질문게시판</a>
 	</div>
-<script src="../resources/script/board.js"></script>
 </body>
 </html>

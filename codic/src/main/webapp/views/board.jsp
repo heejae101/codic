@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="model.user.User"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="model.board.Board"%>
-<%@page import="model.board.BoardDao"%>
-<%@page import="model.board.BoardResponseDto"%>
-<%@page import="model.board.BoardRequestDto"%>
-<%@page import="controller.BoardRequest"%>
+<%@ page import="model.user.User"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="model.board.Board"%>
+<%@ page import="model.board.BoardDao"%>
+<%@ page import="model.board.BoardResponseDto"%>
+<%@ page import="model.board.BoardRequestDto"%>
+<%@ page import="controller.BoardRequest"%>
 
 <!DOCTYPE html>
 <html>
@@ -31,49 +31,24 @@
 				<li style="width: 100px">조회&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 			</ul>
 		</div>
-      <section id="board-list-sec">
-      
-         
+		<section id="board-list-sec">
 
-         <c:if test="${not empty board}">
-         <ul id="board-list-ul" style="list-style-type: none; display: flex">
-            <li>${board.board_id}</li>
-            <a href="">${board.board_title}</a>
-            <li>${board.user_email}</li>
-            <li>${board.modified_timestamp}</li>
-            <li>${board.board_view_count}</li>
-                     </ul>
-         </c:if>
+
+			<ul id="board-list-ul" style="list-style-type: none; display: flex">
+				<li>${board.board_id}</li>
+				<a href="">${board.board_title}</a>
+				<li>${board.user_email}</li>
+				<li>${board.modified_timestamp}</li>
+				<li>${board.board_view_count}</li>
+			</ul>
 
 
 
-      </section>
-
+		</section>
+		<a href="boardUpdate.jsp">글 수정하기</a>
 
 	</div>
-   <script>
-   $(function() {
-
-       const num = 13;
-
-       $.ajax({
-           url : "/BoardRequest",
-           type : "GET",
-           data : {
-               board_No : num
-           },
-           success : function(data) {
-               console.log(data);
-               // 태그를 만들어서 해당 위치에 삽입
-               $("body").html(data);
-           },
-           error : function() {
-               console.log("Error occurred");
-           }
-       })
-
-   });
-   </script>
+<script src="../resources/script/board.js"></script>
 
 </body>
 </html>
