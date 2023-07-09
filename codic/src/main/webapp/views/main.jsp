@@ -26,7 +26,7 @@
 		<li><a href="join">더미데이터 넣기</a></li>
 	</div>
 	<div>
-	<input type="button" id="logout-btn" value="로그아웃" >
+	  <li><a href="../LogoutAction">로그아웃</a></li>
 	</div>
 	
 </div>

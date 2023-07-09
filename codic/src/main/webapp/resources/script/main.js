@@ -16,17 +16,5 @@ function dummy(){
 	
 }
 
-var logInOut=function(){
-	var btnLogout=document.getElementById('logount-btn');
-	if(btnLogout !=null){
-	btnLogout.onclick =function(){
-	  location.href='../logOutAcion';
-	}	
-	
-		
-	}
-	
-	
-	
-	
-}
+
+

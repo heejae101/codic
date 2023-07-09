@@ -31,7 +31,8 @@ public class LogoutAction extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session=request.getSession();
 		
-		session.removeAttribute("user_email");
+		session.invalidate();
+		System.out.println("로그아웃");
 		
 		response.sendRedirect("/views/loginForm.jsp");
 		
@@ -44,7 +45,7 @@ public class LogoutAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }
