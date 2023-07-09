@@ -13,7 +13,7 @@
 <section id="login-section">
 <h2>로그인</h2>
 <form method="POST" action="../LoginFormAction">
-<div class="id-form">
+<div class="login_2">
 <div>
 	<input type="text" id="user_email" name="user_email" placeholder="your@email.com" autofocus>
 </div>
@@ -30,10 +30,22 @@
 </ul>
 
 <input type="submit" id="submit" value="로그인" onclick="checkValue(form)">
-<span>비밀번호를 잊어버리셨나요?</span>
-
 
 </form>
+
+ <div class="find">
+         <h2>비밀번호를 잊어버리셨나요?</h2>
+         <button class="btn_find"><a href="/views/passwordFind.jsp">비밀번호 찾기</a></button>
+ </div>
+ 
+ 
+    <!-- 간편 로그인 -->
+    <div class="login_2">
+   <div class="naver"><a href="#">
+      네이버 로그인</a></div>
+       <div class="kakao"><a href="#">카카오 로그인</a></div>
+       </div>
+              
 </section>
 
 <script src="../resources/script/validation_login.js"></script>

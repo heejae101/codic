@@ -53,7 +53,7 @@ public class JoinFormAction extends HttpServlet {
 		int check=Integer.parseInt(request.getParameter("user_check"));
 	    int status=Integer.parseInt(request.getParameter("user_status"));
 	    
-	    UserRequestDto user= new UserRequestDto(email, password, name, phone, nickname, check, status);
+	    UserRequestDto user= new UserRequestDto(email, password,name, phone,nickname,check,status);
 		
 	 
 		UserDao userDao=UserDao.getInstance();

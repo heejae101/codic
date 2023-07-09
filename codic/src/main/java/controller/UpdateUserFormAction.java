@@ -38,6 +38,8 @@ public class UpdateUserFormAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		UserRequestDto userDto=null;
 		
 		String email=request.getParameter("user_email");
@@ -47,13 +49,14 @@ public class UpdateUserFormAction extends HttpServlet {
 		String phone=request.getParameter("user_phone_num");
 		String nickname=request.getParameter("user_nickname");
 		
+		
 	    
-	    userDto=new UserRequestDto(email, newPassword, name, phone, nickname,0,0);
+	    userDto=new UserRequestDto(email, newPassword,name, phone,nickname,0,0);
 	    
 	    UserDao userDao=UserDao.getInstance();
 	    userDao.updateUser(userDto, password);
 	    
-	    String url="UpdateUserRequest";
+	    String url="/UpdateUserRequest";
 	    response.sendRedirect(url);
 		
 		

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="resources/script/validation_join.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 <title>회원정보 수정</title>
 </head>
@@ -20,29 +20,32 @@
 </div>
 <div class="pwd1">
 <label for="pwd1">비밀번호</label>
-<input type="password" name="user_password"
-	id="user_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합" required>
-	<span class="pwd_warning"> *특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</span>
+<input type="password" 
+	id="user_password" name="user_password" required>
 	</div>
 	<div class="pwd2">
 	<label for="pwd2">새비밀번호</label>
-	<input type="password" id="new_password" name="new_password" >
+	<input type="password" id="new_password" name="new_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합"  required >
+    <span class="pwd_warning"> *특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</span>
     </div>
+    
 
 <div>
 <label for="name">이름</label>
-<input type="text" id="user_name" name="user_name" value="${requestScope.name}" readonly>
+<input type="text" id="user_name" name="user_name" value="${requestScope.name}"readonly>
 </div>
 <div>
+<label for="phone">휴대전화 번호</label>
 <input type="text" id="user_phone_num" name="user_phone_num" value="${requestScope.phone}" readonly> 
 </div>
-
-
 
 <div>
 <label for="nicekname">닉네임</label>
 <input type="text" id="user_nickname" name="user_nickname" value="${requestScope.nickname}">
-</div>    
+</div>  
+
+
+  
 </div>
 <ul>
 
@@ -52,7 +55,7 @@
 </form>
 </section>
 
-<script src="resources/script/validation_join.js"></script>
+<script src="resources/script/validation_update.js"></script>
 
 </body>
 </html>

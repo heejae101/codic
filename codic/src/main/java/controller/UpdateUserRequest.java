@@ -31,11 +31,14 @@ public class UpdateUserRequest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	
+		request.setCharacterEncoding("UTF-8");
+		
 		UserDao userDao=UserDao.getInstance();
 		
 		String email=(String)request.getSession().getAttribute("log1");
 		
 		User user=userDao.getUserByEmail(email);
+		
 		
 		String name="";
 		String phone="";
@@ -46,20 +49,21 @@ public class UpdateUserRequest extends HttpServlet {
 	    String url="/views/loginForm.jsp";
 	    
 	    if(user!=null) {
+	     
 	       name=user.getUser_name();
 	       phone=user.getUser_phone_num();
 	       nickname=user.getUser_nickname();
 	       check=user.getUser_check();
 	       status=user.getUser_status();
 	       
-	       
+	      
 	       request.setAttribute("name", name);
 	       request.setAttribute("phone", phone);
 	       request.setAttribute("nickname", nickname);
 	       request.setAttribute("check", check);
 	       request.setAttribute("status", status);
 	      
-	       url="/views/updateUserForm";
+	       url="/views/updateUserForm.jsp";
 	    }
 		
 		request.getRequestDispatcher(url).forward(request,response);

@@ -148,7 +148,7 @@ public class UserDao {
 					Timestamp joinDate = java.sql.Timestamp.valueOf(this.rs.getString(7));
 					int status = Integer.parseInt(this.rs.getString(8));
 
-					user = new User(email, password, name, phone_num, nickname, check, joinDate, status);
+					user = new User(email, password, name, phone_num,nickname, check, joinDate, status);
 
 				}
 			} catch (Exception e) {
@@ -186,10 +186,11 @@ public class UserDao {
 					String name = this.rs.getString(3);
 					String phone_num = this.rs.getString(4);
 					String nickname = this.rs.getString(5);
+					
 					int check = Integer.parseInt(this.rs.getString(6));
 					int status = Integer.parseInt(this.rs.getString(7));
 
-					User user = new User(email, password, name, phone_num, nickname, check, status);
+					User user = new User(email, password, name, phone_num,nickname,check, status);
 					list.add(user);
 				}
 
@@ -208,9 +209,9 @@ public class UserDao {
 	public void updateUser(UserRequestDto userDto, String password) {
 		this.conn = DBManager.getConnection();
 
-		if (this.conn != null && userDto.getUser_password() != null && userDto.getUser_email() != null) {
+		if (this.conn != null && userDto.getUser_password() != null && userDto.getUser_nickname()!=null && userDto.getUser_email() != null) {
 			if (userDto.getUser_password()!="") {
-				String sql = "UPDATE user_info SET user_password=? user_nickname=? WHERE user_email=? AND user_password=?";
+				String sql = "UPDATE user_info SET user_password=?, user_nickname=? WHERE user_email=? AND user_password=?";
 
 				try {
 					this.pstmt = this.conn.prepareStatement(sql);
@@ -218,6 +219,8 @@ public class UserDao {
 					this.pstmt.setString(2, userDto.getUser_nickname());
 					this.pstmt.setString(3, userDto.getUser_email());
 					this.pstmt.setString(4, password);
+					
+					this.pstmt.execute();
 
 				} catch (Exception e) {
 					e.printStackTrace();

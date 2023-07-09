@@ -22,12 +22,13 @@
 			<input type="button" id="submit-btn" value="회원가입" onclick="checkValue(form)">
 		</form>
 	</div>
-	<div>
+	<ul>
 		<li><a href="join">더미데이터 넣기</a></li>
-	</div>
-	<div>
-	  <li><a href="../LogoutAction">로그아웃</a></li>
-	</div>
+       <li><a href="../LogoutAction">로그아웃</a></li>
+     <li><a href="/views/updateUserForm.jsp">회원정보 수정</a></li>
+     <li><a href="/views/deleteUserForm.jsp">회원탈퇴</a></li>
+       </ul>
+
 	
 </div>
 <script src="../resources/script/main.js"></script>

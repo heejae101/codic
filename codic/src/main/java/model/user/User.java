@@ -9,34 +9,30 @@ public class User {
 	private String user_name;    //R
 	private String user_phone_num;  //R
 	private String user_nickname;//R
-	private int user_check;  //만 14세 미만 동의 R
 	
+	private int user_check;  //만 14세 미만 동의 R
 	private Timestamp user_joinDate; //가입 날짜
 	private int user_status; //회원 상태
 	
 	
-	//생성자
-	
-	public User(String user_email, String user_password, String user_name, String user_phone_num) {
+	//#생성자
+	public User(String user_email, String user_password, String user_nickname) {
+		super();
 		this.user_email = user_email;
 		this.user_password = user_password;
-		this.user_name = user_name;
-		this.user_phone_num = user_phone_num;
+		this.user_nickname = user_nickname;
 	}
-	
 	
 
 	public User(String user_email, String user_password, String user_name, String user_phone_num,
 			String user_nickname) {
-	    this.user_email = user_email;
+		super();
+		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_name = user_name;
 		this.user_phone_num = user_phone_num;
 		this.user_nickname = user_nickname;
 	}
-	
-	
-
 
 
 	public User(String user_email, String user_password, String user_name, String user_phone_num, String user_nickname,
@@ -52,9 +48,9 @@ public class User {
 	}
 
 
-
 	public User(String user_email, String user_password, String user_name, String user_phone_num, String user_nickname,
 			int user_check, Timestamp user_joinDate, int user_status) {
+		super();
 		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_name = user_name;
@@ -66,11 +62,10 @@ public class User {
 	}
 
 
-	//getter
+	//#getter
 	public String getUser_email() {
 		return user_email;
 	}
-
 
 
 	public String getUser_password() {
@@ -78,11 +73,9 @@ public class User {
 	}
 
 
-
 	public String getUser_name() {
 		return user_name;
 	}
-
 
 
 	public String getUser_phone_num() {
@@ -90,11 +83,9 @@ public class User {
 	}
 
 
-
 	public String getUser_nickname() {
 		return user_nickname;
 	}
-
 
 
 	public int getUser_check() {
@@ -102,28 +93,15 @@ public class User {
 	}
 
 
-
 	public Timestamp getUser_joinDate() {
 		return user_joinDate;
 	}
-
 
 
 	public int getUser_status() {
 		return user_status;
 	}
 
-	
-	
-
-	
-
-
-
-	
-	
-	
-	
 
 	
 }
