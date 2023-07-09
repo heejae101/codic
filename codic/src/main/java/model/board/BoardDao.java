@@ -192,7 +192,22 @@ public class BoardDao {
 	}
 	
 	// U
-	public void updateBoard(BoardRequestDto boardDto) {
+	public void updateBoard(String title, String text) {
+		this.conn = DBManager.getConnection();
+		
+		String sql = "UPDATE board SET board_title=?, board_text=?";
+		
+		try {
+			this.pstmt= this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, title);
+			this.pstmt.setString(2, text);
+			
+			this.pstmt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(this.conn, this.pstmt);
+		}
 		
 	}
 }

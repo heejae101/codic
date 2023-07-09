@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.board.Board;
 import model.board.BoardDao;
 import model.board.BoardRequestDto;
+import model.board.BoardResponseDto;
+import model.content.Content;
+import model.content.ContentDao;
 
 /**
  * Servlet implementation class BoardReadFormAction
@@ -46,17 +50,29 @@ public class BoardRequest extends HttpServlet {
 		int board_view_count = board.getBoard_view_count();
 		String current_timestamp = board.getCurrent_timestamp();
 		String modified_timestamp = board.getModified_timestamp();
-		
+//		System.out.println(board.getBoard_id());
+//		System.out.println(board.getUser_email());
+//		System.out.println(board.getBoard_title());
+//		System.out.println(board.getBoard_text());
+//		System.out.println(board.getBoard_view_count());
+//		System.out.println(board.getCurrent_timestamp());
+//		System.out.println(board.getModified_timestamp());
 		System.out.println("컨트롤러 도착");
 		
 		
 		// 데이터베이스에서 가져온 정보를 다른페이지로 넘길떼 -> responseDto, 사용자가 입력한 정보를 다른페이지로 넘길때 -> requestDto
-		if(board !=null) {
-			BoardRequestDto BoardDto = new BoardRequestDto(board_id, user_email, board_title, board_text, board_view_count, current_timestamp, modified_timestamp);
-			
-			request.setAttribute("board", BoardDto);
-			System.out.println(BoardDto);
-		}
+		if (board != null) {
+			   BoardResponseDto boardDto = new BoardResponseDto(board_id, user_email, board_title, board_text, board_view_count, current_timestamp, modified_timestamp);
+			   request.setAttribute("board", boardDto);
+			   System.out.println(boardDto.getBoard_id());
+			   System.out.println(boardDto.getUser_email());
+			   System.out.println(boardDto.getBoard_title());
+			   System.out.println(boardDto.getBoard_text());
+			   System.out.println(boardDto.getBoard_view_count());
+			   System.out.println(boardDto.getCurrent_timestamp());
+			   System.out.println(boardDto.getModified_timestamp());
+			}
+		
 		String url ="/views/board.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
