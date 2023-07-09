@@ -31,56 +31,49 @@
 				<li style="width: 100px">조회&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 			</ul>
 		</div>
-		<section id="board-list-sec">
-		
-			<c:out value="${board_id}" />
-			<c:out value="${board_id}" />
-			<c:out value="${requestScope.board}" />
-			<c:out value="${requestScope.board_id}" />
-			<c:out value="${requestScope.board.board_id}" />
+      <section id="board-list-sec">
+      
+         
+
+         <c:if test="${not empty board}">
+         <ul id="board-list-ul" style="list-style-type: none; display: flex">
+            <li>${board.board_id}</li>
+            <a href="">${board.board_title}</a>
+            <li>${board.user_email}</li>
+            <li>${board.modified_timestamp}</li>
+            <li>${board.board_view_count}</li>
+                     </ul>
+         </c:if>
 
 
-			<p>${board.board_id}</p>
-			<p>${request.board_id}</p>
-			<p>${boardDto.board_title}</p>
-			<p>${boardDto.user_email}</p>
-			<p>${boardDto.current_timestamp}</p>
-			<p>${boardDto.board_view_count}</p>
 
-			<c:if test="${not empty board}">
-				<h3>Board ID: ${board.board_id}</h3>
-				<h3>User Email: ${board.user_email}</h3>
-				<h3>Board Title: ${board.board_title}</h3>
-				<h3>Board Text: ${board.board_text}</h3>
-				<h3>Board View Count: ${board.board_view_count}</h3>
-			</c:if>
+      </section>
 
-			<ul id="board-list-ul" style="list-style-type: none; display: flex">
-				<div id="contents-container"></div>
-			</ul>
-		</section>
 
 	</div>
-	<script>
-		$(function() {
+   <script>
+   $(function() {
 
-			const num = 4;
+       const num = 13;
 
-			$.ajax({
-				url : "/BoardRequest",
-				type : "GET",
-				data : {
-					board_No : num
-				},
-				success : function(data) {
-					console.log(data);
-				},
-				error : function() {
-					console.log("Error occurred");
-				}
-			})
+       $.ajax({
+           url : "/BoardRequest",
+           type : "GET",
+           data : {
+               board_No : num
+           },
+           success : function(data) {
+               console.log(data);
+               // 태그를 만들어서 해당 위치에 삽입
+               $("body").html(data);
+           },
+           error : function() {
+               console.log("Error occurred");
+           }
+       })
 
-		});
-	</script>
+   });
+   </script>
+
 </body>
 </html>

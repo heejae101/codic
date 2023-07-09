@@ -58,19 +58,14 @@ public class BoardRequest extends HttpServlet {
 //		System.out.println(board.getCurrent_timestamp());
 //		System.out.println(board.getModified_timestamp());
 		System.out.println("컨트롤러 도착");
+		System.out.println("전송 받은 값 : " + board.getBoard_id());
 		
 		
 		// 데이터베이스에서 가져온 정보를 다른페이지로 넘길떼 -> responseDto, 사용자가 입력한 정보를 다른페이지로 넘길때 -> requestDto
 		if (board != null) {
 			   BoardResponseDto boardDto = new BoardResponseDto(board_id, user_email, board_title, board_text, board_view_count, current_timestamp, modified_timestamp);
 			   request.setAttribute("board", boardDto);
-			   System.out.println(boardDto.getBoard_id());
-			   System.out.println(boardDto.getUser_email());
-			   System.out.println(boardDto.getBoard_title());
-			   System.out.println(boardDto.getBoard_text());
-			   System.out.println(boardDto.getBoard_view_count());
-			   System.out.println(boardDto.getCurrent_timestamp());
-			   System.out.println(boardDto.getModified_timestamp());
+
 			}
 		
 		String url ="/views/board.jsp";
