@@ -8,6 +8,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 <!-- 스타일 연결 -->
+<link rel="stylesheet" href="../resources/style/form.css">
 
 <title>회원가입</title>
 </head>
@@ -37,12 +38,19 @@
 <input type="password" name="user_password"
 	id="user_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합" required>
 	<span class="pwd_warning"> *특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</span>
+	<ul>
+	<li class=error id="error-password">비밀번호는 필수정보입니다.</li>
+	<li  id="chkNotice1" size="1"></li>
+	</ul>
 	</div>
 	
 	<div class="pwd2">
 	<label for="pwd2">비밀번호 확인</label>
 	<input type="password" name="user_password_c" id="user_password_c"
-	placeholder="비밀번호 확인" required> <span id="chkNotice" size="1"></span>
+	placeholder="비밀번호 확인" required> 
+	<div>
+	<p id="chkNotice2" size="1"></p>
+	</div>
 	</div>
 </div>
 
@@ -68,7 +76,7 @@
 </div>
 <input type="hidden" name="user_status" value="1">
 
-<input type="button" id="submit" value="회원가입" onclick="checkValue(form)">
+<input type="submit" id="submit" value="회원가입" onclick="checkValue(form)">
 
 </form>
 	</section>
