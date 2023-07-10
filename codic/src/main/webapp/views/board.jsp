@@ -19,7 +19,7 @@
 <body>
 
 	<h2>질문글</h2>
-
+	<a href="boardUpdate.jsp">글 수정하기</a>
 	<button onclick="location.href='write.jsp'">글쓰기</button>
 	<div id="board-box">
 		<div id="board-sub-div">
@@ -33,7 +33,7 @@
 		</div>
 		<section id="board-list-sec">
 
-
+		
 			<ul id="board-list-ul" style="list-style-type: none; display: flex">
 				<li>${board.board_id}</li>
 				<a href="">${board.board_title}</a>
@@ -41,11 +41,11 @@
 				<li>${board.modified_timestamp}</li>
 				<li>${board.board_view_count}</li>
 			</ul>
-
+			
 
 
 		</section>
-		<a href="boardUpdate.jsp">글 수정하기</a>
+
 
 	</div>
 <script src="../resources/script/board.js"></script>

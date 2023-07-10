@@ -1,15 +1,26 @@
-   $(window).on('load', function() {
-	    search();
-	});
+function boardList() {
+	var url = '/BoardListRequest';
+	var call = new Request();
+	call.open('GET', url, true);
 
-	function search() {
+	call.onload = function() {
+		// 서버에서 반환한 데이터 가져오기
+		var response = call.responseText;
 
-	}
+		// 가져온 데이터를 화면에 출력
+		var output = document.getElementById('listOutput');
+		output.innerHTML = response;
+	};
+	call.send();
+}
+
+window.onload = function() {
+	boardList();
+};
 	
-	
-   $(function() {
+/*   $(function() {
        
-/*
+
        $.ajax({
            url : "/BoardRequest",
            type : "GET",
@@ -25,7 +36,7 @@
                console.log("Error occurred");
            }
        })
-*/
 
-   });
+
+  });*/ 
    

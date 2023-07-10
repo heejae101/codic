@@ -34,13 +34,15 @@ public class BoardListRequest extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
+		System.out.println("서블릿 도착");
+		
 		BoardDao boardDao = BoardDao.getInstance();
 		ArrayList<Board> list = boardDao.getBoard10();	
 		
 		request.setAttribute("result", list); // result 값을 request에 저장
 		System.out.println(list);
 		
-		String url ="/views/content.jsp";
+		String url ="/views/board.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
