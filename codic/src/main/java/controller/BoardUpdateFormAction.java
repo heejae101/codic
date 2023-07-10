@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.board.BoardDao;
+import model.board.BoardRequestDto;
+import model.user.UserDao;
+import model.user.UserRequestDto;
+
 /**
  * Servlet implementation class BoardUpdateFormAction
  */
@@ -25,17 +30,23 @@ public class BoardUpdateFormAction extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		System.out.println("업데이트 폼액션 도착");
+		
+		String user_email = request.getParameter("user_email");
+		String board_title = request.getParameter("board_title");
+		String board_text = request.getParameter("new-board_text");
+		
+		BoardDao boardDao = BoardDao.getInstance();
+		boardDao.updateBoard(user_email, board_title,board_text);
+		
+		String url = "/BoardUpdateRequest";
+		response.sendRedirect(url);
 	}
 
 }

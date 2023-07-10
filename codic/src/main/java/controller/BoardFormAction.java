@@ -59,7 +59,7 @@ public class BoardFormAction extends HttpServlet {
 		if(result) 
 			url = "/views/write.jsp";
 		else
-			url = "board";
+			url = "/views/board.jsp";
 
 		System.out.println(url);
 		response.sendRedirect(url);

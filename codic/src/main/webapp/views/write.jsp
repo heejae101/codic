@@ -24,7 +24,7 @@
 				<input id="view_count" name="view_count" type="text"  placeholder="조회수를 입력해 주세요" autofocus>			
 			</div>
 
-			<input type="submit" value="등록" id="write-bnt" onclick="checkValue(form)">
+			<input type="submit" value="등록" id="update-bnt" onclick="checkValue(form)">
 		</form>
 	</div>
 	

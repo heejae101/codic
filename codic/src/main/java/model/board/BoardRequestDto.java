@@ -14,6 +14,19 @@ public class BoardRequestDto {
 	
 	
 	
+	public BoardRequestDto(String board_title, String board_text) {
+		super();
+		this.board_title = board_title;
+		this.board_text = board_text;
+	}
+
+	public BoardRequestDto(String user_email, String board_title, String board_text) {
+		super();
+		this.user_email = user_email;
+		this.board_title = board_title;
+		this.board_text = board_text;
+	}
+
 	public BoardRequestDto(String user_email, String board_title, String board_text, int board_view_count) {
 		super();
 		this.user_email = user_email;

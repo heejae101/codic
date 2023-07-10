@@ -52,13 +52,7 @@ public class BoardRequest extends HttpServlet {
 		int board_view_count = board.getBoard_view_count();
 		String current_timestamp = board.getCurrent_timestamp();
 		String modified_timestamp = board.getModified_timestamp();
-//		System.out.println(board.getBoard_id());
-//		System.out.println(board.getUser_email());
-//		System.out.println(board.getBoard_title());
-//		System.out.println(board.getBoard_text());
-//		System.out.println(board.getBoard_view_count());
-//		System.out.println(board.getCurrent_timestamp());
-//		System.out.println(board.getModified_timestamp());
+		
 		System.out.println("컨트롤러 도착");
 		System.out.println("전송 받은 값 : " + board.getBoard_id());
 		

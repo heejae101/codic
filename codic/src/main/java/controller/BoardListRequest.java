@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +13,16 @@ import model.board.Board;
 import model.board.BoardDao;
 
 /**
- * Servlet implementation class BoardUpdateRequest
+ * Servlet implementation class BoardListRequest
  */
-@WebServlet("/BoardUpdateRequest")
-public class BoardUpdateRequest extends HttpServlet {
+@WebServlet("/BoardListRequest")
+public class BoardListRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardUpdateRequest() {
+    public BoardListRequest() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,34 +31,25 @@ public class BoardUpdateRequest extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		
-		System.out.println("업데이트 리퀘스트 도착");
-		
-		String userEmail = request.getParameter("user_email");
+		System.out.println("서블릿 도착");
 		
 		BoardDao boardDao = BoardDao.getInstance();
-		Board board = boardDao.getBoardById(userEmail);
+		ArrayList<Board> list = boardDao.getBoard10();	
 		
-		String title = "";
-		String text = "";
+		request.setAttribute("result", list); // result 값을 request에 저장
+		System.out.println(list);
 		
-		title = board.getBoard_title();
-		text = board.getBoard_text();
-		
-		request.setAttribute("title", title);
-		request.setAttribute("text", text);
-		
-		request.setAttribute("result", board);
-
-		String url = "/views/boardUpdate.jsp";
+		String url ="/views/board.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
-		
+		response.sendRedirect(url);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 
 }

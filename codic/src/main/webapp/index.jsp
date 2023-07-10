@@ -10,13 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-DBManager.getConnection();
-%>
-<h1>메인 Index${sessionScope.log}</h1>
-	<div>
-			<li><a href="views/board.jsp">질문게시판</a>
-	</div>
-<script src="../resources/script/board.js"></script>
+	<%
+	DBManager.getConnection();
+	%>
+	
+	<h1>메인 Index${sessionScope.log}</h1>
+
+	<a href="../BoardListRequest">질문게시판</a>
+	
 </body>
 </html>
