@@ -37,7 +37,7 @@ let pwd_space = /[ ]/; /* 공백 */
           
     }
       
-        });
+     });
         
         /* 비밀번호, 비밀번호 확인 일치 검사 */
 $('#user_password_c').keyup(function(){
@@ -53,6 +53,18 @@ $('#user_password_c').keyup(function(){
      });
 });
 
+/*동의 모두 선택/해제*/
+const agreeChkAll=
+document.querySelector('input[name=agree_all]');
+agreeChkAll.addEventListener('change',(e)=>{
+let agreeChk=
+document.querySelectorAll('input[name=user_check]');
+for(let i=0; i<agreeChk.length; i++){
+	agreeChk[i].checked=e.target.checked;
+}	
+
+	
+});
 
 
 

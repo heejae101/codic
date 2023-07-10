@@ -13,7 +13,7 @@ import model.user.UserDao;
 /**
  * Servlet implementation class UpdateUserRequest
  */
-@WebServlet("/UpdateUserRequest")
+
 public class UpdateUserRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,7 +46,7 @@ public class UpdateUserRequest extends HttpServlet {
 		int check=0;
 	    int status=0;
 	    
-	    String url="/views/loginForm.jsp";
+	    String url="login";
 	    
 	    if(user!=null) {
 	     
@@ -63,7 +63,7 @@ public class UpdateUserRequest extends HttpServlet {
 	       request.setAttribute("check", check);
 	       request.setAttribute("status", status);
 	      
-	       url="/views/updateUserForm.jsp";
+	       url="update";
 	    }
 		
 		request.getRequestDispatcher(url).forward(request,response);

@@ -17,7 +17,7 @@ import model.user.UserRequestDto;
 /**
  * Servlet implementation class JoinFormAction
  */
-@WebServlet("/JoinFormAction")
+
 public class JoinFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -62,9 +62,9 @@ public class JoinFormAction extends HttpServlet {
 		String url="";
 		
 		if(result) {
-			url="/views/loginForm.jsp";
+			url="login";
 		}else {
-		   url="/views/joinForm.jsp";	
+		   url="join";	
 		}
 		response.sendRedirect(url);
 		

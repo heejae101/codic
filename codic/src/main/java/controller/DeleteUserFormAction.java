@@ -12,7 +12,7 @@ import model.user.UserDao;
 /**
  * Servlet implementation class DeleteUserFormAction
  */
-@WebServlet("/DeleteUserFormAction")
+
 public class DeleteUserFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,11 +42,11 @@ public class DeleteUserFormAction extends HttpServlet {
 		UserDao userDao=UserDao.getInstance();
 		boolean result=userDao.deleteUserByEmail(email, password);
 		
-		String url="/views/deleUserForm.jsp";
+		String url="leave";
 		
 		if(result) {
 			request.getSession().removeAttribute("log");
-			url="/views/loginForm.jsp";
+			url="login";
 		}
 		
 		response.sendRedirect(url);

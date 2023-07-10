@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutAction
  */
-@WebServlet("/LogoutAction")
+
 public class LogoutAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,7 +34,7 @@ public class LogoutAction extends HttpServlet {
 		session.invalidate();
 		System.out.println("로그아웃");
 		
-		response.sendRedirect("/views/loginForm.jsp");
+		response.sendRedirect("login");
 		
 		
 		

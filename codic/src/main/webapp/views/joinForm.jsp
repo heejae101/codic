@@ -16,7 +16,7 @@
 
 	<section id="join-section">
 		<h2>회원가입</h2>
-		<form method="POST" action="../JoinFormAction">
+		<form method="POST" action="Join">
 			<div class="form_div">
 			<!-- 이메일 부분(아이디) -->
 			    <div class="email">
@@ -69,18 +69,38 @@
 </div>
 
 <div class="label-wrapper">
-	<label><input type="checkbox" name="user_check" value="1" >약관
-		동의</label> 
-		<label><input type="checkbox" name="user_check"
-		value="1" >만 14세 이상입니다.</label>
+<label for="agree_all">
+<input type="checkbox" id="agree_all"  name="agree_all"><span>전체동의</span>
+</label>
+    
+    <div>
+	<label for="agree"><input type="checkbox" name="user_check" value="1" ><span>이용약관
+		동의<strong>(필수)</strong></span></label>
+		</div>
+		
+	
+        <div>
+		<label for="agree"><input type="checkbox" name="user_check" value="1" ><span>개인정보 수집,이용 동의<strong>(필수)</strong></span>
+		</label> 
+		</div>
+		
+		<div>
+		<label for="agree"><input type="checkbox" name="user_check_s" ><span>이메일 수신<strong>(선택)</strong></span>
+		</label>
+		</div>
+		 
+		 <div>
+		<label for="agree"><input type="checkbox" name="user_check"
+		value="1" ><span>만 14세 이상입니다.<strong>(필수)</strong></span></label>
+		</div>
 </div>
+<!-- 회원상태 -->
 <input type="hidden" name="user_status" value="1">
 
 <input type="submit" id="submit" value="회원가입" onclick="checkValue(form)">
-
 </form>
 	</section>
-
+    
 	<script src="../resources/script/validation_join.js"></script>
 
 </body>

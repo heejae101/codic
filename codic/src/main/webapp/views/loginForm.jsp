@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
 
 <title>로그인</title>
 </head>
@@ -12,7 +13,7 @@
 
 <section id="login-section">
 <h2>로그인</h2>
-<form method="POST" action="../LoginFormAction">
+<form method="POST" action="Login">
 <div class="login_2">
 <div>
 	<input type="text" id="user_email" name="user_email" placeholder="your@email.com" autofocus>
@@ -43,10 +44,11 @@
     <div class="login_2">
    <div class="naver"><a href="#">
       네이버 로그인</a></div>
-       <div class="kakao"><a href="#">카카오 로그인</a></div>
+       <div class="kakao"> <a href="javascript:kakaoLogin()">카카오 로그인</a></div>
        </div>
               
 </section>
+
 
 <script src="../resources/script/validation_login.js"></script>
 
