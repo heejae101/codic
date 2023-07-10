@@ -1,5 +1,5 @@
 function checkValue(htmlForm) {
-	const user_email = htmlForm.email.value;
+	const user_email = htmlForm.id.value;
 	const board_title = htmlForm.title.value;
 	const board_text = htmlForm.text.value;
 

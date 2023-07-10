@@ -47,34 +47,33 @@
 </div>
 
 <div>
-	<input type="text" id="user_name" name="user_name" placeholder="이름">
+<label for="name">이름</label>
+	<input type="text" id="user_name" name="user_name">
 </div>
 <div>
-	<input type="text" id="user_phone_num" name="user_phone_num"
-		placeholder="휴대전화 번호">
+<label for="name">휴대전화 번호</label>
+	<input type="text" id="user_phone_num" name="user_phone_num">
 </div>
 
 <div>
-	<input type="text" id="user_nickname" name="user_nickname"
-		placeholder="닉네임">
+<label for="nicekname">닉네임</label>
+	<input type="text" id="user_nickname" name="user_nickname">
 </div>
 
 <div class="label-wrapper">
-	<label><input type="checkbox" name="user_check" value="check" >약관
+	<label><input type="checkbox" name="user_check" value="1" >약관
 		동의</label> 
 		<label><input type="checkbox" name="user_check"
-		value="1" onclick="chk()">만 14세 이상입니다.</label>
+		value="1" >만 14세 이상입니다.</label>
 </div>
 <input type="hidden" name="user_status" value="1">
 
-<input type="submit" id="submit" value="회원가입" onclick="checkValue(form)">
+<input type="button" id="submit" value="회원가입" onclick="checkValue(form)">
 
 </form>
 	</section>
 
-
-
-	<script src="resources/script/validation_join.js"></script>
+	<script src="../resources/script/validation_join.js"></script>
 
 </body>
 </html>

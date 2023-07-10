@@ -9,18 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.board.Board;
 import model.board.BoardDao;
+import model.content.ContentDao;
 
 /**
- * Servlet implementation class BoardUpdateRequest
+ * Servlet implementation class BoardView
  */
-@WebServlet("/BoardUpdateRequest")
-public class BoardUpdateRequest extends HttpServlet {
+@WebServlet("/BoardContentView")
+public class BoardContentView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardUpdateRequest() {
+    public BoardContentView() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,33 +31,24 @@ public class BoardUpdateRequest extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-		
-		System.out.println("업데이트 리퀘스트 도착");
-		
-		String userEmail = request.getParameter("user_email");
-		
+		int boardId = Integer.parseInt(request.getParameter("board_id"));
 		BoardDao boardDao = BoardDao.getInstance();
-		Board board = boardDao.getBoardById(userEmail);
 		
-		String title = "";
-		String text = "";
+		Board board = boardDao.getBoardByNo(boardId);
 		
-		title = board.getBoard_title();
-		text = board.getBoard_text();
-		
-		request.setAttribute("title", title);
-		request.setAttribute("text", text);
-		
+		String url ="/views/boardView.jsp";
 		request.setAttribute("result", board);
-
-		String url = "/views/boardUpdate.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
+		
+		response.sendRedirect(url);
 		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
 
 }

@@ -1,19 +1,28 @@
 package model.content;
 
 public class Content {
-	
+	private int content_id;
 	private String category_name;
 	private String content_title;
 	private int content_views;
 	private String file_path;
 
-	public Content(String category_name, String content_title, int content_views, String file_path) {
+	public Content(int content_id, String category_name, String content_title, int content_views, String file_path) {
+		this.content_id = content_id;
 		this.category_name = category_name;
 		this.content_title = content_title;
 		this.content_views = content_views;
 		this.file_path = file_path;
 	}
 	
+	public int getContent_id() {
+		return content_id;
+	}
+
+	public void setContent_id(int content_id) {
+		this.content_id = content_id;
+	}
+
 	public String getCategory_name() {
 		return category_name;
 	}
@@ -48,7 +57,7 @@ public class Content {
 
 	@Override
 	public String toString() {
-	    return String.format("category_name:%s\ncontent_title:%s\ncontent_views:%d\nfile_path:%s\n",category_name,content_title,content_views,file_path);
+	    return String.format("content_id:%d\ncategory_name:%s\ncontent_title:%s\ncontent_views:%d\nfile_path:%s\n",content_id,category_name,content_title,content_views,file_path);
 	}
 	
 }

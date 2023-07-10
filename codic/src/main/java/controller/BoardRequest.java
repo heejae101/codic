@@ -40,6 +40,8 @@ public class BoardRequest extends HttpServlet {
 		
 		int boardNo = Integer.parseInt(request.getParameter("board_No"));
 		
+		System.out.println("boardNo"+boardNo);
+		
 		BoardDao boardDao = BoardDao.getInstance();
 		Board board = boardDao.getBoardByNo(boardNo);
 		
@@ -50,6 +52,7 @@ public class BoardRequest extends HttpServlet {
 		int board_view_count = board.getBoard_view_count();
 		String current_timestamp = board.getCurrent_timestamp();
 		String modified_timestamp = board.getModified_timestamp();
+		
 		System.out.println("컨트롤러 도착");
 		System.out.println("전송 받은 값 : " + board.getBoard_id());
 		

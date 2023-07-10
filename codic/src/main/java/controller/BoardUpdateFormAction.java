@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.board.BoardDao;
 import model.board.BoardRequestDto;
+import model.user.UserDao;
+import model.user.UserRequestDto;
 
 /**
  * Servlet implementation class BoardUpdateFormAction
@@ -34,24 +36,16 @@ public class BoardUpdateFormAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = request.getParameter("user_email");
-		String title = request.getParameter("board_title");
-		String text = request.getParameter("board_text");
+		System.out.println("업데이트 폼액션 도착");
 		
-		BoardRequestDto boardDto = new BoardRequestDto(title, text);
+		String user_email = request.getParameter("user_email");
+		String board_title = request.getParameter("board_title");
+		String board_text = request.getParameter("new-board_text");
 		
 		BoardDao boardDao = BoardDao.getInstance();
-		boolean result = boardDao.createBoard(boardDto);
-		boardDao.updateBoard(email ,title, text);
+		boardDao.updateBoard(user_email, board_title,board_text);
 		
-		String url = "";
-		
-		if(result) 
-			url = "/views/write.jsp";
-		else
-			url = "/views/board.jsp";
-		
-		
+		String url = "/BoardUpdateRequest";
 		response.sendRedirect(url);
 	}
 

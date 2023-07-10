@@ -57,6 +57,7 @@ public class LoginFormAction extends HttpServlet {
 			//로그인한 회원의 아이디를->session에 속성값으로 저장
 			HttpSession session=request.getSession();
 			session.setAttribute("log",nickname);//닉네임으로 바꾸고 싶음
+			session.setAttribute("log1",email);
 			
 		}
 		response.sendRedirect(url);

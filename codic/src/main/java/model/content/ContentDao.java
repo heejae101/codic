@@ -20,13 +20,47 @@ public class ContentDao {
 		return instance;
 	}
 	
+	public ArrayList<Content> getDataByCategory(String category){
+		ArrayList<Content> list = new ArrayList<Content>();
+		Content content = null;
+		this.conn = DBManager.getConnection();
+		if(this.conn != null) {
+			String sql = "SELECT cate.category_name, con.content_id, con.content_title, con.content_views, img.file_path, img.file_name, img.file_extends \r\n"
+					+ "FROM content as con\r\n"
+					+ "LEFT JOIN content_img AS img ON con.category_no = img.category_no\r\n"
+					+ "LEFT JOIN category AS cate ON cate.category_no = con.category_no\r\n"
+					+ "WHERE cate.category_name = ?";
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, category);
+				this.rs = this.pstmt.executeQuery();
+				
+				while(this.rs.next()) {
+					String category_name = this.rs.getString(1);
+					int content_id = this.rs.getInt(2);
+					String content_title = this.rs.getString(3);
+					int content_views = Integer.parseInt(this.rs.getString(4));
+					String file_path = this.rs.getString(5)+this.rs.getString(6)+"."+this.rs.getString(7);
+					
+					content = new Content(content_id, category_name, content_title, content_views, file_path);
+					list.add(content);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn,pstmt);
+			}
+		}
+		return list;
+	}
+	
 	public ArrayList<Content> getDataBytext(String text) {
 		ArrayList<Content> list = new ArrayList<Content>();
 		Content content = null;
 		this.conn = DBManager.getConnection();
 		
 		if(this.conn != null) {
-			String sql = "SELECT cate.category_name, con.content_title, con.content_views, img.file_path, img.file_name, img.file_extends \r\n"
+			String sql = "SELECT cate.category_name, con.content_id, con.content_title, con.content_views, img.file_path, img.file_name, img.file_extends \r\n"
 					+ "FROM content as con\r\n"
 					+ "LEFT JOIN content_img AS img ON con.category_no = img.category_no\r\n"
 					+ "LEFT JOIN category AS cate ON cate.category_no = con.category_no\r\n"
@@ -39,11 +73,12 @@ public class ContentDao {
 				
 				while(this.rs.next()) {
 					String category_name = this.rs.getString(1);
-					String content_title = this.rs.getString(2);
-					int content_views = Integer.parseInt(this.rs.getString(3));
-					String file_path = this.rs.getString(4)+this.rs.getString(5)+"."+this.rs.getString(6);
+					int content_id = this.rs.getInt(2);
+					String content_title = this.rs.getString(3);
+					int content_views = Integer.parseInt(this.rs.getString(4));
+					String file_path = this.rs.getString(5)+this.rs.getString(6)+"."+this.rs.getString(7);
 		
-					content = new Content(category_name, content_title, content_views, file_path);
+					content = new Content(content_id, category_name, content_title, content_views, file_path);
 					list.add(content);
 				}
 			}catch(Exception e) {
@@ -55,6 +90,25 @@ public class ContentDao {
 		return list;
 	}
 	
+	
+	public void setViewsById(int id) {
+		this.conn = DBManager.getConnection();
+		
+		if(this.conn != null) {
+			String sql = "UPDATE content SET content_views = content_views + 1 WHERE content_id = ?";
+			try {
+				System.out.println(id);
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setInt(1, id);
+				this.pstmt.executeUpdate();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+	}
 	
 	
 }

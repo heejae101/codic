@@ -19,36 +19,36 @@
 <body>
 
 	<h2>질문글</h2>
-	<a href="boardUpdate.jsp">글 수정하기</a>
+	
 	<button onclick="location.href='write.jsp'">글쓰기</button>
 	<div id="board-box">
 		<div id="board-sub-div">
-			<ul id="board-sub-ul" style="list-style-type: none; display: flex">
+			<ul id="board-sub-ul" style="list-style-type: none; display: flex; text-align: center">
 				<li style="width: 100px">글번호&ensp;&ensp;&ensp;&ensp;&ensp;</li>
-				<li style="width: 100px">제목&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+				<li style="width: 300px">제목&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 				<li style="width: 100px">작성자&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 				<li style="width: 100px">작성일&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 				<li style="width: 100px">조회&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+				<br>
+
 			</ul>
 		</div>
 		<section id="board-list-sec">
 
-		
-			<ul id="board-list-ul" style="list-style-type: none; display: flex">
-				<li>${board.board_id}</li>
-				<a href="">${board.board_title}</a>
-				<li>${board.user_email}</li>
-				<li>${board.modified_timestamp}</li>
-				<li>${board.board_view_count}</li>
-			</ul>
-			
+
+			<c:forEach var="r" items="${result}" varStatus="loop">
+				<ul id="board-sub-ul" style="list-style-type: none; display: flex; text-align: center">
+					<li style="width: 100px">${r.board_id}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+					<li style="width: 300px"><a href="/BoardContentView?board_id=${r.board_id}">${r.board_title}</a>&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+					<li style="width: 100px">${r.user_email}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+					<li style="width: 100px">${r.modified_timestamp}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+					<li style="width: 100px">${r.board_view_count}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+				</ul>
+			</c:forEach>
+
 
 
 		</section>
-
-
-	</div>
-<script src="../resources/script/board.js"></script>
-
+		<script src="../resources/script/board.js"></script>
 </body>
 </html>

@@ -28,14 +28,18 @@ public class ShowContent extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String text = request.getParameter("text");
-		String page = request.getParameter("page");
+		String category = request.getParameter("category");
 		
-		if(text != "") {
-			ContentDao contentDao = ContentDao.getInstance();
+		ContentDao contentDao = ContentDao.getInstance();
+		if(text != null) {
 			ArrayList<Content> list = contentDao.getDataBytext(text);
 			request.setAttribute("result", list); // result 값을 request에 저장
-			System.out.println(list);
-		}else {
+		}
+		else if(category != null) {
+			ArrayList<Content> list = contentDao.getDataByCategory(category);
+			request.setAttribute("result", list);
+		}
+		else {
 			request.setAttribute("result", null);
 		}
 		String url ="/views/content.jsp";

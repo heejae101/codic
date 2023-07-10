@@ -14,7 +14,6 @@ public class Board {
 	
 	public Board(String user_email, String board_title, String board_text, int board_view_count,
 			String current_timestamp, String modified_timestamp) {
-		super();
 		this.user_email = user_email;
 		this.board_title = board_title;
 		this.board_text = board_text;
@@ -25,7 +24,6 @@ public class Board {
 
 	public Board(int board_id, String user_email, String board_title, String board_text, int board_view_count,
 			String current_timestamp, String modified_timestamp) {
-		super();
 		this.board_id = board_id;
 		this.user_email = user_email;
 		this.board_title = board_title;
@@ -90,6 +88,12 @@ public class Board {
 	public void setModified_timestamp(String modified_timestamp) {
 		this.modified_timestamp = modified_timestamp;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Board [board_id=" + board_id + ", user_email=" + user_email + ", board_title=" + board_title
+				+ ", board_text=" + board_text + ", board_view_count=" + board_view_count + ", current_timestamp="
+				+ current_timestamp + ", modified_timestamp=" + modified_timestamp + "]";
+	}
 	
 }
