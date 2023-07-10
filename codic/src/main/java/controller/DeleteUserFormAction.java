@@ -46,7 +46,7 @@ public class DeleteUserFormAction extends HttpServlet {
 		
 		if(result) {
 			request.getSession().removeAttribute("log");
-			url="/views/loginForm.jsp";
+			url="/views/main.jsp";
 		}
 		
 		response.sendRedirect(url);

@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
 </head>
 <body>
+	<header>
+		<a href="main"><h1>CODIC</h1></a>
+		<div id="search-bar">
+			<input type="text" id="search" placeholder="검색">
+			<button onclick="search()">검색</button>
+		</div>
+	</header>
 	<header>
 		<a href="main"><h1>CODIC</h1></a>
 		<a href=""><p>카테고리</p></a>

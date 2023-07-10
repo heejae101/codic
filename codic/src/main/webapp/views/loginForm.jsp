@@ -18,7 +18,7 @@
 	<input type="text" id="user_email" name="user_email" placeholder="your@email.com" autofocus>
 </div>
 <div>
-	<input type="text" id="user_password" name="user_password" placeholder="비밀번호">
+	<input type="password" id="user_password" name="user_password" placeholder="비밀번호">
 </div>
 
 </div>

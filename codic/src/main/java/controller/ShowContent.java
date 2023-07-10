@@ -31,6 +31,7 @@ public class ShowContent extends HttpServlet {
 		String category = request.getParameter("category");
 		
 		ContentDao contentDao = ContentDao.getInstance();
+		
 		if(text != null) {
 			ArrayList<Content> list = contentDao.getDataBytext(text);
 			request.setAttribute("result", list); // result 값을 request에 저장
@@ -42,6 +43,9 @@ public class ShowContent extends HttpServlet {
 		else {
 			request.setAttribute("result", null);
 		}
+		
+		System.out.println("check >>>");
+		
 		String url ="/views/content.jsp";
 		request.getRequestDispatcher(url).forward(request, response); // content.jsp로 forward
 	}

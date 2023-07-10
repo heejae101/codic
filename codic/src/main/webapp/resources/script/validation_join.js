@@ -53,9 +53,6 @@ $('#user_password_c').keyup(function(){
      });
 });
 
-
-
-
 function checkValue(htmlForm){
 	const email=htmlForm.user_email.value;
 	const password=htmlForm.user_password.value;

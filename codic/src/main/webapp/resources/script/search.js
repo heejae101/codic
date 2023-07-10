@@ -1,14 +1,27 @@
-function checkValue(htmlForm, event) {
-    const text = htmlForm.text.value.trim();
-    let status = false;
+/**
+ document.getElementById('searchForm').addEventListener("submit", e =>{
+	e.preventDefault();
+	
+    const text = document.getElementById('text').value.trim();
+    
+    if(text !== '') {
+		$.ajax({
+			"method" : "GET",
+			"url" : `http://localhost:8080/SelectContent?text=${text}`
+		});
 
-    if (text && event.keyCode === 13) {
-        status = true;
-    }
-
-    if (status) {
-        htmlForm.submit();
-    } else {
-        alert("검색어를 입력하세요.");
-    }
-}
+	}
+});
+ */
+ 
+document.getElementById('searchForm').addEventListener("submit", e =>{
+	e.preventDefault();
+});
+ 
+document.addEventListener('keypress', e => {
+	const text = document.getElementById('text').value.trim();
+	
+	if(text !== '' && e.key === 'Enter') {
+		document.getElementById('searchForm').submit();
+	}
+})

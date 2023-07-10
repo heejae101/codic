@@ -20,26 +20,33 @@
 		</svg>
 		</div>
 		<div>
-			<form method="GET" action="/SelectContent">
-				<input type="text" id="text" name="text" placeholder="무엇이든 물어보세요!"
-					onkeypress="checkValue(this, event)">
+			<form id="searchForm" action="SelectContent">
+				<input type="text" id="text" name="text" placeholder="무엇이든 물어보세요!">
 			</form>
 		</div>
 		<div class="category-area">
-			<h3>카테고리</h1>
-			<ul>
-				<li><a href="/SelectContent?category=html">HTML</a></li>
-				<li><a href="/SelectContent?category=css">CSS </a></li>
-				<li><a href="/SelectContent?category=javascript">JAVASCRIPT</a></li>
-				<li><a href="/SelectContent?category=java">JAVA</a></li>
-				<li><a href="/SelectContent?category=database">DATABASE</a></li>
-			</ul>
+			<h3>카테고리</h3>
+				<ul>
+					<li><a href="/SelectContent?category=html">HTML</a></li>
+					<li><a href="/SelectContent?category=css">CSS </a></li>
+					<li><a href="/SelectContent?category=javascript">JAVASCRIPT</a></li>
+					<li><a href="/SelectContent?category=java">JAVA</a></li>
+					<li><a href="/SelectContent?category=database">DATABASE</a></li>
+				</ul>
 		</div>
 		<ul>
 			<li><a href="join">더미데이터 넣기</a></li>
-			<li><a href="../LogoutAction">로그아웃</a></li>
-			<li><a href="/views/updateUserForm.jsp">회원정보 수정</a></li>
-			<li><a href="/views/deleteUserForm.jsp">회원탈퇴</a></li>
+			<c:choose>
+				<c:when test="${ empty sessionScope.log }">
+					<li><a href="/views/loginForm.jsp">로그인</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="join">회원가입</a></li>
+					<li><a href="/LogoutAction">로그아웃</a></li>
+					<li><a href="/views/updateUserForm.jsp">회원정보 수정</a></li>
+					<li><a href="/views/deleteUserForm.jsp">회원탈퇴</a></li>
+				</c:otherwise>
+			</c:choose>
 		</ul>
 	</div>
 	<script src="../resources/script/search.js"></script>
