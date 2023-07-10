@@ -32,45 +32,36 @@
 			</ul>
 		</div>
 		<section id="board-list-sec">
-		
-			<c:out value="${board.board_id}" />
-
 			<c:if test="${not empty board}">
-				<h3>Board ID: ${board.board_id}</h3>
-				<h3>User Email: ${board.user_email}</h3>
-				<h3>Board Title: ${board.board_title}</h3>
-				<h3>Board Text: ${board.board_text}</h3>
-				<h3>Board View Count: ${board.board_view_count}</h3>
+				<ul id="board-list-ul" style="list-style-type: none; display: flex">
+					<li>${board.board_id}</li>
+					<a href="">${board.board_title}</a>
+					<li>${board.user_email}</li>
+					<li>${board.modified_timestamp}</li>
+					<li>${board.board_view_count}</li>
+				</ul>
 			</c:if>
-
-			<ul id="board-list-ul" style="list-style-type: none; display: flex">
-				<div id="contents-container"></div>
-			</ul>
 		</section>
-
 	</div>
 	<script>
-	$(function() {
-
-	    const num = 4;
-
-	    $.ajax({
-	        url : "/BoardRequest",
-	        type : "GET",
-	        data : {
-	            board_No : num
-	        },
-	        success : function(data) {
-	            console.log(data);
-	            // 태그를 만들어서 해당 위치에 삽입
-	            $("#contents-container").html(data);
-	        },
-	        error : function() {
-	            console.log("Error occurred");
-	        }
-	    })
-
-	});
-	</script>
+   $(function() {
+       const num = 13;
+       $.ajax({
+           url : "/BoardRequest",
+           type : "GET",
+           data : {
+               board_No : num
+           },
+           success : function(data) {
+               console.log(data);
+               // 태그를 만들어서 해당 위치에 삽입
+               $("body").html(data);
+           },
+           error : function() {
+               console.log("Error occurred");
+           }
+       })
+   	});
+   </script>
 </body>
 </html>
