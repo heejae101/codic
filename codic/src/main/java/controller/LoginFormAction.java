@@ -14,7 +14,7 @@ import model.user.UserDao;
 /**
  * Servlet implementation class LoginFormAction
  */
-@WebServlet("/LoginFormAction")
+
 public class LoginFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,13 +46,13 @@ public class LoginFormAction extends HttpServlet {
 		
 		UserDao userDao=UserDao.getInstance();
 		User user = userDao.getUserByEmail(email);
-		String url="/views/loginForm.jsp";
+		String url="login";
 		String nickname=userDao.getNicknameByEmail(email);
 	    
 		System.out.println("닉네임"+nickname);
 		
 		if(user!=null && user.getUser_password().equals(password)&&nickname!=null) {
-			url="/views/main.jsp";//임시로
+			url="../views/main.jsp";//임시로
 			
 			//로그인한 회원의 아이디를->session에 속성값으로 저장
 			HttpSession session=request.getSession();

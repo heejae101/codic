@@ -13,7 +13,7 @@ import model.user.UserRequestDto;
 /**
  * Servlet implementation class UpdateUserFormAction
  */
-@WebServlet("/UpdateUserFormAction")
+
 public class UpdateUserFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -56,7 +56,7 @@ public class UpdateUserFormAction extends HttpServlet {
 	    UserDao userDao=UserDao.getInstance();
 	    userDao.updateUser(userDto, password);
 	    
-	    String url="/UpdateUserRequest";
+	    String url="UpdateUserRequest";
 	    response.sendRedirect(url);
 		
 		

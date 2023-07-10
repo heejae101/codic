@@ -12,7 +12,7 @@
 <body>
 <section id="update-section">
 <h2>회원정보 수정</h2>
-<form method="POST" action="../UpdateUserFormAction">
+<form method="POST" action="UpdateUser">
 <div class="form_div">
 <div>
 <label for="email">이메일</label>

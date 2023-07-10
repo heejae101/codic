@@ -10,7 +10,7 @@
 
 <section id="login-section">
 <h2>회원 탈퇴</h2>
-<form method="POST" action="../DeleteUserFormAction">
+<form method="POST" action="Leave">
 <div class="id-form">
 <div>
 	<input type="text" id="user_email" name="user_email" placeholder="이메일주소" autofocus>
