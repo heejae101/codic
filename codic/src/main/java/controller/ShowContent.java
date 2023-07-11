@@ -12,16 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.content.Content;
 import model.content.ContentDao;
 
-/**
- * Servlet implementation class AddContent
- */
-@WebServlet("/SelectContent")
 public class ShowContent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     public ShowContent() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +41,7 @@ public class ShowContent extends HttpServlet {
 		
 		System.out.println("check >>>");
 		
-		String url ="/views/content.jsp";
+		String url ="/content";
 		request.getRequestDispatcher(url).forward(request, response); // content.jsp로 forward
 	}
 

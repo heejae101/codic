@@ -12,43 +12,35 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
 
-/**
- * Servlet implementation class EmailVerificationAction
- */
-@WebServlet("/EmailVerification")
 public class EmailVerificationAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO 난수 생성
-		int code;
 		int repeat = 6;
 		Random r = new Random();
 		String authToken = "";
 		String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 		for (int i = 0; i < repeat; i++) {
-			code = r.nextInt(randomString.length());
+			int code = r.nextInt(randomString.length());
 			authToken += randomString.substring(code, code + 1);
 		}
         
         // TODO 토큰값 제한 시간 두기
+		// format 2023-07-11/10:06:32
+		int setTime = 3;
 		Calendar calendar = Calendar.getInstance();
-		int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
-        int second = calendar.get(Calendar.SECOND);
-        
-        int setTime = 3;
-        String validTime = hour+""+(minute+setTime)+""+second+"";
-        request.setAttribute("validTime", validTime);
+		String day = calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
+		String time = calendar.get(Calendar.HOUR_OF_DAY)+":"+(calendar.get(Calendar.MINUTE)+setTime)+":"+calendar.get(Calendar.SECOND);
+		HttpSession emailSession = request.getSession();
+		emailSession.setAttribute("AuthTime", day+"/"+time);
+		emailSession.setAttribute("AuthToken", authToken);
         
         String to = request.getParameter("email");
         String host = "smtp.gmail.com";
@@ -78,9 +70,9 @@ public class EmailVerificationAction extends HttpServlet {
             msg.setText("이메일 확인 코드 : " + authToken);
 
             Transport.send(msg);
-
             response.setContentType("text/html;charset=UTF-8");
-            response.getWriter().println("<script>alert('인증코드를 확인해주세요.');history.back();</script>");
+            response.getWriter().println("<script>alert('인증코드를 확인해주세요.');</script>");
+            request.getRequestDispatcher("/views/emailAuth.jsp").forward(request, response);
         } catch (MessagingException e) {
             response.setContentType("text/html;charset=UTF-8");
             response.getWriter().println("<script>alert('이메일 발송 오류!');</script>");

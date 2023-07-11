@@ -21,7 +21,7 @@
 			<!--  줄바꿈은 css를 통해서 하는것이 베스트이다.  -->
 			<c:forEach var="r" items="${result}" varStatus="loop">
 				<c:if test="${loop.index >= startIndex && loop.index < endIndex}">
-					<a href="/updateViews?contentId=${r.content_id}">
+					<a href="/ContentViews?contentId=${r.content_id}">
 						<section>
 							<img src="${r.file_path}"/>
 						</section>

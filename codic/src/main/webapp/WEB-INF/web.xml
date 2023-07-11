@@ -90,8 +90,58 @@
 		<servlet-name>BoardRequest</servlet-name>
 		<url-pattern>/BoardRead</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ShowContent</servlet-name>
+		<servlet-class>controller.ShowContent</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>ShowContent</servlet-name>
+		<url-pattern>/ShowContent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateContentViews</servlet-name>
+		<servlet-class>controller.UpdateContentViews</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UpdateContentViews</servlet-name>
+		<url-pattern>/ContentViews</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EmailVerificationAction</servlet-name>
+		<servlet-class>controller.EmailVerificationAction</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmailVerificationAction</servlet-name>
+		<url-pattern>/EmailVerification</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CheckEmailAuthToken</servlet-name>
+		<servlet-class>controller.CheckEmailAuthToken</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CheckEmailAuthToken</servlet-name>
+		<url-pattern>/CheckEmailAuthToken</url-pattern>
+	</servlet-mapping>
+	
 	<!-- JSP 페이지 맵핑 -->
+	<servlet>
+		<servlet-name>content</servlet-name>
+		<jsp-file>/views/content.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>content</servlet-name>
+		<url-pattern>/content</url-pattern>
+	</servlet-mapping>
+	
 	
 	<servlet>
 		<servlet-name>deleteUserForm</servlet-name>
