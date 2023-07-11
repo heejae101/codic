@@ -39,8 +39,6 @@ public class ShowContent extends HttpServlet {
 			request.setAttribute("result", null);
 		}
 		
-		System.out.println("check >>>");
-		
 		String url ="/content";
 		request.getRequestDispatcher(url).forward(request, response); // content.jsp로 forward
 	}
