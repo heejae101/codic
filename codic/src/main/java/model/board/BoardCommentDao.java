@@ -22,35 +22,32 @@ public class BoardCommentDao {
 	}
 	
 	// C
-	public void createBoardComment(BoardCommentRequestDto boardCommetnDto) {
+	public boolean createBoardComment(BoardCommentRequestDto boardCommetnDto) {
 		
-		int comment_id = boardCommetnDto.getComment_id();
+		boolean check = true;
+		
 		int board_id = boardCommetnDto.getBoard_id();
 		String user_email = boardCommetnDto.getUser_email();
 		String board_answer = boardCommetnDto.getBoard_answer();
-		String current_timestamp = boardCommetnDto.getCurrent_timestamp();
-		String modified_timestamp = boardCommetnDto.getModified_timestamp();
 		
 		// 일단 비회원 댓글 작성 -> 회원 작성으로 바꿀지 ㅍ
 		
 		this.conn = DBManager.getConnection();
 		
-		String sql = "INSERT INTO board_comment VALUES(?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO board_comment(board_id,user_email,board_answer VALUES(?, ?, ?)";
 		
 		try {
 			this.pstmt = this.conn.prepareStatement(sql);
-			this.pstmt.setInt(1, comment_id);
-			this.pstmt.setInt(2, board_id);
-			this.pstmt.setString(3, user_email);
-			this.pstmt.setString(4, board_answer);
-			this.pstmt.setString(5, current_timestamp);
-			this.pstmt.setString(6, modified_timestamp);
+			this.pstmt.setInt(1, board_id);
+			this.pstmt.setString(2, user_email);
+			this.pstmt.setString(3, board_answer);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(this.conn, this.pstmt);
 		}
+		return true;
 	}
 	
 	// R all

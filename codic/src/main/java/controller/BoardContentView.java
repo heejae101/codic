@@ -14,7 +14,7 @@ import model.content.ContentDao;
 /**
  * Servlet implementation class BoardView
  */
-@WebServlet("/BoardContentView")
+//@WebServlet("/BoardContentView")
 public class BoardContentView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

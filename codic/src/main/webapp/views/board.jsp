@@ -19,11 +19,12 @@
 <body>
 
 	<h2>질문글</h2>
-	
-	<button onclick="location.href='write.jsp'">글쓰기</button>
+
+	<button onclick="location.href='/writeBoard'">글쓰기</button>
 	<div id="board-box">
 		<div id="board-sub-div">
-			<ul id="board-sub-ul" style="list-style-type: none; display: flex; text-align: center">
+			<ul id="board-sub-ul"
+				style="list-style-type: none; display: flex; text-align: center">
 				<li style="width: 100px">글번호&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 				<li style="width: 300px">제목&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 				<li style="width: 100px">작성자&ensp;&ensp;&ensp;&ensp;&ensp;</li>
@@ -37,9 +38,11 @@
 
 
 			<c:forEach var="r" items="${result}" varStatus="loop">
-				<ul id="board-sub-ul" style="list-style-type: none; display: flex; text-align: center">
+				<ul id="board-sub-ul"
+					style="list-style-type: none; display: flex; text-align: center">
 					<li style="width: 100px">${r.board_id}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
-					<li style="width: 300px"><a href="/BoardContentView?board_id=${r.board_id}">${r.board_title}</a>&ensp;&ensp;&ensp;&ensp;&ensp;</li>
+					<li style="width: 300px"><a
+						href="/BoardContentView?board_id=${r.board_id}">${r.board_title}</a>&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 					<li style="width: 100px">${r.user_email}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 					<li style="width: 100px">${r.modified_timestamp}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
 					<li style="width: 100px">${r.board_view_count}&ensp;&ensp;&ensp;&ensp;&ensp;</li>
@@ -49,6 +52,7 @@
 
 
 		</section>
+
 		<script src="../resources/script/board.js"></script>
 </body>
 </html>

@@ -13,18 +13,18 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 	</welcome-file-list>
-	
+
 	<servlet>
 		<servlet-name>DeleteUserFormAction</servlet-name>
 		<servlet-class>controller.DeleteUserFormAction</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>DeleteUserFormAction</servlet-name>
 		<url-pattern>/Leave</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>JoinFormAction</servlet-name>
 		<servlet-class>controller.JoinFormAction</servlet-class>
@@ -34,7 +34,7 @@
 		<servlet-name>JoinFormAction</servlet-name>
 		<url-pattern>/Join</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>LoginFormAction</servlet-name>
 		<servlet-class>controller.LoginFormAction</servlet-class>
@@ -44,7 +44,7 @@
 		<servlet-name>LoginFormAction</servlet-name>
 		<url-pattern>/Login</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>LogoutAction</servlet-name>
 		<servlet-class>controller.LogoutAction</servlet-class>
@@ -54,7 +54,7 @@
 		<servlet-name>LogoutAction</servlet-name>
 		<url-pattern>/Logout</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>UpdateUserFormAction</servlet-name>
 		<servlet-class>controller.UpdateUserFormAction</servlet-class>
@@ -64,7 +64,7 @@
 		<servlet-name>UpdateUserFormAction</servlet-name>
 		<url-pattern>/UpdateUser</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>UpdateUserRequest</servlet-name>
 		<servlet-class>controller.UpdateUserRequest</servlet-class>
@@ -74,13 +74,48 @@
 		<servlet-name>UpdateUserRequest</servlet-name>
 		<url-pattern>/UpdateUserRequest</url-pattern>
 	</servlet-mapping>
-	
-	
+
+	<servlet>
+		<servlet-name>BoardCommentFormAction</servlet-name>
+		<servlet-class>controller.BoardCommentFormAction</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BoardCommentFormAction</servlet-name>
+		<url-pattern>/BoardCommentFormAction</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BoardContentView</servlet-name>
+		<servlet-class>controller.BoardContentView</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BoardContentView</servlet-name>
+		<url-pattern>/BoardContentView</url-pattern>
+	</servlet-mapping>
+
+
 	<servlet>
 		<servlet-name>BoardFormAction</servlet-name>
 		<servlet-class>controller.BoardFormAction</servlet-class>
 	</servlet>
-	
+
+	<servlet-mapping>
+		<servlet-name>BoardFormAction</servlet-name>
+		<url-pattern>/BoardFormAction</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BoardListRequest</servlet-name>
+		<servlet-class>controller.BoardListRequest</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BoardListRequest</servlet-name>
+		<url-pattern>/BoardListRequest</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>BoardRequest</servlet-name>
 		<servlet-class>controller.BoardRequest</servlet-class>
@@ -88,11 +123,35 @@
 
 	<servlet-mapping>
 		<servlet-name>BoardRequest</servlet-name>
-		<url-pattern>/BoardRead</url-pattern>
+		<url-pattern>/BoardRequest</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>BoardUpdateFormAction</servlet-name>
+		<servlet-class>controller.BoardUpdateFormAction</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BoardUpdateFormAction</servlet-name>
+		<url-pattern>/BoardUpdateFormAction</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BoardUpdateRequest</servlet-name>
+		<servlet-class>controller.BoardUpdateRequest</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BoardUpdateRequest</servlet-name>
+		<url-pattern>/BoardUpdateRequest</url-pattern>
+	</servlet-mapping>
+
+
+
 	<!-- JSP 페이지 맵핑 -->
-	
+
+
+
 	<servlet>
 		<servlet-name>deleteUserForm</servlet-name>
 		<jsp-file>/views/deleteUserForm.jsp</jsp-file>
@@ -102,8 +161,8 @@
 		<servlet-name>deleteUserForm</servlet-name>
 		<url-pattern>/leave</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>joinForm</servlet-name>
 		<jsp-file>/views/joinForm.jsp</jsp-file>
@@ -113,8 +172,8 @@
 		<servlet-name>joinForm</servlet-name>
 		<url-pattern>/join</url-pattern>
 	</servlet-mapping>
-	
-		<servlet>
+
+	<servlet>
 		<servlet-name>loginForm</servlet-name>
 		<jsp-file>/views/loginForm.jsp</jsp-file>
 	</servlet>
@@ -123,7 +182,7 @@
 		<servlet-name>loginForm</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>updateUserForm</servlet-name>
 		<jsp-file>/views/updateUserForm.jsp</jsp-file>
@@ -135,24 +194,59 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>Write</servlet-name>
-		<jsp-file>/Write.jsp</jsp-file>
+		<servlet-name>write</servlet-name>
+		<jsp-file>/views/write.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>Write</servlet-name>
-		<url-pattern>/Write</url-pattern>
+		<servlet-name>write</servlet-name>
+		<url-pattern>/writeBoard</url-pattern>
 	</servlet-mapping>
+
 
 	<servlet>
 		<servlet-name>board</servlet-name>
-		<jsp-file>/board.jsp</jsp-file>
+		<jsp-file>/views/board.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>board</servlet-name>
 		<url-pattern>/board</url-pattern>
 	</servlet-mapping>
-  
+
+	<servlet>
+		<servlet-name>boardComment</servlet-name>
+		<jsp-file>/views/boardComment.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>boardComment</servlet-name>
+		<url-pattern>/boardComment</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>boardUpdate</servlet-name>
+		<jsp-file>/views/boardUpdate.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>boardUpdate</servlet-name>
+		<url-pattern>/boardUpdate</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>boardView</servlet-name>
+		<jsp-file>/views/boardView.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>boardView</servlet-name>
+		<url-pattern>/boardView</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
 </web-app>
 

@@ -15,7 +15,7 @@ import model.board.BoardRequestDto;
 /**
  * Servlet implementation class BoardFormAction
  */
-@WebServlet("/BoardFormAction")
+//@WebServlet("/BoardFormAction")
 public class BoardFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -57,11 +57,10 @@ public class BoardFormAction extends HttpServlet {
 		String url = "";
 		
 		if(result) 
-			url = "/views/write.jsp";
+			url = "/BoardListRequest";
 		else
-			url = "/views/board.jsp";
+			url = "/writeBoard";
 
-		System.out.println(url);
 		response.sendRedirect(url);
 		
 	}
