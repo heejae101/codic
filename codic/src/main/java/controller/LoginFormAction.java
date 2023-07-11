@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +33,7 @@ public class LoginFormAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -39,7 +41,7 @@ public class LoginFormAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+	
 	
 
 		//jsp에서 입력한 값을 가져옴
@@ -67,9 +69,14 @@ public class LoginFormAction extends HttpServlet {
 		
 			
 		}else{
-		response.setContentType("text/html;charset=UTF-8");
-	    response.getWriter().print("<script>alert('아이디와 비밀번호가 일치하지 않아요')</script>");
-	    request.getRequestDispatcher(url).forward(request, response);
+			response.setCharacterEncoding("UTF-8");	
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out=response.getWriter();
+		    out.println("<script>alert('아이디와 비밀번호가 일치하지 않아요');history.back();</script>");
+		    out.flush();
+		    response.flushBuffer();
+		    out.close();
+	        System.out.println("아이디 비밀번호 틀림");
 	   
 		}		
 		

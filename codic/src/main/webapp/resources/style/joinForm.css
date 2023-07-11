@@ -7,7 +7,7 @@
 
 
 .error{
-    display: none !important;
-	color:blue;
+    display: none;
+	color:red;
 	font-size: 0.7em;
 }

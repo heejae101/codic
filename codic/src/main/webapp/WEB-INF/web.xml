@@ -152,6 +152,16 @@
 		<servlet-name>passwordFind</servlet-name>
 		<url-pattern>/find</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>duplNickname</servlet-name>
+		<jsp-file>/views/duplNickname.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>duplNickname</servlet-name>
+		<url-pattern>/duplN</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>Write</servlet-name>

@@ -8,7 +8,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 <!-- 스타일 연결 -->
-<link rel="stylesheet" href="../resources/style/form_join.css">
+<link rel="stylesheet" href="../resources/style/joinForm.css">
 
 <title>회원가입</title>
 </head>
@@ -23,14 +23,16 @@
 				<label for="email">이메일</label>
 					<input type="text" id="user_email" name="user_email"
 						maxlength="320" placeholder="example@codic.com" autofocus>
-					<button type="button" id="email_ch" onclick="emailAuthentication()">인증메일 보내기</button>
+					<input type="button" id="email_ch" onclick="emailAuthentication()" value="인증메일 보내기">
 				
 				<label for="email_num">인증번호 입력</label>
 				<input type="text" name="code" id="code" maxlength="10" disabled="disabled" >
-				<button type="button"id="code_ch" onclick="authCodeCheck()" disabled="disabled">인증</button>
+				<input type="button"id="code_ch" onclick="authCodeCheck()" disabled="disabled" value="인증">
+				
 				<ul>
 				<li class="error" id="error-email">이메일을 입력해주세요</li>
 				</ul>
+				<span id="chkEmail" size="1"></span>
 				</div>
 
 				<!-- 비밀번호 부분 -->
@@ -38,7 +40,7 @@
 				<label for="pwd1">
 							비밀번호</label>
 <input type="password" name="user_password"
-	id="user_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합" required>
+	id="user_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합">
 	<span class="pwd_warning"> *특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</span>
 	<ul>
 	<li class=error id="error-password">비밀번호는 필수정보입니다.</li>
@@ -49,7 +51,7 @@
 	<div class="pwd2">
 	<label for="pwd2">비밀번호 확인</label>
 	<input type="password" name="user_password_ch" id="user_password_ch"
-	placeholder="비밀번호 확인" required> 
+	placeholder="비밀번호 확인"> 
 	<span id="chkNotice2" size="1"></span>
 	</div>
 </div>
@@ -57,12 +59,18 @@
 <div>
 <label for="name">이름</label>
 	<input type="text" id="user_name" name="user_name">
+	<ul>
+	<li class=error id="error-name">이름은 필수정보입니다.</li>
+	</ul>
 </div>
 
 <div>
 <label for="nicekname">닉네임</label>
 	<input type="text" id="user_nickname" name="user_nickname">
-	<button type="button" id="user_nickname_dupl" name="user_nickname_dupl" onclick="duplCheck()">중복 체크</button>
+	<input type="button" id="user_nickname_dupl" name="user_nickname_dupl" value="중복 체크" onclick="duplCheck()"></input>
+	<ul>
+	<li class=error id="error-nickname">닉네임은 필수정보입니다.</li>
+	</ul>
 </div>
 
 <div class="label-wrapper">
@@ -71,18 +79,18 @@
 </label>
     
     <div>
-	<label for="agree"><input type="checkbox" name="user_check" value="1" ><span>이용약관
+	<label for="agree"><input type="checkbox" id ="user_check" name="user_check" value="1"><span>이용약관
 		동의<strong>(필수)</strong></span></label>
 		</div>
 		
 	
         <div>
-		<label for="agree"><input type="checkbox" name="user_check" value="1" ><span>개인정보 수집,이용 동의<strong>(필수)</strong></span>
+		<label for="agree"><input type="checkbox" id="user_check" name="user_check" value="1" ><span>개인정보 수집,이용 동의<strong>(필수)</strong></span>
 		</label> 
 		</div>
 		
 		<div>
-		<label for="agree"><input type="checkbox" name="user_check_s" ><span>이메일 수신<strong>(선택)</strong></span>
+		<label for="agree"><input type="checkbox" id="user_check" name="user_check_s" ><span>이메일 수신<strong>(선택)</strong></span>
 		</label>
 		</div>
 		 
@@ -91,8 +99,9 @@
 <!-- 회원상태 -->
 <input type="hidden" name="user_status" value="1">
 
-<input type="submit" id="submit" value="회원가입" onclick="checkValue(form)">
+<input type="button" id="submit" value="회원가입" onclick="checkValue(form)">
 </form>
+<a href="javascript:window.history.back();">뒤로가기</a>
 	</section>
     
 	<script src="../resources/script/validation_join.js"></script>

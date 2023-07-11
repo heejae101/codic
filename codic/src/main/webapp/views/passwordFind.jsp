@@ -9,11 +9,14 @@
 <body>
 <h2>비밀번호 찾기</h2>
 <span>비밀 번호 재설정을 위해 이메일을 입력해주세요</span>
+<form method="POST" >
 <div>
 <label for="email">이메일</label>
 <input type="text" id="user_email" name="user_email"
 						maxlength="320" placeholder="your@email.com" autofocus>
 						</div>
+<input type="button" id="f-btn" value="다음">						
+</form>
 
 </body>
 </html>

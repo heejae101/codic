@@ -193,6 +193,35 @@ public class UserDao {
 		return user;
 	}
 	
+	//이메일 중복검사
+		public boolean duplEmail(String email) {
+			this.conn = DBManager.getConnection();
+			String sql="SELECT user_email FROM user_info";
+		 
+		    
+		    if(this.conn!=null) {
+		    try {
+				this.pstmt=this.conn.prepareStatement(sql);
+	            this.rs = this.pstmt.executeQuery();
+			
+				while(rs.next())  {
+					if(rs.getString("user_email").equals(email)) {
+						return true;
+					}
+				}
+		    
+		  
+		    } catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		
+		
+		}
+		    return false;
+		}
+	
 	//닉네임 중복검사
 	public boolean duplNickname(String nickname) {
 		this.conn = DBManager.getConnection();
