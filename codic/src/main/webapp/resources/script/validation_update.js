@@ -1,6 +1,7 @@
 function checkValue(htmlForm){
 	const password=htmlForm.user_password.value;
     const newPassword=htmlForm.new_password.value;
+    const newPassword_ch=htmlForm.user_password_ch.value; 
      const nickname=htmlForm.user_nickname.value;
 	
 	
@@ -13,7 +14,12 @@ function checkValue(htmlForm){
 		$('#error-password').show();
 		check=false;
 		
-	}else if(nickname===""){
+	}else if(newPassword_ch===""){
+		check=false;
+	}
+	
+	
+	else if(nickname===""){
 		check=false;
 	}
 	

@@ -142,6 +142,16 @@
 		<servlet-name>updateUserForm</servlet-name>
 		<url-pattern>/update</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>passwordFind</servlet-name>
+		<jsp-file>/views/passwordFind.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>passwordFind</servlet-name>
+		<url-pattern>/find</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>Write</servlet-name>

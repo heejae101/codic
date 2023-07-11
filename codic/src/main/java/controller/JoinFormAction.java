@@ -48,24 +48,32 @@ public class JoinFormAction extends HttpServlet {
 		String email=request.getParameter("user_email");
 		String password=request.getParameter("user_password");
 		String name=request.getParameter("user_name");
-		String phone=request.getParameter("user_phone_num");
 		String nickname=request.getParameter("user_nickname");
 		int check=Integer.parseInt(request.getParameter("user_check"));
 	    int status=Integer.parseInt(request.getParameter("user_status"));
 	    
-	    UserRequestDto user= new UserRequestDto(email, password,name, phone,nickname,check,status);
+	    UserRequestDto user= new UserRequestDto(email, password,name,nickname,check,status);
 		
 	 
 		UserDao userDao=UserDao.getInstance();
 		boolean result= userDao.createUser(user);
+		boolean dupl=userDao.duplNickname(nickname);
 		
 		String url="";
-		
-		if(result) {
-			url="login";
+		if(dupl){
+			System.out.println("사용가능한 닉네임입니다.");
+			if(result) {
+				url="login";
+			}else {
+			   url="join";	
+			}
 		}else {
-		   url="join";	
+		System.out.println("중복이에요");
 		}
+		
+		
+		
+		
 		response.sendRedirect(url);
 		
 		

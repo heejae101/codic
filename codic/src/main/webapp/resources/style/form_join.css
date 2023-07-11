@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+.error{
+    display: none !important;
+	color:blue;
+	font-size: 0.7em;
+}

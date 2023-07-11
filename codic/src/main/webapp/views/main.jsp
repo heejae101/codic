@@ -24,7 +24,7 @@
 	</div>
 	<ul>
 		<li><a href="join">더미데이터 넣기</a></li>
-       <li><a href="../LogoutAction">로그아웃</a></li>
+       <li><a href="/Logout">로그아웃</a></li>
      <li><a href="/views/updateUserForm.jsp">회원정보 수정</a></li>
      <li><a href="/views/deleteUserForm.jsp">회원탈퇴</a></li>
        </ul>

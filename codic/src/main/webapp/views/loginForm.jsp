@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- 카카오 -->
 <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
 
 <title>로그인</title>
@@ -19,7 +20,7 @@
 	<input type="text" id="user_email" name="user_email" placeholder="your@email.com" autofocus>
 </div>
 <div>
-	<input type="text" id="user_password" name="user_password" placeholder="비밀번호">
+	<input type="password" id="user_password" name="user_password" placeholder="비밀번호">
 </div>
 
 </div>

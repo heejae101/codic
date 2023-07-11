@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.user.UserDao;
 import model.user.UserRequestDto;
@@ -46,18 +47,19 @@ public class UpdateUserFormAction extends HttpServlet {
 		String password=request.getParameter("user_password");
 		String newPassword=request.getParameter("new_password");
 		String name=request.getParameter("user_name");
-		String phone=request.getParameter("user_phone_num");
 		String nickname=request.getParameter("user_nickname");
 		
 		
-	    
-	    userDto=new UserRequestDto(email, newPassword,name, phone,nickname,0,0);
+	    userDto=new UserRequestDto(email, newPassword,name,nickname,0,0);
 	    
 	    UserDao userDao=UserDao.getInstance();
 	    userDao.updateUser(userDto, password);
 	    
+	    
 	    String url="UpdateUserRequest";
 	    response.sendRedirect(url);
+	    
+	    
 		
 		
 	}

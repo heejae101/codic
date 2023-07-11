@@ -10,10 +10,10 @@
 
 <section id="login-section">
 <h2>회원 탈퇴</h2>
-<form method="POST" action="Leave">
+<form method="POST" action="/Leave">
 <div class="id-form">
 <div>
-	<input type="text" id="user_email" name="user_email" placeholder="이메일주소" autofocus>
+	<input type="text" id="user_email" name="user_email" value="${sessionScope.log1}" readonly>
 </div>
 <div>
 	<input type="text" id="user_password" name="user_password" placeholder="비밀번호">

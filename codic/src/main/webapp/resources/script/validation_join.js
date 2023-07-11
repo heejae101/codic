@@ -15,6 +15,8 @@ $('#user_password').on('change', e => {
 	}
 });
 
+/*이메일 유효성*/
+
 /* 비밀번호 부분 */
 let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
 let pwd_space = /[ ]/; /* 공백 */
@@ -71,7 +73,7 @@ for(let i=0; i<agreeChk.length; i++){
 function checkValue(htmlForm){
 	const email=htmlForm.user_email.value;
 	const password=htmlForm.user_password.value;
-	const password_c=htmlForm.user_password_c.value;
+	const password_ch=htmlForm.user_password_ch.value;
 	const nickname=htmlForm.user_nickname.value;
     const name=htmlForm.user_name.value;
     const phone=htmlForm.user_phone_num.value;
@@ -79,8 +81,9 @@ function checkValue(htmlForm){
 	
 	console.log(email);
 	console.log(password);
+	console.log(password_ch);
 	
-	
+	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
 	let pwd_space = /[ ]/; /* 공백 */
 	let check=true;
@@ -91,16 +94,21 @@ function checkValue(htmlForm){
 		$('#user_email').parent().css('border-color', 'red');
 		check=false;
 		
-	}else if(password===""){
+	}else if(!regExp.test(email)){
+	  alert('이메일 형식이 옳지 않아요');
+	  check=false;
+	}else if(password===""){	
 		$('#error-password').show();
 		check=false;
-	}else if(password.length< 4 || password.length > 10 || !pwdChk.test(password)||pwd_space.test(password)){ 
-		 check=false;
-		 alert("비밀번호를 다시 입력해주세요.");
 		
-	}else if(password!==password_c){
+	}else if(password.length< 4 || password.length > 10){ 
+		 alert("비밀번호를 다시 입력해주세요.");
+		 check=false;
+		
+	}else if(password!==password_ch){
 		check=false;
 		alert("비밀번호가 일치하지 않아요");
+	
 		
 	}else if(nickname===""){
 		check=false;
