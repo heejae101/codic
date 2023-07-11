@@ -176,16 +176,57 @@ function checkValue(htmlForm){
 
 
 
-	
+/*닉네임 중복검사*/	
 function duplCheck(){
-if(htmlForm.user_nickname.value==""){
-	alert("닉네임을 입력해주세요");
+var user_nickname=$('#user_nickname').val();
+$.ajax({
+type:'POST',
+url:'NickNameDupl',
+data:{user_nickname:user_nickname},
+success:function(responseData){
+	alert('data:'+ $.trim(responseData));
+	if($.trim(responseData)=='YES'){
+		$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
+		
+	}else{
+		$('#chkMsg').html('사용할 수 없는 닉네임입니다.').css('color', 'red');
+	}
 	
-}	
 	
-url=""
+}
+
+
+	
+});	
+
 
 }	
+
+/*이메일 중복검사*/	
+function chkEmail(){
+var user_nickname=$('#user_nickname').val();
+$.ajax({
+type:'POST',
+url:'EmailDupl',
+data:{user_nickname:user_nickname},
+success:function(responseData){
+	alert('data:'+ $.trim(responseData));
+	if($.trim(responseData)=='YES'){
+		$('#chkMsgEmail').html('사용 가능한 이메일입니다.').css('color', 'navy');
+		
+	}else{
+		$('#chkMsgEmail').html('사용할 수 없는 이메일입니다.').css('color', 'red');
+	}
+	
+	
+}
+
+
+	
+});	
+
+
+}
 
 
 

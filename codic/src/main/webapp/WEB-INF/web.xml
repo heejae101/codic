@@ -77,6 +77,26 @@
 		<url-pattern>/UpdateUserRequest</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>NickNameDupl</servlet-name>
+		<servlet-class>controller.NickNameDupl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>NickNameDupl</servlet-name>
+		<url-pattern>/NickNameDupl</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EmailDupl</servlet-name>
+		<servlet-class>controller.EmailDupl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmailDupl</servlet-name>
+		<url-pattern>/EmailDupl</url-pattern>
+	</servlet-mapping>
+	
 	
 	<servlet>
 		<servlet-name>BoardFormAction</servlet-name>

@@ -23,6 +23,7 @@
 				<label for="email">이메일</label>
 					<input type="text" id="user_email" name="user_email"
 						maxlength="320" placeholder="example@codic.com" autofocus>
+						<input type="button" id="user_email_dupl" name="user_email_dupl" value="중복 확인" onclick="chkEmail()">
 					<input type="button" id="email_ch" onclick="emailAuthentication()" value="인증메일 보내기">
 				
 				<label for="email_num">인증번호 입력</label>
@@ -33,6 +34,7 @@
 				<li class="error" id="error-email">이메일을 입력해주세요</li>
 				</ul>
 				<span id="chkEmail" size="1"></span>
+				<span id="chkMsgEmail" size="1"></span>
 				</div>
 
 				<!-- 비밀번호 부분 -->
@@ -67,10 +69,11 @@
 <div>
 <label for="nicekname">닉네임</label>
 	<input type="text" id="user_nickname" name="user_nickname">
-	<input type="button" id="user_nickname_dupl" name="user_nickname_dupl" value="중복 체크" onclick="duplCheck()"></input>
+	<input type="button" id="user_nickname_dupl" name="user_nickname_dupl" value="중복 확인" onclick="duplCheck()">
 	<ul>
 	<li class=error id="error-nickname">닉네임은 필수정보입니다.</li>
 	</ul>
+	<span id="chkMsg" size="1"></span>
 </div>
 
 <div class="label-wrapper">

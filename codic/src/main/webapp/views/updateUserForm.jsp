@@ -53,9 +53,11 @@
 <div>
 <label for="nicekname">닉네임</label>
 <input type="text" id="user_nickname" name="user_nickname" value="${requestScope.nickname}">
+<input type="button" id="user_nickname_dupl" name="user_nickname_dupl" value="중복 체크" onclick="duplCheck()"></input>
 <ul>
 	<li class=error id="error-nickname">닉네임은 필수정보입니다.</li>
 	</ul>
+	<span id="chkMsg" size="1"></span>
 </div>  
 
 
