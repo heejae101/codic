@@ -13,10 +13,12 @@
 	</form>
 	<form id="TokenCheck" action="/CheckEmailAuthToken" method="post">
 		<input type="text" id="token-check" name="inputToken" placeholder="인증번호를 입력해주세요.">
-		<input type="hidden" id="session-token" name="sessionToken">
-		<input type="hidden" id="session-validTime" name="sessionValidTime">
-  		<button onclick="tokenCheck('${sessionScope.authToken}','${sessionScope.validTime}')">인증하기</button>
+  		<button onclick="tokenCheck()">인증하기</button>
 	</form>
+	<h1>${sessionScope.AuthToken}</h1>
+	<h1>${sessionScope.AuthTime}</h1>
+	<h1>${sessionScope.EmailCheck}</h1>
+	
   	<script src="../resources/script/tokenCheck.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,28 +16,38 @@ public class CheckEmailAuthToken extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String inputToken = request.getParameter("inputToken");
-		String sessionToken = request.getParameter("sessionToken");
-		String sessionValidTime = request.getParameter("sessionValidTime");
 		
-		// 확인 나중에 삭제
-		System.out.println(1+inputToken);
-		System.out.println(2+sessionToken);
-		System.out.println(3+sessionValidTime);
-		//==================
+		HttpSession emailSession = request.getSession();
+		String sessionToken = (String) emailSession.getAttribute("AuthToken");
+		String sessionValidTime = (String) emailSession.getAttribute("AuthTime");
+		
+		String validDate = sessionValidTime.split("/")[0];
+		int validTime = Integer.parseInt(sessionValidTime.split("/")[1]);
+		
+		
+//		System.out.println("==========");
+//      세션값 다 볼 수 있음
+//		Enumeration<String> attributeNames = emailSession.getAttributeNames();
+//
+//		while (attributeNames.hasMoreElements()) {
+//		    String attributeName = attributeNames.nextElement();
+//		    Object attributeValue = emailSession.getAttribute(attributeName);
+//		    System.out.println("Attribute name: " + attributeName + ", Attribute value: " + attributeValue);
+//		}
 		
 		Calendar calendar = Calendar.getInstance();
-		String day = calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
-		String time = calendar.get(Calendar.HOUR_OF_DAY)+":"+(calendar.get(Calendar.MINUTE))+":"+calendar.get(Calendar.SECOND);
-		String now = day+"/"+time;
+		String currentday = calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
+		int currentTime = Integer.parseInt(calendar.get(Calendar.HOUR_OF_DAY)+""+(calendar.get(Calendar.MINUTE))+""+calendar.get(Calendar.SECOND));
+		int hour = calendar.get(Calendar.HOUR_OF_DAY);
+		int minute = calendar.get(Calendar.MINUTE);
+		int second = calendar.get(Calendar.SECOND);
+
+		String timeString = String.format("%02d%02d%02d", hour, minute, second);
 		
-		if(sessionValidTime == sessionValidTime && inputToken == sessionToken) {
-			 HttpSession session = request.getSession();
-	         session.removeAttribute("authToken");
-	         session.removeAttribute("validTime");
-	         session.setAttribute("emailVerified", true);
+		if(validDate.equals(currentday) && validTime >= currentTime && inputToken.equals(sessionToken)) {
+			emailSession.setAttribute("EmailCheck", true);
 		}
-		
-		
+		response.sendRedirect("/views/emailAuth.jsp");
 		
 	}
 

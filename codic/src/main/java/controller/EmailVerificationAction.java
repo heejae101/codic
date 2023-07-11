@@ -37,10 +37,7 @@ public class EmailVerificationAction extends HttpServlet {
 		int setTime = 3;
 		Calendar calendar = Calendar.getInstance();
 		String day = calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
-		String time = calendar.get(Calendar.HOUR_OF_DAY)+":"+(calendar.get(Calendar.MINUTE)+setTime)+":"+calendar.get(Calendar.SECOND);
-		HttpSession emailSession = request.getSession();
-		emailSession.setAttribute("AuthTime", day+"/"+time);
-		emailSession.setAttribute("AuthToken", authToken);
+		String time = calendar.get(Calendar.HOUR_OF_DAY)+""+(calendar.get(Calendar.MINUTE)+setTime)+""+calendar.get(Calendar.SECOND);
         
         String to = request.getParameter("email");
         String host = "smtp.gmail.com";
@@ -66,8 +63,13 @@ public class EmailVerificationAction extends HttpServlet {
             MimeMessage msg = new MimeMessage(session);
             msg.setFrom(new InternetAddress(user));
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            msg.setSubject("이메일 확인 코드");
-            msg.setText("이메일 확인 코드 : " + authToken);
+            msg.setSubject("[CODIC] 이메일 확인 코드");
+            msg.setText("[CODIC] 이메일 확인 코드 : " + authToken);
+            
+            HttpSession emailSession = request.getSession();
+            emailSession.setAttribute("EmailCheck", false);
+    		emailSession.setAttribute("AuthTime", day+"/"+time);
+    		emailSession.setAttribute("AuthToken", authToken);
 
             Transport.send(msg);
             response.setContentType("text/html;charset=UTF-8");
