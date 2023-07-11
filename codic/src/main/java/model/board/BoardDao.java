@@ -134,22 +134,24 @@ public class BoardDao {
 		return board;
 	}
 	
-	public Board getBoardById(String user_email) {
+	public Board getBoardById(String userEmail) {
 		Board board = null;
 
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
-			String sql = "SELECT * FROM board WHERE board_id=?";
+			String sql = "SELECT * FROM board WHERE user_email=?";
 			
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setString(2, user_email);
+				this.pstmt.setString(1, userEmail);
 				
 				this.rs = this.pstmt.executeQuery();
 				
+				
 				if(this.rs.next()) {
 					int board_id = this.rs.getInt(1);
+					String user_email = this.rs.getString(2);
 					String board_title = this.rs.getString(3);
 					String board_text = this.rs.getString(4);
 					int board_view_count = this.rs.getInt(5);
@@ -172,7 +174,7 @@ public class BoardDao {
 	// 게시판 목록 출력
 	public ArrayList<Board> getBoard10() {
 		ArrayList<Board> list = new ArrayList<Board>();
-		String sql = "SELECT * FROM board ORDER BY modified_timestamp DESC LIMIT 10";
+		String sql = "SELECT * FROM board ORDER BY current_timestamp DESC LIMIT 10";
 		
 		this.conn = DBManager.getConnection();
 

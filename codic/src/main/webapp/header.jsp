@@ -17,7 +17,7 @@
 	<header>
 		<a href="main"><h1>CODIC</h1></a>
 		<a href=""><p>카테고리</p></a>
-		<a href=""><p>질문게시판</p></a>
+		<a href="/BoardListRequest">질문게시판</a>
 		<a href=""><p>로그인</p></a>
 		<a href=""><p>로그아웃</p></a>
 		<div id="search-bar">

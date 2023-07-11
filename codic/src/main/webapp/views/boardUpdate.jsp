@@ -11,7 +11,7 @@
 			<form method="POST" action="../BoardUpdateFormAction">
 			
 			<input id="id" name="id" type="hidden" value="%{result.user_email}">
-			
+
 			<div>
 				<input id="title" name="title" type="text" value="${result.board_text }"  placeholder="제목을 입력해 주세요" autofocus>
 			</div>

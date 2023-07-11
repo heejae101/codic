@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Arrays;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,7 @@ import model.board.BoardDao;
 /**
  * Servlet implementation class BoardUpdateRequest
  */
-@WebServlet("/BoardUpdateRequest")
+//@WebServlet("/BoardUpdateRequest")
 public class BoardUpdateRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,24 +35,30 @@ public class BoardUpdateRequest extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		System.out.println("업데이트 리퀘스트 도착");
-		
-		String userEmail = request.getParameter("user_email");
-		
 		BoardDao boardDao = BoardDao.getInstance();
+		
+		String userEmail = (String) request.getSession().getAttribute("user_email");
+		System.out.println(userEmail);
+		
 		Board board = boardDao.getBoardById(userEmail);
+		System.out.println(board);
 		
-		String title = "";
-		String text = "";
+		String url = "/BoardContentView?board_id="+board.getBoard_id();
 		
-		title = board.getBoard_title();
-		text = board.getBoard_text();
-		
-		request.setAttribute("title", title);
-		request.setAttribute("text", text);
-		
-		request.setAttribute("result", board);
+		if(board != null) {
+			
+			String title = board.getBoard_title();
+			String text = board.getBoard_text();
+			String email = board.getUser_email();
+			
+			request.setAttribute("title", title);
+			request.setAttribute("text", text);
+			request.setAttribute("email", email);
+			
+			request.setAttribute("result", board);
+			url = "/boardUpdate";
+		}
 
-		String url = "/views/boardUpdate.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 		
 	}

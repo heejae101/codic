@@ -15,7 +15,7 @@ import model.user.UserRequestDto;
 /**
  * Servlet implementation class BoardUpdateFormAction
  */
-@WebServlet("/BoardUpdateFormAction")
+//@WebServlet("/BoardUpdateFormAction")
 public class BoardUpdateFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

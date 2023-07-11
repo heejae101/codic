@@ -1,23 +1,21 @@
-function checkValue(htmlForm){
-	const comment_id = htmlForm.cNum.value;
-	const board_title = htmlForm.bNum.value;
-	const board_text = htmlForm.uId.value;
-	const board_view_count = htmlForm.text.value;
+function checkValueComment(htmlForm){
+	const board_id = htmlForm.bNum.value;
+	const user_email = htmlForm.uId.value;
+	const board_answer = htmlForm.ctext.value;
 
-	console.log(comment_id);
-	console.log(board_title);
-	console.log(board_text);
-	console.log(board_view_count);
+	console.log(board_id);
+	console.log(user_email);
+	console.log(board_answer);
 
 	let check = true;
 
-	if (board_title === "") {
-		alert("제목을 입력하세요");
+	if (user_email === "") {
+		alert("아이디를 입력하세요");
 		check = false;
 
 	}
 
-	if (board_text === ""){
+	if (board_answer === ""){
 		alert("내용을 입력하세요");
 		check = false;
 

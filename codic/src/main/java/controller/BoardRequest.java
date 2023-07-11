@@ -20,7 +20,7 @@ import model.content.ContentDao;
 /**
  * Servlet implementation class BoardReadFormAction
  */
-@WebServlet("/BoardRequest")
+//@WebServlet("/BoardRequest")
 public class BoardRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -64,7 +64,7 @@ public class BoardRequest extends HttpServlet {
 
 			}
 		
-		String url ="/views/board.jsp";
+		String url ="/board";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
