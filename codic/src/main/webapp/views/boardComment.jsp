@@ -11,7 +11,6 @@
 </head>
 <body>
 <h1>게시글</h1>
-<p><c:out value="${board.contents}"/></p>
 <h1>댓글</h1>
 <div>
     <input type="text" id="writer" placeholder="작성자">
@@ -21,6 +20,5 @@
     <button id="commentBtn">댓글 작성</button>
 </div>
 <div id="comment"></div>
-<input type="hidden" id="boardId" value="${board.id}"/>
 </body>
 </html>

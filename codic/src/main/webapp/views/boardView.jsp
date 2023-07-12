@@ -10,9 +10,9 @@
 </head>
 <body>
 	<div>
-		<h3>제목 : ${result.board_title }</h3>
-		<h6>작성자 : ${result.user_email }</h6>
-		<h5>내용 : ${result.board_text }</h5>
+		<h3>제목 : ${result.board_title}</h3>
+		<h6>작성자 : ${result.user_email}</h6>
+		<h5>내용 : ${result.board_text}</h5>
 	</div>
 	<a href="/BoardUpdateRequest?user_email=${result.user_email}">글수정</a>
 

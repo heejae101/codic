@@ -15,21 +15,47 @@ $('#user_password').on('change', e => {
 	}
 });
 
-/* 비밀번호 부분 */
+
+$('#user_name').on('change', e => {
+	if($('#user_name').val() !== "") {
+		$('#error-name').hide();
+		$('#user_name').parent().css('border-color', 'lightgrey');
+		$('#user_name').parent().css('border-top', 'none');
+	}
+});
+
+$('#user_nickname').on('change', e => {
+	if($('#user_nickanme').val() !== "") {
+		$('#error-nickname').hide();
+		$('#user_nickname').parent().css('border-color', 'lightgrey');
+		$('#user_nickname').parent().css('border-top', 'none');
+	}
+});
+
+
+var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
 let pwd_space = /[ ]/; /* 공백 */
 
-
      $(function(){
+		 /*이메일 유효성*/
+		$('#user_email').keyup(function(){
+			 $('#chkEmail').html('');
+			 if(!regExp.test($('#user_email').val())){
+				 $('#chkEmail').html('올바른 이메일 형식이 아닙니다.<br>').css('color', 'red');  
+			 }
+		});
+		
+		 /* 비밀번호 유효성 검사 */
         $('#user_password').keyup(function(){ /* keyup: 사용자가 키보드를 누르고 떼는 순간 이벤트 발생 */
             $('#chkNotice1').html(''); /* .html() -> 선택한 요소 안의 내용을 호출하거나 바꾸어준다. */
-             $('#chkNotice2').html('');
+            $('#chkNotice2').html('');
+            
        /* 비밀번호 길이 검사 */
       /* 비밀번호의 길이가 4글자 미만이거나, 10글자 초과일 때 */
      /* 숫자와 특수문자 포함 */ 
      if($('#user_password').val().length < 4 || $('#user_password').val().length > 10||!pwdChk.test($('#user_password').val())){ 
 		 $('#chkNotice1').html('비밀번호는 영문, 숫자와 특수문자 조합 4-10자 이내로 입력해주세요.<br>').css('color', 'red'); 
-       
             
     }
     if(pwd_space.test($('#user_password').val())){
@@ -39,13 +65,13 @@ let pwd_space = /[ ]/; /* 공백 */
       
      });
         
-        /* 비밀번호, 비밀번호 확인 일치 검사 */
-$('#user_password_c').keyup(function(){
-    if($('#user_password').val() !== $('#user_paswword_c').val()){
+/* 비밀번호, 비밀번호 확인 일치 검사 */
+$('#user_password_ch').keyup(function(){
+    if($('#user_password').val() !== $('#user_password_ch').val()){
         /* 비밀번호와 비밀번호 확인란의 값이 일치하지 않을 때 */
         $('#chkNotice2').html('비밀번호가 일치하지 않습니다.<br><br>').css('color', 'red'); /* 비밀번호 양식 오류일시 color: red */
-         check=false;
-    }else if($('#user_password').val() === $('#user_paswword_c').val()){
+      
+    }else if($('#user_password').val() === $('#user_password_ch').val()){
     /* 모든 조건에 충족하고, 비밀번호와 비밀번호 확인란의 값이 일치할 때 */
         $('#chkNotice2').html('비밀번호가 일치합니다. 사용 가능합니다.<br>').css('color', 'navy'); /* 일치시 color: darkblue */
        console.log('#user_password');
@@ -53,85 +79,151 @@ $('#user_password_c').keyup(function(){
      });
 });
 
-/*동의 모두 선택/해제*/
+/*전체 동의 선택/해제*/
 const agreeChkAll=
 document.querySelector('input[name=agree_all]');
 agreeChkAll.addEventListener('change',(e)=>{
 let agreeChk=
-document.querySelectorAll('input[name=user_check]');
+document.querySelectorAll('input[id=user_check]');
 for(let i=0; i<agreeChk.length; i++){
 	agreeChk[i].checked=e.target.checked;
 }	
 
-	
 });
 
 function checkValue(htmlForm){
 	const email=htmlForm.user_email.value;
 	const password=htmlForm.user_password.value;
-	const password_c=htmlForm.user_password_c.value;
+	const password_ch=htmlForm.user_password_ch.value;
 	const nickname=htmlForm.user_nickname.value;
     const name=htmlForm.user_name.value;
-    const phone=htmlForm.user_phone_num.value;
-   
+    const agree = htmlForm.user_check.value;
 	
+	
+	
+    let check=true;
+   
 	console.log(email);
 	console.log(password);
+	console.log(password_ch);
 	
+    
 	
+	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 	let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
 	let pwd_space = /[ ]/; /* 공백 */
-	let check=true;
+
 	
 
 	if(email===""){
 		$('#error-email').show();
 		$('#user_email').parent().css('border-color', 'red');
-		check=false;
+	     check=false;
 		
-	}else if(password===""){
+	}
+	
+	if(!regExp.test(email)){
+	  alert('이메일 형식이 옳지 않아요');
+     	 check=false;
+	  
+	}
+	 if(password===""){	
 		$('#error-password').show();
-		check=false;
-	}else if(password.length< 4 || password.length > 10 || !pwdChk.test(password)||pwd_space.test(password)){ 
+	    check=false;
+		
+	}
+	if(password.length< 4 || password.length > 10 ||!pwdChk.test(password)|| pwd_space.test(password)){ 
+		alert("비밀번호를 다시 입력해주세요.");
 		 check=false;
-		 alert("비밀번호를 다시 입력해주세요.");
-		
-	}else if(password!==password_c){
-		check=false;
+	}
+	
+	if(password!==password_ch){
 		alert("비밀번호가 일치하지 않아요");
+			 check=false;
 		
-	}else if(nickname===""){
-		check=false;
-	}else if(name===""){
-		check=false;
-	}else if(phone.length !== 13 || phone.match(/\d{3}-\d{4}-\d{4}/) === null){
-		alert("전화번호가 올바르지 않아요");
-		document.getElementById('user_phone_num').focus();//포커스 이동시켜서 다시 입력하라고
-		check=false;
+	}
+	
+	if(name === ""){
+	  $('#error-name').show();
+        check=false;
+        
+	}
+	
+	if(nickname===""){
+		$('#error-nickname').show();
+		 check=false;
+	}
+	
+	 
+	
+  if (!agree.checkd) { //체크박스 미체크시
+    alert("약관 동의를 체크하세요.");
+    agree.focus();
+    check= false;
+  }
+	
+	if(check === true){
+	   htmlForm.submit();
+		
 	}
 	
 	
-	if(check===true){
-		htmlForm.submit();
-	}
 	
-
-	}
-	
-
-function chk(){
- var req = document.form.req.checked;
- var num = 0;
- if(req == true){
-  num = 1;
- }
- if(num==1){
-  document.form.submit();
- }else{
-  alert("개인정보 약관에 동의하셔야 합니다.");
- }
 }
 
+
+
+/*닉네임 중복검사*/	
+function duplCheck(){
+var user_nickname=$('#user_nickname').val();
+$.ajax({
+type:'POST',
+url:'NickNameDupl',
+data:{user_nickname:user_nickname},
+success:function(responseData){
+	alert('data:'+ $.trim(responseData));
+	if($.trim(responseData)=='YES'){
+		$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
+		
+	}else{
+		$('#chkMsg').html('사용할 수 없는 닉네임입니다.').css('color', 'red');
+	}
+	
+	
+}
+
+
+	
+});	
+
+
+}	
+
+/*이메일 중복검사*/	
+function chkEmail(){
+var user_nickname=$('#user_nickname').val();
+$.ajax({
+type:'POST',
+url:'EmailDupl',
+data:{user_nickname:user_nickname},
+success:function(responseData){
+	alert('data:'+ $.trim(responseData));
+	if($.trim(responseData)=='YES'){
+		$('#chkMsgEmail').html('사용 가능한 이메일입니다.').css('color', 'navy');
+		
+	}else{
+		$('#chkMsgEmail').html('사용할 수 없는 이메일입니다.').css('color', 'red');
+	}
+	
+	
+}
+
+
+	
+});	
+
+
+}
 
 
 

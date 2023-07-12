@@ -25,7 +25,7 @@ public class BoardCommentFormAction extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String board_id = request.getParameter("board_id");
-    	System.out.println("ajax 하는중"+ board_id);
+
     	BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
     	ArrayList<BoardComment> list = boardcommentDao.getBoardCommentAll();
     	
@@ -35,9 +35,15 @@ public class BoardCommentFormAction extends HttpServlet {
 	}
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String board_id = request.getParameter("boardId");
-		String writer = request.getParameter("writer");
-		String contents = request.getParameter("contents");
+		int board_id = Integer.parseInt(request.getParameter("board_id"));
+		String user_email = request.getParameter("writer");
+		String board_answer = request.getParameter("contents");
+		
+		System.out.println("board_id"+board_id+"user_email"+user_email+"board_answer"+board_answer);
+		
+		BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
+		boardcommentDao.createBoardComment(board_id,user_email,board_answer);
+		
 	}
 
 }

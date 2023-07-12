@@ -36,10 +36,9 @@ public class BoardContentView extends HttpServlet {
 		
 		Board board = boardDao.getBoardByNo(boardId);
 		
-		String url ="/views/boardView.jsp";
+		String url ="/boardView";
 		request.setAttribute("result", board);
 		request.getRequestDispatcher(url).forward(request, response);
-		
 		response.sendRedirect(url);
 		
 	}

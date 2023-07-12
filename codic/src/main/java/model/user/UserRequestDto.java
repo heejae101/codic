@@ -8,7 +8,6 @@ public class UserRequestDto {//복제품
 	private String user_email; //R 아이디와 이메일 동일시
 	private String user_password; //R
 	private String user_name;    //R
-	private String user_phone_num;  //R
 	private String user_nickname;//R
 	
 	private int user_check;  //만 14세 미만 동의
@@ -26,23 +25,21 @@ public class UserRequestDto {//복제품
 	
 
 	public UserRequestDto(String user_email, String user_password,  String user_name,
-			String user_phone_num,String user_nickname) {
+		String user_nickname) {
 		
 		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_name = user_name;
-		this.user_phone_num = user_phone_num;
 		this.user_nickname = user_nickname;
 	}
 
 
-	public UserRequestDto(String user_email, String user_password, String user_name, String user_phone_num,
+	public UserRequestDto(String user_email, String user_password, String user_name,
 			String user_nickname, int user_check, int user_status) {
 		super();
 		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_name = user_name;
-		this.user_phone_num = user_phone_num;
 		this.user_nickname = user_nickname;
 		this.user_check = user_check;
 		this.user_status = user_status;
@@ -50,13 +47,12 @@ public class UserRequestDto {//복제품
 
 
 
-    public UserRequestDto(String user_email, String user_password, String user_name, String user_phone_num,
+    public UserRequestDto(String user_email, String user_password, String user_name,
 			String user_nickname, int user_check, Timestamp user_joinDate, int user_status) {
 		super();
 		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_name = user_name;
-		this.user_phone_num = user_phone_num;
 		this.user_nickname = user_nickname;
 		this.user_check = user_check;
 		this.user_joinDate = user_joinDate;
@@ -98,18 +94,6 @@ public class UserRequestDto {//복제품
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
-	}
-
-
-
-	public String getUser_phone_num() {
-		return user_phone_num;
-	}
-
-
-
-	public void setUser_phone_num(String user_phone_num) {
-		this.user_phone_num = user_phone_num;
 	}
 
 

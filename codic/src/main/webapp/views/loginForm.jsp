@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- 카카오 -->
 <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
-
+<!-- 스타일 연결 -->
+<link rel="stylesheet" href="../resources/style/login.css">
 <title>로그인</title>
 </head>
 <body>
@@ -14,7 +16,7 @@
 <section id="login-section">
 <h2>로그인</h2>
 <form method="POST" action="../Login">
-<div class="login_2">
+<div class="login_1">
 <div>
 	<input type="text" id="user_email" name="user_email" placeholder="your@email.com" autofocus>
 </div>
@@ -36,7 +38,7 @@
 
  <div class="find">
          <h2>비밀번호를 잊어버리셨나요?</h2>
-         <button class="btn_find"><a href="/views/passwordFind.jsp">비밀번호 찾기</a></button>
+         <button class="btn_find"><a href="find">비밀번호 찾기</a></button>
  </div>
  
  

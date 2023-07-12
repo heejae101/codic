@@ -4,16 +4,21 @@ function getComments() {
     $.ajax({
         url: `/BoardCommentFormAction`,
         method: 'GET',
+        data: {
+            board_id:'2'
+        },
         success: function (data) {
             // success
             $('#comment').empty(); // 기존에 출력된 댓글 제거
             data.forEach(comment => {
-                const modified_timestamp = new Date(comment.modified_timestamp);
-                const writer = comment.board_id;
+                const modified_timestamp = comment.modified_timestamp;
+                const writer = comment.user_email;
                 const contents = comment.board_answer;
                 const html = `
                     <div class="comment">
-                        <p>${writer}, ${modified_timestamp}, ${contents}</p>
+                        <span>${writer} </span>
+                        <span>${contents}</span>
+                        <span>${modified_timestamp}</span>
                     </div>
                 `;
                 $('#comment').append(html); // 댓글 생성
@@ -35,6 +40,7 @@ function createComment() {
         url: `/BoardCommentFormAction`,
         method: 'POST',
         data: {
+			board_id:'2',
             writer: writer,
             contents: contents
         },

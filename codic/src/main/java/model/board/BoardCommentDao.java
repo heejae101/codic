@@ -21,35 +21,23 @@ public class BoardCommentDao {
 		return instance;
 	}
 	
-	public boolean createBoardComment(BoardCommentRequestDto boardCommetnDto) {
-		
-		boolean check = true;
-		
-		int board_id = boardCommetnDto.getBoard_id();
-		String user_email = boardCommetnDto.getUser_email();
-		String board_answer = boardCommetnDto.getBoard_answer();
-		
-		// 일단 비회원 댓글 작성 -> 회원 작성으로 바꿀지 ㅍ
-		
+	public void createBoardComment(int board_id, String user_email, String board_answer) {
 		this.conn = DBManager.getConnection();
-		
-		String sql = "INSERT INTO board_comment(board_id,user_email,board_answer VALUES(?, ?, ?)";
+		String sql = "INSERT INTO board_comment(board_id, user_email, board_answer) VALUES(?, ?, ?)";
 		
 		try {
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setInt(1, board_id);
 			this.pstmt.setString(2, user_email);
 			this.pstmt.setString(3, board_answer);
-			
+			this.pstmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(this.conn, this.pstmt);
 		}
-		return true;
 	}
 	
-	// R all
 	public ArrayList<BoardComment> getBoardCommentAll(){
 		ArrayList<BoardComment> list = new ArrayList<BoardComment>();
 		

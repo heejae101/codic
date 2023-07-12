@@ -41,7 +41,6 @@ public class UpdateUserRequest extends HttpServlet {
 		
 		
 		String name="";
-		String phone="";
 		String nickname="";
 		int check=0;
 	    int status=0;
@@ -51,14 +50,12 @@ public class UpdateUserRequest extends HttpServlet {
 	    if(user!=null) {
 	     
 	       name=user.getUser_name();
-	       phone=user.getUser_phone_num();
 	       nickname=user.getUser_nickname();
 	       check=user.getUser_check();
 	       status=user.getUser_status();
 	       
 	      
 	       request.setAttribute("name", name);
-	       request.setAttribute("phone", phone);
 	       request.setAttribute("nickname", nickname);
 	       request.setAttribute("check", check);
 	       request.setAttribute("status", status);

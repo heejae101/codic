@@ -36,28 +36,26 @@ public class UserDao {
 		String email = userDto.getUser_email();
 		String password = userDto.getUser_password();
 		String name = userDto.getUser_name();
-		String phone_num = userDto.getUser_phone_num();
 		String nickname = userDto.getUser_nickname();
 		int check = userDto.getUser_check();
 		int status = userDto.getUser_status();
 
 		boolean confirm = true;
 
-		if (password != null && name != null && phone_num != null && nickname != null && check != 0 && status != 0) {
+		if (password != null && name != null  && nickname != null && check != 0 && status != 0) {
 			this.conn = DBManager.getConnection();
 			if (this.conn != null) {
 				if (!email.equals("")) {// 이메일 값이 있을때
-					String sql = "INSERT INTO user_info(user_email, user_password, user_name, user_phone_num, user_nickname,user_check,user_status)VALUES(?,?,?,?,?,?,?)";
+					String sql = "INSERT INTO user_info(user_email, user_password, user_name, user_nickname,user_check,user_status)VALUES(?,?,?,?,?,?)";
 
 					try {
 						this.pstmt = this.conn.prepareStatement(sql);
 						this.pstmt.setString(1, email);
 						this.pstmt.setString(2, password);
 						this.pstmt.setString(3, name);
-						this.pstmt.setString(4, phone_num);
-						this.pstmt.setString(5, nickname);
-						this.pstmt.setInt(6, check);
-						this.pstmt.setInt(7, status);
+						this.pstmt.setString(4, nickname);
+						this.pstmt.setInt(5, check);
+						this.pstmt.setInt(6, status);
 
 						this.pstmt.execute();
 
@@ -93,6 +91,8 @@ public class UserDao {
 		return confirm;
 
 	}
+	
+
 	// 이메일값으로 닉네임값 불러오기
 	public String getNicknameByEmail(String email) {
 		String nickname = null;
@@ -123,6 +123,39 @@ public class UserDao {
 		return nickname;
 
 	}
+	
+	
+	//이름 불러오기
+	public String getNameByEmail(String email) {
+		String name = null;
+
+		this.conn = DBManager.getConnection();
+
+		if (this.conn != null) {
+			String sql = "SELECT user_email,user_name FROM user_info WHERE user_email=?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, email);
+
+				this.rs = this.pstmt.executeQuery();
+				if (this.rs.next()) {
+					String na = this.rs.getString(2);
+					name = na;
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+
+		}
+		return name;
+
+	}
+
 
 	public User getUserByEmail(String email) {
 		// user 객체
@@ -141,13 +174,12 @@ public class UserDao {
 				if (this.rs.next()) {
 					String password = this.rs.getString(2);
 					String name = this.rs.getString(3);
-					String phone_num = this.rs.getString(4);
-					String nickname = this.rs.getString(5);
-					int check = Integer.parseInt(this.rs.getString(6));
-					Timestamp joinDate = java.sql.Timestamp.valueOf(this.rs.getString(7));
-					int status = Integer.parseInt(this.rs.getString(8));
+					String nickname = this.rs.getString(4);
+					int check = Integer.parseInt(this.rs.getString(5));
+					Timestamp joinDate = java.sql.Timestamp.valueOf(this.rs.getString(6));
+					int status = Integer.parseInt(this.rs.getString(7));
 
-					user = new User(email, password, name, phone_num,nickname, check, joinDate, status);
+					user = new User(email, password, name,nickname, check, joinDate, status);
 
 				}
 			} catch (Exception e) {
@@ -159,6 +191,65 @@ public class UserDao {
 		}
 
 		return user;
+	}
+	
+	//이메일 중복검사
+		public boolean duplEmail(String email) {
+			this.conn = DBManager.getConnection();
+			String sql="SELECT user_email FROM user_info";
+		 
+		    
+		    if(this.conn!=null) {
+		    try {
+				this.pstmt=this.conn.prepareStatement(sql);
+	            this.rs = this.pstmt.executeQuery();
+			
+				while(rs.next())  {
+					if(rs.getString("user_email").equals(email)) {
+						return true;
+					}
+				}
+		    
+		  
+		    } catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		
+		
+		}
+		    return false;
+		}
+	
+	//닉네임 중복검사
+	public boolean duplNickname(String nickname) {
+		this.conn = DBManager.getConnection();
+		String sql="SELECT user_nickname FROM user_info";
+	 
+	    
+	    if(this.conn!=null) {
+	    try {
+			this.pstmt=this.conn.prepareStatement(sql);
+            this.rs = this.pstmt.executeQuery();
+		
+			while(rs.next())  {
+				if(rs.getString("user_nickname").equals(nickname)) {
+					return true;
+				}
+			}
+	    
+	  
+	    } catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(this.conn, this.pstmt, this.rs);
+		}
+	
+	
+	
+	}
+	    return false;
 	}
 
 	public ArrayList<User> getUserAll() {
@@ -183,13 +274,12 @@ public class UserDao {
 					String email = this.rs.getNString(1);
 					String password = this.rs.getString(2);
 					String name = this.rs.getString(3);
-					String phone_num = this.rs.getString(4);
-					String nickname = this.rs.getString(5);
+					String nickname = this.rs.getString(4);
 					
-					int check = Integer.parseInt(this.rs.getString(6));
-					int status = Integer.parseInt(this.rs.getString(7));
+					int check = Integer.parseInt(this.rs.getString(5));
+					int status = Integer.parseInt(this.rs.getString(6));
 
-					User user = new User(email, password, name, phone_num,nickname,check, status);
+					User user = new User(email, password, name,nickname,check, status);
 					list.add(user);
 				}
 

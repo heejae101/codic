@@ -32,6 +32,7 @@
 					<li><a href="/ShowContent?category=javascript">JAVASCRIPT</a></li>
 					<li><a href="/ShowContent?category=java">JAVA</a></li>
 					<li><a href="/ShowContent?category=database">DATABASE</a></li>
+					<a href="../BoardListRequest">질문게시판</a>
 				</ul>
 		</div>
 		<ul>
@@ -48,6 +49,6 @@
 			</c:choose>
 		</ul>
 	</div>
-	<script src="../resources/script/search.js"></script>
+<script src="../resources/script/main.js"></script>
 </body>
 </html>

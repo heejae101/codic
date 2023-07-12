@@ -94,8 +94,27 @@
 		<servlet-name>BoardContentView</servlet-name>
 		<url-pattern>/BoardContentView</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NickNameDupl</servlet-name>
+		<servlet-class>controller.NickNameDupl</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>NickNameDupl</servlet-name>
+		<url-pattern>/NickNameDupl</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EmailDupl</servlet-name>
+		<servlet-class>controller.EmailDupl</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>EmailDupl</servlet-name>
+		<url-pattern>/EmailDupl</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>BoardFormAction</servlet-name>
 		<servlet-class>controller.BoardFormAction</servlet-class>
@@ -238,6 +257,26 @@
 		<servlet-name>updateUserForm</servlet-name>
 		<url-pattern>/update</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>passwordFind</servlet-name>
+		<jsp-file>/views/passwordFind.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>passwordFind</servlet-name>
+		<url-pattern>/find</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>duplNickname</servlet-name>
+		<jsp-file>/views/duplNickname.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>duplNickname</servlet-name>
+		<url-pattern>/duplN</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>write</servlet-name>
@@ -289,10 +328,6 @@
 		<servlet-name>boardView</servlet-name>
 		<url-pattern>/boardView</url-pattern>
 	</servlet-mapping>
-
-
-
-
 
 </web-app>
 

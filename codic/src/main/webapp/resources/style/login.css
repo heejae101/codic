@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+
+ul,li{
+list-style: none;	
+}
+
+.error{
+    display: none;
+	color:red;
+	font-size: 0.7em;
+}
