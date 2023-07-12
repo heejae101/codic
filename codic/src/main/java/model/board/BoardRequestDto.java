@@ -12,6 +12,29 @@ public class BoardRequestDto {
 	private Timestamp current_timestamp;
 	private Timestamp modified_timestamp;
 	
+	
+	
+	public BoardRequestDto(String board_title, String board_text) {
+		super();
+		this.board_title = board_title;
+		this.board_text = board_text;
+	}
+
+	public BoardRequestDto(String user_email, String board_title, String board_text) {
+		super();
+		this.user_email = user_email;
+		this.board_title = board_title;
+		this.board_text = board_text;
+	}
+
+	public BoardRequestDto(String user_email, String board_title, String board_text, int board_view_count) {
+		super();
+		this.user_email = user_email;
+		this.board_title = board_title;
+		this.board_text = board_text;
+		this.board_view_count = board_view_count;
+	}
+
 	public BoardRequestDto(int board_id, String user_email, String board_title, String board_text, int board_view_count,
 			Timestamp current_timestamp, Timestamp modified_timestamp) {
 		super();

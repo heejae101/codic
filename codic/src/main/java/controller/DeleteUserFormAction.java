@@ -9,32 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.user.UserDao;
 
-/**
- * Servlet implementation class DeleteUserFormAction
- */
-
 public class DeleteUserFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DeleteUserFormAction() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email= request.getParameter("user_email");
 		String password=request.getParameter("user_password");
@@ -46,14 +27,13 @@ public class DeleteUserFormAction extends HttpServlet {
 		
 		if(result) {
 			request.getSession().removeAttribute("log");
+
 			url="main";//main으로 맵핑하고 수정
+
+			
 		}
 		
 		response.sendRedirect(url);
-		
-		
-		
-		
 	}
 
 }

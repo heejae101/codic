@@ -81,7 +81,6 @@ $(function() {
 	});
 });
 
-
 /*전체 동의 선택/해제*/
 const agreeChkAll =
 	document.querySelector('input[name=agree_all]');
@@ -91,7 +90,6 @@ agreeChkAll.addEventListener('change', (e) => {
 	for (let i = 0; i < agreeChk.length; i++) {
 		agreeChk[i].checked = e.target.checked;
 	}
-
 });
 
 
@@ -104,7 +102,6 @@ function checkValue(htmlForm) {
 	const name = htmlForm.user_name.value;
 
 	let check = true;
-
 	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 	let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
 	let pwd_space = /[ ]/; /* 공백 */

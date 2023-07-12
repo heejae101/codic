@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@media all and (min-width:320px){
+    body {
+        position: relative;
+        min-height: 100vh;
+    }
+    footer{
+        border-top: 0.7px solid black;
+        border-bottom: 0.7px solid black;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    a {
+        color: black;
+    }
+    .logo{
+        margin-left: 10px;
+        display: flex;
+    }
+    .logo svg{
+        width: 28px;
+        height: 28px;
+        margin-left: 5px;
+        margin-top: 3px;
+    }
+    .info{
+        display: grid;
+        text-align: center;
+    }
+    .info a, p{
+        padding: 5px;
+    }
+    .share{
+        display: flex;
+        gap: 10px;
+        margin-right: 10px;
+    }
+
+}
+
+
+@media all and (min-width:768px){
+    .logo{
+        margin-left: 30px;
+    }
+    .info{
+    grid-template-columns: 150px 150px 200px;
+    }
+    .share{
+        margin-right: 30px;
+    }
+}
+
+@media all and (min-width:1024px){
+    .logo{
+        margin-left: 60px;
+    }
+    .share{
+        margin-right: 60px;
+    }
+}

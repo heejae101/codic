@@ -12,9 +12,5 @@ function checkValue(htmlForm){
 	}
 }
 
-function dummy(){
-	
-}
-
 
 

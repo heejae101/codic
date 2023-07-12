@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import model.user.UserDao;
 import util.DBManager;
 
 public class BoardCommentDao {
@@ -21,31 +22,17 @@ public class BoardCommentDao {
 		return instance;
 	}
 	
-	// C
-	public void createBoardComment(BoardCommentRequestDto boardCommetnDto) {
-		
-		int comment_id = boardCommetnDto.getComment_id();
-		int board_id = boardCommetnDto.getBoard_id();
-		String user_email = boardCommetnDto.getUser_email();
-		String board_answer = boardCommetnDto.getBoard_answer();
-		String current_timestamp = boardCommetnDto.getCurrent_timestamp();
-		String modified_timestamp = boardCommetnDto.getModified_timestamp();
-		
-		// 일단 비회원 댓글 작성 -> 회원 작성으로 바꿀지 ㅍ
-		
+	public void createBoardComment(int board_id, String user_email, String board_answer) {
 		this.conn = DBManager.getConnection();
 		
-		String sql = "INSERT INTO board_comment VALUES(?, ?, ?, ?, ?, ?)";
-		
 		try {
-			this.pstmt = this.conn.prepareStatement(sql);
-			this.pstmt.setInt(1, comment_id);
-			this.pstmt.setInt(2, board_id);
-			this.pstmt.setString(3, user_email);
-			this.pstmt.setString(4, board_answer);
-			this.pstmt.setString(5, current_timestamp);
-			this.pstmt.setString(6, modified_timestamp);
+			String sql = "INSERT INTO board_comment(board_id, user_email, board_answer) VALUES(?, ?, ?)";
 			
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setInt(1, board_id);
+			this.pstmt.setString(2, user_email);
+			this.pstmt.setString(3, board_answer);
+			this.pstmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -53,7 +40,6 @@ public class BoardCommentDao {
 		}
 	}
 	
-	// R all
 	public ArrayList<BoardComment> getBoardCommentAll(){
 		ArrayList<BoardComment> list = new ArrayList<BoardComment>();
 		
@@ -67,7 +53,6 @@ public class BoardCommentDao {
 				this.rs =this.pstmt.executeQuery();
 				
 				while(this.rs.next()) {
-					
 					int comment_id = this.rs.getInt(1);
 					int board_id = this.rs.getInt(2);
 					String user_email = this.rs.getString(3);
@@ -75,7 +60,10 @@ public class BoardCommentDao {
 					String current_timestamp = this.rs.getString(5);
 					String modified_timestamp = this.rs.getString(6);
 					
-					BoardComment boardComment = new BoardComment(comment_id, board_id, user_email, board_answer, current_timestamp, modified_timestamp);
+					UserDao user = UserDao.getInstance();
+					String user_nickname = user.getNicknameByEmail(user_email);
+					
+					BoardComment boardComment = new BoardComment(comment_id, board_id, user_nickname, board_answer, current_timestamp, modified_timestamp);
 					list.add(boardComment);
 				}
 			} catch (SQLException e) {
@@ -86,5 +74,6 @@ public class BoardCommentDao {
 		}
 		return list;
 	}
+
 	
 }

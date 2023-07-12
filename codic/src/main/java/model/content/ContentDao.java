@@ -3,6 +3,8 @@ package model.content;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import util.DBManager;
 
@@ -10,6 +12,7 @@ public class ContentDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+	private SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
 	
 	private ContentDao() {}
 	private static ContentDao instance = new ContentDao();
@@ -17,40 +20,30 @@ public class ContentDao {
 		return instance;
 	}
 	
-//	public boolean createDummy(ContentRequestDto contentDto) {
-//		String text = contentDto.getDummy();
-//		
-//		Content result = getContentById(text);
-//		if(result != null) {
-//			return false;
-//		}
-//		
-//		if(text != null) {
-//			this.conn = DBManager.getConnection();
-//			if(this.conn != null) {
-//				String sql = "INSERT INTO `content`(category_no,content_title, content_title, content_title) values()"
-//			}
-//		}
-//	}
-	
-	public Content getDataBytext(String text) {
+	public ArrayList<Content> getDataByCategory(String category){
+		ArrayList<Content> list = new ArrayList<Content>();
 		Content content = null;
 		this.conn = DBManager.getConnection();
-		if(this.conn != null ) {
-			String sql = "SELECT * FROM content WHERE content_title LIKE ?";
+		if(this.conn != null) {
+			String sql = "SELECT cate.category_name, con.content_id, con.content_title, con.content_views, img.file_path, img.file_name, img.file_extends \r\n"
+					+ "FROM content as con\r\n"
+					+ "LEFT JOIN content_img AS img ON con.category_no = img.category_no\r\n"
+					+ "LEFT JOIN category AS cate ON cate.category_no = con.category_no\r\n"
+					+ "WHERE cate.category_name = ?";
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setString(1, '%'+text+'%');
+				this.pstmt.setString(1, category);
 				this.rs = this.pstmt.executeQuery();
 				
-				if(this.rs.next()) {
-					int content_id = Integer.parseInt(this.rs.getString(1));
-					int category_no = Integer.parseInt(this.rs.getString(2));
-					String content_text = this.rs.getString(4);
-					String content_views = this.rs.getString(5);
-					int content_creation = Integer.parseInt(this.rs.getString(6));
+				while(this.rs.next()) {
+					String category_name = this.rs.getString(1);
+					int content_id = this.rs.getInt(2);
+					String content_title = this.rs.getString(3);
+					int content_views = Integer.parseInt(this.rs.getString(4));
+					String file_path = this.rs.getString(5)+this.rs.getString(6)+"."+this.rs.getString(7);
 					
-					content = new Content(content_id, category_no, text, content_text, content_views, content_creation);
+					content = new Content(content_id, category_name, content_title, content_views, file_path);
+					list.add(content);
 				}
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -58,7 +51,64 @@ public class ContentDao {
 				DBManager.close(conn,pstmt);
 			}
 		}
-		return content;
+		return list;
 	}
+	
+	public ArrayList<Content> getDataBytext(String text) {
+		ArrayList<Content> list = new ArrayList<Content>();
+		Content content = null;
+		this.conn = DBManager.getConnection();
+		
+		if(this.conn != null) {
+			String sql = "SELECT cate.category_name, con.content_id, con.content_title, con.content_views, img.file_path, img.file_name, img.file_extends \r\n"
+					+ "FROM content as con\r\n"
+					+ "LEFT JOIN content_img AS img ON con.category_no = img.category_no\r\n"
+					+ "LEFT JOIN category AS cate ON cate.category_no = con.category_no\r\n"
+					+ "WHERE con.content_title LIKE ?";
+	        
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, '%'+text+'%');
+				this.rs = this.pstmt.executeQuery();
+				
+				while(this.rs.next()) {
+					String category_name = this.rs.getString(1);
+					int content_id = this.rs.getInt(2);
+					String content_title = this.rs.getString(3);
+					int content_views = Integer.parseInt(this.rs.getString(4));
+					String file_path = this.rs.getString(5)+this.rs.getString(6)+"."+this.rs.getString(7);
+		
+					content = new Content(content_id, category_name, content_title, content_views, file_path);
+					list.add(content);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn,pstmt);
+			}
+		}
+		return list;
+	}
+	
+	
+	public void setViewsById(int id) {
+		this.conn = DBManager.getConnection();
+		
+		if(this.conn != null) {
+			String sql = "UPDATE content SET content_views = content_views + 1 WHERE content_id = ?";
+			try {
+				System.out.println(id);
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setInt(1, id);
+				this.pstmt.executeUpdate();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+	}
+	
 	
 }

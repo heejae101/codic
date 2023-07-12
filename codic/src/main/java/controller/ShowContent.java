@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,33 +11,35 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.content.Content;
 import model.content.ContentDao;
-import model.content.ContentRequestDto;
 
-/**
- * Servlet implementation class AddContent
- */
-@WebServlet("/DummyContent")
-public class AddContent extends HttpServlet {
+public class ShowContent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public AddContent() {
+    public ShowContent() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
 		String text = request.getParameter("text");
+		String category = request.getParameter("category");
 		
-		System.out.println(text);
-		
-		ContentRequestDto content = new ContentRequestDto(text);
 		ContentDao contentDao = ContentDao.getInstance();
-		Content result = contentDao.getDataBytext(text);
 		
-		String url ="content.jsp";
-		request.setAttribute("result", result); // result 값을 request에 저장
+		if(text != null) {
+			ArrayList<Content> list = contentDao.getDataBytext(text);
+			request.setAttribute("result", list); // result 값을 request에 저장
+		}
+		else if(category != null) {
+			ArrayList<Content> list = contentDao.getDataByCategory(category);
+			request.setAttribute("result", list);
+		}
+		else {
+			request.setAttribute("result", null);
+		}
+		
+		String url ="/content";
 		request.getRequestDispatcher(url).forward(request, response); // content.jsp로 forward
 	}
 

@@ -9,6 +9,13 @@ public class BoardCommentRequestDto {
 	private String current_timestamp;
 	private String modified_timestamp;
 	
+	public BoardCommentRequestDto(int board_id, String user_email, String board_answer) {
+		super();
+		this.board_id = board_id;
+		this.user_email = user_email;
+		this.board_answer = board_answer;
+	}
+	
 	public BoardCommentRequestDto(int comment_id, int board_id, String user_email, String board_answer,
 			String current_timestamp, String modified_timestamp) {
 		super();

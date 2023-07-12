@@ -100,7 +100,7 @@ public class UserDao {
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
-			String sql = "SELECT user_email,user_nickname FROM user_info WHERE user_email=?";
+			String sql = "SELECT user_nickname FROM user_info WHERE user_email= ?";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
@@ -108,9 +108,8 @@ public class UserDao {
 
 				this.rs = this.pstmt.executeQuery();
 				if (this.rs.next()) {
-					String nick = this.rs.getString(2);
+					String nick = this.rs.getString(1);
 					nickname = nick;
-
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -124,6 +123,28 @@ public class UserDao {
 
 	}
 	
+	//TODO 닉네임으로 email 불러오기
+	public String getEmailByNickName(String nickName) {
+		this.conn = DBManager.getConnection();
+		String user_email = null;
+		if (this.conn != null) {
+			String sql = "SELECT user_email FROM user_info WHERE user_nickname = ?";
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, nickName);
+				this.rs = this.pstmt.executeQuery();
+				if (this.rs.next()) {
+					user_email = this.rs.getString(1);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return user_email;
+	}
 	
 	//이름 불러오기
 	public String getNameByEmail(String email) {

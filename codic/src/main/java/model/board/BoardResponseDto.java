@@ -10,9 +10,15 @@ public class BoardResponseDto {
 	private String current_timestamp;
 	private String modified_timestamp;
 	
+	public BoardResponseDto(String user_email, String board_title, String board_text, int board_view_count) {
+		this.user_email = user_email;
+		this.board_title = board_title;
+		this.board_text = board_text;
+		this.board_view_count = board_view_count;
+	}
+
 	public BoardResponseDto(int board_id, String user_email, String board_title, String board_text,
 			int board_view_count, String current_timestamp, String modified_timestamp) {
-		super();
 		this.board_id = board_id;
 		this.user_email = user_email;
 		this.board_title = board_title;

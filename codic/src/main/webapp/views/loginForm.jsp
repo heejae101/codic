@@ -12,47 +12,44 @@
 <title>로그인</title>
 </head>
 <body>
-
-<section id="login-section">
-<h2>로그인</h2>
-<form method="POST" action="Login">
-<div class="login_1">
-<div>
-	<input type="text" id="user_email" name="user_email" placeholder="your@email.com" autofocus>
-</div>
-<div>
-	<input type="password" id="user_password" name="user_password" placeholder="비밀번호">
-</div>
-
-</div>
-
-
-<ul>
-<li class="error" id="error-id">유효한 이메일을 입력해주세요.</li>
-<li class="error" id="error-password">비밀번호는 필수 정보입니다.<li> 
-</ul>
-
-<input type="button" id="sub-btn" value="로그인" onclick="checkValue(form)">
-
-</form>
-
- <div class="find">
-         <h2>비밀번호를 잊어버리셨나요?</h2>
-         <button class="btn_find"><a href="find">비밀번호 찾기</a></button>
- </div>
- 
- 
-    <!-- 간편 로그인 -->
-    <div class="login_2">
-   <div class="naver"><a href="#">
-      네이버 로그인</a></div>
-       <div class="kakao"> <a href="javascript:kakaoLogin()">카카오 로그인</a></div>
+ <section id="login-section">
+        <div class="login">
+        <h2>로그인</h2>
+        <form method="POST" action="../Login">
+        <div class="login_1">
+        <div class="login_box">
+            <input type="email" id="user_email" name="user_email" placeholder="your@email.com" autofocus>
+            <input type="password" id="user_password" name="user_password" placeholder="비밀번호">
+       
+        
+        <ul>
+        <li class="error" id="error-id">유효한 이메일을 입력해주세요.</li>
+        <li class="error" id="error-password">비밀번호는 필수 정보입니다.<li> 
+        </ul>
        </div>
-              
-</section>
+       
+        <input type="button" id="sub-btn" value="로그인" onclick="checkValue(form)">        
+        </form>
+    </div>
+        
+                <ul class="find">
+                 <li><p>비밀번호를 잊어버리셨나요?</p></li>
+                 <li class="btn_find"><a href="/find">비밀번호 찾기</a></li>
+                </ul>
+                 
+         
+            <!-- 간편 로그인 -->
+            <div class="login_2">
+           <div class="naver"><a href="#">
+              네이버 로그인</a></div>
+               <div class="kakao"> <a href="javascript:kakaoLogin()">카카오 로그인</a></div>
+               </div>
+        </div>             
+        </section>
+        
+        
+        <script src="../resources/script/validation_login.js"></script>
 
-
-<script src="../resources/script/validation_login.js"></script>
 
 </body>
 </html>
