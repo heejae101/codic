@@ -182,6 +182,16 @@
 		<servlet-name>duplNickname</servlet-name>
 		<url-pattern>/duplN</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<jsp-file>/views/main.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>/main</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>Write</servlet-name>

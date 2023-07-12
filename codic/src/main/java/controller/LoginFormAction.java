@@ -54,7 +54,7 @@ public class LoginFormAction extends HttpServlet {
 		String url="login";
 		
 		if(user!=null && user.getUser_password().equals(password)&&nickname!=null &&name!=null) {
-			url="../views/main.jsp";//임시로
+			url="main";//임시로
 			
 			//로그인한 회원의 아이디를->session에 속성값으로 저장
 			HttpSession session=request.getSession();
