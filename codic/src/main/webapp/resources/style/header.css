@@ -1,0 +1,112 @@
+@charset "UTF-8";
+@media all and (min-width:400px){
+body{
+	border-bottom: 0.7px solid black;
+}
+.hambuger{
+	padding-top: 14px;
+}
+.hambuger{
+	display: flex;
+	margin-left: 40px;
+	margin-top: 3px;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+}
+a {
+	color: black;
+}
+
+.logo, .user{
+	padding: 20px;
+	display: flex;
+}
+.user{
+}
+.top-left{
+	display: flex;
+	gap: 20px;
+	
+	width: 20%;
+}
+.top-right{
+	margin-right: 20px;
+	display: flex;
+}
+.logo svg{
+	width: 28px;
+	height: 28px;
+	margin-top: 3px;
+	margin-left: 8px;
+}
+
+.logo h1 {
+	color: black;
+}
+.board{
+	display: none;
+	gap: 20px;
+}
+.search{
+	display: none;
+}
+
+.user{
+	padding-top: 28px;
+	display: flex;
+}
+
+
+}
+@media all and (min-width:600px){
+
+
+	
+}
+
+@media all and (min-width:968px){
+	.hambuger{
+		display: none;
+	}
+	.top-left{
+		width: 60%;
+		margin-left: 20px;
+		
+	}
+	.board{
+		padding-top: 28px;
+		display: flex;
+		gap: 30px;
+	}
+	.top-right{
+		width: 45%;
+		flex-direction: row-reverse;
+	}
+
+	
+	.search{
+		display: flex;
+		margin-top: 20px;
+		height: 30px;
+		width: 60%;
+	}
+	.search svg{
+		width: 25px;
+		height: 25px;
+		margin-top: 2px;
+		margin-right: 5px;
+	}
+	#text{
+		background-color: rgb(219, 225, 230);
+		border: none;
+	}
+
+}
+
+
+@media all and (min-width:1024px){
+
+}
