@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @media all and (min-width:400px){
-body{
+.header_body{
 	border-bottom: 0.7px solid black;
 }
 .hambuger{
@@ -16,7 +16,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 }
-a {
+header a {
 	color: black;
 }
 

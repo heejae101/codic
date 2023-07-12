@@ -1,0 +1,25 @@
+@charset "UTF-8";
+.menu_bar {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+}
+
+.menu, .qboard {
+    padding: 10px;
+    border: 1px solid black;
+    
+}
+.sub-title-menu{
+    display: none;
+}
+
+.menu {
+
+}
+
+.qboard{
+
+}
