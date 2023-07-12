@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import model.user.UserDao;
 import util.DBManager;
 
 public class BoardCommentDao {
@@ -23,9 +24,10 @@ public class BoardCommentDao {
 	
 	public void createBoardComment(int board_id, String user_email, String board_answer) {
 		this.conn = DBManager.getConnection();
-		String sql = "INSERT INTO board_comment(board_id, user_email, board_answer) VALUES(?, ?, ?)";
 		
 		try {
+			String sql = "INSERT INTO board_comment(board_id, user_email, board_answer) VALUES(?, ?, ?)";
+			
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setInt(1, board_id);
 			this.pstmt.setString(2, user_email);
@@ -51,7 +53,6 @@ public class BoardCommentDao {
 				this.rs =this.pstmt.executeQuery();
 				
 				while(this.rs.next()) {
-					
 					int comment_id = this.rs.getInt(1);
 					int board_id = this.rs.getInt(2);
 					String user_email = this.rs.getString(3);
@@ -59,7 +60,10 @@ public class BoardCommentDao {
 					String current_timestamp = this.rs.getString(5);
 					String modified_timestamp = this.rs.getString(6);
 					
-					BoardComment boardComment = new BoardComment(comment_id, board_id, user_email, board_answer, current_timestamp, modified_timestamp);
+					UserDao user = UserDao.getInstance();
+					String user_nickname = user.getNicknameByEmail(user_email);
+					
+					BoardComment boardComment = new BoardComment(comment_id, board_id, user_nickname, board_answer, current_timestamp, modified_timestamp);
 					list.add(boardComment);
 				}
 			} catch (SQLException e) {
@@ -70,5 +74,6 @@ public class BoardCommentDao {
 		}
 		return list;
 	}
+
 	
 }

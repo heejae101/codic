@@ -4,17 +4,17 @@ public class BoardComment {
 	
 	private int comment_id;
 	private int board_id;
-	private String user_email;
+	private String user_nickname;
 	private String board_answer;
 	private String current_timestamp;
 	private String modified_timestamp;
 	
-	public BoardComment(int comment_id, int board_id, String user_email, String board_answer, String current_timestamp,
+	public BoardComment(int comment_id, int board_id, String user_nickname, String board_answer, String current_timestamp,
 			String modified_timestamp) {
 		super();
 		this.comment_id = comment_id;
 		this.board_id = board_id;
-		this.user_email = user_email;
+		this.user_nickname = user_nickname;
 		this.board_answer = board_answer;
 		this.current_timestamp = current_timestamp;
 		this.modified_timestamp = modified_timestamp;
@@ -34,14 +34,6 @@ public class BoardComment {
 
 	public void setBoard_id(int board_id) {
 		this.board_id = board_id;
-	}
-
-	public String getUser_email() {
-		return user_email;
-	}
-
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
 	}
 
 	public String getBoard_answer() {
@@ -68,11 +60,20 @@ public class BoardComment {
 		this.modified_timestamp = modified_timestamp;
 	}
 
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
+	}
+
 	@Override
 	public String toString() {
-		return "BoardComment [comment_id=" + comment_id + ", board_id=" + board_id + ", user_email=" + user_email
+		return "BoardComment [comment_id=" + comment_id + ", board_id=" + board_id + ", user_nickname=" + user_nickname
 				+ ", board_answer=" + board_answer + ", current_timestamp=" + current_timestamp
 				+ ", modified_timestamp=" + modified_timestamp + "]";
 	}
+
 
 }

@@ -38,7 +38,7 @@
 
  <div class="find">
          <h2>비밀번호를 잊어버리셨나요?</h2>
-         <button class="btn_find"><a href="find">비밀번호 찾기</a></button>
+         <button class="btn_find"><a href="/find">비밀번호 찾기</a></button>
  </div>
  
  

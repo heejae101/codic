@@ -5,7 +5,7 @@ function getComments() {
         url: `/BoardCommentFormAction`,
         method: 'GET',
         data: {
-            board_id:'2'
+            board_id : boardId
         },
         success: function (data) {
             // success
@@ -40,12 +40,11 @@ function createComment() {
         url: `/BoardCommentFormAction`,
         method: 'POST',
         data: {
-			board_id:'2',
+			board_id: boardId,
             writer: writer,
             contents: contents
         },
         success: function (data) {
-            // success
             $('#writer').val(''); // 작성자 입력란 초기화
             $('#contents').val(''); // 내용 입력란 초기화
             getComments(); // 댓글 목록 요청 및 출력

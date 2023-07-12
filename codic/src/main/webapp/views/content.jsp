@@ -39,9 +39,9 @@
 			<c:set var="totalItems" value="${result.size()}" />
 			<c:set var="totalPages" value="${(totalItems/itemsPerPage)}" />
 			<div class="tag">
-				<c:if test="${page > 1}">
+				<%-- <c:if test="${page > 1}">
 					<a href="?&text=${param.text}&page=${page - 1}" class="btn btn-next">이전</a>
-				</c:if>
+				</c:if> --%>
 				<c:forEach var="i" begin="1" end="${totalPages}">
 					<li>
 						<c:if test="${i==page}">
@@ -52,9 +52,9 @@
 						</c:if>
 					</li>
 				</c:forEach>
-				<c:if test="${page < totalPages}">
+<%-- 				<c:if test="${page < totalPages}">
 					<a href="?&text=${param.text}&page=${page + 1}" class="btn btn-next">다음</a>
-				</c:if>
+				</c:if> --%>
 			</div>
 		</c:otherwise>
 	</c:choose>

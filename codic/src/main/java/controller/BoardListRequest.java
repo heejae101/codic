@@ -42,7 +42,7 @@ public class BoardListRequest extends HttpServlet {
 		request.setAttribute("result", list); // result 값을 request에 저장
 		System.out.println(list);
 		
-		String url ="/board";
+		String url ="/boardList";
 		request.getRequestDispatcher(url).forward(request, response);
 		response.sendRedirect(url);
 	}

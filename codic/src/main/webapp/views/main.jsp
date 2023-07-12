@@ -39,12 +39,12 @@
 			<c:choose>
 				<c:when test="${ empty sessionScope.log }">
 					<li><a href="/views/loginForm.jsp">로그인</a></li>
-					<li><a href="join">회원가입</a></li>
+					<li><a href="/join">회원가입</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="/LogoutAction">로그아웃</a></li>
-					<li><a href="/views/updateUserForm.jsp">회원정보 수정</a></li>
-					<li><a href="/views/deleteUserForm.jsp">회원탈퇴</a></li>
+					<li><a href="/Logout">로그아웃</a></li>
+					<li><a href="/update">회원정보 수정</a></li>
+					<li><a href="/leave">회원탈퇴</a></li>
 				</c:otherwise>
 			</c:choose>
 		</ul>

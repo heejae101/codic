@@ -279,24 +279,24 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>write</servlet-name>
-		<jsp-file>/views/write.jsp</jsp-file>
+		<servlet-name>writeBoard</servlet-name>
+		<jsp-file>/views/writeBoard.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>write</servlet-name>
+		<servlet-name>writeBoard</servlet-name>
 		<url-pattern>/writeBoard</url-pattern>
 	</servlet-mapping>
 
 
 	<servlet>
-		<servlet-name>board</servlet-name>
-		<jsp-file>/views/board.jsp</jsp-file>
+		<servlet-name>boardList</servlet-name>
+		<jsp-file>/views/boardList.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>board</servlet-name>
-		<url-pattern>/board</url-pattern>
+		<servlet-name>boardList</servlet-name>
+		<url-pattern>/boardList</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

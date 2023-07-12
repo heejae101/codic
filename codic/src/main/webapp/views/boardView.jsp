@@ -5,8 +5,9 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../resources/script/boardcomment.js"></script>
 <meta charset="UTF-8">
-<title>${result.board_text }</title>
+<title>${result.board_text}</title>
 </head>
 <body>
 	<div>
@@ -18,18 +19,12 @@
 
 
 	<!-- 댓글 -->
-	<div class="card my-4">
-		<h5 class="card-header">Leave a Comment:</h5>
-		<div class="card-body">
-			<form name="comment-form" action="/BoardCommentFormAction" method="post" autocomplete="off">
-				<div class="form-group">
-					<input type="hidden" name="idx" th:value="*{idx}" />
-					<textarea name="content" class="form-control" rows="3"></textarea>
-				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
-		</div>
+	<div class="comment-area">
+		<input type="hidden" id="boardId" value="${result.board_id}">
+		<input type="hidden" id="writer" value="${sessionScope.log}">
+		<textarea id="contents" placeholder="댓글 내용"></textarea>
+		<button id="commentBtn">댓글 작성</button>
 	</div>
-	<script src="../resources/script/writeComment.js"></script>
+	
 </body>
 </html>

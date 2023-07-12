@@ -15,6 +15,7 @@ import model.board.BoardComment;
 import model.board.BoardCommentDao;
 import model.board.BoardCommentRequestDto;
 import model.board.BoardDao;
+import model.user.UserDao;
 
 public class BoardCommentFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -36,13 +37,14 @@ public class BoardCommentFormAction extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int board_id = Integer.parseInt(request.getParameter("board_id"));
-		String user_email = request.getParameter("writer");
+		String user_nickname = request.getParameter("writer");
 		String board_answer = request.getParameter("contents");
 		
-		System.out.println("board_id"+board_id+"user_email"+user_email+"board_answer"+board_answer);
+		System.out.println("board_id"+board_id+"user_email"+user_nickname+"board_answer"+board_answer);
+		UserDao userDao = UserDao.getInstance(); 
 		
 		BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
-		boardcommentDao.createBoardComment(board_id,user_email,board_answer);
+		boardcommentDao.createBoardComment(board_id,userDao.getEmailByNickName(user_nickname),board_answer);
 		
 	}
 
