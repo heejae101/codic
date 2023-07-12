@@ -30,6 +30,7 @@ $('#user_password').on('change', e => {
 function checkValue(htmlForm){
 	const email=htmlForm.user_email.value;
 	const password=htmlForm.user_password.value;
+	
 	let check=true;
 	
 	console.log(email);

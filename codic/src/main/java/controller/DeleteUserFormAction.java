@@ -46,7 +46,7 @@ public class DeleteUserFormAction extends HttpServlet {
 		
 		if(result) {
 			request.getSession().removeAttribute("log");
-			url="login";
+			url="login";//main으로 맵핑하고 수정
 		}
 		
 		response.sendRedirect(url);
