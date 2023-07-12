@@ -1,9 +1,28 @@
 @charset "UTF-8";
 
+* {
+	margin: 0;
+	padding: 0;
+}
 
 ul,li{
 list-style: none;	
 }
+
+
+form {
+	min-width: 400px;
+	width: 60vw;
+	margin: 0 auto 0 0;
+}
+
+
+input {
+	width: 70%;
+	margin: 5px;
+	padding: 10px 15px;
+}
+
 
 .error{
     display: none;

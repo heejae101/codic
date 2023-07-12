@@ -20,7 +20,7 @@
 </div>
 
 </div>
-<input type="submit" id="submit" value="로그인" onclick="checkValue(form)">
+<input type="submit" id="submit" value="회원 탈퇴" onclick="checkValue(form)">
 </form>
 <a href="javascript:window.history.back();">뒤로가기</a>
 

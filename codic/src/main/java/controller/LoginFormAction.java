@@ -41,22 +41,17 @@ public class LoginFormAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-	
-	
 
 		//jsp에서 입력한 값을 가져옴
 		String email=request.getParameter("user_email");
 		String password=request.getParameter("user_password");
 		
-		
 		UserDao userDao=UserDao.getInstance();
 		User user = userDao.getUserByEmail(email);
-		String url="login";
 		String nickname=userDao.getNicknameByEmail(email);
 		String name=userDao.getNameByEmail(email);
-	    
-		System.out.println("닉네임"+nickname);
-	
+		String url="login";
+		
 		if(user!=null && user.getUser_password().equals(password)&&nickname!=null &&name!=null) {
 			url="../views/main.jsp";//임시로
 			
@@ -65,23 +60,11 @@ public class LoginFormAction extends HttpServlet {
 			session.setAttribute("log",nickname);//닉네임으로 바꾸고 싶음
 			session.setAttribute("log1",email);
 			session.setAttribute("log2",name);
-		
-			
 		}else{
-			response.setCharacterEncoding("UTF-8");	
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out=response.getWriter();
-		    out.println("<script>alert('아이디와 비밀번호가 일치하지 않아요');history.back();</script>");
-		    out.flush();
-		    response.flushBuffer();
-		    out.close();
-	        System.out.println("아이디 비밀번호 틀림");
-	   
+	        request.setAttribute("text", "아이디와 비밀번호 일치하지 않습니다.");
 		}		
 		
 		response.sendRedirect(url);
-		
-		
 		
 	}
 

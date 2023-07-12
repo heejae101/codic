@@ -32,7 +32,7 @@
 <li class="error" id="error-password">비밀번호는 필수 정보입니다.<li> 
 </ul>
 
-<input type="submit" id="submit" value="로그인" onclick="checkValue(form)">
+<input type="button" id="sub-btn" value="로그인" onclick="checkValue(form)">
 
 </form>
 
