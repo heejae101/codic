@@ -68,7 +68,11 @@ public class BoardComment {
 		this.modified_timestamp = modified_timestamp;
 	}
 
-	
-	
-	
+	@Override
+	public String toString() {
+		return "BoardComment [comment_id=" + comment_id + ", board_id=" + board_id + ", user_email=" + user_email
+				+ ", board_answer=" + board_answer + ", current_timestamp=" + current_timestamp
+				+ ", modified_timestamp=" + modified_timestamp + "]";
+	}
+
 }

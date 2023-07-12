@@ -18,31 +18,18 @@
 
 
 	<!-- 댓글 -->
-	<div>
-	<ul>
-		<li>글쓴이 : </li><br>
-		<li></li><br>
-		<li></li>
-	
-	</ul>
-	
+	<div class="card my-4">
+		<h5 class="card-header">Leave a Comment:</h5>
+		<div class="card-body">
+			<form name="comment-form" action="/BoardCommentFormAction" method="post" autocomplete="off">
+				<div class="form-group">
+					<input type="hidden" name="idx" th:value="*{idx}" />
+					<textarea name="content" class="form-control" rows="3"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
 	</div>
-	<form method="POST" action="../BoardCommentFormAction">
-		<div>
-		</div>
-		<div>
-			<input name="bNum" type="hidden" value="${result.board_id }">
-		</div>
-		<div>
-			<input id="text" name="uId" type="text" placeholder="게시글 유저 아이디(지정입력)"
-				autofocus>
-		</div>
-		<div>
-			<input id="text" name="ctext" type="text" placeholder="내용" autofocus>
-		</div>
-		<input type="submit" value="등록" id="write-bnt"
-			onclick="checkValueComment(form)">
-	</form>
 	<script src="../resources/script/writeComment.js"></script>
 </body>
 </html>

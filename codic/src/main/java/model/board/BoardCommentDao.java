@@ -21,7 +21,6 @@ public class BoardCommentDao {
 		return instance;
 	}
 	
-	// C
 	public boolean createBoardComment(BoardCommentRequestDto boardCommetnDto) {
 		
 		boolean check = true;

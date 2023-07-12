@@ -16,7 +16,7 @@
 	
 	<h1>메인 Index${sessionScope.log}</h1>
 
-	
+	<a href="../BoardListRequest">질문게시판</a>
 	
 </body>
 </html>

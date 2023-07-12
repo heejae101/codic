@@ -35,7 +35,6 @@
 				</ul>
 		</div>
 		<ul>
-			<li><a href="join">더미데이터 넣기</a></li>
 			<c:choose>
 				<c:when test="${ empty sessionScope.log }">
 					<li><a href="/views/loginForm.jsp">로그인</a></li>
