@@ -25,11 +25,19 @@ public class BoardCommentFormAction extends HttpServlet {
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String board_id = request.getParameter("board_id");
-
-    	BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
-    	ArrayList<BoardComment> list = boardcommentDao.getBoardCommentAll();
+    	String request_board_id = request.getParameter("board_id");
+    	ArrayList<BoardComment> list = new ArrayList<BoardComment>();
+    	int boardId = 0;
     	
+    	if(request_board_id != null) {
+    		try {
+    			boardId = Integer.parseInt(request_board_id);
+    			BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
+    			list = boardcommentDao.getBoardCommentAll(boardId);
+			} catch (Exception e) {
+				System.err.println("이상한 접근");
+			}
+    	}
     	 response.setContentType("application/json");
          response.setCharacterEncoding("UTF-8");
          response.getWriter().write(new Gson().toJson(list));
@@ -37,14 +45,13 @@ public class BoardCommentFormAction extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int board_id = Integer.parseInt(request.getParameter("board_id"));
-		String user_nickname = request.getParameter("writer");
+		String user_nickname = request.getParameter("nickname");
+		String user_email = request.getParameter("email");
 		String board_answer = request.getParameter("contents");
 		
-		System.out.println("board_id"+board_id+"user_email"+user_nickname+"board_answer"+board_answer);
 		UserDao userDao = UserDao.getInstance(); 
-		
 		BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
-		boardcommentDao.createBoardComment(board_id,userDao.getEmailByNickName(user_nickname),board_answer);
+		boardcommentDao.createBoardComment(board_id, user_email, board_answer, user_nickname);
 		
 	}
 

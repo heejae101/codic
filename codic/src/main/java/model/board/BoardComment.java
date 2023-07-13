@@ -19,7 +19,7 @@ public class BoardComment {
 		this.current_timestamp = current_timestamp;
 		this.modified_timestamp = modified_timestamp;
 	}
-
+	
 	public int getComment_id() {
 		return comment_id;
 	}

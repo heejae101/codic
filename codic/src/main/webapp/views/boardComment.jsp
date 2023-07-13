@@ -5,8 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>댓글 기능 예제</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="../resources/script/boardcomment.js"></script>
 </head>
 <body>

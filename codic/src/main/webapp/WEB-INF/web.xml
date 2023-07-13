@@ -204,8 +204,28 @@
 		<servlet-name>BoardUpdateRequest</servlet-name>
 		<url-pattern>/BoardUpdateRequest</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteBoardComment</servlet-name>
+		<servlet-class>controller.DeleteBoardComment</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>DeleteBoardComment</servlet-name>
+		<url-pattern>/DeleteBoardComment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateBoardComment</servlet-name>
+		<servlet-class>controller.UpdateBoardComment</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>UpdateBoardComment</servlet-name>
+		<url-pattern>/UpdateBoardComment</url-pattern>
+	</servlet-mapping>
+	
+	
 	<!-- JSP 페이지 맵핑 -->
 	<servlet>
 		<servlet-name>content</servlet-name>
@@ -277,6 +297,16 @@
 		<servlet-name>duplNickname</servlet-name>
 		<url-pattern>/duplN</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<jsp-file>/views/main.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>/main</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>writeBoard</servlet-name>
@@ -328,6 +358,6 @@
 		<servlet-name>boardView</servlet-name>
 		<url-pattern>/boardView</url-pattern>
 	</servlet-mapping>
-
+	
 </web-app>
 

@@ -38,6 +38,7 @@ let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + �
 let pwd_space = /[ ]/; /* 공백 */
 let isIdChecked = false;
 let isNicknameChecked = false;
+let isToKenChecked = false;
 
 $(function() {
 	/*이메일 유효성*/
@@ -116,7 +117,6 @@ function checkValue(htmlForm) {
 	}
 
 	if (!regExp.test(email)) {
-		alert('이메일 형식이 옳지 않아요');
 		check = false;
 
 	}
@@ -126,12 +126,10 @@ function checkValue(htmlForm) {
 
 	}
 	if (password.length < 4 || password.length > 10 || !pwdChk.test(password) || pwd_space.test(password)) {
-		alert("비밀번호를 다시 입력해주세요.");
 		check = false;
 	}
 
 	if (password !== password_ch) {
-		alert("비밀번호가 일치하지 않아요");
 		check = false;
 
 	}
@@ -146,31 +144,31 @@ function checkValue(htmlForm) {
 		$('#error-nickname').show();
 		check = false;
 	}
-
+	
 
 	if (!$('#user_check1').prop('checked') || !$('#user_check2').prop('checked')) { //체크박스 미체크시
-		alert("약관 동의를 체크하세요.");
+		alert("약관 동의를 체크해주세요.");
 		check = false;
 	}
 
-	if (check) {
-		if (isIdChecked) {
-			if (isNicknameChecked) {
-				htmlForm.submit();
-			} else {
-				alert("닉네임 중복 확인을 해주세요.");
-			}
-		} else {
-			alert("이메일 중복 확인을 해주세요.");
-		}
-
+	if (check && isIdChecked && isNicknameChecked && isToKenChecked) {
+		htmlForm.submit();
+	} else if (!isIdChecked) {
+		alert("이메일 중복 확인을 해주세요.");
+	} else if (!isToKenChecked) {
+		alert("이메일 인증을 해주세요.");
+	} else if (!isNicknameChecked) {
+		alert("닉네임 중복 확인을 해주세요.");
 	}
-
 }
 
 
 /*닉네임 중복검사*/
 function duplCheck() {
+	if(pwd_space.test($('#user_nickname').val())||$('#user_nickname').val()==""){
+		alert("닉네임을 입력해주세요.");
+		
+	}else{
 	var user_nickname = $('#user_nickname').val();
 	$.ajax({
 		type: 'POST',
@@ -182,13 +180,76 @@ function duplCheck() {
 				isNicknameChecked = true;
 				$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
 			} else {
-				$('#chkMsg').html('사용할 수 없는 닉네임입니다.').css('color', 'red');
+				$('#chkMsg').html('이미 사용중인 닉네임입니다.').css('color', 'red');
 			}
 
 		}
 
 	});
+}
+}
 
+/* 이메일 인증번호 전송 */
+function emailAuthentication() {
+	if (isIdChecked) {
+		var user_email = $('#user_email').val();
+		$.ajax({
+			type: "POST",
+			url: "/EmailVerification",
+			data: { user_email: user_email },
+			success: function(response) {
+				if (response.result === "VERIFICATION_SENT") {
+					$("#code").prop('disabled', false);
+					$("#code_ch").prop('disabled', false);
+					alert("인증번호를 확인을 해주세요.");
+					console.log("이메일 확인 코드가 발송되었습니다.");
+					console.log("확인 코드: " + response.verification_code);
+					console.log("확인 코드 유효 시간: " + response.verification_duration + "분");
+				} else {
+					console.log("이메일 확인 코드 발송에 실패하였습니다.");
+				}
+			},
+			error: function(xhr, status, error) {
+				console.log(error);
+			}
+		});
+	} else {
+		alert("이메일 중복 확인을 해주세요.");
+	}
+}
+
+/* 인증번호 확인*/
+function authCodeCheck() {
+	if (isIdChecked) {
+		var inputCode = $('#code').val();
+		$.ajax({
+			type: "POST",
+			url: "/CheckEmailAuthToken",
+			data: { input_code: inputCode },
+			success: function(response) {
+				console.log(response);
+				if (response.result === "VERIFICATION_SENT") {
+					alert("인증되었습니다.");
+					$("#code").prop('disabled', true);
+					$("#code_ch").prop('disabled', true);
+					isToKenChecked = true;
+				}
+				if (response.result === "The token code is invalid.") {
+					alert("인증코드가 맞지않습니다.");
+				}
+				if (response.result === "The token code has expired.") {
+					alert('다시 인증번호를 입력받아주세요');
+				}
+			},
+			error: function(xhr, status, error) {
+				console.log(error);
+			}
+		});
+	} else {
+		$("#code").prop('disabled', true);
+		$("#code_ch").prop('disabled', true);
+		alert("이메일 중복 확인을 해주세요.");
+	}
 }
 
 /*이메일 중복검사*/
@@ -208,7 +269,7 @@ function chkEmail() {
 					isIdChecked = true;
 					$('#chkMsgEmail').html('사용 가능한 이메일입니다.').css('color', 'navy');
 				} else {
-					$('#chkMsgEmail').html('사용할 수 없는 이메일입니다.').css('color', 'red');
+					$('#chkMsgEmail').html('이미 사용중인 이메일입니다.').css('color', 'red');
 				}
 
 			}
@@ -216,4 +277,5 @@ function chkEmail() {
 		});
 	}
 }
+
 

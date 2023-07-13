@@ -24,10 +24,14 @@
 						name="user_email" maxlength="320" placeholder="example@codic.com"
 						autofocus> <input type="button" id="user_email_dupl"
 						name="user_email_dupl" value="중복 확인" onclick="chkEmail()">
+						
 					<input type="button" id="email_ch" onclick="emailAuthentication()"
-						value="인증메일 보내기"> <label for="email_num">인증번호 입력</label> <input
+						value="인증메일 보내기"> 
+					
+					<label for="email_num">인증번호 입력</label> <input
 						type="text" name="code" id="code" maxlength="10"
-						disabled="disabled"> <input type="button" id="code_ch"
+						disabled="disabled"> 
+					<input type="button" id="code_ch"
 						onclick="authCodeCheck()" disabled="disabled" value="인증">
 
 					<ul>

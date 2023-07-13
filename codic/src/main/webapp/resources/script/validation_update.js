@@ -51,29 +51,32 @@ $('#user_password_ch').keyup(function(){
      });
 });
 
+
 /*닉네임 중복검사*/
-function duplCheck(){
-var user_nickname=$('#user_nickname').val();
-$.ajax({
-type:'POST',
-url:'NickNameDupl',
-data:{user_nickname:user_nickname},
-success:function(responseData){
-	alert('data:'+ $.trim(responseData));
-	if($.trim(responseData)=='YES'){
-		$('#chkMsg').html('사용 가능한 닉네임입니다.');
+function duplCheck() {
+	if(pwd_space.test($('#user_nickname').val())||$('#user_nickname').val()==""){
+		alert("닉네임을 입력해주세요.");
 		
 	}else{
-		$('#chkMsg').html('사용할 수 없는 닉네임입니다.');
-	}
-	
-	
+	var user_nickname = $('#user_nickname').val();
+	$.ajax({
+		type: 'POST',
+		url: 'NickNameDupl',
+		data: { user_nickname: user_nickname },
+		success: function(responseData) {
+			alert('data:' + $.trim(responseData));
+			if ($.trim(responseData) == 'YES') {
+				isNicknameChecked = true;
+				$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
+			} else {
+				$('#chkMsg').html('사용할 수 없는 닉네임입니다.').css('color', 'red');
+			}
+
+		}
+
+	});
 }
-
-});	
-
-
-}	
+}
 
 
 function checkValue(htmlForm){
