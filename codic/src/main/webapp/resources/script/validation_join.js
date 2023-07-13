@@ -116,7 +116,6 @@ function checkValue(htmlForm) {
 	}
 
 	if (!regExp.test(email)) {
-		alert('이메일 형식이 옳지 않아요');
 		check = false;
 
 	}

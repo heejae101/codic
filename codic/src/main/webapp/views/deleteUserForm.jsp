@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!-- 스타일 연결 -->
+<link rel="stylesheet" href="../resources/style/reset.css">
 <link rel="stylesheet" href="../resources/style/delete.css">
 <title>회원 탈퇴</title>
 </head>
@@ -30,7 +31,6 @@
 
 <a class="back" href="javascript:window.history.back();">뒤로가기></a>
 </div>
-
 
 </section>
   

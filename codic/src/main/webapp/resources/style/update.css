@@ -1,12 +1,10 @@
 @charset "UTF-8";
-
-   @media(min-width:360px){
 *{
 	margin: 0;
 	padding: 0;
 }
 
-section#join-section {	
+section#update-section {
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -14,11 +12,9 @@ justify-content: center;
 
 }
 
-
 form{
     margin: 0 auto;
-  
-}
+  }
 
 input {
     width:100%;
@@ -31,23 +27,18 @@ input {
     border-radius:4px;
     box-sizing:content-box;
    
-}
-
-
-h2 {
+}  
+  
+h2{
     margin-top: 50px;
     margin-bottom: 20px;
     font-size: 1.7rem;
-    color: #94358c;
-    
+    color: #94358c;    
 }
+
 .title{
 font-size: 0.9rem;
 font-weight: bold;
-}
-
-.required{
-   color: #94358c;
 }
 
 .err{
@@ -60,66 +51,11 @@ font-size: 0.8rem;
 	font-size: 0.8em;
 }
 
-/*이메일*/
-.email{
-margin-top: 20px;
-}
-
 .email_box{
 margin-top: 10px;
 margin-bottom: 20px;
 }
 
-input[name="code"]{
-	width: 60%;
-}
-input[name="user_email"]{
-width: 70%;	
-}
-
-
-/*버튼*/
-#user_email_dupl{
-	width: 20%;
-	height: 30px;
-	padding: 0;
-	background-color: white;
-	color:#94358c;
-	border: 1px solid #94358c; 
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-#email_ch{
-	width: 30%;
-	height: 30px;
-	padding: 0;
-	margin-left: 10px;
-	background-color: white;
-	color:#94358c;
-	border: 1px solid #94358c;
-    cursor: pointer;
-    
-	
-	
-}
-#code_ch{
-	width: 15%;
-	height: 30px;
-	padding: 0;
-	margin-left: 5px;
-	background-color: white;
-	color:#94358c;
-	border: 1px solid #94358c; 
-    cursor: pointer;
-}
-
-
-/*비밀번호*/
-
-.pwd1{
-margin-top: 20px;
-}
 
 .pwd1_box{
 margin-top: 10px;
@@ -131,6 +67,11 @@ margin-top: 10px;
 margin-bottom: 20px;
 }
 
+
+.pwd3_box{
+margin-top: 10px;
+margin-bottom: 20px;
+}
 /*이름*/
 .name_box{
 margin-top: 10px;
@@ -158,28 +99,10 @@ width: 70%;
 	cursor: pointer;
 }
 
-/*이용약관 동의*/
-
-.label-wrapper{
-	margin-top: 10px;
-	
-}
-input[type="checkbox"]{
-	width: 5%;
-	margin:5px 0;
-}
-.agr{
-margin:10px 0;	
-}
-
-.agr_text{
-font-size: 0.8rem;	
-}
-
 
 
 /*회원가입 버튼*/
-#join-btn{
+#update-btn{
     width: 100%;
     margin-top: 20px;
 	padding: 15px;
@@ -191,13 +114,4 @@ font-size: 0.8rem;
 	font-size: 1rem;
 	font-weight: bold;
 
-}
-
-
-}
-
-
- @media(min-width:1024px){
-	 
-	 
 }
