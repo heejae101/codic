@@ -42,20 +42,21 @@ vertical-align:top; /* 원치 않는 img 태그의 간격을 없애기 위함 */
       padding: 0;
       box-sizing: border-box;
    }
-
-#login-section{
-    margin: 0 auto;
-    }
-        
-.login{
-	margin: 0 auto;
-    text-align: center;
-}
+   
+#delete-section{
+  margin: 0 auto;	
+}   
 
 h2 {
     margin-top: 70px;
-    font-size: 1.7rem;
-    color: rgb(22, 216, 163);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: rgb(22, 216, 163); 
+}
+   
+.delete{
+	margin: 0 auto;
+    text-align: center;
 }
 
 form{
@@ -63,25 +64,11 @@ form{
 	width: 60vw;
 	margin: 0 auto;
 }
-
-
-
-.login_1 {
-  width: 100%;
-  height: 290px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  }
-  
-.login_box{
-padding: 20px;
-
-  }
-
+   
 input {
     width: 70%;
 	margin: 5px;
-	padding: 15px;
+	padding:15px;
     border:1px solid lightgray;
     color: #666666;
     font-size:12px;
@@ -91,50 +78,26 @@ input {
    
 }
 
+.back{
+	font-size:0.9rem;
+	color:rgb(85, 85, 85); 
+
+}
 
 
-#sub-btn{
-    width: 70%;
+
+#delete-btn{
+ width: 70%;
     margin-top: 20px;
 	padding: 15px;
 	color: white;
 	border: none;
-	border-radius:4px;
+	border-radius: 4px;
 	background-color: rgb(22, 216, 163);
 	cursor: pointer;
 	font-size: 1rem;
 	font-weight: bold;
-
-}
-
-.join{
-	font-size: 0.8rem;
-}
-.join-btn{
-	font-size: 1rem;
-}
-
-
-
-.join-btn{
-  color: rgb(22, 216, 163);
-  font-weight: bold;
-  font-size: 0.8rem;
-}
-
-.find{
-    padding: 10px;
-}
-
-.find a{
-	margin: 0 10px;
-	font-size:0.9rem;
-	color:rgb(85, 85, 85); 
-}
-
-
-.join{
-	padding: 10px;
+	margin-bottom: 20px ;
 }
 
 .error{

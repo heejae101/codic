@@ -41,7 +41,6 @@ public class LoginFormAction extends HttpServlet {
 		String nickname=userDao.getNicknameByEmail(email);
 		String name=userDao.getNameByEmail(email);
 		String url="login";
-		
 		if(user!=null && user.getUser_password().equals(password)&&nickname!=null &&name!=null) {
 			url="main";//임시로
 			
@@ -50,10 +49,11 @@ public class LoginFormAction extends HttpServlet {
 			session.setAttribute("email",email);
 			session.setAttribute("name",name);
 		}else{
+			
 	        request.setAttribute("text", "아이디와 비밀번호 일치하지 않습니다.");
 		}		
 		
-		response.sendRedirect(url);
+		request.getRequestDispatcher(url).forward(request, response);
 		
 	}
 
