@@ -13,6 +13,7 @@
         $('#sub-title-menu2').show(500);
     }
   }
+  
   function showHide3(){
     if ($('#sub-title-menu3').is(':visible')) {
         $('#sub-title-menu3').hide(500);
