@@ -117,7 +117,6 @@ function checkValue(htmlForm) {
 	}
 
 	if (!regExp.test(email)) {
-		alert('이메일 형식이 옳지 않아요');
 		check = false;
 
 	}
@@ -127,12 +126,10 @@ function checkValue(htmlForm) {
 
 	}
 	if (password.length < 4 || password.length > 10 || !pwdChk.test(password) || pwd_space.test(password)) {
-		alert("비밀번호를 다시 입력해주세요.");
 		check = false;
 	}
 
 	if (password !== password_ch) {
-		alert("비밀번호가 일치하지 않아요");
 		check = false;
 
 	}
@@ -150,18 +147,18 @@ function checkValue(htmlForm) {
 
 
 	if (!$('#user_check1').prop('checked') || !$('#user_check2').prop('checked')) { //체크박스 미체크시
-		alert("약관 동의를 체크하세요.");
+		alert("약관 동의를 체크해주세요.");
 		check = false;
 	}
 
 	if (check && isIdChecked && isNicknameChecked && isToKenChecked) {
 		htmlForm.submit();
-	} else if (!isToKenChecked) {
-		alert("인증번호 확인을 해주세요.");
-	} else if (!isNicknameChecked) {
-		alert("닉네임 중복 확인을 해주세요.");
 	} else if (!isIdChecked) {
 		alert("이메일 중복 확인을 해주세요.");
+	} else if (!isToKenChecked) {
+		alert("이메일 인증을 해주세요.");
+	} else if (!isNicknameChecked) {
+		alert("닉네임 중복 확인을 해주세요.");
 	}
 }
 
@@ -200,8 +197,6 @@ function emailAuthentication() {
 				if (response.result === "VERIFICATION_SENT") {
 					$("#code").prop('disabled', false);
 					$("#code_ch").prop('disabled', false);
-					$("#user_email_dupl").prop('disabled', true);
-					$("#email_ch").prop('disabled', true);
 					alert("인증번호를 확인을 해주세요.");
 					console.log("이메일 확인 코드가 발송되었습니다.");
 					console.log("확인 코드: " + response.verification_code);
@@ -231,6 +226,8 @@ function authCodeCheck() {
 				console.log(response);
 				if (response.result === "VERIFICATION_SENT") {
 					alert("인증되었습니다.");
+					$("#code").prop('disabled', true);
+					$("#code_ch").prop('disabled', true);
 					isToKenChecked = true;
 				}
 				if (response.result === "The token code is invalid.") {
