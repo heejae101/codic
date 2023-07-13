@@ -17,7 +17,7 @@
 
 	<section id="login-section">
 		<h2>로그인</h2>
-		<form method="POST" action="../Login">
+		<form method="POST" action="/Login">
 			<div class="login_1">
 				<div>
 					<input type="text" id="user_email" name="user_email"

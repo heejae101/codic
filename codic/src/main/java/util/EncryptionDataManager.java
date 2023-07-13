@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class EncryptionDataManager {
 	private final int REPEAT = 100;
-	private final String SALT = "그린아카데미";
+	private final String SALT = "그린컴퓨터";
 	
 	public String passwordEncrypt(String password) throws Exception {
 		return encryptWithSaltAndHash(getByteByPw(password));
@@ -14,13 +14,17 @@ public class EncryptionDataManager {
 
 	private String encryptWithSaltAndHash(byte[] pw) throws Exception {
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
+		byte[] saltBytes = SALT.getBytes(); // SALT도 byte[] 형태로 변환
 
 		for (int i = 0; i < REPEAT; i++) {
-			String temp = pw + SALT;
-			md.update(temp.getBytes());
+			byte[] temp = new byte[pw.length + saltBytes.length]; // pw와 SALT를 합칠 byte[] 배열
+
+			System.arraycopy(pw, 0, temp, 0, pw.length);
+			System.arraycopy(saltBytes, 0, temp, pw.length, saltBytes.length);
+			
+			md.update(temp);
 			pw = md.digest();
 		}
-
 		return byteToString(pw);
 	}
 
@@ -37,17 +41,31 @@ public class EncryptionDataManager {
 		return byteArray;
 	}
 
+//	public String generateActivationCode() {
+//      ---직접구현---
+//		String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+//		Random random = new Random();
+//		String authToken = "";
+//		int repeat = 6;
+//		
+//		for (int i = 0; i < repeat; i++) {
+//			int code = random.nextInt(randomString.length());
+//			authToken += randomString.substring(code, code + 1);
+//		}
+//		
+//		return authToken;
+//	}
 	public String generateActivationCode() {
-		String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		Random random = new Random();
-		String authToken = "";
-		int repeat = 6;
-		
-		for (int i = 0; i < repeat; i++) {
-			int code = random.nextInt(randomString.length());
-			authToken += randomString.substring(code, code + 1);
-		}
-		
-		return authToken;
+	    String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	    Random random = new Random();
+	    StringBuilder authToken = new StringBuilder();
+	    int repeat = 6;
+	    
+	    for (int i = 0; i < repeat; i++) {
+	        int code = random.nextInt(randomString.length());
+	        authToken.append(randomString.substring(code, code + 1));
+	    }
+	    
+	    return authToken.toString();
 	}
 }

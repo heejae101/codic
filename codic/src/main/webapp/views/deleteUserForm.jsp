@@ -7,13 +7,13 @@
 <title>회원 탈퇴</title>
 </head>
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <section id="login-section">
 <h2>회원 탈퇴</h2>
-<form method="POST" action="/Leave">
+<form method="POST" action="Leave">
 <div class="id-form">
 <div>
-	<input type="text" id="user_email" name="user_email" value="${sessionScope.log1}" readonly>
+	<input type="text" id="user_email" name="user_email" value="${sessionScope.email}" readonly>
 </div>
 <div>
 	<input type="text" id="user_password" name="user_password" placeholder="비밀번호">
@@ -22,7 +22,7 @@
 </div>
 <input type="submit" id="submit" value="회원 탈퇴" onclick="checkValue(form)">
 </form>
-<a href="javascript:window.history.back();">뒤로가기</a>
+<a href="main">뒤로가기</a>
 
 </section>
 
