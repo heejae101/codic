@@ -61,10 +61,11 @@ public class LoginFormAction extends HttpServlet {
 			session.setAttribute("log1",email);
 			session.setAttribute("log2",name);
 		}else{
+			
 	        request.setAttribute("text", "아이디와 비밀번호 일치하지 않습니다.");
 		}		
 		
-		response.sendRedirect(url);
+		request.getRequestDispatcher(url).forward(request, response);
 		
 	}
 

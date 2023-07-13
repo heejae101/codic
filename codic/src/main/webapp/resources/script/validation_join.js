@@ -146,7 +146,7 @@ function checkValue(htmlForm) {
 		$('#error-nickname').show();
 		check = false;
 	}
-
+	
 
 	if (!$('#user_check1').prop('checked') || !$('#user_check2').prop('checked')) { //체크박스 미체크시
 		alert("약관 동의를 체크하세요.");
@@ -171,6 +171,10 @@ function checkValue(htmlForm) {
 
 /*닉네임 중복검사*/
 function duplCheck() {
+	if(pwd_space.test($('#user_nickname').val())||$('#user_nickname').val()==""){
+		alert("닉네임을 입력해주세요.");
+		
+	}else{
 	var user_nickname = $('#user_nickname').val();
 	$.ajax({
 		type: 'POST',
@@ -188,7 +192,7 @@ function duplCheck() {
 		}
 
 	});
-
+}
 }
 
 /*이메일 중복검사*/
