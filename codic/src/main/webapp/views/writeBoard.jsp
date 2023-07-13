@@ -6,28 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<title>Insert title here</title>
+<title>게시글 작성</title>
 </head>
+	<c:if test="${empty sessionScope.nickname}">
+		<c:redirect url="login"></c:redirect>
+	</c:if>
 <body>
 	<div id="write-box">
-		<form method="POST" action="../BoardFormAction">
-			<div>
-				<input id="email" name="email" type="text"  placeholder="이메일을 입력해 주세요" autofocus>			
-			</div>
+		<form method="POST" action="/BoardFormAction">
 			<div>
 				<input id="title" name="title" type="text"  placeholder="제목을 입력해 주세요" autofocus>
 			</div>
 			<div>
-				<input id="text" name="text" type="text"  placeholder="내용을 입력해 주세요" autofocus>			
+				<input id="contents" name="contents" placeholder="내용을 입력해 주세요"></textarea>			
 			</div>
-			<div>
-				<input id="view_count" name="view_count" type="text"  placeholder="조회수를 입력해 주세요" autofocus>			
-			</div>
-
-			<input type="submit" value="등록" id="update-bnt" onclick="checkValue(form)">
+			<input type="button" value="등록" id="update-bnt" onclick="checkValue(form)">
 		</form>
 	</div>
-	
 	<script src="../resources/script/write.js"></script>
 </body>
 </html>

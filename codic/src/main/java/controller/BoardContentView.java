@@ -16,7 +16,6 @@ public class BoardContentView extends HttpServlet {
        
     public BoardContentView() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

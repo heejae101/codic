@@ -24,10 +24,9 @@ public class BoardListRequest extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		BoardDao boardDao = BoardDao.getInstance();
-		ArrayList<Board> list = boardDao.getBoard10();	
+		ArrayList<Board> list = boardDao.getBoard();	
 		
 		request.setAttribute("result", list); // result 값을 request에 저장
-		System.out.println(list);
 		
 		String url ="/boardList";
 		request.getRequestDispatcher(url).forward(request, response);

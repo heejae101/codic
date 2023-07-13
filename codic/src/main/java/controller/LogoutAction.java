@@ -33,7 +33,7 @@ public class LogoutAction extends HttpServlet {
 		
 		session.invalidate();
 		System.out.println("로그아웃");
-		response.sendRedirect("login");
+		response.sendRedirect("main");
 	}
 
 	/**

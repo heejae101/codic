@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Random;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +32,7 @@ public class EmailVerificationAction extends HttpServlet {
 		String email = request.getParameter("user_email");
 		System.out.println("email : "+email);
         String verificationCode = encrypt.generateActivationCode();
-        String verificationDuration = auth.getVerificationDuration();
+        String verificationDuration = auth.getVerificationDuration1();
         String host = "smtp.gmail.com";
         String user = "oeglks601@gmail.com";
         String password = "vzfawgfmsmyconwx";

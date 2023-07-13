@@ -11,44 +11,14 @@ public class BoardRequestDto {
 	private int board_view_count;
 	private Timestamp current_timestamp;
 	private Timestamp modified_timestamp;
+	private String board_nickname;
 	
-	
-	
-	public BoardRequestDto(String board_title, String board_text) {
-		super();
-		this.board_title = board_title;
-		this.board_text = board_text;
-	}
-
-	public BoardRequestDto(String user_email, String board_title, String board_text) {
-		super();
-		this.user_email = user_email;
-		this.board_title = board_title;
-		this.board_text = board_text;
-	}
-
-	public BoardRequestDto(String user_email, String board_title, String board_text, int board_view_count) {
-		super();
+	public BoardRequestDto(String user_email, String board_title, String board_text, String board_nickname) {
 		this.user_email = user_email;
 		this.board_title = board_title;
 		this.board_text = board_text;
 		this.board_view_count = board_view_count;
-	}
-
-	public BoardRequestDto(int board_id, String user_email, String board_title, String board_text, int board_view_count,
-			Timestamp current_timestamp, Timestamp modified_timestamp) {
-		super();
-		this.board_id = board_id;
-		this.user_email = user_email;
-		this.board_title = board_title;
-		this.board_text = board_text;
-		this.board_view_count = board_view_count;
-		this.current_timestamp = current_timestamp;
-		this.modified_timestamp = modified_timestamp;
-	}
-
-	public BoardRequestDto(int board_id2, String user_email2, String board_title2, String board_text2,
-			int board_view_count2, String current_timestamp2, String modified_timestamp2) {
+		this.board_nickname = board_nickname;
 	}
 
 	public int getBoard_id() {
@@ -107,6 +77,14 @@ public class BoardRequestDto {
 		this.modified_timestamp = modified_timestamp;
 	}
 	
+	public String getBoard_nickname() {
+		return board_nickname;
+	}
+
+	public void setBoard_nickname(String board_nickname) {
+		this.board_nickname = board_nickname;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardRequestDto [board_id=" + board_id + ", user_email=" + user_email + ", board_title=" + board_title

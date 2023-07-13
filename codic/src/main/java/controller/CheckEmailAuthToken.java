@@ -28,8 +28,8 @@ public class CheckEmailAuthToken extends HttpServlet {
 		String sessionToken = (String) requestSession.getAttribute("VERIFICATION_CODE");
 		String sessionValidTime = (String) requestSession.getAttribute("VerificationDuration");
 		
-		String nowDate = auth.getCurrentTime().split("/")[0];
-		int nowTime = Integer.parseInt(auth.getCurrentTime().split("/")[1]);
+		String nowDate = auth.getCurrentTime1().split("/")[0];
+		int nowTime = Integer.parseInt(auth.getCurrentTime1().split("/")[1]);
 		
 		String validDate = sessionValidTime.split("/")[0];
 		int validTime = Integer.parseInt(sessionValidTime.split("/")[1]);

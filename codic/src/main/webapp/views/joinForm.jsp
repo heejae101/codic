@@ -13,7 +13,6 @@
 <title>회원가입</title>
 </head>
 <body>
-
 	<section id="join-section">
 		<h2>회원가입</h2>
 		<form method="POST" action="Join">

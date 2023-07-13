@@ -30,16 +30,19 @@
 			</ul>
 		</div>
 		<section id="board-list-sec">
-
-
 			<c:forEach var="r" items="${result}" varStatus="loop">
-				<ul id="board-sub-ul"
-					style="list-style-type: none; display: flex; text-align: center">
-					<li >${r.board_id}</li>
+				<ul id="board-sub-ul">
+					<li>${r.board_id}</li>
 					<li><a href="/BoardContentView?board_id=${r.board_id}">${r.board_title}</a></li>
-					<li>${r.user_email}</li>
+					<li>${r.user_nickname}</li>
 					<li>${r.modified_timestamp}</li>
 					<li>${r.board_view_count}</li>
+				<c:if test="${sessionScope.nickname == r.user_nickname}">
+					<div id="btn">
+						<button onclick="updateBoard(this)">수정</button>
+						<button onclick="deleteBoard(this)">삭제</button>
+					</div>
+				</c:if>
 				</ul>
 			</c:forEach>
 			<button onclick="location.href='/writeBoard'">글쓰기</button>
