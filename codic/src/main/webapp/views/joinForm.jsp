@@ -128,7 +128,7 @@
 		
 			</form>
 
-			<a href="javascript:window.history.back();">뒤로가기</a>
+			<a class="back" href="javascript:window.history.back();">뒤로가기></a>
 	</section>
 
 	<script src="../resources/script/validation_join.js"></script>

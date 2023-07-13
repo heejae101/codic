@@ -72,7 +72,7 @@
 <input type="button" id="update-btn" value="회원정보 수정" onclick="checkValue(form)">
 
 </form>
-<a href="javascript:window.history.back();">뒤로가기</a>
+<a class="back" href="javascript:window.history.back();">뒤로가기></a>
 </section>
 
 <script src="../resources/script/validation_update.js"></script>

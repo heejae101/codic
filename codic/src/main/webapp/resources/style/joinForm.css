@@ -6,17 +6,20 @@
 	padding: 0;
 }
 
-section#join-section {	
+section#join-section {
+width: 80%;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+margin:0 auto;
 
 }
 
 
 form{
     margin: 0 auto;
+    width: 80%;
   
 }
 
@@ -190,6 +193,12 @@ font-size: 0.8rem;
 	cursor: pointer;
 	font-size: 1rem;
 	font-weight: bold;
+}
+
+.back{
+	margin-top:20px ;
+	font-size:0.9rem;
+	color:rgb(85, 85, 85); 
 
 }
 
