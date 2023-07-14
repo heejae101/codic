@@ -11,6 +11,9 @@
 	float : left;
     display: flex;
 }
+.menu span{
+	cursor : pointer;
+}
 
 
 .menu ul{

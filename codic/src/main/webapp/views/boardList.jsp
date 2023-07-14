@@ -14,6 +14,9 @@
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../resources/script/board.js"></script>
+<link href="../resources/style/reset.css" rel="stylesheet">
+<link href="../resources/style/boardList.css" rel="stylesheet">
+
 <meta charset="UTF-8">
 <title>목록</title>
 </head>
