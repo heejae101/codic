@@ -7,6 +7,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!-- 스타일 연결 -->
+<link rel="stylesheet" href="../resources/style/reset.css">
 <link rel="stylesheet" href="../resources/style/delete.css">
 <title>회원 탈퇴</title>
 </head>
@@ -16,7 +17,7 @@
 </c:if>
 	<section id="delete-section">
 		<div class="delete">
-			<h2>${sessionScope.nickname}님정말 떠나시나요?</h2>
+			<h2>${sessionScope.nickname}님 정말 떠나시나요?</h2>
 			<form method="POST" action="/Leave">
 				<div>
 					<input type="text" id="user_email" name="user_email"
@@ -35,9 +36,13 @@
 					onclick="checkValue(form)">
 			</form>
 
-			<a class="back" href="javascript:window.history.back();">뒤로가기></a>
-		</div>
-	</section>
-	<script src="../resources/script/validation_delete.js"></script>
+
+<a class="back" href="javascript:window.history.back();">뒤로가기></a>
+</div>
+
+</section>
+  
+        <script src="../resources/script/validation_delete.js"></script>
+
 </body>
 </html>

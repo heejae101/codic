@@ -39,7 +39,7 @@ let pwd_space = /[ ]/; /* 공백 */
         
 /* 비밀번호, 비밀번호 확인 일치 검사 */
 $('#user_password_ch').keyup(function(){
-    if($('#user_password').val() !== $('#user_password_ch').val()){
+    if($('#new_password').val() !== $('#user_password_ch').val()){
         /* 비밀번호와 비밀번호 확인란의 값이 일치하지 않을 때 */
         $('#chkNotice2').html('비밀번호가 일치하지 않습니다.<br><br>').css('color', 'red'); /* 비밀번호 양식 오류일시 color: red */
       

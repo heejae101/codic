@@ -1,40 +1,4 @@
 @charset "UTF-8";
-/* CSS 초기화 */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video{
-margin:0;
-padding:0;
-border:0;
-outline:0;
-font-size:100%;
-vertical-align:baseline;
-background:transparent;
-}
-
-/* 시맨틱 태그를 지원하지 않는 브라우저를 위해 */
-article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section{
-display:block;
-}
-
-nav ul, li{
-list-style:none;
-margin:0; padding:0; border:0;
-}
-
-a{
-margin:0;
-padding:0;
-font-size:100%;
-vertical-align:baseline;
-background:transparent;
-text-decoration:none;
-color: black;
-}
-
-img, div{
-vertical-align:top; /* 원치 않는 img 태그의 간격을 없애기 위함 */
-}
-
-
 
 /*공통*/
 *{
@@ -49,13 +13,13 @@ vertical-align:top; /* 원치 않는 img 태그의 간격을 없애기 위함 */
         
 .login{
 	margin: 0 auto;
-    text-align: center;
+	text-align: center;
 }
 
 h2 {
     margin-top: 70px;
     font-size: 1.7rem;
-    color: rgb(22, 216, 163);
+    color:#94358c;
 }
 
 form{
@@ -100,7 +64,7 @@ input {
 	color: white;
 	border: none;
 	border-radius:4px;
-	background-color: rgb(22, 216, 163);
+	background:linear-gradient(25deg, #0c0074, #490e7c, #702184, #94358c) ;
 	cursor: pointer;
 	font-size: 1rem;
 	font-weight: bold;
@@ -110,14 +74,9 @@ input {
 .join{
 	font-size: 0.8rem;
 }
-.join-btn{
-	font-size: 1rem;
-}
-
-
 
 .join-btn{
-  color: rgb(22, 216, 163);
+  color: #94358c;
   font-weight: bold;
   font-size: 0.8rem;
 }
