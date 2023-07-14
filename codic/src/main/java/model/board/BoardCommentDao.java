@@ -41,20 +41,22 @@ public class BoardCommentDao {
 		}
 	}
 	
-	public void deleteBoardComment(int comment_id) {
+	public boolean deleteBoardComment(int comment_id) {
 		this.conn = DBManager.getConnection();
-		
+		boolean result = false;
 		try {
 			String sql = "DELETE FROM board_comment where comment_id = ?";
 			
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setInt(1, comment_id);
 			this.pstmt.execute();
+			result = true;
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(this.conn, this.pstmt);
 		}
+		return result;
 	}
 	
 	public void updateBoardComment(int update_answer, int comment_id) {

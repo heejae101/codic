@@ -13,41 +13,27 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../resources/script/board.js"></script>
 <meta charset="UTF-8">
 <title>목록</title>
 </head>
 <body>
-	<h2>질문글</h2>
-	<div id="board-box">
-		<div id="board-sub-div">
-			<ul id="board-sub-ul">
-				<li>글번호</li>
-				<li>제목</li>
-				<li>작성자</li>
-				<li>작성일</li>
-				<li>조회</li>
-				<br>
-			</ul>
-		</div>
-		<section id="board-list-sec">
-			<c:forEach var="r" items="${result}" varStatus="loop">
+	<section id="board-list">
+		<h2>질문글</h2>
+		<div id="board-box">
+			<div id="board-sub-div">
 				<ul id="board-sub-ul">
-					<li>${r.board_id}</li>
-					<li><a href="/BoardContentView?board_id=${r.board_id}">${r.board_title}</a></li>
-					<li>${r.user_nickname}</li>
-					<li>${r.modified_timestamp}</li>
-					<li>${r.board_view_count}</li>
-				<c:if test="${sessionScope.nickname == r.user_nickname}">
-					<div id="btn">
-						<button onclick="updateBoard(this)">수정</button>
-						<button onclick="deleteBoard(this)">삭제</button>
-					</div>
-				</c:if>
+					<li>글번호</li>
+					<li>제목</li>
+					<li>작성자</li>
+					<li>작성일</li>
+					<li>조회</li>
 				</ul>
-			</c:forEach>
-			<button onclick="location.href='/writeBoard'">글쓰기</button>
-		</section>
+			</div>
+		</div>
+		<div id="board-list-area"></div>
+		<button onclick="location.href='/writeBoard'">글쓰기</button>
+	</section>
 
-		<script src="../resources/script/board.js"></script>
 </body>
 </html>
