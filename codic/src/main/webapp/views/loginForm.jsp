@@ -53,7 +53,7 @@
 				<a href="#"> 네이버 로그인</a>
 			</div>
 			<div class="kakao">
-				<a href="javascript:kakaoLogin()">카카오 로그인</a>
+				<a href="javascript:kakaoLogin()"><img class="kakao" src="../resources/img/kakao.png"></a>
 			</div>
 		</div>
 

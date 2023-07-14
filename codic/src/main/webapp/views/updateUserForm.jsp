@@ -48,6 +48,9 @@
 	<div class="pwd3_box">
 	<input type="password" name="user_password_ch" id="user_password_ch"
 	placeholder="비밀번호 확인" > 
+	<ul>
+	<li class="error" id="error-password_ch">새 비밀번호를 확인해주세요.</li>
+	</ul>
 	<span class="err" id="chkNotice2" size="1"></span>
 	</div>
 	</div>
@@ -78,7 +81,6 @@
 </form>
 <a class="back" href="javascript:window.history.back();">뒤로가기></a>
 </section>
-
 
 	<script src="../resources/script/validation_update.js"></script>
 

@@ -35,7 +35,7 @@ public class UpdateUserRequest extends HttpServlet {
 		
 		UserDao userDao=UserDao.getInstance();
 		
-		String email=(String)request.getSession().getAttribute("log1");
+		String email=(String)request.getSession().getAttribute("email");
 		
 		User user=userDao.getUserByEmail(email);
 		

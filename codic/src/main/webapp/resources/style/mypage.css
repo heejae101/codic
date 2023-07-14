@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+
+.myPage-box{
+margin-top: 70px;	
+display: flex;
+}
+
+.choose-box{
+display: flex;
+flex-direction: column;	
+}
+
+.side{
+margin-top: 20px;	
+}
+
+.choose-box li{
+	font-size: 0.9rem;
+	font-weight: bold;
+	line-height: 30px;
+	color: black;
+}
+
+
+
+.content-box{
+	width: 500px;
+	height: 200px;
+	margin-left: 70px;
+	
+}
+
+.favorite{
+width: 500px;
+height: 100px;
+margin-top: 20px;
+border: 1px solid #94358c  ;
+
+}
+
+h2{
+color: #94358c;	
+}
+
+
