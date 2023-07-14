@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @media all and (min-width:400px){
-body{
+.header_body{
 	border-bottom: 0.7px solid black;
 }
 .hambuger{
@@ -16,15 +16,13 @@ header {
 	display: flex;
 	justify-content: space-between;
 }
-a {
+header a {
 	color: black;
 }
 
 .logo, .user{
 	padding: 20px;
 	display: flex;
-}
-.user{
 }
 .top-left{
 	display: flex;
@@ -76,6 +74,9 @@ a {
 		margin-left: 20px;
 		
 	}
+	.header_body .logo{
+		margin-left : 40px;
+	}
 	.board{
 		padding-top: 28px;
 		display: flex;
@@ -83,9 +84,9 @@ a {
 	}
 	.top-right{
 		width: 45%;
+		margin-left: 0px;
 		flex-direction: row-reverse;
 	}
-
 	
 	.search{
 		display: flex;

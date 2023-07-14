@@ -7,9 +7,10 @@
 <meta charset="UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<title>content</title>
+<title>main</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
 	<h1>${sessionScope.nickname}님환영합니다</h1>
 	<div class="search-wrapper">
 		<div>
@@ -51,6 +52,7 @@
 			</c:choose>
 		</ul>
 	</div>
+	<jsp:include page="/footer"></jsp:include>
 <script src="../resources/script/main.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 </head>
 <body>
 <br>
+  <div class="footer_body">
     <footer>
         <div class="logo">
 			<a href="main"><h1>CODIC</h1></a>
@@ -35,5 +36,6 @@
               </svg>
         </div>
     </footer>
+  </div>
 </body>
 </html>
