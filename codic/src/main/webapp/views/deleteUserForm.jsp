@@ -17,7 +17,7 @@
 </c:if>
 	<section id="delete-section">
 		<div class="delete">
-			<h2>${sessionScope.nickname}님정말 떠나시나요?</h2>
+			<h2>${sessionScope.nickname}님 정말 떠나시나요?</h2>
 			<form method="POST" action="/Leave">
 				<div>
 					<input type="text" id="user_email" name="user_email"

@@ -39,7 +39,7 @@
     <ul>
 	<li class="error" id="error-password">비밀번호는 필수정보입니다.</li>
 	</ul>
-	<span id="chkNotice1" size="1"></span>
+	<span class="err" id="chkNotice1" size="1"></span>
 	</div>
     </div>
     

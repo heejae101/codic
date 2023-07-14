@@ -4,29 +4,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>새로운 비밀번호 설정</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- 스타일 연결 -->
+<link rel="stylesheet" href="../resources/style/reset.css">
+<link rel="stylesheet" href="../resources/style/find.css">
+<title>비밀번호 바꾸기</title>
 </head>
 <body>
+<section id="find-section">
 <h2>새로운 비밀번호를 입력해주세요</h2>
 <form method="POST" action="/UpdateUser">
-<div class="pwd2">
-	<label for="pwd2">새 비밀번호</label>
+<div class="form_box">
+<div class="pwd2_box">
+	<label for="pwd2" class="title">새 비밀번호</label>
 	<input type="password" id="new_password" name="new_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합"  >
-    <span class="pwd_warning"> *특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</span>
-	<span id="chkNotice1" size="1"></span>
+    <p class="err"> *특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</p>
+	<span class="err" id="chkNotice1" size="1"></span>
     </div>
     
-    <div class="pwd3">
-	<label for="pwd3">새 비밀번호 확인</label>
+    <div class="pwd3_box">
+	<label for="pwd3" class="title">새 비밀번호 확인</label>
 	<input type="password" name="user_password_ch" id="user_password_ch"
 	placeholder="비밀번호 확인" > 
 	<div>
-	<span id="chkNotice2" size="1"></span>
+	<span class="err" id="chkNotice2" size="1"></span>
 	</div>
 	</div>
-	<input type="button" id="submit" value="저장" onclick="checkValue(form)">
-
+	<input type="button" id="find-btn" value="저장" onclick="checkValue(form)">
+</div>
 </form>
+
+</section>
+
+	<script src="../resources/script/validation_update.js"></script>
 
 </body>
 </html>

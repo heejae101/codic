@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-   @media(min-width:360px){
+  
 *{
 	margin: 0;
 	padding: 0;
@@ -202,8 +202,6 @@ font-size: 0.8rem;
 
 }
 
-
-}
 
 
  @media(min-width:1024px){
