@@ -20,14 +20,16 @@ public class BoardContentView extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int boardId = Integer.parseInt(request.getParameter("board_id"));
+		int board_id = Integer.parseInt(request.getParameter("board_id"));
 		BoardDao boardDao = BoardDao.getInstance();
+		Board board = boardDao.getBoardByNo(board_id);
+		boolean result = boardDao.setViewsById(board_id);
 		
-		Board board = boardDao.getBoardByNo(boardId);
-		
-		String url ="/boardView";
-		request.setAttribute("result", board);
-		request.getRequestDispatcher(url).forward(request, response);
+		if(result) {
+			String url ="/boardView";
+			request.setAttribute("result", board);
+			request.getRequestDispatcher(url).forward(request, response);			
+		}
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

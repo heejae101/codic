@@ -33,7 +33,7 @@
 					<li><a href="/ShowContent?category=javascript">JAVASCRIPT</a></li>
 					<li><a href="/ShowContent?category=java">JAVA</a></li>
 					<li><a href="/ShowContent?category=database">DATABASE</a></li>
-					<a href="../BoardListRequest">질문게시판</a>
+					<a href="/boardList">질문게시판</a>
 				</ul>
 		</div>
 		<ul>
@@ -45,7 +45,7 @@
 				<c:otherwise>
 					<!-- TODO 마이페이지 만들기  -->
 					<li><a href="/">마이페이지</a>
-					<li><a href="/Logout">로그아웃</a></li>
+ 					<li><a href="/Logout">로그아웃</a></li>
 					<li><a href="/update">회원정보 수정</a></li>
 					<li><a href="/leave">회원탈퇴</a></li>
 				</c:otherwise>

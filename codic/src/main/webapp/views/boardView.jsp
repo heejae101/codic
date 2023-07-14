@@ -34,17 +34,26 @@
             </div>
         </div>
 	<c:if test="${result.user_email == sessionScope.email}">
-		<a href="/BoardUpdateRequest?user_email=${result.user_email}">글수정</a>
+		<button onclick="updateBoard(this)">수정</button>
+		<button onclick="deleteBoard()">삭제</button>
+		</div>
 	</c:if>
-	
+
 	<div id="comment"></div>
-	
+
 	<!-- 댓글 -->
 	<div class="create-comment-area">
-		<span id="writer">${sessionScope.nickname}</span>
+		<c:choose>
+			<c:when test="${empty sessionScope.nickname}">
+				<span id="writer" value="guest">로그인 후 작성 가능합니다.</span>
+			</c:when>
+			<c:otherwise>
+				<span id="writer" value="sessionScope.nickname">${sessionScope.nickname}</span>
+			</c:otherwise>
+		</c:choose>
 		<textarea id="contents" placeholder="댓글 내용"></textarea>
 		<button id="commentBtn">댓글 작성</button>
 	</div>
-<script src="../resources/script/boardcomment.js"></script>
+	<script src="../resources/script/boardcomment.js"></script>
 </body>
 </html>
