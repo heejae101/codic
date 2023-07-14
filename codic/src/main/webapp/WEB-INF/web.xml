@@ -369,5 +369,35 @@
 		<url-pattern>/boardView</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>header</servlet-name>
+		<jsp-file>/header.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>header</servlet-name>
+		<url-pattern>/header</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>footer</servlet-name>
+		<jsp-file>/footer.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>footer</servlet-name>
+		<url-pattern>/footer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>menuBar</servlet-name>
+		<jsp-file>/views/menuBar.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>menuBar</servlet-name>
+		<url-pattern>/menuBar</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
 

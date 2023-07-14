@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<link href="../resources/style/reset.css" rel="stylesheet">
+	<link href="../resources/style/content.css" rel="stylesheet">
 <title>Content</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
+	<jsp:include page="/menuBar"></jsp:include>
+	<div class="content">
 	<h1>Content</h1>
 	<c:choose>
 		<c:when test="${empty result}">
@@ -58,5 +63,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
+	</div>
+	<jsp:include page="/footer"></jsp:include>
 </body>
 </html>
