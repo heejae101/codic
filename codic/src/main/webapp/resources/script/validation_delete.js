@@ -13,9 +13,6 @@ function checkValue(htmlForm){
 	
 	let check=true;
 	
-	console.log(email);
-	console.log(password);
-	
 	
 	if(email===""){
 		check=false;

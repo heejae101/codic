@@ -42,7 +42,7 @@ public class UserDao {
 
 		boolean confirm = true;
 
-		if (password != null && name != null  && nickname != null && check != 0 && status != 0) {
+		if (password != null && name != null && nickname != null && check != 0 && status != 0) {
 			this.conn = DBManager.getConnection();
 			if (this.conn != null) {
 				if (!email.equals("")) {// 이메일 값이 있을때
@@ -91,7 +91,6 @@ public class UserDao {
 		return confirm;
 
 	}
-	
 
 	// 이메일값으로 닉네임값 불러오기
 	public String getNicknameByEmail(String email) {
@@ -122,8 +121,8 @@ public class UserDao {
 		return nickname;
 
 	}
-	
-	//TODO 닉네임으로 email 불러오기
+
+	// TODO 닉네임으로 email 불러오기
 	public String getEmailByNickName(String nickName) {
 		this.conn = DBManager.getConnection();
 		String user_email = null;
@@ -145,8 +144,8 @@ public class UserDao {
 		}
 		return user_email;
 	}
-	
-	//이름 불러오기
+
+	// 이름 불러오기
 	public String getNameByEmail(String email) {
 		String name = null;
 
@@ -177,7 +176,6 @@ public class UserDao {
 
 	}
 
-
 	public User getUserByEmail(String email) {
 		// user 객체
 		User user = null;
@@ -200,7 +198,7 @@ public class UserDao {
 					Timestamp joinDate = java.sql.Timestamp.valueOf(this.rs.getString(6));
 					int status = Integer.parseInt(this.rs.getString(7));
 
-					user = new User(email, password, name,nickname, check, joinDate, status);
+					user = new User(email, password, name, nickname, check, joinDate, status);
 
 				}
 			} catch (Exception e) {
@@ -213,64 +211,57 @@ public class UserDao {
 
 		return user;
 	}
-	
-	//이메일 중복검사
-		public boolean duplEmail(String email) {
-			this.conn = DBManager.getConnection();
-			String sql="SELECT user_email FROM user_info";
-		 
-		    
-		    if(this.conn!=null) {
-		    try {
-				this.pstmt=this.conn.prepareStatement(sql);
-	            this.rs = this.pstmt.executeQuery();
-			
-				while(rs.next())  {
-					if(rs.getString("user_email").equals(email)) {
+
+	// 이메일 중복검사
+	public boolean duplEmail(String email) {
+		this.conn = DBManager.getConnection();
+		String sql = "SELECT user_email FROM user_info";
+
+		if (this.conn != null) {
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+
+				while (rs.next()) {
+					if (rs.getString("user_email").equals(email)) {
 						return true;
 					}
 				}
-		    
-		  
-		    } catch (Exception e) {
+
+			} catch (Exception e) {
 				e.printStackTrace();
-			}finally {
+			} finally {
 				DBManager.close(this.conn, this.pstmt, this.rs);
 			}
-		
-		
+
 		}
-		    return false;
-		}
-	
-	//닉네임 중복검사
+		return false;
+	}
+
+	// 닉네임 중복검사
 	public boolean duplNickname(String nickname) {
 		this.conn = DBManager.getConnection();
-		String sql="SELECT user_nickname FROM user_info";
-	 
-	    
-	    if(this.conn!=null) {
-	    try {
-			this.pstmt=this.conn.prepareStatement(sql);
-            this.rs = this.pstmt.executeQuery();
-		
-			while(rs.next())  {
-				if(rs.getString("user_nickname").equals(nickname)) {
-					return true;
+		String sql = "SELECT user_nickname FROM user_info";
+
+		if (this.conn != null) {
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+
+				while (rs.next()) {
+					if (rs.getString("user_nickname").equals(nickname)) {
+						return true;
+					}
 				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
 			}
-	    
-	  
-	    } catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			DBManager.close(this.conn, this.pstmt, this.rs);
+
 		}
-	
-	
-	
-	}
-	    return false;
+		return false;
 	}
 
 	public ArrayList<User> getUserAll() {
@@ -296,11 +287,11 @@ public class UserDao {
 					String password = this.rs.getString(2);
 					String name = this.rs.getString(3);
 					String nickname = this.rs.getString(4);
-					
+
 					int check = Integer.parseInt(this.rs.getString(5));
 					int status = Integer.parseInt(this.rs.getString(6));
 
-					User user = new User(email, password, name,nickname,check, status);
+					User user = new User(email, password, name, nickname, check, status);
 					list.add(user);
 				}
 
@@ -319,8 +310,9 @@ public class UserDao {
 	public void updateUser(UserRequestDto userDto, String password) {
 		this.conn = DBManager.getConnection();
 
-		if (this.conn != null && userDto.getUser_password() != null && userDto.getUser_nickname()!=null && userDto.getUser_email() != null) {
-			if (userDto.getUser_password()!="") {
+		if (this.conn != null && userDto.getUser_password() != null && userDto.getUser_nickname() != null
+				&& userDto.getUser_email() != null) {
+			if (userDto.getUser_password() != "") {
 				String sql = "UPDATE user_info SET user_password=?, user_nickname=? WHERE user_email=? AND user_password=?";
 
 				try {
@@ -329,7 +321,7 @@ public class UserDao {
 					this.pstmt.setString(2, userDto.getUser_nickname());
 					this.pstmt.setString(3, userDto.getUser_email());
 					this.pstmt.setString(4, password);
-					
+
 					this.pstmt.execute();
 
 				} catch (Exception e) {
@@ -342,10 +334,10 @@ public class UserDao {
 				String sql = "UPDATE user_info SET user_nickname=? WHERE user_email=? AND user_password=?";
 				try {
 					this.pstmt = this.conn.prepareStatement(sql);
-					this.pstmt.setString(1,userDto.getUser_nickname());
+					this.pstmt.setString(1, userDto.getUser_nickname());
 					this.pstmt.setString(2, userDto.getUser_email());
 					this.pstmt.setString(3, password);
-					
+
 					this.pstmt.execute();
 
 				} catch (Exception e) {
@@ -388,7 +380,5 @@ public class UserDao {
 
 		return confirm;
 	}
-	
-
 
 }

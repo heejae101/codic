@@ -11,9 +11,12 @@
 <title>회원 탈퇴</title>
 </head>
 <body>
+<c:if test="${ empty sessionScope.nickname }">
+	<c:redirect url="login"></c:redirect>
+</c:if>
 	<section id="delete-section">
 		<div class="delete">
-			<h2>${sessionScope.log}님정말 떠나시나요?</h2>
+			<h2>${sessionScope.nickname}님정말 떠나시나요?</h2>
 			<form method="POST" action="/Leave">
 				<div>
 					<input type="text" id="user_email" name="user_email"
@@ -34,11 +37,6 @@
 
 			<a class="back" href="javascript:window.history.back();">뒤로가기></a>
 		</div>
-
-		<input type="submit" id="submit" value="회원 탈퇴"
-			onclick="checkValue(form)">
-		</form>
-		<a href="main">뒤로가기</a>
 	</section>
 	<script src="../resources/script/validation_delete.js"></script>
 </body>

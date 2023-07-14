@@ -12,28 +12,14 @@ import model.board.BoardRequestDto;
 import model.user.UserDao;
 import model.user.UserRequestDto;
 
-/**
- * Servlet implementation class BoardUpdateFormAction
- */
-//@WebServlet("/BoardUpdateFormAction")
+
 public class BoardUpdateFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public BoardUpdateFormAction() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("업데이트 폼액션 도착");

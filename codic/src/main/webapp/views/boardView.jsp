@@ -41,9 +41,7 @@
 	
 	<!-- 댓글 -->
 	<div class="create-comment-area">
-		<input type="hidden" id="boardId" value="${result.board_id}">
-		<input type="hidden" id="nickname" value="${sessionScope.nickname}">
-		<input type="hidden" id="email" value="${sessionScope.email}">
+		<span id="writer">${sessionScope.nickname}</span>
 		<textarea id="contents" placeholder="댓글 내용"></textarea>
 		<button id="commentBtn">댓글 작성</button>
 	</div>

@@ -11,6 +11,7 @@ public class Board {
 	private int board_view_count;
 	private String current_timestamp;
 	private String modified_timestamp;
+	private String user_nickname;
 	
 	public Board(String user_email, String board_title, String board_text, int board_view_count,
 			String current_timestamp, String modified_timestamp) {
@@ -31,6 +32,28 @@ public class Board {
 		this.board_view_count = board_view_count;
 		this.current_timestamp = current_timestamp;
 		this.modified_timestamp = modified_timestamp;
+	}
+	
+
+	public Board(int board_id, String user_email, String board_title, String board_text, int board_view_count,
+			String current_timestamp, String modified_timestamp, String user_nickname) {
+		super();
+		this.board_id = board_id;
+		this.user_email = user_email;
+		this.board_title = board_title;
+		this.board_text = board_text;
+		this.board_view_count = board_view_count;
+		this.current_timestamp = current_timestamp;
+		this.modified_timestamp = modified_timestamp;
+		this.user_nickname = user_nickname;
+	}
+
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
 	}
 
 	public int getBoard_id() {

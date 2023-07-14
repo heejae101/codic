@@ -24,8 +24,6 @@ header a {
 	padding: 20px;
 	display: flex;
 }
-.user{
-}
 .top-left{
 	display: flex;
 	gap: 20px;
@@ -76,6 +74,9 @@ header a {
 		margin-left: 20px;
 		
 	}
+	.header_body .logo{
+		margin-left : 40px;
+	}
 	.board{
 		padding-top: 28px;
 		display: flex;
@@ -83,9 +84,9 @@ header a {
 	}
 	.top-right{
 		width: 45%;
+		margin-left: 0px;
 		flex-direction: row-reverse;
 	}
-
 	
 	.search{
 		display: flex;
