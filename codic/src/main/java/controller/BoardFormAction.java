@@ -35,7 +35,7 @@ public class BoardFormAction extends HttpServlet {
 		String url = "";
 		
 		if(result) 
-			url = "/BoardListRequest";
+			url = "/boardList";
 		else
 			url = "/writeBoard";
 

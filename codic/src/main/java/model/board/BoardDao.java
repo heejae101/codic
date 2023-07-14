@@ -57,7 +57,6 @@ public class BoardDao {
 		return true;
 	}
 	
-	// R ALL
 	public ArrayList<Board> getBoardAll() {
 		
 		ArrayList<Board> list = new ArrayList<Board>();
@@ -94,8 +93,6 @@ public class BoardDao {
 		return list;
 	}
 
-	
-	// R 1
 	public Board getBoardByNo(int board_id) {
 		Board board = null;
 
@@ -170,7 +167,7 @@ public class BoardDao {
 		return board;
 	}
 	
-	public boolean deleteBoardByBoardId(String board_id){
+	public boolean deleteBoardByBoardId(int board_id){
 		this.conn = DBManager.getConnection();
 		boolean result = false;
 		
@@ -178,13 +175,34 @@ public class BoardDao {
 			String sql = "DELETE FROM board WHERE board_id = ?";
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setString(1, board_id);
+				this.pstmt.setInt(1, board_id);
 				this.pstmt.execute();
 				result = true;
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
 				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return result;
+	}
+	
+	public boolean setViewsById(int board_id) {
+		this.conn = DBManager.getConnection();
+		boolean result = false;
+		
+		if(this.conn != null) {
+			String sql = "UPDATE board SET board_view_count = board_view_count + 1 WHERE board_id = ?";
+			try {
+				System.out.println(board_id);
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setInt(1, board_id);
+				this.pstmt.executeUpdate();
+				result = true;
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, pstmt);
 			}
 		}
 		return result;
