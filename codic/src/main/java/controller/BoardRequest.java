@@ -17,24 +17,13 @@ import model.board.BoardResponseDto;
 import model.content.Content;
 import model.content.ContentDao;
 
-/**
- * Servlet implementation class BoardReadFormAction
- */
-//@WebServlet("/BoardRequest")
 public class BoardRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public BoardRequest() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		

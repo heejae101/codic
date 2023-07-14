@@ -24,28 +24,26 @@ public class BoardDao {
 	
 	// C
 	public boolean createBoard(BoardRequestDto boardDto) {
-
 		boolean check = true;
-
+		
 		String user_email = boardDto.getUser_email();
 		String board_title = boardDto.getBoard_title();
 		String board_text = boardDto.getBoard_text();
 		int board_view_count = boardDto.getBoard_view_count();
+		String board_nickname = boardDto.getBoard_nickname();
 
 		if (user_email != null && board_title != null && board_text != null) {
 			this.conn = DBManager.getConnection();
 			if (this.conn != null) {
-				String sql = "INSERT INTO board(user_email, board_title, board_text, board_view_count) VALUES(?,?,?,?)";
-
+				String sql = "INSERT INTO board(user_email, board_title, board_text, board_view_count, user_nickname) VALUES(?,?,?,?,?)";
 				try {
 					this.pstmt = this.conn.prepareStatement(sql);
 					this.pstmt.setString(1, user_email);
 					this.pstmt.setString(2, board_title);
 					this.pstmt.setString(3, board_text);
 					this.pstmt.setInt(4, board_view_count);
-
+					this.pstmt.setString(5, board_nickname);
 					this.pstmt.execute();
-
 				} catch (Exception e) {
 					e.printStackTrace();
 					check = false;
@@ -171,6 +169,27 @@ public class BoardDao {
 
 		return board;
 	}
+	
+	public boolean deleteBoardByBoardId(String board_id){
+		this.conn = DBManager.getConnection();
+		boolean result = false;
+		
+		if(this.conn != null) {
+			String sql = "DELETE FROM board WHERE board_id = ?";
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, board_id);
+				this.pstmt.execute();
+				result = true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return result;
+	}
+	
 	// 게시판 목록 출력
 	public ArrayList<Board> getBoard10() {
 		ArrayList<Board> list = new ArrayList<Board>();
@@ -193,6 +212,7 @@ public class BoardDao {
 					int board_view_count = this.rs.getInt(5);
 					String current_timestamp = this.rs.getString(6);
 					String modified_timestamp = this.rs.getString(7);
+					String user_nickname = this.rs.getString(8);
 
 					Board board = new Board(board_id, user_email, board_title, board_text, board_view_count,
 							current_timestamp, modified_timestamp);
@@ -207,6 +227,44 @@ public class BoardDao {
 		}
 		return list;
 	}
+	
+	// 게시판 목록 출력
+		public ArrayList<Board> getBoard() {
+			ArrayList<Board> list = new ArrayList<Board>();
+			String sql = "SELECT * FROM board ORDER BY current_timestamp DESC";
+			
+			this.conn = DBManager.getConnection();
+
+			if (this.conn != null) {
+				
+				try {
+					this.pstmt = this.conn.prepareStatement(sql);
+					this.rs = this.pstmt.executeQuery();
+
+					while (this.rs.next()) {
+
+						int board_id = this.rs.getInt(1);
+						String user_email = this.rs.getString(2);
+						String board_title = this.rs.getString(3);
+						String board_text = this.rs.getString(4);
+						int board_view_count = this.rs.getInt(5);
+						String current_timestamp = this.rs.getString(6);
+						String modified_timestamp = this.rs.getString(7);
+						String user_nickname = this.rs.getString(8);
+
+						Board board = new Board(board_id, user_email, board_title, board_text, board_view_count,
+								current_timestamp, modified_timestamp,user_nickname);
+						
+						list.add(board);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					DBManager.close(this.conn, this.pstmt, this.rs);
+				}
+			}
+			return list;
+		}
 	
 	public boolean nextPage(int pageNum) {
 		String sql = "SELECT * FROM board ORDER BY modified_timestamp DESC LIMIT 10";
@@ -239,7 +297,6 @@ public class BoardDao {
 			this.pstmt.setString(1, title);
 			this.pstmt.setString(2, text);
 			this.pstmt.setString(3, email);
-			
 			this.pstmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();

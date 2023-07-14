@@ -10,7 +10,7 @@
 <title>content</title>
 </head>
 <body>
-	<h1>${sessionScope.log}님환영합니다</h1>
+	<h1>${sessionScope.nickname}님환영합니다</h1>
 	<div class="search-wrapper">
 		<div>
 			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -37,11 +37,13 @@
 		</div>
 		<ul>
 			<c:choose>
-				<c:when test="${ empty sessionScope.log }">
+				<c:when test="${ empty sessionScope.nickname }">
 					<li><a href="/views/loginForm.jsp">로그인</a></li>
 					<li><a href="/join">회원가입</a></li>
 				</c:when>
 				<c:otherwise>
+					<!-- TODO 마이페이지 만들기  -->
+					<li><a href="/">마이페이지</a>
 					<li><a href="/Logout">로그아웃</a></li>
 					<li><a href="/update">회원정보 수정</a></li>
 					<li><a href="/leave">회원탈퇴</a></li>

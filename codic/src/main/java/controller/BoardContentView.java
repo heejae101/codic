@@ -11,24 +11,13 @@ import model.board.Board;
 import model.board.BoardDao;
 import model.content.ContentDao;
 
-/**
- * Servlet implementation class BoardView
- */
-//@WebServlet("/BoardContentView")
 public class BoardContentView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public BoardContentView() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int boardId = Integer.parseInt(request.getParameter("board_id"));
@@ -39,13 +28,8 @@ public class BoardContentView extends HttpServlet {
 		String url ="/boardView";
 		request.setAttribute("result", board);
 		request.getRequestDispatcher(url).forward(request, response);
-		response.sendRedirect(url);
-		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}

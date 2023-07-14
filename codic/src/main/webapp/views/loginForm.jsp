@@ -16,8 +16,8 @@
 </head>
 <body>
 	<section id="login-section">
-    <div class="login">
-		<h2>로그인</h2>
+		<div class="login">
+			<h2>로그인</h2>
 			<p class="join">
 				회원이 아닌겨~? <a class="join-btn" href="/join">회원가입</a>
 			</p>
@@ -28,24 +28,23 @@
 							placeholder="your@email.com" autofocus> <input
 							type="password" id="user_password" name="user_password"
 							placeholder="비밀번호">
-
-
 						<ul>
 							<li class="error" id="error-id">유효한 이메일을 입력해주세요.</li>
 							<li class="error" id="error-password">비밀번호는 필수 정보입니다.
 							<li>
 						</ul>
 					</div>
-
 					<input type="button" id="sub-btn" value="로그인"
 						onclick="checkValue(form)">
 			</form>
-		   
-		
+
+
 			<div class="find">
-				<p class="find-btn"><a href="/find">비밀번호 찾기 ></a></p>
+				<p class="find-btn">
+					<a href="/find">비밀번호 찾기 ></a>
+				</p>
+			</div>
 		</div>
-		 </div>
 
 
 		<!-- 간편 로그인 -->
@@ -57,9 +56,8 @@
 				<a href="javascript:kakaoLogin()">카카오 로그인</a>
 			</div>
 		</div>
-		</div>
-		
-	
+
+
 	</section>
 
 	<script src="../resources/script/validation_login.js"></script>

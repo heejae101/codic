@@ -3,6 +3,8 @@ package controller;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,18 +13,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
+import util.AuthManager;
+
 public class CheckEmailAuthToken extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String inputToken = request.getParameter("inputToken");
+		AuthManager auth = new AuthManager();
+		String inputToken = request.getParameter("input_code");
 		
-		HttpSession emailSession = request.getSession();
-		String sessionToken = (String) emailSession.getAttribute("AuthToken");
-		String sessionValidTime = (String) emailSession.getAttribute("AuthTime");
+		HttpSession requestSession = request.getSession();
+		String sessionToken = (String) requestSession.getAttribute("VERIFICATION_CODE");
+		String sessionValidTime = (String) requestSession.getAttribute("VerificationDuration");
+		
+		String nowDate = auth.getCurrentTime1().split("/")[0];
+		int nowTime = Integer.parseInt(auth.getCurrentTime1().split("/")[1]);
 		
 		String validDate = sessionValidTime.split("/")[0];
 		int validTime = Integer.parseInt(sessionValidTime.split("/")[1]);
+		
+		Map<String, Object> responseData = new HashMap<>();
+		
+		if(nowDate.equals(validDate) && nowTime < validTime) {
+			if(inputToken.equals(sessionToken)) {
+				responseData.put("result", "VERIFICATION_SENT");
+			}else {
+				responseData.put("result", "The token code is invalid.");
+			}
+		}else {
+			responseData.put("result", "The token code has expired.");
+		}
+		
+		String resultJson = new Gson().toJson(responseData);
+		response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(resultJson);
 		
 		
 //		System.out.println("==========");
@@ -35,19 +62,6 @@ public class CheckEmailAuthToken extends HttpServlet {
 //		    System.out.println("Attribute name: " + attributeName + ", Attribute value: " + attributeValue);
 //		}
 		
-		Calendar calendar = Calendar.getInstance();
-		String currentday = calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
-		int currentTime = Integer.parseInt(calendar.get(Calendar.HOUR_OF_DAY)+""+(calendar.get(Calendar.MINUTE))+""+calendar.get(Calendar.SECOND));
-		int hour = calendar.get(Calendar.HOUR_OF_DAY);
-		int minute = calendar.get(Calendar.MINUTE);
-		int second = calendar.get(Calendar.SECOND);
-
-		String timeString = String.format("%02d%02d%02d", hour, minute, second);
-		
-		if(validDate.equals(currentday) && validTime >= currentTime && inputToken.equals(sessionToken)) {
-			emailSession.setAttribute("EmailCheck", true);
-		}
-		response.sendRedirect("/views/emailAuth.jsp");
 		
 	}
 

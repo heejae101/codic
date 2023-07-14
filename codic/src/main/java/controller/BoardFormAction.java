@@ -21,14 +21,14 @@ public class BoardFormAction extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
-		String user_email = request.getParameter("email");
+		HttpSession requestSession = request.getSession();
+		String board_email = (String) requestSession.getAttribute("email");
+		String board_nickname = (String) requestSession.getAttribute("nickname");
 		String board_title = request.getParameter("title");
-		String board_text = request.getParameter("text");
-		int board_view_count = Integer.parseInt(request.getParameter("view_count"));
-		
-		BoardRequestDto board = new BoardRequestDto(user_email, board_title, board_text, board_view_count);
-		
+		String board_text = request.getParameter("contents");
+
+		BoardRequestDto board = new BoardRequestDto(board_email, board_title, board_text, board_nickname);
+		System.out.println(board);
 		BoardDao boardDao = BoardDao.getInstance();
 		boolean result = boardDao.createBoard(board);
 		

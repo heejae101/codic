@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!-- 스타일 연결 -->
 <link rel="stylesheet" href="../resources/style/reset.css">
 <link rel="stylesheet" href="../resources/style/update.css">
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+
 <section id="update-section">
 
 <h2>회원정보 수정</h2>
@@ -20,7 +22,7 @@
 
 <label for="email" class="title">이메일</label>
 <div class="email_box">
-<input type="text" id=user_email name="user_email" value="${sessionScope.log1}" readonly>
+<input type="text" id=user_email name="user_email" value="${sessionScope.email}" readonly>
 </div>
 <div class="pwd1">
 <label for="pwd1" class="title">비밀번호</label>
@@ -53,7 +55,7 @@
 <div>
 <label for="name" class="title">이름</label>
 <div class="name_box">
-<input type="text" id="user_name" name="user_name" value="${sessionScope.log2}"readonly>
+<input type="text" id="user_name" name="user_name" value="${sessionScope.name}"readonly>
 </div>
 </div>
 
@@ -69,13 +71,16 @@
 </div>
 </div>  
 
+
+
 <input type="button" id="update-btn" value="회원정보 수정" onclick="checkValue(form)">
 
 </form>
 <a class="back" href="javascript:window.history.back();">뒤로가기></a>
 </section>
 
-<script src="../resources/script/validation_update.js"></script>
+
+	<script src="../resources/script/validation_update.js"></script>
 
 </body>
 </html>
