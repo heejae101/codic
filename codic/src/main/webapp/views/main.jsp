@@ -39,7 +39,7 @@
 		<ul>
 			<c:choose>
 				<c:when test="${ empty sessionScope.nickname }">
-					<li><a href="/views/loginForm.jsp">로그인</a></li>
+					<li><a href="/login">로그인</a></li>
 					<li><a href="/join">회원가입</a></li>
 				</c:when>
 				<c:otherwise>

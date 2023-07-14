@@ -7,8 +7,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!-- 카카오 -->
-<script type="text/javascript"
-	src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
 <!-- 스타일 연결 -->
 <link rel="stylesheet" href="../resources/style/reset.css">
 <link rel="stylesheet" href="../resources/style/login.css">
@@ -55,13 +54,14 @@
 			<div class="kakao">
 				<a href="javascript:kakaoLogin()">카카오 로그인</a>
 			</div>
+			<div class="kakao">
+				<a href="javascript:kakaoLogout()">카카오 로그아웃</a>
+			</div>
 		</div>
 
 
 	</section>
-
 	<script src="../resources/script/validation_login.js"></script>
-
-
+	<script src="../resources/script/kakao_Auth.js"></script>
 </body>
 </html>

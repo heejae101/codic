@@ -30,7 +30,7 @@
             </div>
             <div class="board-text">
                 <span>내용 : </span>
-                <p>${result.board_text}zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</p>
+                <p>${result.board_text}</p>
             </div>
         </div>
 	<c:if test="${result.user_email == sessionScope.email}">
