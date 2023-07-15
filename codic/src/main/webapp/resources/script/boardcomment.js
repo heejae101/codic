@@ -24,8 +24,8 @@ function getComments() {
                         <span id="commentText">${contents}</span>
                         <span id="date">${modified_timestamp}</span>
                         <c:if test=${writer === sessionWriter}>
-                        	<button onclick="updateComment(this)">수정</button>
                         	<button onclick="deleteComment(this)">삭제</button>
+                        	<button onclick="updateComment(this)">수정</button>
                         </c:if>
                     </div>
                 `;

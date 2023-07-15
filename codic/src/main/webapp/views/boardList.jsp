@@ -21,22 +21,30 @@
 <title>목록</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
+	<div id="container">
+	<jsp:include page="/menuBar"></jsp:include>
+	
 	<section id="board-list">
 		<h2>질문글</h2>
 		<div id="board-box">
 			<div id="board-sub-div">
 				<ul id="board-sub-ul">
-					<li>글번호</li>
+					<li id="board-nums">번호</li>
 					<li>제목</li>
 					<li>작성자</li>
-					<li>작성일</li>
+					<li id="board-date">작성일</li>
 					<li>조회</li>
 				</ul>
 			</div>
 		</div>
-		<div id="board-list-area"></div>
-		<button onclick="location.href='/writeBoard'">글쓰기</button>
-	</section>
+		<div id="board-list-area">
 
+		</div>
+		<button id="write-bnt" onclick="location.href='/writeBoard'">글쓰기</button>
+	</section>
+	</div>
+	<jsp:include page="/footer"></jsp:include>
+	
 </body>
 </html>

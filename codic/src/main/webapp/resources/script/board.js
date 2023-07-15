@@ -18,10 +18,10 @@ function getComments() {
 				const user_nickname = comment.user_nickname;
 				const html = `
                 <ul id="board-sub-ul">
-					<li >${board_id}</li>
+					<li id="board-nums">${board_id}</li>
 					<li><a href="/BoardContentView?board_id=${board_id}">${board_title}</a></li>
 					<li>${user_nickname}</li>
-					<li>${modified_timestamp}</li>
+					<li id="board-date">${modified_timestamp}</li>
 					<li>${board_view_count}</li>
 				</ul>
                 `;

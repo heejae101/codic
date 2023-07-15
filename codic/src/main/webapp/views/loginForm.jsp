@@ -11,10 +11,11 @@
 	src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
 <!-- 스타일 연결 -->
 <link rel="stylesheet" href="../resources/style/reset.css">
-<link rel="stylesheet" href="../resources/style/login.css">
+
 <title>로그인</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
 	<section id="login-section">
 		<div class="login">
 			<h2>로그인</h2>
@@ -62,6 +63,6 @@
 
 	<script src="../resources/script/validation_login.js"></script>
 
-
+<link rel="stylesheet" href="../resources/style/login.css">
 </body>
 </html>

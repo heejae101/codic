@@ -10,6 +10,7 @@
 <title>비밀번호 찾기</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
 	<section id="find-section">
 		<h2>비밀번호 찾기</h2>
 		<p class="comment">비밀 번호 재설정을 위해 이메일을 입력해주세요.</p>

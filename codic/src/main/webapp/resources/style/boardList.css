@@ -1,34 +1,43 @@
 @charset "UTF-8";
 
 @media all and (min-width:400px){
-    h2{
-        padding: 10px;
-        margin: 0 auto;
+    #board-list h2{
+        margin-top: 30px;
     }
+	#board-list{
+	margin : 0 15px;
+	}
     #board-box{
         border: 2px solid rgb(240, 240, 240);
-        width: 80%;
-        margin : 0 auto;
-        margin-top: 100px;
-        height : auto;
-        align-items: center;
+        margin-top: 30px;
     }
     #board-box li{
         padding: 5px;    
         align-items: center;
     }
 
-    #board-sub-div{
+    #board-sub-div {
+        display: flex;
+        flex-direction: column;
         background-color: rgb(240, 240, 240);
-    }
+      }
+      #board-list-area {
+        display: flex;
+        flex-direction: column;
+      }
+
     #board-sub-ul{
         display: grid;
         grid-template-columns: 3fr 1fr 1fr;
+        height : 40px;
         text-align: center;
         border: 0.1px solid rgb(240, 240, 240);
     }
     #board-sub-ul #title{
         text-align: left;
+    }
+    #board-nums, #board-date{
+        display: none;
     }
     #write-bnt {
         float: right;
@@ -39,17 +48,17 @@
         margin-top: 20px;
         background-color: hwb(221 30% 2%);
         border: none;
+        margint-bottom : 30px;
     }
-    #write-bnt svg{
-        margin-top: 2px;
-    }
-    #board-nums, #board-date{
-        display: none;
-    }
+
     
 }
 
-@media all and (min-width:850px){
+@media all and (min-width:920px){
+	#container{
+    display : grid;
+    grid-template-columns: 0.4fr 1fr;
+    }
     #board-sub-ul{
         display: grid;
         grid-template-columns: 0.5fr 3fr 0.8fr 0.8fr 0.5fr;
@@ -59,8 +68,4 @@
     #board-nums, #board-date{
         display: grid;
     }
-}
-
-@media all and (min-width:400px){
-
 }

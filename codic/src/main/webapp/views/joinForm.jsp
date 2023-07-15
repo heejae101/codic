@@ -8,11 +8,12 @@
 
 <!-- 스타일 연결 -->
 <link rel="stylesheet" href="../resources/style/reset.css">
-<link rel="stylesheet" href="../resources/style/joinForm.css">
+
 
 <title>회원가입</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
   <section id="join-section">
 		
 			<h2>회원가입</h2>
@@ -132,6 +133,6 @@
 	</section>
 
 	<script src="../resources/script/validation_join.js"></script>
-
+<link rel="stylesheet" href="../resources/style/joinForm.css">
 </body>
 </html>

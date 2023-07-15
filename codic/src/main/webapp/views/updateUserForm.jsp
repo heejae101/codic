@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+	<jsp:include page="/header"></jsp:include>
 <section id="update-section">
 
 <h2>회원정보 수정</h2>

@@ -12,6 +12,7 @@
 <title>비밀번호 바꾸기</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
 <section id="find-section">
 <h2>새로운 비밀번호를 입력해주세요</h2>
 <form method="POST" action="/UpdateUser">

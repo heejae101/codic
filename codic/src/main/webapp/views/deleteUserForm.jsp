@@ -12,6 +12,7 @@
 <title>회원 탈퇴</title>
 </head>
 <body>
+	<jsp:include page="/header"></jsp:include>
 <c:if test="${ empty sessionScope.nickname }">
 	<c:redirect url="login"></c:redirect>
 </c:if>
