@@ -16,19 +16,17 @@
 	text-align: center;
 }
 
-h2 {
+.login_text {
     margin-top: 70px;
     font-size: 1.7rem;
     color:#94358c;
 }
 
-form{
+#login{
 	min-width: 400px;
 	width: 60vw;
 	margin: 0 auto;
 }
-
-
 
 .login_1 {
   width: 100%;
@@ -42,7 +40,7 @@ padding: 20px;
 
   }
 
-input {
+.square {
     width: 70%;
 	margin: 5px;
 	padding: 15px;

@@ -1,32 +1,32 @@
 $('#user_password').on('change', e => {
 	const password = $('#user_password').val();
-	
-	if(password !== "") {
+
+	if (password !== "") {
 		$('#error-password').hide();
 	}
 });
 
 
-function checkValue(htmlForm){
-	const email=htmlForm.user_email.value;
-	const password=htmlForm.user_password.value;
-	
-	let check=true;
-	
-	
-	if(email===""){
-		check=false;
-		
-	}else if(password===""){
+function checkValue(htmlForm) {
+	const email = htmlForm.user_email.value;
+	const password = htmlForm.user_password.value;
+
+	let check = true;
+
+
+	if (email === "") {
+		check = false;
+
+	} else if (password === "") {
 		$('#error-password').show();
 		$('#user_password').focus();//포커스 이동시켜서 다시 입력하라고
-		check=false;
-		
+		check = false;
+
 	}
-	
-	if(check === true){
+
+	if (check === true) {
 		htmlForm.submit();
-		
+
 	}
-	
+
 }

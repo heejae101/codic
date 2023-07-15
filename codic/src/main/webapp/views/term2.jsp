@@ -9,6 +9,7 @@
 <title>개인정보처리방침</title>
 </head>
 <body>
+<jsp:include page="/header"></jsp:include>
 <div class="section">
             <div class="text_title"><strong>개인정보처리방침</strong></div>
             <div class="text">
@@ -253,6 +254,7 @@
                 <p>1. 본 약관은 2023년 3월 27일부터 시행됩니다.</p>
             </div>
         </div>
+        <jsp:include page="/footer"></jsp:include>
 
 </body>
 </html>

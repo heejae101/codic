@@ -122,7 +122,7 @@ public class UserDao {
 
 	}
 
-	// TODO 닉네임으로 email 불러오기
+	// 닉네임으로 email 불러오기
 	public String getEmailByNickName(String nickName) {
 		this.conn = DBManager.getConnection();
 		String user_email = null;
