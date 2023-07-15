@@ -1,68 +1,90 @@
 @charset "UTF-8";
 
-@media all and (min-width:465px){
-    .board-views-box{
-        margin: 0 auto;
-        width: 85%;
-       
+@media all and (min-width:400px){
+    #board-title{
+        height : 500px;
     }
-    .board-title{
-        margin-bottom: 10px;
-        font-size: 20px;
+    #container-view{
+    	margin : 0px 15px;
     }
-    .board-content{
-        margin-bottom: 10px;
-    }
-    .board-content h2{
-        margin-bottom: 15px;
-    }
-    .board-writer-btn {
-        align-items: center;
-        display: grid;
-        grid-template-columns: 100fr 1fr 1fr;
-        gap : 7px;
-    }
-    
-    .board-content button {
-        width: 90px;
+	.board-content {
+		display: flex;
+		flex-direction: column;
+	}
+	.comment {
+		display: flex;
+		flex-direction: column;
+	}
+	.create-comment-area {
+		display: flex;
+	}
+	.board-title h3{
+	margin-top: 30px;
+	margin-bottom : 10px;
+	}
+	.board-writer{
+	margin-bottom : 10px;
+	}
+	.board-btn button{
+	float : right;
+	width: 90px;
         height: 35px;
         color: aliceblue;
         font-weight: 700;
         background-color: hwb(221 30% 2%);
         border: none;
-    }
-    .board-content p{
-    word-wrap:break-word;
-    margin-top: 5px;
-    }
-    .comment-list{
-        display: grid;
-        grid-template-rows: 1fr auto 1fr;
-        gap : 7px;
-        margin-bottom: 9px;
+	}
+	.board-text{
+	background-color:white;
+	min-height : 300px;
+	border : 1px solid hwb(221 30% 2%);
+	}
+	.comment span{
+    display : block;
     }
 
-    .contents{
-        border: 1px solid rgb(161, 161, 161);
-    }
-    #contents{
-        border: 0px;
-    }
-    #commentBtn{
-        margin-top: 10px;
-        float: right;
-        width: 90px;
-        height: 35px;
-        color: aliceblue;
-        font-weight: 700;
-        background-color: hwb(221 30% 2%);
-        border: none;
-    }
+    .comment #writer{
     
-}
+    }
+    .comment #commentText {
+    
+	}
+    .comment #date{
+    
+    }
+    .comment{
+    border : 0.7px solid black;
+     margin-bottom : 5px;
+     margin-top : 5px;
+    
+    }
+     .comment button{
+     	float : right;
+     	background-color : skyblue;
+     	border : none;
+     	padding : 5px;
+     }
+	.create-comment-area{
+	width : 100%
+	}
+	.create-comment-area #contents{
+	float : right;
+	}
+	.create-comment-area #writer{
+	width:20%;
+	}
+	.create-comment-area #commentBtn{
+	width : 20%;
+	float : right;
+	}
+	
+	}
 
-@media all and (min-width:800px){
-
+@media all and (min-width:920px){
+	#container{
+    display : grid;
+    grid-template-columns: 0.4fr 1fr;
+    }
 }
 
 @media all and (min-width:1100px){

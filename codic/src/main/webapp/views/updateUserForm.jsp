@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
 	<div id="root">
 		<jsp:include page="/header"></jsp:include>
 		<section id="update-section">
