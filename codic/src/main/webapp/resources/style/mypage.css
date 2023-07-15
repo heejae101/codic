@@ -25,6 +25,17 @@ margin-top: 20px;
 
 }
 
+.line{
+	width: 50%;
+	height: 2px;
+	color: black;
+}
+
+.user_box{
+margin-top: 50px;
+}
+
+/*탭메뉴*/
 .container{
   width: 80%;
   margin: 0 auto;
@@ -36,10 +47,10 @@ ul.tabs{
   list-style: none;
 }
 ul.tabs li{
-  background: none;
   color: #222;
   display: inline-block;
   padding: 10px 15px;
+  border-radius: 10px ;
   cursor: pointer;
 }
 
@@ -77,123 +88,58 @@ padding: 50px;
 	
 }
 
-/*회원정보 수정*/
-.square {
-    width:100%;
-	margin:5px 0;
-	padding:8px 5px;
-    border:1px solid lightgray;
-    color: #666666;
-    font-size:12px;
-    vertical-align:top;
-    border-radius:4px;
-    box-sizing:content-box;
-   
-}  
-  
-.update_text{
-    margin-top: 50px;
-    margin-bottom: 20px;
-    font-size: 1.7rem;
-    color: #94358c;    
-}
-
-.title{
-font-size: 0.9rem;
-font-weight: bold;
-}
-
-.err{
-font-size: 0.8rem;
-}
-
-.error{
-    display: none;
-	color:red;
-	font-size: 0.8em;
-}
-
-.email_box{
-margin-top: 10px;
-margin-bottom: 20px;
-}
-
-
-.pwd1_box{
-margin-top: 10px;
-margin-bottom: 20px;
-}
-
-.pwd2_box{
-margin-top: 10px;
-margin-bottom: 20px;
-}
-
-
-.pwd3_box{
-margin-top: 10px;
-margin-bottom: 20px;
-}
-/*이름*/
-.name_box{
-margin-top: 10px;
-margin-bottom: 20px;
-}
-
-/*닉네임*/
-.nickname_box{
-margin-top: 10px;
-margin-bottom: 20px;
-}
-
-input[name="user_nickname"]{
-width: 70%;	
-}
-
-#user_nickname_dupl{
-	width: 20%;
-	height: 30px;
-	padding: 0;
-	background-color: white;
-	color:#94358c;
-	border: 1px solid #94358c; 
-	margin-left: 10px;
-	cursor: pointer;
-}
-
-
-
-/*회원가입 버튼*/
-#update-btn{
-    width: 100%;
-    margin-top: 20px;
-	padding: 15px;
-	color: white;
-	border: none;
-	border-radius:4px;
-	background: linear-gradient(25deg, #0c0074, #490e7c, #702184, #94358c);
-	cursor: pointer;
-	font-size: 1rem;
-	font-weight: bold;
-
-}
-
 
 .text{
 color: #94358c;
 margin-bottom: 20px;	
 }
 
-.nickname{
+.name{
 font-size: 1.2rem;
 font-weight: bold;	
 }
 
-#btn{
-padding: 10px;	
-border-radius:10px ;
-  border: solid 1px lightgray;
-background-color: white;	
-color: black;
+.email{
+font-size: 1.2rem;
+font-weight: bold;	
 }
 
+/*로그아웃 버튼*/
+#btn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: white;
+  color:#94358c;
+  border: 1px solid #94358c; 
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#btn a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#btn a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#btn:hover a {
+  padding-right: 25px;
+}
+
+#btn:hover a:after {
+  opacity: 1;
+  right: 0;
+}
