@@ -10,7 +10,7 @@
 <script type="text/javascript"
 	src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
 <!-- 스타일 연결 -->
-<link rel="stylesheet" href="../resources/style/reset.css">
+<link rel="stylesheet" href="../resources/style/login.css">
 
 <title>로그인</title>
 </head>

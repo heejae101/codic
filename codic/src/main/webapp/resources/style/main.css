@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+section{
+	display: block;
+	text-align: center;
+}
+
+.img-area img{
+	width: 60vw; 
+	heght : 10vh;
+	margin-top : 50px;
+	text-align: center;
+}
+
+.text-area {
+	font-weight : 700;
+	margin-top: 50px;
+}
+
+.text-area span{
+	font-size: 36px;
+}
+
+.text-area p{
+	font-size: 16px;
+}
+
+.search-area {
+	display: flex;
+	justify-content: center;
+}
+
+.search-area #search-bar{
+	width: 300px;
+	heght: 50px;
+}
