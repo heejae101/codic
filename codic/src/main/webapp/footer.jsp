@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="../resources/style/reset.css" rel="stylesheet">
+<link rel="stylesheet" href="../resources/style/reset.css">
 <link href="../resources/style/footer.css" rel="stylesheet">
 </head>
 <body>
@@ -19,8 +19,8 @@
 		</div>
 
         <div class="info">
-            <a href="">개인정보 처리방침</a>
-            <a href="">이용약관</a>
+            <a href="../views/term2.jsp">개인정보 처리방침</a>
+            <a href="../views/term.jsp">이용약관</a>
             <p>© 2023 Hello World!!</p>
         </div>
 

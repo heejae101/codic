@@ -19,7 +19,6 @@
 				<div class="board-title">
 					<h3>제목 : ${result.board_title}</h3>
 				</div>
-
 				<div class="board-writer-btn">
 					<div class="board-writer">
 						<span>작성자 : ${result.user_email}</span>

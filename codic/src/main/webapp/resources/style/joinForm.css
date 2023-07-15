@@ -17,13 +17,12 @@ margin:0 auto;
 }
 
 
-form{
+#join{
     margin: 0 auto;
     width: 80%;
-  
 }
 
-input {
+.square{
     width:100%;
 	margin:5px 0;
 	padding:8px 5px;
@@ -36,8 +35,7 @@ input {
    
 }
 
-
-h2 {
+.join_text {
     margin-top: 50px;
     margin-bottom: 20px;
     font-size: 1.7rem;

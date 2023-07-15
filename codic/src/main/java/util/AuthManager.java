@@ -31,4 +31,5 @@ public class AuthManager {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd/HHmmss");
 		return verificationEndTime.format(formatter);
 	}
+	
 }

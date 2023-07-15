@@ -29,10 +29,10 @@ public class UpdateUserFormAction extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-//	}
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +40,6 @@ public class UpdateUserFormAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		
 		UserRequestDto userDto=null;
 		
 		String email=request.getParameter("user_email");
@@ -50,7 +49,7 @@ public class UpdateUserFormAction extends HttpServlet {
 		String nickname=request.getParameter("user_nickname");
 		
 		
-	    userDto=new UserRequestDto(email, newPassword,name,nickname,0,0);
+	    userDto=new UserRequestDto(email,newPassword,name,nickname,0,0);
 	    
 	    UserDao userDao=UserDao.getInstance();
 	    userDao.updateUser(userDto, password);
