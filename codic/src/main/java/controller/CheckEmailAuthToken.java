@@ -24,6 +24,7 @@ public class CheckEmailAuthToken extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		AuthManager auth = new AuthManager();
 		String inputToken = request.getParameter("input_code");
+		String userEmail = request.getParameter("email");
 		
 		HttpSession requestSession = request.getSession();
 		String sessionToken = (String) requestSession.getAttribute("VERIFICATION_CODE");
@@ -45,6 +46,11 @@ public class CheckEmailAuthToken extends HttpServlet {
 			}
 		}else {
 			responseData.put("result", "The token code has expired.");
+		}
+		HttpSession responseSession = request.getSession();
+		
+		if(userEmail != null) {
+			responseSession.setAttribute("email", userEmail);
 		}
 		
 		String resultJson = new Gson().toJson(responseData);

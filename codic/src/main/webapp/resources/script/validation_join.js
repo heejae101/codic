@@ -193,6 +193,7 @@ function duplCheck() {
 function emailAuthentication() {
 	if (isIdChecked) {
 		var user_email = $('#user_email').val();
+		$("#email_ch").prop('disabled', true);
 		$.ajax({
 			type: "POST",
 			url: "/EmailVerification",

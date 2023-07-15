@@ -93,7 +93,7 @@ function checkValue(htmlForm) {
 	const newPassword = htmlForm.new_password.value;
 	const newPassword_ch = htmlForm.user_password_ch.value;
 	const nickname = htmlForm.user_nickname.value;
-
+	
 	let check = true;
 
 	let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
@@ -108,6 +108,7 @@ function checkValue(htmlForm) {
 
 	} else if (newPassword.length < 4 || newPassword.length > 10 || !pwdChk.test(newPassword) || pwd_space.test(newPassword)) {
 		check = false;
+
 	} else if (newPassword_ch === "") {
 		check = false;
 		$('#error-password_ch').show();
@@ -117,7 +118,6 @@ function checkValue(htmlForm) {
 	} else if (nickname === "") {
 		$('#error-nickname').show();
 		check = false;
-
 	}
 
 	if (check && isNicknameChecked) {

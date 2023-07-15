@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <!-- 스타일 연결 -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link rel="stylesheet" href="../resources/style/reset.css">
 <link rel="stylesheet" href="../resources/style/find.css">
 <title>비밀번호 찾기</title>
@@ -32,8 +34,8 @@
 		</form>
 	</section>
 	<jsp:include page="/footer"></jsp:include>
-	
-	<script src="../resources/script/find.js"></script>
+
+	<script src="../resources/script/passwordFind.js"></script>
 
 </body>
 </html>

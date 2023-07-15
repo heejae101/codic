@@ -7,9 +7,11 @@
         border-top: 0.7px solid black;
         border-bottom: 0.7px solid black;
         height: 100px;
+        width : 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top :30px;
     }
     footer a {
         color: black;

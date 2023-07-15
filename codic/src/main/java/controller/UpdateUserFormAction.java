@@ -40,7 +40,6 @@ public class UpdateUserFormAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		
 		UserRequestDto userDto=null;
 		
 		String email=request.getParameter("user_email");

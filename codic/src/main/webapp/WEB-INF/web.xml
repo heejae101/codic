@@ -106,6 +106,16 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>UpdateNewPasswordAction</servlet-name>
+		<servlet-class>controller.UpdateNewPasswordAction</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UpdateNewPasswordAction</servlet-name>
+		<url-pattern>/UpdateNewPassword</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>NickNameDupl</servlet-name>
 		<servlet-class>controller.NickNameDupl</servlet-class>
 	</servlet>
@@ -387,6 +397,16 @@
 	<servlet-mapping>
 		<servlet-name>footer</servlet-name>
 		<url-pattern>/footer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>newPassword</servlet-name>
+		<jsp-file>/views/newPassword.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>newPassword</servlet-name>
+		<url-pattern>/newPassword</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

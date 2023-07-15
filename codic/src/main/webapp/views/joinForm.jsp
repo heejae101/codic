@@ -9,7 +9,7 @@
 
 <!-- 스타일 연결 -->
 <link rel="stylesheet" href="../resources/style/reset.css">
-<link rel="stylesheet" href="../resources/style/joinForm.css">
+
 
 <title>회원가입</title>
 </head>
@@ -138,6 +138,6 @@
 	<jsp:include page="/footer"></jsp:include>
 
 	<script src="../resources/script/validation_join.js"></script>
-
+<link rel="stylesheet" href="../resources/style/joinForm.css">
 </body>
 </html>

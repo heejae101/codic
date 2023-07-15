@@ -40,8 +40,7 @@
 
 	</section>
 	<jsp:include page="/footer"></jsp:include>
-
-	<script src="../resources/script/validation_update.js"></script>
+	<script src="../resources/script/newPassword.js"></script>
 
 </body>
 </html>
