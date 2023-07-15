@@ -14,6 +14,11 @@ $('#user_password').on('change', e => {
 	}
 });
 
+ var msg = '${msg}';
+    if(msg === '아이디와 비밀번호 일치하지 않습니다.') {
+        alert("아이디와 비밀번호 일치하지 않습니다.");
+    }
+
 function checkValue(htmlForm){
 	const email=htmlForm.user_email.value;
 	const password=htmlForm.user_password.value;
@@ -23,6 +28,7 @@ function checkValue(htmlForm){
 	console.log(email);
 	console.log(password);
 	
+   
 	
 	if(email===""){
 		$('#error-id').show();
@@ -35,6 +41,7 @@ function checkValue(htmlForm){
 		check=false;
 		
 	}
+	
 	
 	if(check === true){
 		htmlForm.submit();

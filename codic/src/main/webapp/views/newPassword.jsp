@@ -14,7 +14,9 @@
 <body>
 	<jsp:include page="/header"></jsp:include>
 	<section id="find-section">
+	<div class="text_box">
 		<h2 class="find_text">새로운 비밀번호를 입력해주세요</h2>
+		</div>
 		<form id=find method="POST" action="/UpdateUser">
 			<div class="form_box">
 				<div class="pwd2_box">
@@ -33,8 +35,10 @@
 						<span class="err" id="chkNotice2" size="1"></span>
 					</div>
 				</div>
+				<div class="btn_box">
 				<input type="button" id="find-btn" value="저장"
 					onclick="checkValue(form)">
+					</div>
 			</div>
 		</form>
 

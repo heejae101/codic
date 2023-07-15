@@ -419,5 +419,26 @@
 		<url-pattern>/menuBar</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>term</servlet-name>
+		<jsp-file>/views/term.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>term</servlet-name>
+		<url-pattern>/term</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>term2</servlet-name>
+		<jsp-file>/views/term2.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>term2</servlet-name>
+		<url-pattern>/term2</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>
 

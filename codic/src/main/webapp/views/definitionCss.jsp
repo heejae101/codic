@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CSS란?</title>
 </head>
 <body>
-	<div class="theme-default-content content__default">
+<div class="theme-default-content content__default">
 		<h1 id="삽입-정렬-insertion-sort">
 			<a href="#삽입-정렬-insertion-sort" class="header-anchor">#</a>
 			CSS란?
@@ -123,8 +123,8 @@
 				target="_blank" rel="noopener noreferrer">출처 : https://webdir.tistory.com/338<span></span></a></li>
 		</ul>
 	</div>
-
-
 	<div class="contents-comment"></div>
+
+
 </body>
 </html>

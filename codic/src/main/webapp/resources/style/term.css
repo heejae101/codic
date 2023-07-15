@@ -10,11 +10,12 @@
 
         .section {
             padding-right: 30px;
-            margin-top: 70px;
+            margin-top: 30px;
         }
 
         .text_title {
             padding-top: 20px;
+            margin-left: 10px;
             font-size: 1.8rem;
         }
 
@@ -34,9 +35,10 @@
             font-weight: 600;
         }
     }
+    
     /* PC ver. */
     @media (min-width:1024px) {
         .section{
-            margin-top: 120px;
+            margin-top: 30px;
         }
     }

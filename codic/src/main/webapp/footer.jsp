@@ -18,8 +18,8 @@
 		</div>
 
         <div class="info">
-            <a href="../views/term2.jsp">개인정보 처리방침</a>
-            <a href="../views/term.jsp">이용약관</a>
+            <a href="/term2">개인정보 처리방침</a>
+            <a href="/term">이용약관</a>
             <p>© 2023 Hello World!!</p>
         </div>
 

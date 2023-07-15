@@ -50,7 +50,8 @@ public class LoginFormAction extends HttpServlet {
 			session.setAttribute("name",name);
 		}else{
 			
-	        request.setAttribute("text", "아이디와 비밀번호 일치하지 않습니다.");
+	        request.setAttribute("msg", "아이디와 비밀번호 일치하지 않습니다.");
+	        System.out.println("아이디와 비밀번호 일치안함");
 		}		
 		
 		request.getRequestDispatcher(url).forward(request, response);
