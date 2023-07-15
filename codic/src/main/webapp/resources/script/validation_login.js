@@ -36,6 +36,7 @@ function checkValue(htmlForm){
 		
 	}
 	
+	
 	if(check === true){
 		htmlForm.submit();
 		window.history.back();

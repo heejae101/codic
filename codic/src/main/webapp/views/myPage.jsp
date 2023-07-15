@@ -35,13 +35,12 @@
 				</div>
 				<hr class="line">
 				<div class="user_box">
-				<a href="/update">회원정보수정</a>
+				<a href="/update" class="mypage_title">회원정보수정</a>
 				<div class="delete_box">
-					<a href="/leave">회원탈퇴</a>
+					<a href="/leave" class="mypage_title">회원탈퇴</a>
 				</div>
 				</div>
 			</div>
-
 
 			<div class="container">
 
