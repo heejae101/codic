@@ -20,9 +20,9 @@ function getComments() {
 				const html = `
                     <div class="comment">
                         <input type="hidden" id="commentId" value="${commentId}"/>
+                        <span id="date">${modified_timestamp}</span>
                         <span id="writer">${writer}</span>
                         <span id="commentText">${contents}</span>
-                        <span id="date">${modified_timestamp}</span>
                         <c:if test=${writer === sessionWriter}>
                         	<button onclick="deleteComment(this)">삭제</button>
                         	<button onclick="updateComment(this)">수정</button>
