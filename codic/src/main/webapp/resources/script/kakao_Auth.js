@@ -7,7 +7,7 @@ function kakaoLogin() {
 			Kakao.API.request({
 				url: '/v2/user/me',
 				success: function(response) {
-					kakaoDataRequest(response);
+					console.log(response)
 				},
 				fail: function(error) {
 					console.log(error)

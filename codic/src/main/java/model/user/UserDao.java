@@ -380,5 +380,53 @@ public class UserDao {
 
 		return confirm;
 	}
+	
+	public boolean createKaKaoUser(UserRequestDto user) {
+		this.conn = DBManager.getConnection();
+		boolean result = false;
+		
+		if (this.conn != null) {
+			String sql = "INSERT INTO user_info (user_email, user_name, user_nickname, user_status, user_check, user_kakaoToken)"
+					+ "VALUES (?,?,?,?,?,?);";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, user.getUser_email());
+				this.pstmt.setString(1, user.getUser_name());
+				this.pstmt.setString(1, user.getUser_nickname());
+				this.pstmt.setInt(1, user.getUser_status());
+				this.pstmt.setInt(1, user.getUser_check());
+				this.pstmt.setString(2, user.getAccess_token());
+				this.pstmt.execute();
+				result = true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt);
+			}
+		}
+		return result;
+	}
+	
+	public boolean deleteKakaoUser(UserRequestDto user) {
+		this.conn = DBManager.getConnection();
+		boolean result = false;
+		
+		if (this.conn != null) {
+			String sql = "DELETE FROM user_info WHERE user_kakaoToken = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, user.getAccess_token());
+				this.pstmt.execute();
+				result = true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt);
+			}
+		}
+		return result;
+	}
 
 }
