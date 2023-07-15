@@ -1,4 +1,4 @@
-function getComments() {
+function getBoardList() {
 	const boardId = $('#boardId').val(); // 게시글 ID
 	const sessionWriter = $('#writer').val();
 	$.ajax({
@@ -36,4 +36,4 @@ function getComments() {
 }
 
 
-getComments();
+getBoardList();

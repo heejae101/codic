@@ -52,7 +52,7 @@
 			<!-- 간편 로그인 -->
 			<div class="login_2">
 				<div class="kakao">
-					<a href="javascript:kakaoLogin()"><img class="kakao"
+					<a href="/KakaoAuthRequestAction"><img class="kakao"
 						src="../resources/img/kakao.png"></a>
 				</div>
 				<div class="kakao">

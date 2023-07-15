@@ -48,19 +48,21 @@ public class KakaoAuthRequestAction extends HttpServlet {
 		if (hasEmail) {
 			userEmail = result.getAsJsonObject().get("kakao_account").getAsJsonObject().get("email").getAsString();
 		}
-		String nickName = result.getAsJsonObject().get("profile").getAsJsonObject().get("nickname").getAsString();
+		String nickName = result.getAsJsonObject().get("properties").getAsJsonObject().get("nickname").getAsString();
 		
 		UserDao userDao = UserDao.getInstance();
-		UserRequestDto user = new UserRequestDto(userEmail, nickName, nickName, 1, accessToken);
-		boolean kakaoResult = userDao.createKaKaoUser(user);
+		String getUserToken = userDao.checkKakaoUserByEmail(userEmail);
 		
-		if(kakaoResult) {
-			HttpSession session=request.getSession();
-			session.setAttribute("nickname",nickName);
-			session.setAttribute("email",userEmail);
-			session.setAttribute("name",nickName);
-			response.sendRedirect("main");
+		if(getUserToken == null) {			
+			UserRequestDto user = new UserRequestDto(userEmail, nickName, nickName, 1, accessToken);
+			boolean kakaoResult = userDao.createKaKaoUser(user);
 		}
+		
+		HttpSession session=request.getSession();
+		session.setAttribute("nickname",nickName);
+		session.setAttribute("email",userEmail);
+		session.setAttribute("name",nickName);
+		response.sendRedirect("main");
 
 	}
 

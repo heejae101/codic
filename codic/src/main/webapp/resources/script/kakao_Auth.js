@@ -20,27 +20,6 @@ function kakaoLogin() {
 	})
 }
 
-function kakaoDataRequest(data) {
-	$.ajax({
-		url: `/KakaoAuthRequestAction`,
-		method: 'POST',
-		data: {
-			data:data
-		},
-		success: function(data) {
-			if (data.result === "CREATE_SUCCESS") {
-				$('#contents').val(''); // 내용 입력란 초기화
-				getComments(); // 댓글 목록 요청 및 출력
-			} else if (data.result === "CREATE_ERROR") {
-				alert("먼저 로그인 해주세요!");
-			}
-		},
-		error: function(data) {
-			alert("먼저 로그인 해주세요!")
-			console.log('create comment error');
-		}
-	});
-}
 
 //카카오로그아웃  
 function kakaoLogout() {
@@ -65,3 +44,16 @@ $(window).on('load', function() {
 		}
 	})
 });
+
+function kakaoDataRequest() {
+	$.ajax({
+		url: `/KakaoAuthRequestAction`,
+		method: 'GET',
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(data) {
+			console.log(data);
+		}
+	});
+}

@@ -9,15 +9,14 @@ public class BoardComment {
 	private String current_timestamp;
 	private String modified_timestamp;
 	
-	public BoardComment(int comment_id, int board_id, String user_nickname, String board_answer, String current_timestamp,
-			String modified_timestamp) {
+	public BoardComment(int comment_id, int board_id, String board_answer, String current_timestamp, String modified_timestamp, String user_nickname) {
 		super();
 		this.comment_id = comment_id;
 		this.board_id = board_id;
-		this.user_nickname = user_nickname;
 		this.board_answer = board_answer;
 		this.current_timestamp = current_timestamp;
 		this.modified_timestamp = modified_timestamp;
+		this.user_nickname = user_nickname;
 	}
 	
 	public int getComment_id() {

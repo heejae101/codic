@@ -73,6 +73,7 @@ public class BoardCommentFormAction extends HttpServlet {
 
 		if (user_email != null && user_nickname != null) {
 			BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
+			UserDao userDao = UserDao.getInstance();
 			boardcommentDao.createBoardComment(board_id, user_email, board_answer, user_nickname);
 			responseData.put("result", "CREATE_SUCCESS");
 		} else {

@@ -200,7 +200,6 @@ function emailAuthentication() {
 			data: { user_email: user_email },
 			success: function(response) {
 				if (response.result === "VERIFICATION_SENT") {
-					$("#code").prop('disabled', false);
 					$("#code_ch").prop('disabled', false);
 					alert("인증번호를 확인을 해주세요.");
 					console.log("이메일 확인 코드가 발송되었습니다.");

@@ -114,9 +114,10 @@ public class BoardDao {
 					int board_view_count = this.rs.getInt(5);
 					String current_timestamp = this.rs.getString(6);
 					String modified_timestamp = this.rs.getString(7);
+					String user_nickname = this.rs.getString(8);
 					
 					board = new Board(board_id, user_email, board_title, board_text, board_view_count, current_timestamp,
-							modified_timestamp);
+							modified_timestamp,user_nickname);
 				}
 
 			} catch (Exception e) {

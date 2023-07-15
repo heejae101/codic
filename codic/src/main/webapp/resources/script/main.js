@@ -1,9 +1,9 @@
 function checkValue(htmlForm){
-	const text = htmlForm.text.value;
+	const text = document.getElementById('text').value.trim();
 	
 	let status = true; 
 	
-	if(text === ""){
+	if(text === ''){
 		status = false;
 	}
 	

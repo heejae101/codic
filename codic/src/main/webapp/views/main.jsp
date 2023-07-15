@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link rel="stylesheet" href="../resources/style/main.css">
-<title>main</title>
+<title>알뜰신코📖</title>
 </head>
 <body>
 	<jsp:include page="/header"></jsp:include>
@@ -30,7 +30,7 @@
 			</div>
 			<div id="search-bar-Section">
 				<form id="searchFormSection" action="/ShowContent">
-					<input type="text-bar" id="text-bar" name="text-bar" placeholder="무엇이든 물어보세요!">
+					<input type="text-bar" id="text-bar" name="text" placeholder="무엇이든 물어보세요!">
 				</form>
 			</div>
 		</div>
@@ -106,9 +106,24 @@
 			<div id="populer-content">
 				<h2>인기 게시글 ✨</h2>
 				<ul>
-					<li>임시</li>
-					<li>임시</li>
-					<li>임시</li>
+					<li>
+						<a href="/">
+							<img src="../resources/img/html.png">
+							<span>자바</span>
+						</a>
+					</li>
+					<li>
+						<a href="/">
+							<img src="../resources/img/html.png">
+							<span>자바</span>
+						</a>
+					</li>
+					<li>
+						<a href="/">
+							<img src="../resources/img/html.png">
+							<span>자바</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -12,9 +12,9 @@
 
 	}
 });
- */
+*/
  
-document.getElementById('searchForm').addEventListener("submit", e =>{
+document.getElementById('text').addEventListener("submit", e =>{
 	e.preventDefault();
 });
  

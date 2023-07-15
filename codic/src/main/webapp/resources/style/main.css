@@ -125,6 +125,7 @@ section{
 #populer-content{
 	display: flex;
 	flex-direction: column;
+	gap:30px;
 }
 
 #populer-content ul{
@@ -134,7 +135,7 @@ section{
 }
 
 #populer-content li{
-	width: 150px;
+	width: 220px;
 	height: 100%;
 }
 

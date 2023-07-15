@@ -21,42 +21,35 @@
 				</div>
 				<div class="board-writer-btn">
 					<div class="board-writer">
-						<span>작성자 : ${result.user_email}</span>
+						<span>작성자 : ${result.user_nickname}</span>
 					</div>
-					<div class="board-btn">
-						<button>삭제하기</button>
-
-					</div>
-					<div class="board-btn">
-						<button
-							onclick="window.location.href='/BoardUpdateRequest?user_email=${result.user_email}'">수정하기</button>
-
-					</div>
+					<c:if test="${sessionScope.nickname == result.user_nickname}">
+						<div class="board-btn">
+							<button onclick="deleteBoard()">삭제하기</button>
+						</div>
+						<div class="board-btn">
+							<button
+								onclick="window.location.href='/BoardUpdateRequest?user_email=${result.user_email}'">수정하기</button>
+						</div>
+					</c:if>
 				</div>
 
 				<div class="board-text">
 					<span>내용 : </span>
 					<p>${result.board_text}</p>
 				</div>
-
 			</div>
-			<c:if test="${result.user_email == sessionScope.email}">
-				<button onclick="updateBoard(this)">수정</button>
-				<button onclick="deleteBoard()">삭제</button>
-
-			</c:if>
 
 			<div id="comment"></div>
 
 			<!-- 댓글 -->
 			<div class="create-comment-area">
+				<span id="writer-comment" value="${sessionScope.nickname}">${sessionScope.nickname}</span>
 				<c:choose>
 					<c:when test="${empty sessionScope.nickname}">
-						<span id="writer" value="guest"></span>
 						<textarea id="contents" placeholder="로그인 후 작성 가능합니다."></textarea>
 					</c:when>
 					<c:otherwise>
-						<span id="writer" value="sessionScope.nickname">${sessionScope.nickname}</span>
 						<textarea id="contents" placeholder="댓글 내용"></textarea>
 					</c:otherwise>
 				</c:choose>

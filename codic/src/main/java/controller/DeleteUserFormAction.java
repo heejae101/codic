@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.user.User;
 import model.user.UserDao;
@@ -47,6 +48,9 @@ public class DeleteUserFormAction extends HttpServlet {
 				System.out.println("삭제 실패");
 			}
 		}
+		
+		HttpSession session=request.getSession();
+		session.invalidate();
 		response.sendRedirect(url);
 	}
 

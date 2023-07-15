@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Set;
 
 import util.DBManager;
 
@@ -414,11 +415,11 @@ public class UserDao {
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
 				this.pstmt.setString(1, user.getUser_email());
-				this.pstmt.setString(1, user.getUser_name());
-				this.pstmt.setString(1, user.getUser_nickname());
-				this.pstmt.setInt(1, user.getUser_status());
-				this.pstmt.setInt(1, user.getUser_check());
-				this.pstmt.setString(2, user.getAccess_token());
+				this.pstmt.setString(2, user.getUser_name());
+				this.pstmt.setString(3, user.getUser_nickname());
+				this.pstmt.setInt(4, user.getUser_status());
+				this.pstmt.setInt(5, user.getUser_check());
+				this.pstmt.setString(6, user.getAccess_token());
 				this.pstmt.execute();
 				result = true;
 			} catch (Exception e) {
@@ -430,25 +431,26 @@ public class UserDao {
 		return result;
 	}
 	
-	public boolean deleteKakaoUser(UserRequestDto user) {
+	public String checkKakaoUserByEmail(String user_email) {
 		this.conn = DBManager.getConnection();
-		boolean result = false;
-		
+		String user_kakaoToken = null;
 		if (this.conn != null) {
-			String sql = "DELETE FROM user_info WHERE user_kakaoToken = ?";
+			String sql = "SELECT user_kakaoToken FROM user_info WHERE user_email = ?";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setString(1, user.getAccess_token());
-				this.pstmt.execute();
-				result = true;
+				this.pstmt.setString(1, user_email);
+				this.rs = this.pstmt.executeQuery();
+				if(rs.next()){
+					user_kakaoToken = this.rs.getString(1);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				DBManager.close(this.conn, this.pstmt);
+				DBManager.close(this.conn, this.pstmt, this.rs);
 			}
 		}
-		return result;
+		return user_kakaoToken;
 	}
 
 }

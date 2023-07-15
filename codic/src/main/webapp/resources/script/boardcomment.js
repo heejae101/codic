@@ -2,7 +2,7 @@
 function getComments() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const boardId = urlParams.get('board_id');
-	const sessionWriter = $('#writer').val();
+	const sessionValue = document.getElementById("writer-comment").innerHTML;
 	$.ajax({
 		url: `/BoardCommentFormAction`,
 		method: 'GET',
@@ -14,21 +14,25 @@ function getComments() {
 			$('#comment').empty(); // 기존에 출력된 댓글 제거
 			data.responseData.forEach(comment => {
 				const commentId = comment.comment_id;
-				const modified_timestamp = comment.modified_timestamp;
+				const current_timestamp = comment.current_timestamp;
 				const writer = comment.user_nickname;
 				const contents = comment.board_answer;
-				const html = `
-                    <div class="comment">
+				let html = `
+					<div>
                         <input type="hidden" id="commentId" value="${commentId}"/>
-                        <span id="date">${modified_timestamp}</span>
                         <span id="writer">${writer}</span>
                         <span id="commentText">${contents}</span>
-                        <c:if test=${writer === sessionWriter}>
-                        	<button onclick="deleteComment(this)">삭제</button>
-                        	<button onclick="updateComment(this)">수정</button>
-                        </c:if>
-                    </div>
+                        <span id="date">${current_timestamp}</span>
                 `;
+                if(writer === sessionValue){
+					html +=`
+						<button onclick="deleteComment(this)">삭제</button>
+						<button onclick="updateComment(this)">수정</button>
+					</div>
+                     `;
+				}else{
+					html +=`</div>`;
+				}
 				$('#comment').append(html); // 댓글 생성
 			});
 		},
@@ -43,7 +47,7 @@ function getComments() {
 function createComment() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const boardId = urlParams.get('board_id');
-	const nickname = $('#writer').val(); // 작성자
+	const nickname = document.getElementById("writer-comment").innerHTML;
 	const contents = $('#contents').val(); // 내용
 	if (nickname !== null) {
 		$.ajax({
@@ -64,20 +68,19 @@ function createComment() {
 			},
 			error: function(data) {
 				alert("먼저 로그인 해주세요!")
-				console.log('create comment error');
+				window.location.href = "login";
 			}
 		});
 	} else {
 		alert("댓글을 작성하시려면 로그인 해주세요!");
-		 window.location.href = "login";
+		window.location.href = "login";
 	}
 }
 
 function deleteComment(btnElement) {
 	const urlParams = new URLSearchParams(window.location.search);
 	const boardId = urlParams.get('board_id');
-	const commentElement = $(btnElement).closest('.comment');
-	const commentId = commentElement.find('#commentId').val();
+	const commentId = $(btnElement).siblings("#commentId").val();
 
 	if (!boardId) {
 		console.log('board id is null');
@@ -186,11 +189,23 @@ getComments();
 
 // 댓글 작성 버튼 클릭 이벤트
 $(document).on('click', '#commentBtn', function() {
-	const user_nickname = $('#writer').val();
+	const user_nickname = document.getElementById("writer-comment").innerHTML;
 	console.log(user_nickname);
-	if(user_nickname !== "guest"){
+	if(user_nickname !== ''){
 		createComment(); // 댓글 작성 함수 호출
 	}else{
 		alert("로그인 후 가능합니다");
 	}
 });
+
+/*
+document.addEventListener('keypress', e => {
+	const nickname = document.getElementById("writer-comment").innerHTML;
+	const contents = $('#contents').val();
+	console.log(contents);
+	if(nickname !== '' && contents !== '' && e.key === 'Enter') {
+		createComment();
+	}
+})
+*/
+

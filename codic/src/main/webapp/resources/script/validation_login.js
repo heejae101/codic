@@ -43,6 +43,15 @@ function checkValue(htmlForm){
 	
 }
 
+document.addEventListener('keypress', e => {
+	const email = document.getElementById('user_email').value.trim();
+	const password = document.getElementById('user_password').value.trim();
+	
+	if(email !== '' && password !== '' && e.key === 'Enter') {
+		document.getElementById('login').submit();
+	}
+})
+
 
 
 
