@@ -6,6 +6,14 @@ $('#new_password').on('change', e => {
 	}
 });
 
+$('#new_password_ch').on('change', e => {
+	if ($('#new_password_ch').val() !== "") {
+		$('#error-password_ch').hide();
+		$('#new_password_ch').parent().css('border-color', 'lightgrey');
+		$('#new_paswword_ch').parent().css('border-top', 'none');
+	}
+});
+
 $('#user_nickname').on('change', e => {
 	if ($('#user_nickanme').val() !== "") {
 		$('#error-nickname').hide();
@@ -16,6 +24,7 @@ $('#user_nickname').on('change', e => {
 
 let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
 let pwd_space = /[ ]/; /* 공백 */
+let isNicknameChecked = false;
 
 $(function() {
 	/* 비밀번호 유효성 검사 */
@@ -26,7 +35,7 @@ $(function() {
 		/* 비밀번호 길이 검사 */
 		/* 비밀번호의 길이가 4글자 미만이거나, 10글자 초과일 때 */
 		/* 숫자와 특수문자 포함 */
-		if ($('#new_password').val().length < 4 || $('#new_password').val().length > 10 || !pwdChk.test($('#user_password').val())) {
+		if ($('#new_password').val().length < 4 || $('#new_password').val().length > 10 || !pwdChk.test($('#new_password').val())) {
 			$('#chkNotice1').html('비밀번호는 영문, 숫자와 특수문자 조합 4-10자 이내로 입력해주세요.<br>').css('color', 'red');
 
 		}
@@ -84,6 +93,7 @@ function checkValue(htmlForm) {
 	const newPassword = htmlForm.new_password.value;
 	const newPassword_ch = htmlForm.user_password_ch.value;
 	const nickname = htmlForm.user_nickname.value;
+	
 	let check = true;
 
 	let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
@@ -101,6 +111,8 @@ function checkValue(htmlForm) {
 
 	} else if (newPassword_ch === "") {
 		check = false;
+		$('#error-password_ch').show();
+
 	} else if (newPassword !== newPassword_ch) {
 		check = false;
 	} else if (nickname === "") {
@@ -108,8 +120,10 @@ function checkValue(htmlForm) {
 		check = false;
 	}
 
-	if (check === true) {
+	if (check && isNicknameChecked) {
 		htmlForm.submit();
+	} else if (!isNicknameChecked) {
+		alert("닉네임 중복 확인을 해주세요.");
 	}
 
 }

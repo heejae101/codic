@@ -144,7 +144,7 @@ function checkValue(htmlForm) {
 		$('#error-nickname').show();
 		check = false;
 	}
-	
+
 
 	if (!$('#user_check1').prop('checked') || !$('#user_check2').prop('checked')) { //체크박스 미체크시
 		alert("약관 동의를 체크해주세요.");
@@ -165,28 +165,28 @@ function checkValue(htmlForm) {
 
 /*닉네임 중복검사*/
 function duplCheck() {
-	if(pwd_space.test($('#user_nickname').val())||$('#user_nickname').val()==""){
+	if (pwd_space.test($('#user_nickname').val()) || $('#user_nickname').val() == "") {
 		alert("닉네임을 입력해주세요.");
-		
-	}else{
-	var user_nickname = $('#user_nickname').val();
-	$.ajax({
-		type: 'POST',
-		url: 'NickNameDupl',
-		data: { user_nickname: user_nickname },
-		success: function(responseData) {
-			alert('data:' + $.trim(responseData));
-			if ($.trim(responseData) == 'YES') {
-				isNicknameChecked = true;
-				$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
-			} else {
-				$('#chkMsg').html('이미 사용중인 닉네임입니다.').css('color', 'red');
+
+	} else {
+		var user_nickname = $('#user_nickname').val();
+		$.ajax({
+			type: 'POST',
+			url: 'NickNameDupl',
+			data: { user_nickname: user_nickname },
+			success: function(responseData) {
+				alert('data:' + $.trim(responseData));
+				if ($.trim(responseData) == 'YES') {
+					isNicknameChecked = true;
+					$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
+				} else {
+					$('#chkMsg').html('이미 사용중인 닉네임입니다.').css('color', 'red');
+				}
+
 			}
 
-		}
-
-	});
-}
+		});
+	}
 }
 
 /* 이메일 인증번호 전송 */

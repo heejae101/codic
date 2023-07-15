@@ -35,7 +35,7 @@ public class UpdateUserRequest extends HttpServlet {
 		
 		UserDao userDao=UserDao.getInstance();
 		
-		String email=(String)request.getSession().getAttribute("log1");
+		String email=(String)request.getSession().getAttribute("email");
 		
 		User user=userDao.getUserByEmail(email);
 		
@@ -71,9 +71,9 @@ public class UpdateUserRequest extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		doGet(request, response);
-//	}
+		doGet(request, response);
+	}
 
 }

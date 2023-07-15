@@ -14,18 +14,20 @@
 <title>로그인</title>
 </head>
 <body>
+<div id="root">
+<jsp:include page="/header"></jsp:include>
 	<section id="login-section">
 		<div class="login">
-			<h2>로그인</h2>
+			<h2 class="login_text">로그인</h2>
 			<p class="join">
 				회원이 아닌겨~? <a class="join-btn" href="/join">회원가입</a>
 			</p>
-			<form method="POST" action="../Login">
+			<form id="login" method="POST" action="../Login">
 				<div class="login_1">
 					<div class="login_box">
-						<input type="email" id="user_email" name="user_email"
+						<input type="email" class="square" id="user_email" name="user_email"
 							placeholder="your@email.com" autofocus> <input
-							type="password" id="user_password" name="user_password"
+							type="password" class="square" id="user_password" name="user_password"
 							placeholder="비밀번호">
 						<ul>
 							<li class="error" id="error-id">유효한 이메일을 입력해주세요.</li>
@@ -48,19 +50,16 @@
 
 		<!-- 간편 로그인 -->
 		<div class="login_2">
-			<div class="naver">
-				<a href="#"> 네이버 로그인</a>
-			</div>
 			<div class="kakao">
-				<a href="javascript:kakaoLogin()">카카오 로그인</a>
+				<a href="javascript:kakaoLogin()"><img class="kakao" src="../resources/img/kakao.png"></a>
 			</div>
 			<div class="kakao">
 				<a href="javascript:kakaoLogout()">카카오 로그아웃</a>
 			</div>
 		</div>
-
-
 	</section>
+	<jsp:include page="/footer"></jsp:include>
+	</div>
 	<script src="../resources/script/validation_login.js"></script>
 	<script src="../resources/script/kakao_Auth.js"></script>
 </body>
