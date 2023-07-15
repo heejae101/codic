@@ -381,6 +381,28 @@ public class UserDao {
 		return confirm;
 	}
 	
+	public boolean updateNewPassword(String email, String new_password) {
+		this.conn = DBManager.getConnection();
+		boolean result = false;
+		
+		if (this.conn != null) {
+			String sql = "UPDATE user_info SET user_password=? WHERE user_email=? ";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, new_password);
+				this.pstmt.setString(2, email);
+				this.pstmt.execute();
+				result = true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt);
+			}
+		}
+		return result;
+	}
+	
 	public boolean createKaKaoUser(UserRequestDto user) {
 		this.conn = DBManager.getConnection();
 		boolean result = false;
