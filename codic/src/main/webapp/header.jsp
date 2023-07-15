@@ -14,11 +14,25 @@
 	<div class="header_body">
 		<header>
 			<div class="hambuger">
-				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-					fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-				<path fill-rule="evenodd"
-						d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-			  </svg>
+				<input type="checkbox" id="hamburger" /> <label for="hamburger">
+					<span></span> <span></span> <span></span>
+				</label>
+				<div class="sidebar">
+					<h2 style="text-align: center; position: relative; top: 75px;">
+						<a href="#">카테고리</a>
+					</h2>
+					<hr
+						style="position: relative; top: 100px; border: solid 1px #94358c;">
+					<ul class="nav_mobile">
+						<li><a href="#">HTML</a></li>
+						<li><a href="#">CSS</a></li>
+						<li><a href="#">JAVASCRIPT</a></li>
+						<li><a href="#">JAVA</a></li>
+						<li><a href="#">DATABASE</a></li>
+						<li><a href="#">질문게시판</a></li>
+						<li><a href="#">로드맵</a></li>
+					</ul>
+				</div>
 			</div>
 
 			<div class="top-left">
@@ -33,7 +47,26 @@
 				  </svg></a>
 				</div>
 				<div class="board">
-					<a href="">카테고리</a> <a href="">로드맵</a> <a href="/boardList">질문게시판</a>
+					<div>
+						<a href="#">카테고리
+							<ul class="menu1">
+								<li><a href="#">HTML</a></li>
+								<li><a href="#">CSS</a></li>
+								<li><a href="#">JAVASCRIPT</a></li>
+								<li><a href="#">JAVA</a></li>
+								<li><a href="#">DATABASE</a></li>
+							</ul>
+						</a>
+					</div>
+					<a href="">로드맵</a>
+					<div>
+						<a href="/BoardListRequest">질문게시판
+							<ul class="menu2">
+								<li><a href="#">전체 글</a></li>
+								<li><a href="#">내가 작성한 질문</a></li>
+							</ul>
+						</a>
+					</div>
 				</div>
 			</div>
 
@@ -43,29 +76,42 @@
 						<div class="user">
 							<a href="/login">로그인/</a>
 							<!-- 로그인 시 이미지로 변환-->
-							<img src="heart.png" style="display: none;"> <a href="/join">회원가입</a>
+							<img src="heart.png" style="display: none;"> <a
+								href="/join">회원가입</a>
 							<!-- 로그인 시 이미지로 변환-->
 							<img src="circle-user.png" style="display: none;">
 						</div>
 					</c:when>
-					<c:otherwise>
+					<c:when  test="${ !empty sessionScope.nickname }">
 						<!-- TODO 마이페이지 만들기  -->
-						<li><a href="/">마이페이지</a>
+						<a><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+							fill="currentColor" class="bi bi-person-circle"
+							viewBox="0 0 16 16">
+  							<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+  							<path fill-rule="evenodd"
+								d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+							<ul class="menu3">
+							<li><a href="/">마이페이지</a>
 							<li><a href="/Logout">로그아웃</a></li>
-					<li><a href="/update">회원정보 수정</a></li>
-					<li><a href="/leave">회원탈퇴</a></li>
-				</c:otherwise>
-			</c:choose>
-		<div class="search" id="search-bar">
-			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-				<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+							<li><a href="/update">회원정보 수정</a></li>
+							<li><a href="/leave">회원탈퇴</a></li>
+						</ul></svg></a>
+					</c:when>
+					<c:otherwise></c:otherwise>
+				</c:choose>
+				<div class="search" id="search-bar">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+						fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+				<path
+							d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
 			</svg>
-			<input type="text" id="text" name="text" onkeypress="checkValue(form)">
-		</div>
-	
-						</div>
-	</header>
-	<script src="../resources/script/search.js"></script>
-</div>
+					<input type="text" id="text" name="text"
+						onkeypress="checkValue(form)">
+				</div>
+
+			</div>
+		</header>
+		<script src="../resources/script/search.js"></script>
+	</div>
 </body>
 </html>
