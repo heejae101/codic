@@ -63,7 +63,7 @@
 					<label for="name" class="title">이름</label>
 					<div class="name_box">
 						<input type="text" class="square" id="user_name" name="user_name"
-							value="${sessionScope.name}" readonly>
+							value="${requestScope.name}" readonly>
 					</div>
 				</div>
 

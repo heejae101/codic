@@ -27,6 +27,12 @@
 						type="button" class="square" id="email_ch"
 						onclick="emailAuthentication()" value="인증메일 보내기">
 				</div>
+				<div class="err_box">
+					<ul>
+						<li class="err" id="chkEmail" size="1"></li>
+						<li class="error" id="error-email">이메일을 입력해주세요.</li>
+					</ul>
+				</div>
 
 
 				<div class="email_num_box">
@@ -36,14 +42,12 @@
 						value="인증">
 				</div>
 				<div class="btn_box">
-					<input type="button" id="find-btn" value="다음">
+					<input type="button" id="find-btn" value="다음"
+						onclick="checkValue(form)">
 				</div>
 			</div>
 		</form>
-
 	</section>
-	<jsp:include page="/footer"></jsp:include>
-
 	<script src="../resources/script/passwordFind.js"></script>
 
 </body>

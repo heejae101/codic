@@ -29,6 +29,8 @@ public class UpdateUserFormAction extends HttpServlet {
 		UserRequestDto userDto=null;
 		EncryptionDataManager encrypt = new EncryptionDataManager();
 		
+		
+		
 		String email=request.getParameter("user_email");
 		String newPassword = null;
 		try {

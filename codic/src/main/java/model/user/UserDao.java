@@ -177,6 +177,7 @@ public class UserDao {
 
 	}
 
+   //이메일 불러오기
 	public User getUserByEmail(String email) {
 		// user 객체
 		User user = null;
