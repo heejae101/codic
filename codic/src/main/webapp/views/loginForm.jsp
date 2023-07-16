@@ -55,9 +55,6 @@
 					<a href="/KakaoAuthRequestAction"><img class="kakao"
 						src="../resources/img/kakao.png"></a>
 				</div>
-				<div class="kakao">
-					<a href="javascript:kakaoLogout()">카카오 로그아웃</a>
-				</div>
 			</div>
 		</section>
 		<jsp:include page="/footer"></jsp:include>

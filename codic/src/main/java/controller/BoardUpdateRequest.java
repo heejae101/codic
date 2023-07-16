@@ -17,50 +17,33 @@ import model.board.Board;
 import model.board.BoardCommentDao;
 import model.board.BoardDao;
 
-
-//@WebServlet("/BoardUpdateRequest")
 public class BoardUpdateRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public BoardUpdateRequest() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public BoardUpdateRequest() {
+		super();
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		BoardDao boardDao = BoardDao.getInstance();
-		String user_nickname = (String) request.getSession().getAttribute("user_nickname");
-		Board board = boardDao.getBoardById(user_nickname);
-		String url = "/BoardContentView?board_id="+board.getBoard_id();
+		int board_id = Integer.parseInt(request.getParameter("boardId"));
+		String email = (String) request.getSession().getAttribute("email");
 		
-		=================================
-		Map<String, Object> responseData = new HashMap<>();
+		System.out.println(email+"님이 게시글 수정 요청");
 		
-		if(user_email != null && user_nickname != null) {
-			BoardCommentDao boardcommentDao = BoardCommentDao.getInstance();
-			boardcommentDao.createBoardComment(board_id, user_email, board_answer, user_nickname);
-			responseData.put("result", "CREATE_SUCCESS");
-		}else {
-			responseData.put("result", "CREATE_ERROR");
-		}
-		String resultJson = new Gson().toJson(responseData);
-		response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(resultJson);
-        ==================================
+		Board board = boardDao.getBoardById(board_id);
+		String url = "boardList";
+		
 		if(board != null) {
-			String title = board.getBoard_title();
-			String text = board.getBoard_text();
-			String email = board.getUser_email();
-			
-			request.setAttribute("result", board);
 			url = "/boardUpdate";
+			request.setAttribute("result", board);			
+			System.out.println("요청 성공하였습니다.");
+		}else {
+			System.out.println("요청 실패하였습니다.");
 		}
-
-		request.getRequestDispatcher(url).forward(request, response);
-		
+		request.getRequestDispatcher(url).forward(request,response);
 	}
 
 }

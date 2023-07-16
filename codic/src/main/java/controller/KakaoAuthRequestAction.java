@@ -43,9 +43,9 @@ public class KakaoAuthRequestAction extends HttpServlet {
 		JsonElement result = authRequest.getUserInfoByAccessToken(accessToken);
 		
 		int id = result.getAsJsonObject().get("id").getAsInt();
-		boolean hasEmail = result.getAsJsonObject().get("kakao_account").getAsJsonObject().get("has_email").getAsBoolean();
+		boolean needCheck = result.getAsJsonObject().get("kakao_account").getAsJsonObject().get("email_needs_agreement").getAsBoolean();
 		String userEmail = "";
-		if (hasEmail) {
+		if (!needCheck) {
 			userEmail = result.getAsJsonObject().get("kakao_account").getAsJsonObject().get("email").getAsString();
 		}
 		String nickName = result.getAsJsonObject().get("properties").getAsJsonObject().get("nickname").getAsString();

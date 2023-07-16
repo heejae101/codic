@@ -130,17 +130,17 @@ public class BoardDao {
 		return board;
 	}
 	
-	public Board getBoardById(String userEmail) {
+	public Board getBoardById(int boardId) {
 		Board board = null;
 
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
-			String sql = "SELECT * FROM board WHERE user_email=?";
+			String sql = "SELECT * FROM board WHERE board_id = ?";
 			
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setString(1, userEmail);
+				this.pstmt.setInt(1, boardId);
 				
 				this.rs = this.pstmt.executeQuery();
 				
@@ -306,22 +306,23 @@ public class BoardDao {
 	}
 	
 	// U
-	public void updateBoard(String email, String title, String text) {
+	public boolean updateBoard(int boardId, String email, String title, String text) {
 		this.conn = DBManager.getConnection();
-		
-		String sql = "UPDATE board SET board_title=?, board_text=? where user_email=?";
+		boolean result = false;
+		String sql = "UPDATE board SET board_title=?, board_text=? where board_id =?";
 		
 		try {
 			this.pstmt= this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, title);
 			this.pstmt.setString(2, text);
-			this.pstmt.setString(3, email);
+			this.pstmt.setInt(3, boardId);
 			this.pstmt.execute();
+			result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(this.conn, this.pstmt);
 		}
-		
+		return result;
 	}
 }

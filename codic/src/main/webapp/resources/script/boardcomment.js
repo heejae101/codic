@@ -147,7 +147,7 @@ function deleteBoard() {
             },
             success : function(data) {
                 if(data.result === true){
-                    window.history.back(); 
+                    window.location.href = "boardList";
                 }else{
                     alert("삭제가 취소됐습니다.");
                 }

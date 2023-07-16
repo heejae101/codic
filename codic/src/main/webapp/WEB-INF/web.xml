@@ -23,6 +23,16 @@
 		<servlet-name>DeleteBoardAction</servlet-name>
 		<url-pattern>/DeleteBoard</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UserPasswordCheck</servlet-name>
+		<servlet-class>controller.UserPasswordCheck</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UserPasswordCheck</servlet-name>
+		<url-pattern>/PasswordCheck</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>DeleteUserFormAction</servlet-name>
@@ -212,7 +222,7 @@
 
 	<servlet-mapping>
 		<servlet-name>BoardUpdateFormAction</servlet-name>
-		<url-pattern>/BoardUpdateFormAction</url-pattern>
+		<url-pattern>/BoardUpdate</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

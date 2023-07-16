@@ -213,6 +213,35 @@ public class UserDao {
 
 		return user;
 	}
+	
+	//유저 비밀번호 체크
+	public boolean userPasswordCheck(String email, String password) {
+		this.conn = DBManager.getConnection();
+		boolean result = false;
+		String user_password = null;
+
+		if (this.conn != null) {
+			String sql = "SELECT user_password FROM user_info WHERE user_email = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, email);
+
+				this.rs = this.pstmt.executeQuery();
+				if (this.rs.next()) user_password = this.rs.getString(1);
+				
+				if(password.equals(user_password)) {
+					result = true;
+				}	
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return result;
+	}
 
 	// 이메일 중복검사
 	public boolean duplEmail(String email) {
@@ -309,23 +338,22 @@ public class UserDao {
 	}
 
 	// update
-	public void updateUser(UserRequestDto userDto, String password) {
+	public boolean updateUser(UserRequestDto userDto) {
 		this.conn = DBManager.getConnection();
+		boolean result = false;
 
 		if (this.conn != null && userDto.getUser_password() != null && userDto.getUser_nickname() != null
 				&& userDto.getUser_email() != null) {
 			if (userDto.getUser_password() != "") {
-				String sql = "UPDATE user_info SET user_password=?, user_nickname=? WHERE user_email=? AND user_password=?";
+				String sql = "UPDATE user_info SET user_password=?, user_nickname=? WHERE user_email=?";
 
 				try {
 					this.pstmt = this.conn.prepareStatement(sql);
 					this.pstmt.setString(1, userDto.getUser_password());
 					this.pstmt.setString(2, userDto.getUser_nickname());
 					this.pstmt.setString(3, userDto.getUser_email());
-					this.pstmt.setString(4, password);
-
 					this.pstmt.execute();
-
+					result = true;
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
@@ -333,15 +361,13 @@ public class UserDao {
 				}
 
 			} else {
-				String sql = "UPDATE user_info SET user_nickname=? WHERE user_email=? AND user_password=?";
+				String sql = "UPDATE user_info SET user_nickname=? WHERE user_email=?";
 				try {
 					this.pstmt = this.conn.prepareStatement(sql);
 					this.pstmt.setString(1, userDto.getUser_nickname());
 					this.pstmt.setString(2, userDto.getUser_email());
-					this.pstmt.setString(3, password);
-
 					this.pstmt.execute();
-
+					result = true;
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
@@ -350,6 +376,7 @@ public class UserDao {
 
 			}
 		}
+		return result;
 
 	}
 
@@ -453,5 +480,50 @@ public class UserDao {
 		}
 		return user_kakaoToken;
 	}
+	
+	// TODO userProfileList favorite
+	public ArrayList<User> getfavoriteByEmail(){
+		ArrayList<User> user = null;
+		this.conn = DBManager.getConnection();
+		if (this.conn != null) {
+			String sql = "SELECT user_kakaoToken FROM user_info WHERE user_email = ?";
 
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, user_email);
+				this.rs = this.pstmt.executeQuery();
+				if(rs.next()){
+					user_kakaoToken = this.rs.getString(1);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return user; 
+	}
+	
+	//TODO UserImage
+	public ArrayList<User> getImageByEmail(){
+		ArrayList<User> user = null;
+		this.conn = DBManager.getConnection();
+		if (this.conn != null) {
+			String sql = "SELECT user_kakaoToken FROM user_info WHERE user_email = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, user_email);
+				this.rs = this.pstmt.executeQuery();
+				if(rs.next()){
+					user_kakaoToken = this.rs.getString(1);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return user; 
+	}
 }
