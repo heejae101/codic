@@ -20,7 +20,7 @@ $(function() {
 		/* 비밀번호 길이 검사 */
 		/* 비밀번호의 길이가 4글자 미만이거나, 10글자 초과일 때 */
 		/* 숫자와 특수문자 포함 */
-		if ($('#new_password').val().length < 4 || $('#new_password').val().length > 10 || !pwdChk.test($('#user_password').val())) {
+		if ($('#new_password').val().length < 4 || $('#new_password').val().length > 10 || !pwdChk.test($('#new_password').val())) {
 			$('#chkNotice1').html('비밀번호는 영문, 숫자와 특수문자 조합 4-10자 이내로 입력해주세요.<br>').css('color', 'red');
 
 		}

@@ -149,5 +149,16 @@ justify-content: center;
 	font-weight: bold;
 
 }
+/*유효성 문구*/
+.err_box{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
 
+.error{
+    display: none;
+	color:red;
+	font-size: 0.8em;
+}
 

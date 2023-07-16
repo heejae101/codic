@@ -175,7 +175,6 @@ function duplCheck() {
 			url: 'NickNameDupl',
 			data: { user_nickname: user_nickname },
 			success: function(responseData) {
-				alert('data:' + $.trim(responseData));
 				if ($.trim(responseData) == 'YES') {
 					isNicknameChecked = true;
 					$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
@@ -264,7 +263,6 @@ function chkEmail() {
 			url: 'EmailDupl',
 			data: { user_email: user_email },
 			success: function(responseData) {
-				alert('data:' + $.trim(responseData));
 				if ($.trim(responseData) == 'YES') {
 					isIdChecked = true;
 					$('#chkMsgEmail').html('사용 가능한 이메일입니다.').css('color', 'navy');

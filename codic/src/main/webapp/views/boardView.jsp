@@ -8,7 +8,7 @@
 <link href="../resources/style/reset.css" rel="stylesheet">
 <link href="../resources/style/boardView.css" rel="stylesheet">
 <meta charset="UTF-8">
-<title>${result.board_text}</title>
+<title>질문게시판</title>
 </head>
 <body>
 	<jsp:include page="/header"></jsp:include>
@@ -29,7 +29,7 @@
 						</div>
 						<div class="board-btn">
 							<button
-								onclick="window.location.href='/BoardUpdateRequest?user_email=${result.user_email}'">수정하기</button>
+								onclick="window.location.href='/BoardUpdateRequest?boardId=${result.board_id}'">수정하기</button>
 						</div>
 					</c:if>
 				</div>

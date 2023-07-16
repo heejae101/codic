@@ -209,13 +209,17 @@ color: inherit;
 
 /*뒤로가기*/
 
+.back_box{
+    margin-bottom: 30px;
+	margin-top:30px ;
+	
+}
 .back{
 	padding: 10px 30px;
 	font-size: 0.9rem;
 	font-weight: bold;
     line-height: 30px;
-    margin-bottom: 15px;
-	margin-top:20px ;
+  
 	color:black; 
 	border: 1px solid gainsboro;
     border-radius: 30px;
