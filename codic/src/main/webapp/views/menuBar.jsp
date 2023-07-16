@@ -84,8 +84,8 @@
                     </svg>
                     <span onclick="showHide6()">질문게시판</span>
                     <ul class="sub-title-menu" id="sub-title-menu6">
-                        <li>전체 글</li>
-                        <li>내가 작성한 질문</li>
+                        <li><a href="/boardList">전체 글</a></li>
+                        <li><a href="">작성한 질문</a></li>
                     </ul>
                 </li>
                 <li>

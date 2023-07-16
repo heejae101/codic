@@ -17,7 +17,6 @@
 	<jsp:include page="/header"></jsp:include>
 	<div id="container">
 	<jsp:include page="/menuBar"></jsp:include>
-	
 	<div id="write-box">
 		<form method="POST" action="/BoardFormAction">
 			<div id="title-box">

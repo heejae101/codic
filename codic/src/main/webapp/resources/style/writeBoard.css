@@ -38,11 +38,25 @@
 		border: none;
 		margin-bottom: 30px;
 	}
+	#write-box{
+	margin-top:15px;
+	}
+	#contents-box #contents{
+	caret-color: transparent;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+	}
+	#write-box{
+	width : 95%
+	}
+	#board-list{
+	align-items : center;
+	}
 }
 
 @media all and (min-width:920px) {
 	#container {
 		display: grid;
-		grid-template-columns: 0.4fr 1fr;
+		grid-template-columns: 0.35fr 1fr;
 	}
 }

@@ -29,7 +29,7 @@
 						<li><a href="#">JAVASCRIPT</a></li>
 						<li><a href="#">JAVA</a></li>
 						<li><a href="#">DATABASE</a></li>
-						<li><a href="#">질문게시판</a></li>
+						<li><a href="/boardList">질문게시판</a></li>
 						<li><a href="#">로드맵</a></li>
 					</ul>
 				</div>
@@ -60,9 +60,9 @@
 					</div>
 					<a href="">로드맵</a>
 					<div>
-						<a href="/BoardListRequest">질문게시판
+						<a href="/boardList">질문게시판
 							<ul class="menu2">
-								<li><a href="#">전체 글</a></li>
+								<li><a href="/boardList">전체 글</a></li>
 								<li><a href="#">내가 작성한 질문</a></li>
 							</ul>
 						</a>

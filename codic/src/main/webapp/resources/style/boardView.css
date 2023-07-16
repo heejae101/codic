@@ -83,7 +83,7 @@
 @media all and (min-width:920px){
 	#container{
     display : grid;
-    grid-template-columns: 0.4fr 1fr;
+    grid-template-columns: 0.35fr 1fr;
     }
 }
 

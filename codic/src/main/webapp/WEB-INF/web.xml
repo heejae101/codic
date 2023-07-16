@@ -248,6 +248,18 @@
 	
 	<!-- JSP 페이지 맵핑 -->
 	<servlet>
+		<servlet-name>writeUpdateBoard</servlet-name>
+		<jsp-file>/views/writeUpdateBoard.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>writeUpdateBoard</servlet-name>
+		<url-pattern>/writeUpdateBoard</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
 		<servlet-name>content</servlet-name>
 		<jsp-file>/views/content.jsp</jsp-file>
 	</servlet>
