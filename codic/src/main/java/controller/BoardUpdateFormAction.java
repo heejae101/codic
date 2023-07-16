@@ -21,17 +21,20 @@ public class BoardUpdateFormAction extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String user_email = (String) request.getSession().getAttribute("email");
+		int board_id = Integer.parseInt(request.getParameter("boardId"));
+		String board_title = request.getParameter("title");
+		String board_text = request.getParameter("text");
 		
-		System.out.println("업데이트 폼액션 도착");
-		
-		String user_email = request.getParameter("user_email");
-		String board_title = request.getParameter("board_title");
-		String board_text = request.getParameter("new-board_text");
+		System.out.println(user_email+"님의"+board_id+"번 게시글 수정 완료 요청");
 		
 		BoardDao boardDao = BoardDao.getInstance();
-		boardDao.updateBoard(user_email, board_title,board_text);
+		boolean result = boardDao.updateBoard(board_id, user_email, board_title, board_text);
 		
-		String url = "/BoardUpdateRequest";
+		System.out.println("요청 결과"+result);
+
+		String url = "boardList";
 		response.sendRedirect(url);
 	}
 
