@@ -39,6 +39,7 @@
     flex-grow: 1;
     justify-content: space-between;
     padding: 10px;
+    border-top : 1px solid #dce1e5;
 }
 
 .tag {

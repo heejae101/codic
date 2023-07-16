@@ -37,9 +37,9 @@
 
 			<div class="top-left">
 				<div class="logo">
-					<a href="main">
+					<a href="/main">
 						<h1>CODIC</h1>
-					</a> <a href="main"><svg xmlns="http://www.w3.org/2000/svg"
+					</a> <a href="/main"><svg xmlns="http://www.w3.org/2000/svg"
 							width="16" height="16" fill="currentColor" class="bi bi-chat"
 							viewBox="0 0 16 16">
 					<path
@@ -48,13 +48,13 @@
 				</div>
 				<div class="board">
 					<div>
-						<a href="#">카테고리
+						<a href="/ShowContent">카테고리
 							<ul class="menu1">
-								<li><a href="#">HTML</a></li>
-								<li><a href="#">CSS</a></li>
-								<li><a href="#">JAVASCRIPT</a></li>
-								<li><a href="#">JAVA</a></li>
-								<li><a href="#">DATABASE</a></li>
+								<li><a href="/ShowContent?category=html">HTML</a></li>
+								<li><a href="/ShowContent?category=css">CSS</a></li>
+								<li><a href="/ShowContent?category=javascript">JAVASCRIPT</a></li>
+								<li><a href="/ShowContent?category=java">JAVA</a></li>
+								<li><a href="/ShowContent?category=database">DATABASE</a></li>
 							</ul>
 						</a>
 					</div>
@@ -62,7 +62,7 @@
 					<div>
 						<a href="/boardList">질문게시판
 							<ul class="menu2">
-								<li><a href="#">전체 글</a></li>
+								<li><a href="/boardList">전체 글</a></li>
 								<li><a href="#">내가 작성한 질문</a></li>
 							</ul>
 						</a>

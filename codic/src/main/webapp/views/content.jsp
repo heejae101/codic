@@ -29,7 +29,7 @@
 			<div class="content-area">
 				<c:forEach var="r" items="${result}" varStatus="loop">
 					<c:if test="${loop.index >= startIndex && loop.index < endIndex}">
-						<a href="/ContentViews?contentId=${r.content_id}">
+						<a href="/views/definitionHtml.jsp">
 							<div id="img-area">
 								<img src="${r.file_path}"/>
 							</div>
