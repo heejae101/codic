@@ -17,7 +17,7 @@
 
 	<section id="myPage">
 		<div class="myPage-box">
-			<div class="choose-box">
+			<div class="nickname-box">
 			<h1>${sessionScope.nickname}님의 my page</h1>
 			</div>
 

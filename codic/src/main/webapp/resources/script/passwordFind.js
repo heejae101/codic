@@ -1,3 +1,13 @@
+$('#user_email').on('change', e => {
+	if ($('#user_email').val() !== "") {
+		$('#error-email').hide();
+		$('#user_email').parent().css('border-color', 'lightgrey');
+		$('#user_email').parent().css('border-top', 'none');
+	}
+});
+
+
+
 var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 
 $(function() {
@@ -8,8 +18,8 @@ $(function() {
 			$('#chkEmail').html('올바른 이메일 형식이 아닙니다.<br>').css('color', 'red');
 		}
 	});
-	
-	});
+
+});
 
 
 let isToKenChecked = false;
@@ -81,3 +91,31 @@ button.addEventListener('click', () => {
 	}
 });
 
+
+function checkValue(htmlForm) {
+	const email = htmlForm.user_email.value;
+
+	let check = true;
+	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+
+
+	if (email === "") {
+		$('#error-email').show();
+		$('#user_email').parent().css('border-color', 'red');
+		check = false;
+
+	}
+
+	if (!regExp.test(email)) {
+		check = false;
+
+	}
+
+
+	if (check && isToKenChecked) {
+		htmlForm.submit();
+	} else if (!isToKenChecked) {
+		alert("이메일 인증을 해주세요.");
+	}
+}

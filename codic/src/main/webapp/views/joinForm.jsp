@@ -9,6 +9,7 @@
 
 <!-- 스타일 연결 -->
 <link rel="stylesheet" href="../resources/style/reset.css">
+<link rel="stylesheet" href="../resources/style/joinForm.css">
 
 
 <title>회원가입</title>
@@ -108,15 +109,14 @@
 
 				<div class="agr">
 					<label for="agree"><input type="checkbox" id="user_check1"
-						name="user_check" value="1"><span class="agr_text"><a href="term" class="term_title">이용약관</a>
-							동의<strong>(필수)</strong>
-					</span></label>
+						name="user_check" value="1"><span class="agr_text"><a
+							href="term" class="term_title">이용약관</a> 동의<strong>(필수)</strong> </span></label>
 				</div>
 
 				<div class="agr">
 					<label for="agree"><input type="checkbox" id="user_check2"
-						name="user_check" value="1"><span class="agr_text"><a href="term2" class="term_title">개인정보
-							처리방침</a> 동의<strong>(필수)</strong>
+						name="user_check" value="1"><span class="agr_text"><a
+							href="term2" class="term_title">개인정보 처리방침</a> 동의<strong>(필수)</strong>
 					</span> </label>
 				</div>
 
@@ -132,12 +132,13 @@
 				type="button" id="join-btn" value="회원가입" onclick="checkValue(form)">
 
 		</form>
-        <div class="back_box">
-		<a href="javascript:window.history.back();"><div class="back">뒤로가기</div></a></div>
+		<div class="back_box">
+			<a href="javascript:window.history.back();"><span class="back">뒤로가기</span></a>
+		</div>
 	</section>
 	<jsp:include page="/footer"></jsp:include>
 
 	<script src="../resources/script/validation_join.js"></script>
-<link rel="stylesheet" href="../resources/style/joinForm.css">
+	
 </body>
 </html>

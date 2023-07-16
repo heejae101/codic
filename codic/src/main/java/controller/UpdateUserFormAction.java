@@ -51,7 +51,6 @@ public class UpdateUserFormAction extends HttpServlet {
 		String name=request.getParameter("user_name");
 		String nickname=request.getParameter("user_nickname");
 		
-		
 	    userDto=new UserRequestDto(email,newPassword,name,nickname,0,0);
 	    
 	    UserDao userDao=UserDao.getInstance();

@@ -25,6 +25,9 @@
 						name="new_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합">
 					<p class="err">*특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</p>
 					<span class="err" id="chkNotice1" size="1"></span>
+					<ul>
+						<li class="error" id="error-password">새 비밀번호를 입력해주세요.</li>
+					</ul>
 				</div>
 
 				<div class="pwd3_box">
