@@ -27,6 +27,9 @@
 						type="button" class="square" id="email_ch"
 						onclick="emailAuthentication()" value="인증메일 보내기">
 				</div>
+				<div class="err_box">
+						<span class="err" id="chkEmail" size="1"></span>
+						</div>
 
 
 				<div class="email_num_box">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import model.user.UserDao;
 import model.user.UserRequestDto;
+import util.EncryptionDataManager;
 
 /**
  * Servlet implementation class UpdateUserFormAction
@@ -29,10 +30,10 @@ public class UpdateUserFormAction extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	//protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -42,9 +43,11 @@ public class UpdateUserFormAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		UserRequestDto userDto=null;
 		
+		
+		
 		String email=request.getParameter("user_email");
-		String password=request.getParameter("user_password");
-		String newPassword=request.getParameter("new_password");
+		String password = request.getParameter("user_password");
+		String newPassword =request.getParameter("new_password");
 		String name=request.getParameter("user_name");
 		String nickname=request.getParameter("user_nickname");
 		
@@ -53,14 +56,11 @@ public class UpdateUserFormAction extends HttpServlet {
 	    
 	    UserDao userDao=UserDao.getInstance();
 	    userDao.updateUser(userDto, password);
-	    
-	    
+		
 	    String url="UpdateUserRequest";
 	    response.sendRedirect(url);
 	    
-	    
-		
-		
+	   
 	}
 
 }

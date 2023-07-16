@@ -41,6 +41,7 @@ public class LoginFormAction extends HttpServlet {
 		String nickname=userDao.getNicknameByEmail(email);
 		String name=userDao.getNameByEmail(email);
 		String url="login";
+		
 		if(user!=null && user.getUser_password().equals(password)&&nickname!=null &&name!=null) {
 			url="main";//임시로
 			

@@ -18,28 +18,7 @@
 	<section id="myPage">
 		<div class="myPage-box">
 			<div class="choose-box">
-				<h1>${sessionScope.nickname}님</h1>
-				<div class="side">
-					<ul>
-						<c:choose>
-							<c:otherwise>
-
-								<div>
-									<button id="btn">
-										<a href="/Logout">로그아웃</a>
-									</button>
-								</div>
-							</c:otherwise>
-						</c:choose>
-					</ul>
-				</div>
-				<hr class="line">
-				<div class="user_box">
-				<a href="/update" class="mypage_title">회원정보수정</a>
-				<div class="delete_box">
-					<a href="/leave" class="mypage_title">회원탈퇴</a>
-				</div>
-				</div>
+			<h1>${sessionScope.nickname}님의 my page</h1>
 			</div>
 
 			<div class="container">
@@ -56,6 +35,19 @@
 							<p class="name"><strong>이름:</strong>${sessionScope.name}</p> <p
 								class="email"><strong>이메일:</strong>${sessionScope.email}</p>
 						</div>
+						<div>
+									<button id="btn">
+										<a href="/Logout">로그아웃</a>
+									</button>
+								</div>
+						<div class="user_box">
+				<a href="/update" class="mypage_title">회원정보수정</a>
+				<div class="delete_box">
+					<a href="/leave" class="mypage_title">회원탈퇴</a>
+				</div>
+				</div>
+						
+						
 					</div>
 				</div>
 				<div id="tab-2" class="tab-content">
