@@ -28,10 +28,10 @@ public class UserProfileAction extends HttpServlet {
 		String name = (String) requestSession.getAttribute("name");
 		
 		UserDao userDao = UserDao.getInstance();
-		ArrayList<User> favoriteList = userDao.getfavoriteByEmail("email");
-		ArrayList<User> Image = userDao.getImageByEmail("email");
+//		//TODO 즐겨찾기한 게시판 내프로필
+//		ArrayList<User> favoriteList = userDao.getfavoriteByEmail("email");
+//		ArrayList<User> Image = userDao.getImageByEmail("email");
 		
-		//TODO 즐겨찾기한 게시판 내프로필
 	}
 
 }

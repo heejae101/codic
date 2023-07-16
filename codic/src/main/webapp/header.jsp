@@ -58,7 +58,7 @@
 							</ul>
 						</a>
 					</div>
-					<a href="">로드맵</a>
+					<a href="/testRoadmap">로드맵</a>
 					<div>
 						<a href="/boardList">질문게시판
 							<ul class="menu2">
@@ -91,7 +91,7 @@
   							<path fill-rule="evenodd"
 								d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
 							<ul class="menu3">
-							<li><a href="/">마이페이지</a>
+							<li><a href="/myPage">마이페이지</a>
 							<li><a href="/Logout">로그아웃</a></li>
 							<li><a href="/update">회원정보 수정</a></li>
 							<li><a href="/leave">회원탈퇴</a></li>
