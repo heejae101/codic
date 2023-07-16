@@ -480,5 +480,50 @@ public class UserDao {
 		}
 		return user_kakaoToken;
 	}
+	
+	// TODO userProfileList favorite
+	public ArrayList<User> getfavoriteByEmail(){
+		ArrayList<User> user = null;
+		this.conn = DBManager.getConnection();
+		if (this.conn != null) {
+			String sql = "SELECT user_kakaoToken FROM user_info WHERE user_email = ?";
 
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, user_email);
+				this.rs = this.pstmt.executeQuery();
+				if(rs.next()){
+					user_kakaoToken = this.rs.getString(1);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return user; 
+	}
+	
+	//TODO UserImage
+	public ArrayList<User> getImageByEmail(){
+		ArrayList<User> user = null;
+		this.conn = DBManager.getConnection();
+		if (this.conn != null) {
+			String sql = "SELECT user_kakaoToken FROM user_info WHERE user_email = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, user_email);
+				this.rs = this.pstmt.executeQuery();
+				if(rs.next()){
+					user_kakaoToken = this.rs.getString(1);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return user; 
+	}
 }
