@@ -17,7 +17,7 @@
 	<div class="text_box">
 		<h2 class="find_text">새로운 비밀번호를 입력해주세요</h2>
 		</div>
-		<form id=find method="POST" action="/UpdateUser">
+		<form id=find method="POST" action="/UpdateNewPassword">
 			<div class="form_box">
 				<div class="pwd2_box">
 					<label for="pwd2" class="title">새 비밀번호</label> <input
