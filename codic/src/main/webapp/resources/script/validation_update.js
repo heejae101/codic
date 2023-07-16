@@ -25,6 +25,7 @@ $('#user_nickname').on('change', e => {
 let pwdChk = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*#?&])/; /* 영문 + 숫자 + 특수문자 */
 let pwd_space = /[ ]/; /* 공백 */
 let isNicknameChecked = false;
+let isPasswordChecked = false;
 
 $(function() {
 	/* 비밀번호 유효성 검사 */
@@ -87,6 +88,24 @@ function duplCheck() {
 	}
 }
 
+// 비밀번호 체크
+function userPwCheck(password){
+	$.ajax({
+			type: 'POST',
+			url: 'PasswordCheck',
+			data: { user_password:password },
+			success: function(responseData) {
+				if(responseData.result === true){		
+					isPasswordChecked = true;
+				}
+			},
+			error: function(xhr, status, error) {
+			console.log(error);
+			}
+		});
+}
+
+
 
 function checkValue(htmlForm) {
 	const password = htmlForm.user_password.value;
@@ -119,11 +138,14 @@ function checkValue(htmlForm) {
 		$('#error-nickname').show();
 		check = false;
 	}
+	
+	userPwCheck(password);
 
-	if (check && isNicknameChecked) {
+	if (check && isNicknameChecked && isPasswordChecked) {
 		htmlForm.submit();
 	} else if (!isNicknameChecked) {
 		alert("닉네임 중복 확인을 해주세요.");
+	} else if (!isPasswordChecked){
+		alert("비밀번호가 회원정보와 일치하지 않습니다.");
 	}
-
 }
