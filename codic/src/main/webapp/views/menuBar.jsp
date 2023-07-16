@@ -24,7 +24,7 @@
                     </svg>
                       <span onclick="showHide1()">HTML</span>
                     <ul class="sub-title-menu" id="sub-title-menu1">
-                        <li>HTML이란?</li>
+                        <li><a href="/definitionHtml">HTML이란?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -34,9 +34,9 @@
                     <svg class="right-arrow2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                       <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
-                      <span onclick="showHide2()">JAVASCRIPT</span>
+                      <span onclick="showHide2()">CSS</span>
                     <ul class="sub-title-menu" id="sub-title-menu2">
-                        <li>JAVASCRIPT란?</li>
+                        <li><a href="/definitionCss">CSS란?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -46,9 +46,9 @@
                     <svg class="right-arrow3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                       <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
-                      <span onclick="showHide3()">CSS</span>
+                      <span onclick="showHide3()">JAVASCRIPT</span>
                     <ul class="sub-title-menu" id="sub-title-menu3">
-                        <li>CSS란?</li>
+                        <li><a href="/definitionJavascript">JAVASCRIPT란?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -60,7 +60,7 @@
                     </svg>
                     <span onclick="showHide4()">JAVA</span>
                     <ul class="sub-title-menu" id="sub-title-menu4">
-                        <li>JAVA란?</li>
+                        <li><a href="/definitionJava">JAVA란?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -72,7 +72,7 @@
                     </svg>
                     <span onclick="showHide5()">DATABASE</span>
                     <ul class="sub-title-menu" id="sub-title-menu5">
-                        <li>DATABASE란?</li>
+                        <li><a href="/definitionDB">DATABASE란?</a></li>
                     </ul>
                 </li>
                 <li>

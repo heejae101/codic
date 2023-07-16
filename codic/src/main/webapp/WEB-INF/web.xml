@@ -247,6 +247,58 @@
 	
 	
 	<!-- JSP 페이지 맵핑 -->
+	
+	<servlet>
+		<servlet-name>definitionHtml</servlet-name>
+		<jsp-file>/views/definitionHtml.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>definitionHtml</servlet-name>
+		<url-pattern>/definitionHtml</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>definitionCss</servlet-name>
+		<jsp-file>/views/definitionCss.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>definitionCss</servlet-name>
+		<url-pattern>/definitionCss</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>definitionJavascript</servlet-name>
+		<jsp-file>/views/definitionJavascript.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>definitionJavascript</servlet-name>
+		<url-pattern>/definitionJavascript</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>definitionJava</servlet-name>
+		<jsp-file>/views/definitionJava.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>definitionJava</servlet-name>
+		<url-pattern>/definitionJava</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>definitionDB</servlet-name>
+		<jsp-file>/views/definitionDB.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>definitionDB</servlet-name>
+		<url-pattern>/definitionDB</url-pattern>
+	</servlet-mapping>
+	
+	
 	<servlet>
 		<servlet-name>writeUpdateBoard</servlet-name>
 		<jsp-file>/views/writeUpdateBoard.jsp</jsp-file>

@@ -24,11 +24,11 @@
 					<hr
 						style="position: relative; top: 100px; border: solid 1px #94358c;">
 					<ul class="nav_mobile">
-						<li><a href="#">HTML</a></li>
-						<li><a href="#">CSS</a></li>
-						<li><a href="#">JAVASCRIPT</a></li>
-						<li><a href="#">JAVA</a></li>
-						<li><a href="#">DATABASE</a></li>
+						<li><a href="/definitionHtml">HTML</a></li>
+						<li><a href="/definitionCss">CSS</a></li>
+						<li><a href="/definitionJavascript">JAVASCRIPT</a></li>
+						<li><a href="/definitionJava">JAVA</a></li>
+						<li><a href="/definitionDB">DATABASE</a></li>
 						<li><a href="/boardList">질문게시판</a></li>
 						<li><a href="#">로드맵</a></li>
 					</ul>
@@ -50,11 +50,11 @@
 					<div>
 						<a href="#">카테고리
 							<ul class="menu1">
-								<li><a href="#">HTML</a></li>
-								<li><a href="#">CSS</a></li>
-								<li><a href="#">JAVASCRIPT</a></li>
-								<li><a href="#">JAVA</a></li>
-								<li><a href="#">DATABASE</a></li>
+								<li><a href="/definitionHtml">HTML</a></li>
+								<li><a href="/definitionCss">CSS</a></li>
+								<li><a href="/definitionJavascript">JAVASCRIPT</a></li>
+								<li><a href="/definitionJava">JAVA</a></li>
+								<li><a href="/definitionDB">DATABASE</a></li>
 							</ul>
 						</a>
 					</div>
