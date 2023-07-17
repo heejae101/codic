@@ -469,6 +469,17 @@
 		<url-pattern>/term2</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>myPage</servlet-name>
+		<jsp-file>/views/myPage.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>myPage</servlet-name>
+		<url-pattern>/myPage</url-pattern>
+	</servlet-mapping>
+	
+	
 	
 </web-app>
 

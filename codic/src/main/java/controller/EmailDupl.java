@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,7 +47,8 @@ public class EmailDupl extends HttpServlet {
 	  UserDao userDao=UserDao.getInstance();
 	  boolean dupl=userDao.duplEmail(email);
 	  PrintWriter out = response.getWriter();
-		String msg="";
+	  String msg="";
+		
 		if(!dupl) {
 			msg="YES";
 			out.print(msg);

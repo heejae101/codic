@@ -35,6 +35,7 @@ public class UpdateUserFormAction extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		String name=request.getParameter("user_name");
 		String nickname=request.getParameter("user_nickname");
 		

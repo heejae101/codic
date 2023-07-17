@@ -266,7 +266,7 @@ function chkEmail() {
 		$.ajax({
 			type: 'POST',
 			url: 'EmailDupl',
-			data: { user_email: user_email },
+			data: {user_email: user_email },
 			success: function(responseData) {
 				if ($.trim(responseData) == 'YES') {
 					isIdChecked = true;
