@@ -10,6 +10,7 @@
 <style>
 .theme-default-content{
 	display:grid;
+	margin-top:30px; 
 }
 </style>
 <jsp:include page="/header"></jsp:include>

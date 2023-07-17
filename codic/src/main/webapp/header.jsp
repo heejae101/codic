@@ -19,7 +19,7 @@
 				</label>
 				<div class="sidebar">
 					<h2 style="text-align: center; position: relative; top: 75px;">
-						<a href="#">카테고리</a>
+						<a href="/ShowContent?text=ㅇㅇ">카테고리</a>
 					</h2>
 					<hr
 						style="position: relative; top: 100px; border: solid 1px #94358c;">
@@ -48,7 +48,7 @@
 				</div>
 				<div class="board">
 					<div>
-						<a href="/ShowContent">카테고리
+						<a href="/ShowContent?text=">카테고리
 							<ul class="menu1">
 								<li><a href="/ShowContent?category=html">HTML</a></li>
 								<li><a href="/ShowContent?category=css">CSS</a></li>
