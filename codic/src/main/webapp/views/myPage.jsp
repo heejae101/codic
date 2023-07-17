@@ -22,6 +22,7 @@
 			<div class="nickname-box">
 				<div class="circle">
 					<img class="p-img" src="../resources/img/myprofileIMG.png" alt="">
+					<input type="file" name="profile">
 				</div>
 				<div class="myNickname">
 					<strong class="nickname">${sessionScope.nickname}님</strong>
@@ -54,7 +55,6 @@
 
 
 						<div class="user_box">
-
 							<button class="btn">
 								<a href="/update" class="mypage_title">회원정보수정</a>
 							</button>
