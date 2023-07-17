@@ -18,7 +18,7 @@ function getComments() {
 				const writer = comment.user_nickname;
 				const contents = comment.board_answer;
 				let html = `
-					<div>
+					<div id="comment-div">
                         <input type="hidden" id="commentId" value="${commentId}"/>
                         <span id="writer">${writer}</span>
                         <span id="commentText">${contents}</span>
@@ -26,8 +26,8 @@ function getComments() {
                 `;
                 if(writer === sessionValue){
 					html +=`
-						<button onclick="deleteComment(this)">삭제</button>
-						<button onclick="updateComment(this)">수정</button>
+						<button id="bnt" onclick="deleteComment(this)">삭제</button>
+						<button id="bnt" onclick="updateComment(this)">수정</button>
 					</div>
                      `;
 				}else{

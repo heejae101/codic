@@ -5,6 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link href="../resources/style/reset.css" rel="stylesheet">
+<link href="../resources/style/writeUpdateBoard.css" rel="stylesheet">
 <title>게시글 수정</title>
 </head>
 <body>
@@ -13,18 +17,29 @@
 			<p>찾는 게시글이 없어요...</p>
 		</c:when>
 		<c:otherwise>
-			<p>글수정</p>
-			<form method="POST" action="BoardUpdate">
-				<input type="hidden" name="boardId" value="${result.board_id}">
-				<div>
-					<input id="title" name="title" type="text" value="${result.board_title}" autofocus>
+			<jsp:include page="/header"></jsp:include>
+			<div id="container">
+				<jsp:include page="/menuBar"></jsp:include>
+				<div id="write-box">
+					<form method="POST" action="BoardUpdate">
+						<input type="hidden" name="boardId" value="${result.board_id}">
+						<div id="title-box">
+							<input id="title" name="title" type="text"
+								value="${result.board_title}" autofocus>
+						</div>
+						<div id="contents-box">
+							<textarea id="text" name="text" value="${result.board_text}"
+								autofocus>${result.board_text}</textarea>
+						</div>
+						<div id="button-box">
+							<input type="button" value="수정" id="updatde-bnt"
+								onclick="checkValue(form)">
+						</div>
+					</form>
+
 				</div>
-				<div>
-					<textarea id="text" name="text" value="${result.board_text}" autofocus>${result.board_text}</textarea>
-				</div>
-				<input type="submit" value="수정" id="updatde-bnt"
-					onclick="checkValue(form)">
-			</form>
+			</div>
+			<jsp:include page="/footer"></jsp:include>
 			<script src="../resources/script/boardUpdate.js"></script>
 		</c:otherwise>
 	</c:choose>

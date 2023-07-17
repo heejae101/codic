@@ -5,7 +5,7 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="../resources/stylereset.css" rel="stylesheet">
+<link href="../resources/style/reset.css" rel="stylesheet">
 <link href="../resources/style/boardView.css" rel="stylesheet">
 <meta charset="UTF-8">
 <title>질문게시판</title>

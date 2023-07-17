@@ -17,6 +17,7 @@
 }
 
 
+
 .menu ul{
     margin-left: 5px;
     margin-right: 30px;
@@ -33,6 +34,7 @@
     font-size: 12px;
     padding: 3px;
     font-weight: 500;
+    cursor: pointer;
 }
 .sub-title-menu{
     display: none;
@@ -76,7 +78,6 @@
 }
 
 @media all and (min-width:1200px){
-
     .menu ul{
         margin-left: 90px;
     }
@@ -93,7 +94,9 @@
 }
 
 @media all and (min-width:1400px){
-
+    .menu ul{
+        margin-left: 90px;
+    }
     .menu ul{
         margin-left: 110px;
     }
@@ -102,7 +105,6 @@
         padding: 5px;
     }
     .sub-title-menu li{
-        margin-left: -90px;
         font-size: 18px;
         padding: 3px;
     }
