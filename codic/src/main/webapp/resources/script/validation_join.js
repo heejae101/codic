@@ -79,6 +79,11 @@ $(function() {
 			$('#chkNotice2').html('비밀번호가 일치합니다. 사용 가능합니다.<br>').css('color', 'navy'); /* 일치시 color: darkblue */
 			console.log('#user_password');
 		}
+		
+		if (pwd_space.test($('#user_password_ch').val())) {
+			$('#chkNotice2').html('비밀번호는 공백을 포함할 수 없습니다.<br>').css('color', 'red');
+
+		}
 	});
 });
 
@@ -261,7 +266,7 @@ function chkEmail() {
 		$.ajax({
 			type: 'POST',
 			url: 'EmailDupl',
-			data: { user_email: user_email },
+			data: {user_email: user_email },
 			success: function(responseData) {
 				if ($.trim(responseData) == 'YES') {
 					isIdChecked = true;

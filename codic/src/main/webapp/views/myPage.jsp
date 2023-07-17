@@ -14,11 +14,26 @@
 </head>
 <body>
 	<jsp:include page="/header"></jsp:include>
-
+	<c:if test="${ empty sessionScope.nickname }">
+		<c:redirect url="login"></c:redirect>
+	</c:if>
 	<section id="myPage">
 		<div class="myPage-box">
 			<div class="nickname-box">
-			<h1>${sessionScope.nickname}님의 my page</h1>
+				<div class="circle">
+					<img class="p-img" src="../resources/img/myprofileIMG.png" alt="">
+					<input type="file" name="profile">
+				</div>
+				<div class="myNickname">
+					<strong class="nickname">${sessionScope.nickname}님</strong>
+
+					<button id="logout-btn">
+						<a href="/Logout">로그아웃</a>
+					</button>
+				</div>
+				<div class="codic-text">
+					<p>알쓸신코! CODIC!에서 함께 공부해 봐요!</p>
+				</div>
 			</div>
 
 			<div class="container">
@@ -31,37 +46,34 @@
 
 				<div id="tab-1" class="tab-content current">
 					<div class="myInfo">
-						<div class="myProfile">
-							<p class="name"><strong>이름:</strong>${sessionScope.name}</p> <p
-								class="email"><strong>이메일:</strong>${sessionScope.email}</p>
-						</div>
-						<div>
-									<button id="btn">
-										<a href="/Logout">로그아웃</a>
-									</button>
-								</div>
+						<ul class="myProfile">
+
+							<li class="line"><strong>이름</strong> ${sessionScope.name}</li>
+							<li class="line" id="email-text"><strong>이메일</strong>
+								${sessionScope.email}</li>
+						</ul>
+
+
 						<div class="user_box">
-				<a href="/update" class="mypage_title">회원정보수정</a>
-				<div class="delete_box">
-					<a href="/leave" class="mypage_title">회원탈퇴</a>
-				</div>
-				</div>
-						
-						
+							<button class="btn">
+								<a href="/update" class="mypage_title">회원정보수정</a>
+							</button>
+							<button class="btn">
+								<a href="/leave" class="mypage_title">회원탈퇴</a>
+							</button>
+
+						</div>
+
+
 					</div>
 				</div>
 				<div id="tab-2" class="tab-content">
 					<div class="favorite"></div>
 				</div>
-				
 			</div>
-
 		</div>
-
-
 	</section>
 	<jsp:include page="/footer"></jsp:include>
 	<script src="../resources/script/mypage.js"></script>
-
 </body>
 </html>

@@ -1,117 +1,65 @@
 @charset "UTF-8";
 
-
-#myPage{
-margin-left: 30px;	
-
-}
-
-/*마이페이지*/
-.myPage-box{
-margin-top: 100px;	
-margin-bottom: 200px;
-
-}
-
-.nickname-box{
-width: 80%;
-height: 300px;
- box-shadow: 2px 2px 14px 0 lightgray;
- margin: 0 auto;
+#myPage {
+  margin-left: 30px;
 }
 
 
-.line{
-	width: 50%;
-	height: 2px;
-	color: black;
+.myPage-box {
+  margin-top: 100px;
+  margin-bottom: 200px;
+  
 }
-
-.user_box{
-margin-top: 50px;
-}
-
-
-.mypage_title:visited{
-color: inherit;	
-}
-
-
-/*탭메뉴*/
-.container{
+/*닉네임 박스*/
+.nickname-box {
   width: 80%;
-  margin: 0 auto;
+  height: 300px;
+  margin:0 auto;
+  box-shadow: 2px 2px 14px 0 #94358c;   
+  border: solid 1px #702184;
+  border-radius: 12px;
+  margin-bottom: 50px;
 }
 
-ul.tabs{
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
-ul.tabs li{
-  color: #222;
-  display: inline-block;
-  padding: 10px 15px;
-  border-radius: 10px ;
-  cursor: pointer;
-}
-
-ul.tabs li.current{
-  background: #ededed;
-  color: #222;
+.circle {
+  position: relative;
+  display: block;
+  width: 110px;
+  height: 110px;
+  border: 4px solid rgb(255, 255, 255);
+  margin-left: 20px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-color: rgb(246, 246, 246);
+  margin-top: 20px;
 }
 
-.tab-content{
-  display: none;
-  background: #ededed;
-  padding: 15px;
+/*이미지*/
+.p-img {
+  width: 100px;
+  height: 100px;
 }
 
-.tab-content.current{
-  display: inherit;
+.myNickname{
+margin-top: 20px;
+margin-bottom: 20px;
+}
+.nickname{
+	font-size: 26px;
+    line-height: 28px;
+    margin-left: 20px;
+   
 }
 
-.content-box{
-	width: 500px;
-	height: 200px;
-	margin-left: 70px;
-	
-}
-
-/*내 프로필*/
-.myInfo{
-padding: 50px;
- 
-}
-
-/*즐겨찾기*/
-.favorite{
-padding: 50px;
-	
-}
-
-.text{
-color: #94358c;
-margin-bottom: 20px;	
-}
-
-.name{
-font-size: 1.2rem;
-font-weight: bold;	
-}
-
-.email{
-font-size: 1.2rem;
-font-weight: bold;	
-}
 
 /*로그아웃 버튼*/
-#btn {
+.btn {
   display: inline-block;
   border-radius: 4px;
   background-color: white;
-  color:#94358c;
-  border: 1px solid #94358c; 
+  border: 1px solid #94358c;
+  color:#94358c ;
   text-align: center;
   font-size: 0.8rem;
   padding: 10px;
@@ -120,12 +68,133 @@ font-weight: bold;
   margin: 5px;
 }
 
-#btn a {
+.btn a {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
+  }
+
+
+#logout-btn{
+	margin-left: 300px;
+	border-radius: 21px;
+	background-color: #94358c;;
+	font-size: 0.8rem;
+	padding: 10px 20px;
+	cursor: pointer;
+	border: 1px solid #94358c;
+	
 }
+
+#logout-btn a{
+	  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  color: white;
+  transition: 0.5s;
+	
+}
+
+.codic-text{
+	margin-left: 20px;
+margin-bottom: 30px;
+}
+
+
+
+.user_box {
+  margin-top: 50px;
+}
+
+.mypage_title:visited {
+  color: inherit;
+}
+
+/*탭메뉴*/
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+ul.tabs {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  border-bottom: 1px solid rgb(226, 226, 226)
+  
+}
+
+ul.tabs li {
+  color: black;
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+ul.tabs li.current {
+  color: #702184;
+  font-weight: bold;
+  border-bottom: 3px solid #702184;
+}
+
+.tab-content {
+  display: none;
+  padding: 15px;
+}
+
+.tab-content.current {
+  display: inherit;
+}
+
+.content-box {
+  width: 500px;
+  height: 200px;
+  margin-left: 70px;
+}
+
+.myProfile{
+	width: 60%;
+	padding: 0 17px;
+    border-radius: 12px;
+    box-shadow: 1px 1px 10px 0 rgba(72,75,108,.08);
+    border: solid 1px #e3e9ed;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#email-text{
+border-top: 1px solid lightgray;	
+}
+
+.line {
+  width: 100% ;
+  color: black;
+  padding: 20px;
+  
+}
+
+/*즐겨찾기*/
+.favorite {
+  padding: 50px;
+}
+
+
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.email {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 
 #btn a:after {
   content: '\00bb';

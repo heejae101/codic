@@ -41,20 +41,6 @@ public class EncryptionDataManager {
 		return byteArray;
 	}
 
-//	public String generateActivationCode() {
-//      ---직접구현---
-//		String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//		Random random = new Random();
-//		String authToken = "";
-//		int repeat = 6;
-//		
-//		for (int i = 0; i < repeat; i++) {
-//			int code = random.nextInt(randomString.length());
-//			authToken += randomString.substring(code, code + 1);
-//		}
-//		
-//		return authToken;
-//	}
 	public String generateActivationCode() {
 	    String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 	    Random random = new Random();

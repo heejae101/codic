@@ -19,7 +19,7 @@
 				</label>
 				<div class="sidebar">
 					<h2 style="text-align: center; position: relative; top: 75px;">
-						<a href="#">카테고리</a>
+						<a href="/ShowContent?text=ㅇㅇ">카테고리</a>
 					</h2>
 					<hr
 						style="position: relative; top: 100px; border: solid 1px #94358c;">
@@ -37,9 +37,9 @@
 
 			<div class="top-left">
 				<div class="logo">
-					<a href="main">
+					<a href="/main">
 						<h1>CODIC</h1>
-					</a> <a href="main"><svg xmlns="http://www.w3.org/2000/svg"
+					</a> <a href="/main"><svg xmlns="http://www.w3.org/2000/svg"
 							width="16" height="16" fill="currentColor" class="bi bi-chat"
 							viewBox="0 0 16 16">
 					<path
@@ -48,17 +48,17 @@
 				</div>
 				<div class="board">
 					<div>
-						<a href="#">카테고리
+						<a href="/ShowContent?text=">카테고리
 							<ul class="menu1">
-								<li><a href="/definitionHtml">HTML</a></li>
-								<li><a href="/definitionCss">CSS</a></li>
-								<li><a href="/definitionJavascript">JAVASCRIPT</a></li>
-								<li><a href="/definitionJava">JAVA</a></li>
-								<li><a href="/definitionDB">DATABASE</a></li>
+								<li><a href="/ShowContent?category=html">HTML</a></li>
+								<li><a href="/ShowContent?category=css">CSS</a></li>
+								<li><a href="/ShowContent?category=javascript">JAVASCRIPT</a></li>
+								<li><a href="/ShowContent?category=java">JAVA</a></li>
+								<li><a href="/ShowContent?category=database">DATABASE</a></li>
 							</ul>
 						</a>
 					</div>
-					<a href="">로드맵</a>
+					<a href="/testRoadmap">로드맵</a>
 					<div>
 						<a href="/boardList">질문게시판
 							<ul class="menu2">
@@ -91,7 +91,7 @@
   							<path fill-rule="evenodd"
 								d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
 							<ul class="menu3">
-							<li><a href="/">마이페이지</a>
+							<li><a href="/myPage">마이페이지</a>
 							<li><a href="/Logout">로그아웃</a></li>
 							<li><a href="/update">회원정보 수정</a></li>
 							<li><a href="/leave">회원탈퇴</a></li>

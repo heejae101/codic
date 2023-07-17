@@ -484,6 +484,16 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>myPage</servlet-name>
+		<jsp-file>/views/myPage.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>myPage</servlet-name>
+		<url-pattern>/myPage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>menuBar</servlet-name>
 		<jsp-file>/views/menuBar.jsp</jsp-file>
 	</servlet>
@@ -503,7 +513,17 @@
 		<url-pattern>/term</url-pattern>
 	</servlet-mapping>
 	
-		<servlet>
+	<servlet>
+		<servlet-name>testRoadmap</servlet-name>
+		<jsp-file>/views/testRoadmap.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>testRoadmap</servlet-name>
+		<url-pattern>/testRoadmap</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>term2</servlet-name>
 		<jsp-file>/views/term2.jsp</jsp-file>
 	</servlet>
@@ -511,8 +531,7 @@
 	<servlet-mapping>
 		<servlet-name>term2</servlet-name>
 		<url-pattern>/term2</url-pattern>
-	</servlet-mapping>
-	
+	</servlet-mapping>	
 	
 </web-app>
 

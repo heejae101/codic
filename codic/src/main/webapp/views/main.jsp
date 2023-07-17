@@ -105,6 +105,7 @@
 			</c:if>
 			<div id="populer-content">
 				<h2>인기 게시글 ✨</h2>
+				<!--
 				<ul>
 					<li>
 						<a href="/">
@@ -125,6 +126,7 @@
 						</a>
 					</li>
 				</ul>
+				-->
 			</div>
 		</div>
 	</section>
