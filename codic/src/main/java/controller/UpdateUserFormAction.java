@@ -28,9 +28,6 @@ public class UpdateUserFormAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		UserRequestDto userDto=null;
 		EncryptionDataManager encrypt = new EncryptionDataManager();
-		
-		
-		
 		String email=request.getParameter("user_email");
 		String newPassword = null;
 		try {
@@ -49,7 +46,7 @@ public class UpdateUserFormAction extends HttpServlet {
 			responseData.put("result", "true");
 			userDto=new UserRequestDto(email,newPassword,name,nickname,0,0);
 			UserDao userDao=UserDao.getInstance();
-			userDao.updateUser(userDto, newPassword);
+			userDao.updateUser(userDto);
 		}else responseData.put("result", "false");
 		 
 		System.out.println("결과 :"+responseData.toString());
