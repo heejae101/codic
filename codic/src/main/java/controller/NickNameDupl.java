@@ -47,6 +47,7 @@ public class NickNameDupl extends HttpServlet {
 	  boolean dupl=userDao.duplNickname(nickname);
 	  PrintWriter out = response.getWriter();
 		String msg="";
+		
 		if(!dupl) {
 			msg="YES";
 			out.print(msg);

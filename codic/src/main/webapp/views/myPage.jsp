@@ -46,9 +46,9 @@
 						<ul class="myProfile">
 						
 							<li class="line">
-								<strong >이름</strong>${sessionScope.name}</li>
+								<strong >이름</strong> ${sessionScope.name}</li>
 							<li class="line" id="email-text">
-								<strong>이메일</strong>${sessionScope.email}</li>
+								<strong>이메일</strong> ${sessionScope.email}</li>
 						</ul>
 
 

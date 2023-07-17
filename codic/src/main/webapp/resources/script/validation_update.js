@@ -74,7 +74,6 @@ function duplCheck() {
 			url: 'NickNameDupl',
 			data: { user_nickname: user_nickname },
 			success: function(responseData) {
-				alert('data:' + $.trim(responseData));
 				if ($.trim(responseData) == 'YES') {
 					isNicknameChecked = true;
 					$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
