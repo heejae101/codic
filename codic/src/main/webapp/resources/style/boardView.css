@@ -43,7 +43,7 @@
      border : 0.7px solid black;
 	}
     }
-    #comment-div{
+    .comment-div{
      border : 0.7px solid black;
     }
 
@@ -63,6 +63,13 @@
     min-height : 30px;
     }
     
+    .update-area {
+    	outline : none;
+    	width : inherit;
+    	height : 15px;
+    	resize : none;
+    	border : none;
+    }
     
      #comment #bnt{
      	float : right;

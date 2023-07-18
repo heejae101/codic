@@ -26,6 +26,7 @@ public class BoardUpdateRequest extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		BoardDao boardDao = BoardDao.getInstance();
 		int board_id = Integer.parseInt(request.getParameter("boardId"));

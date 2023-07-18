@@ -59,12 +59,13 @@ public class BoardCommentDao {
 		return result;
 	}
 	
-	public void updateBoardComment(int update_answer, int comment_id) {
+	public boolean updateBoardComment(int comment_id, String board_answer) {
 		this.conn = DBManager.getConnection();
+		boolean result = false;
 		try {
 			String sql = "UPDATE FROM board_comment SET board_answer = ? WHERE comment_id = ?";
 			this.pstmt = this.conn.prepareStatement(sql);
-			this.pstmt.setInt(1, update_answer);
+			this.pstmt.setString(1, board_answer);
 			this.pstmt.setInt(2, comment_id);
 			this.pstmt.execute();
 		}catch (Exception e) {
@@ -72,6 +73,7 @@ public class BoardCommentDao {
 		} finally {
 			DBManager.close(this.conn, this.pstmt);
 		}
+		return result;
 	}
 	
 	public ArrayList<BoardComment> getBoardCommentAll(int request_board_id){

@@ -20,6 +20,7 @@ public class BoardFormAction extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		HttpSession requestSession = request.getSession();
 		String board_email = (String) requestSession.getAttribute("email");
