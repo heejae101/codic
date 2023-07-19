@@ -20,26 +20,26 @@
 		</div>
 		<form id=find method="POST">
 			<div class="email_box">
+			<label for="email" class="title">이메일</label> 
 				<div class="email_send_box">
-					<label for="email" class="title">이메일</label> <input type="text"
+					<input type="text"
 						class="square" id="user_email" name="user_email" maxlength="320"
 						placeholder="your@email.com" autofocus> <input
 						type="button" class="square" id="email_ch"
 						onclick="emailAuthentication()" value="인증메일 보내기">
 				</div>
-				<div class="err_box">
 					<ul>
 						<li class="err" id="chkEmail" size="1"></li>
 						<li class="error" id="error-email">이메일을 입력해주세요.</li>
 					</ul>
-				</div>
-
-
+            <div class="email-num-box">
+            <label for="email_num" class="title">인증번호 입력</label>
 				<div class="email_num_box">
-					<label for="email_num" class="title">인증번호 입력</label> <input
+					 <input
 						type="text" class="square" name="code" id="code" maxlength="10">
 					<input type="button" id="code_ch" onclick="authCodeCheck()"
 						value="인증">
+				</div>
 				</div>
 				<div class="btn_box">
 					<input type="button" id="find-btn" value="다음"
@@ -48,6 +48,7 @@
 			</div>
 		</form>
 	</section>
+	<jsp:include page="/footer"></jsp:include>
 	<script src="../resources/script/passwordFind.js"></script>
 
 </body>

@@ -250,7 +250,7 @@ public class BoardDao {
 	// 게시판 목록 출력
 		public ArrayList<Board> getBoard() {
 			ArrayList<Board> list = new ArrayList<Board>();
-			String sql = "SELECT * FROM board ORDER BY current_timestamp ASC";
+			String sql = "SELECT * FROM board ORDER BY board_id DESC";
 			
 			this.conn = DBManager.getConnection();
 

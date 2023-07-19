@@ -81,6 +81,8 @@ margin-bottom: 20px;
 
 /*닉네임*/
 .nickname_box{
+display: flex;
+align-items: center;
 margin-top: 10px;
 margin-bottom: 20px;
 }
@@ -95,6 +97,7 @@ width: 70%;
 	padding: 0;
 	background-color: white;
 	color:#94358c;
+	border-radius: 4px;
 	border: 1px solid #94358c; 
 	margin-left: 10px;
 	cursor: pointer;
@@ -109,7 +112,7 @@ width: 70%;
 	padding: 15px;
 	color: white;
 	border: none;
-	border-radius:4px;
+	border-radius:10px;
 	background: linear-gradient(25deg, #0c0074, #490e7c, #702184, #94358c);
 	cursor: pointer;
 	font-size: 1rem;
@@ -117,9 +120,28 @@ width: 70%;
 
 }
 
-.back{
-	margin-top: 20px;
-	font-size:0.9rem;
-	color:rgb(85, 85, 85); 
 
+/*마이페이지로 가기*/
+.back_box{
+    margin-bottom: 30px;
+	margin-top:30px ;
+	display: flex;
+	justify-content: center;
+	
+}
+.back{
+	padding: 10px 30px;
+	font-size: 0.9rem;
+	font-weight: bold;
+    line-height: 30px;
+	color:black; 
+	border: 1px solid gainsboro;
+    border-radius: 30px;
+    text-align: center;
+}
+
+
+.back:hover{
+color: white;
+background-color:#94358c ;	
 }

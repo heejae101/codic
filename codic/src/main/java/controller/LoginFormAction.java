@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import model.user.User;
 import model.user.UserDao;
@@ -30,6 +34,7 @@ public class LoginFormAction extends HttpServlet {
 		String requestPassword = request.getParameter("user_password");
 		String password = "";
 		
+		
 		try {
 			password = encrypt.passwordEncrypt(requestPassword);
 		} catch (Exception e) {
@@ -42,21 +47,31 @@ public class LoginFormAction extends HttpServlet {
 		String name=userDao.getNameByEmail(email);
 		String url="login";
 		
-		if(user!=null && user.getUser_password().equals(password)&&nickname!=null &&name!=null) {
+		Map<String, Object> responseData = new HashMap<>();
+		
+		String resultJson = "";
+		
+		if(user!=null && user.getUser_password().equals(password) && nickname!=null && name!=null) {
 			url="main";//임시로
+			
 			
 			HttpSession session=request.getSession();
 			session.setAttribute("nickname",nickname);
 			session.setAttribute("email",email);
 			session.setAttribute("name",name);
-		}else{
 			
-	        request.setAttribute("msg", "아이디와 비밀번호 일치하지 않습니다.");
+		}else{
+			responseData.put("msg", "아이디와 비밀번호가 일치하지 않습니다.");
 	        System.out.println("아이디와 비밀번호 일치안함");
+	        System.out.println("결과 :"+responseData.toString());
+	        
+	        resultJson = new Gson().toJson(responseData);
+	        
+	        response.setCharacterEncoding("UTF-8");
+	        response.setContentType("application/json; charset=utf-8");
 		}		
 		
-		request.getRequestDispatcher(url).forward(request, response);
-		
+		response.getWriter().append(resultJson);
 	}
 
 }

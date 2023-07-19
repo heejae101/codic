@@ -21,7 +21,7 @@
 			<div class="login">
 				<h2 class="login_text">로그인</h2>
 				<p class="join">
-					회원이 아닌겨~? <a class="join-btn" href="/join">회원가입</a>
+					회원이 되고 싶으세요? <a class="join-btn" href="/join">회원가입</a>
 				</p>
 				<form id="login" method="POST" action="../Login">
 					<div class="login_1">
@@ -43,7 +43,7 @@
 
 				<div class="find">
 					<p class="find-btn">
-						<a href="/find">비밀번호 찾기 ></a>
+						<a href="/find" class="f-text">비밀번호 찾기 ></a>
 					</p>
 				</div>
 			</div>

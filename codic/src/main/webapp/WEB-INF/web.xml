@@ -255,6 +255,16 @@
 		<url-pattern>/UpdateBoardComment</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>UploadProfile</servlet-name>
+		<servlet-class>controller.UploadProfile</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UploadProfile</servlet-name>
+		<url-pattern>/UploadProfile</url-pattern>
+	</servlet-mapping>
+	
 	
 	<!-- JSP 페이지 맵핑 -->
 	
@@ -532,6 +542,16 @@
 		<servlet-name>term2</servlet-name>
 		<url-pattern>/term2</url-pattern>
 	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>info</servlet-name>
+		<jsp-file>/views/info.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>info</servlet-name>
+		<url-pattern>/info</url-pattern>
+	</servlet-mapping>
 	
 </web-app>
 

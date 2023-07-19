@@ -18,7 +18,6 @@ text-align: center;
     margin-top: 70px;
     font-size: 1.7rem;
     color:#94358c;
-    
 }
 
 .comment{
@@ -29,13 +28,16 @@ font-size: 1.2rem;
 }
 
 #find{
-	width: 100%;
-	margin: 0 auto;
+	display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    padding:30px 10px;
 }
 
 
 .square {
-    width:40%;
+    width:100%;
 	margin: 5px;
 	padding: 15px;
     border:1px solid lightgray;
@@ -52,52 +54,49 @@ font-size: 1.2rem;
 font-weight: bold;
 }
 
-.form_box{
-width: 100%;
-}
-.email_box{
-width: 100%;
-padding: 0 10px;
-}
 
-	
-
+/*이메일 부분*/
 .email_send_box{
 margin-top: 10px;
 margin-bottom: 20px;
-margin-left: 36px;
 display: flex;
-justify-content: center;
-    align-items: center;
+align-items: center;
 	
+}
+
+input[name="user_email"]{
+padding-right: 200px;
 
 }
 
+.email-num-box{
+	margin-top:20px ;
+}
 .email_num_box{
 margin-top: 10px;
 margin-bottom: 20px;
 display: flex;
-justify-content: center;
-    align-items: center;
+align-items: center;
 	
+}
+input[name="code"]{
+padding-right: 200px;
+
+
 }
 
 .pwd2_box{
-width: 100%;
 margin-top: 10px;
 margin-bottom: 20px;
 display: flex;
-flex-direction: column;
 align-items: center;
 
 }
 
 .pwd3_box{
-width: 100%;
 margin-top: 10px;
 margin-bottom: 20px;
 display: flex;
-flex-direction: column;
  align-items: center;
 }
 
@@ -107,12 +106,13 @@ font-size: 0.8rem;
 
 .btn_box{
 display: flex;
-justify-content: center;	
+justify-content: center;
+margin-top: 30px;	
 }
 
 /*이메일 버튼*/
 #email_ch{
-	width: 10%;
+	width: 100%;
 	height: 30px;
 	padding: 0;
 	margin-left: 10px;
@@ -123,7 +123,7 @@ justify-content: center;
     
 }
 #code_ch{
-	width: 10%;
+	width: 100%;
 	height: 30px;
 	padding: 0;
 	margin-left: 10px;
@@ -136,7 +136,7 @@ justify-content: center;
 
 
 #find-btn{
-	width: 40%;
+	width: 90%;
     margin-top:30px;
     margin-bottom: 30px;
 	padding: 15px;
@@ -150,10 +150,8 @@ justify-content: center;
 
 }
 /*유효성 문구*/
-.err_box{
-	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
+.err-box{
+	margin-bottom: 30px;
 }
 
 .error{

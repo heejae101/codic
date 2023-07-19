@@ -17,34 +17,44 @@
 <body>
 	<jsp:include page="/header"></jsp:include>
 	<section id="join-section">
-		<h2 class="join_text">회원가입</h2>
+	<div id="wrap">
+	<div class="section">
+		<div class="form_box">
 		<form id="join" method="POST" action="Join">
+		<div class="form-box">
+		<h2 class="join_text">회원가입</h2>
+		     <div class="input_box">
 			<!-- 이메일 부분(아이디) -->
 			<div class="email">
-				<label for="email" class="title">이메일<span class="required">(필수)</span></label>
-				<div class="email_box">
+			<label for="email" class="title">이메일<span class="required">(필수)</span></label>
+				    <div class="email_box"> 
 					<input type="text" class="square" id="user_email" name="user_email"
 						maxlength="320" placeholder="example@codic.com" autofocus><input
 						type="button" id="user_email_dupl" name="user_email_dupl"
 						value="중복 확인" onclick="chkEmail()">
+					</div>
+					<div class="err-box">
 					<ul>
 						<li class="error" id="error-email">이메일을 입력해주세요</li>
 					</ul>
 					<span class="err" id="chkEmail" size="1"></span> <span class="err"
 						id="chkMsgEmail" size="1"></span>
-				</div>
-
-				<label for="email_num" class="title">인증번호 입력</label>
-				<div class="code_box">
-					<input type="text" name="code" class="square" id="code"
+						</div>
+						</div>
+				
+                
+				<label for="email_num" class="title">인증번호</label>
+				  <div class="code_box">
+				<input type="text" name="code" class="square" id="code"
 						maxlength="10"> <input type="button" class="square"
 						id="email_ch" onclick="emailAuthentication()" value="인증메일 보내기">
-					<div>
+					
+				</div>
+				<div class="code-btn">
 						<input type="button" id="code_ch" onclick="authCodeCheck()"
 							value="인증">
 					</div>
-				</div>
-			</div>
+		
 
 			<!-- 비밀번호 부분 -->
 			<div class="pwd1">
@@ -52,21 +62,27 @@
 				<div class="pwd1_box">
 					<input type="password" name="user_password" class="square"
 						id="user_password" placeholder="4-10자의 영문, 특수문자, 숫자 조합">
-					<p class="err">*특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</p>
+					
+				</div>
+				<div clss="pwd-err">
+				<p class="err">*특수문자는 '! @ # $ % ^ & +='만 사용 가능합니다.</p>
 
 					<ul>
 						<li class="error" id="error-password">비밀번호는 필수정보입니다.</li>
 					</ul>
 					<span class="err" id="chkNotice1" size="1"></span>
-				</div>
+					</div>
 			</div>
 
 			<div class="pwd2">
 				<label for="pwd2" class="title">비밀번호 확인</label>
 				<div class="pwd2_box">
 					<input type="password" name="user_password_ch" class="square"
-						id="user_password_ch" placeholder="비밀번호 확인"> <span
+						id="user_password_ch" placeholder="비밀번호 확인"> 
+						<div clss="err-box">
+						<span
 						class="err" id="chkNotice2" size="1"></span>
+						</div>
 				</div>
 			</div>
 
@@ -128,14 +144,20 @@
 
 			</div>
 			<!-- 회원상태 -->
-			<input type="hidden" name="user_status" value="1"> <input
+			<input type="hidden" name="user_status" value="1"> 
+			<div class="join-btn-box">
+			<input
 				type="button" id="join-btn" value="회원가입" onclick="checkValue(form)">
-
+				</div>
+         </div>
+         </div>
 		</form>
-		<div class="back_box">
-			<a href="javascript:window.history.back();"><span class="back">뒤로가기</span></a>
 		</div>
-	</section>
+		<div class="back_box">
+			<a href="main"><span class="back">메인페이지로 이동</span></a>
+		</div>
+		</div>
+		</section>
 	<jsp:include page="/footer"></jsp:include>
 
 	<script src="../resources/script/validation_join.js"></script>

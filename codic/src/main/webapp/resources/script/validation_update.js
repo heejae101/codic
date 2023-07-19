@@ -70,15 +70,15 @@ function duplCheck() {
 	} else {
 		var user_nickname = $('#user_nickname').val();
 		$.ajax({
-			type: 'POST',
+			method: 'POST',
 			url: 'NickNameDupl',
 			data: { user_nickname: user_nickname },
 			success: function(responseData) {
-				if ($.trim(responseData) == 'YES') {
+				if (responseData !=="") {
 					isNicknameChecked = true;
 					$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
 				} else {
-					$('#chkMsg').html('사용할 수 없는 닉네임입니다.').css('color', 'red');
+					$('#chkMsg').html('이미 사용중인 닉네임입니다.').css('color', 'red');
 				}
 
 			}

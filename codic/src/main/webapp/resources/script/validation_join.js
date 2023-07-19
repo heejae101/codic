@@ -166,7 +166,30 @@ function checkValue(htmlForm) {
 		alert("닉네임 중복 확인을 해주세요.");
 	}
 }
+/*이메일 중복검사*/
+function chkEmail() {
+	if (!regExp.test($('#user_email').val())) {
+		alert("이메일 형식을 확인해주세요.");
+	} else {
 
+		var user_email = $('#user_email').val();
+		$.ajax({
+			method: 'POST',
+			url: 'EmailDupl',
+			data: {user_email: user_email},
+			success: function(responseData) {
+				if (responseData !=="") {
+					isIdChecked = true;
+					$('#chkMsgEmail').html('사용 가능한 이메일입니다.').css('color', 'navy');
+				} else {
+					$('#chkMsgEmail').html('이미 사용중인 이메일입니다.').css('color', 'red');
+				}
+
+			}
+
+		});
+	}
+}
 
 /*닉네임 중복검사*/
 function duplCheck() {
@@ -176,11 +199,11 @@ function duplCheck() {
 	} else {
 		var user_nickname = $('#user_nickname').val();
 		$.ajax({
-			type: 'POST',
+			method: 'POST',
 			url: 'NickNameDupl',
 			data: { user_nickname: user_nickname },
 			success: function(responseData) {
-				if ($.trim(responseData) == 'YES') {
+				if (responseData !=="") {
 					isNicknameChecked = true;
 					$('#chkMsg').html('사용 가능한 닉네임입니다.').css('color', 'navy');
 				} else {
@@ -256,29 +279,6 @@ function authCodeCheck() {
 	}
 }
 
-/*이메일 중복검사*/
-function chkEmail() {
-	if (!regExp.test($('#user_email').val())) {
-		alert("이메일 형식을 확인해주세요.");
-	} else {
 
-		var user_email = $('#user_email').val();
-		$.ajax({
-			type: 'POST',
-			url: 'EmailDupl',
-			data: {user_email: user_email },
-			success: function(responseData) {
-				if ($.trim(responseData) == 'YES') {
-					isIdChecked = true;
-					$('#chkMsgEmail').html('사용 가능한 이메일입니다.').css('color', 'navy');
-				} else {
-					$('#chkMsgEmail').html('이미 사용중인 이메일입니다.').css('color', 'red');
-				}
-
-			}
-
-		});
-	}
-}
 
 
