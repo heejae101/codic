@@ -28,19 +28,18 @@
 						type="button" class="square" id="email_ch"
 						onclick="emailAuthentication()" value="인증메일 보내기">
 				</div>
-				<div class="err_box">
 					<ul>
 						<li class="err" id="chkEmail" size="1"></li>
 						<li class="error" id="error-email">이메일을 입력해주세요.</li>
 					</ul>
-				</div>
-
-<label for="email_num" class="title">인증번호 입력</label>
+            <div class="email-num-box">
+            <label for="email_num" class="title">인증번호 입력</label>
 				<div class="email_num_box">
 					 <input
 						type="text" class="square" name="code" id="code" maxlength="10">
 					<input type="button" id="code_ch" onclick="authCodeCheck()"
 						value="인증">
+				</div>
 				</div>
 				<div class="btn_box">
 					<input type="button" id="find-btn" value="다음"
@@ -49,6 +48,7 @@
 			</div>
 		</form>
 	</section>
+	<jsp:include page="/footer"></jsp:include>
 	<script src="../resources/script/passwordFind.js"></script>
 
 </body>

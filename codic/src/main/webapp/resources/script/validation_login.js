@@ -16,12 +16,6 @@ $('#user_password').on('change', e => {
 
 
 
-//아이디 비밀번호 일치 체크
-var msg = '${msg}';
-if (msg === '아이디와 비밀번호 일치하지 않습니다.') {
-	alert("아이디와 비밀번호 일치하지 않습니다.");
-}
-
 
 
 function checkValue(htmlForm) {
@@ -53,7 +47,7 @@ function checkValue(htmlForm) {
 			data: { user_email: email, user_password: password },
 			success: function(responseData) {
 				if (responseData !== "") {
-					alert('아이디와 비밀번호가 일치 하지않습니다.');
+					alert('아이디와 비밀번호가 일치하지 않습니다.');
 				} else {
 					location.href = "main";
 				}

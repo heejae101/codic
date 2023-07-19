@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@media all and (min-width:320px){
 #myPage {
   margin-left: 30px;
 }
@@ -98,7 +99,7 @@ margin-bottom: 20px;
 
 
 #logout-btn{
-	margin-left: 300px;
+	margin-left: 200px;
 	border-radius: 21px;
 	background-color: #94358c;;
 	font-size: 0.8rem;
@@ -177,7 +178,7 @@ ul.tabs li.current {
 }
 
 .myProfile{
-	width: 60%;
+	width: 100%;
 	padding: 0 17px;
     border-radius: 12px;
     box-shadow: 1px 1px 10px 0 rgba(72,75,108,.08);
@@ -233,4 +234,18 @@ border-top: 1px solid lightgray;
 #btn:hover a:after {
   opacity: 1;
   right: 0;
+}
+	
+	
+}
+
+@media all and (min-width:1024px){
+#logout-btn{
+	margin-left: 300px;
+}
+.myProfile{
+width: 60%;
+}
+
+   
 }

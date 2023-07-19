@@ -16,6 +16,7 @@
 </head>
 <body>
 	<jsp:include page="/header"></jsp:include>
+	<section id="join-section">
 	<div id="wrap">
 	<div class="section">
 		<div class="form_box">
@@ -156,7 +157,7 @@
 			<a href="main"><span class="back">메인페이지로 이동</span></a>
 		</div>
 		</div>
-	</section>
+		</section>
 	<jsp:include page="/footer"></jsp:include>
 
 	<script src="../resources/script/validation_join.js"></script>

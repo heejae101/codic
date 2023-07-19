@@ -54,9 +54,6 @@ font-size: 1.2rem;
 font-weight: bold;
 }
 
-.form_box{
-width: 100%;
-}
 
 /*이메일 부분*/
 .email_send_box{
@@ -70,7 +67,10 @@ align-items: center;
 input[name="user_email"]{
 padding-right: 200px;
 
+}
 
+.email-num-box{
+	margin-top:20px ;
 }
 .email_num_box{
 margin-top: 10px;
@@ -86,21 +86,17 @@ padding-right: 200px;
 }
 
 .pwd2_box{
-width: 100%;
 margin-top: 10px;
 margin-bottom: 20px;
 display: flex;
-flex-direction: column;
 align-items: center;
 
 }
 
 .pwd3_box{
-width: 100%;
 margin-top: 10px;
 margin-bottom: 20px;
 display: flex;
-flex-direction: column;
  align-items: center;
 }
 
@@ -140,7 +136,7 @@ margin-top: 30px;
 
 
 #find-btn{
-	width: 50%;
+	width: 90%;
     margin-top:30px;
     margin-bottom: 30px;
 	padding: 15px;
@@ -154,10 +150,8 @@ margin-top: 30px;
 
 }
 /*유효성 문구*/
-.err_box{
-	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
+.err-box{
+	margin-bottom: 30px;
 }
 
 .error{

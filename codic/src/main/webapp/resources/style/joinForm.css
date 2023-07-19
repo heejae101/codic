@@ -15,7 +15,7 @@
 
 
 }
-section{
+.section{
 margin:0 auto;
 padding: 0 10px;
 	
@@ -139,7 +139,6 @@ display: flex;
 	border: 1px solid #94358c; 
     cursor: pointer;
 }
-
 
 
 /*비밀번호*/
