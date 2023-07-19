@@ -34,9 +34,7 @@
 	#board-sub-ul #title {
 		text-align: left;
 	}
-	#board-nums, #board-date {
-		display: none;
-	}
+
 	#write-bnt {
 		float: right;
 		width: 80px;
@@ -48,11 +46,16 @@
 		border: none;
 		margin-bottom: 30px;
 	}
-	#board-sub-ul li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+	#board-sub-ul {
+  		display: grid;
+  		align-items: center;
+  		justify-content: center;
+  		
+	}
+		#board-nums, #board-date {
+		display: none;
+	}
+	
 }
 
 @media all and (min-width:920px) {

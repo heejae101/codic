@@ -63,11 +63,12 @@ public class BoardCommentDao {
 		this.conn = DBManager.getConnection();
 		boolean result = false;
 		try {
-			String sql = "UPDATE FROM board_comment SET board_answer = ? WHERE comment_id = ?";
+			String sql = "UPDATE board_comment SET board_answer = ? WHERE comment_id = ?";
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, board_answer);
 			this.pstmt.setInt(2, comment_id);
 			this.pstmt.execute();
+			result = true;
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {

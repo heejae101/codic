@@ -49,21 +49,21 @@ public class UpdateBoardComment extends HttpServlet {
 	    JsonObject jsonObject = jsonElement.getAsJsonObject();
 
 	    // board_id 값 가져오기
-	    String boardId = jsonObject.get("board_id").getAsString();
+	    int boardId = jsonObject.get("board_id").getAsInt();
+	    int comment_id = jsonObject.get("comment_id").getAsInt();
+	    String board_answer = jsonObject.get("commentText").getAsString();
 	    
 	    
 	    System.out.println("board_id: " + boardId);
+	    System.out.println("comment_id: " + comment_id);
+	    System.out.println("board_answer: " + board_answer);
 	    
 		String user_email = (String) request.getSession().getAttribute("email");
-	    
-	    
 		
-//		System.out.println(user_email+"님의"+board_id+"번 게시글 수정 완료 요청"+comment_id+"번 댓글 수정 완료 요청");
-//		
-//		BoardCommentDao boardCommentDao = BoardCommentDao.getInstance();
-//		boolean result = boardCommentDao.updateBoardComment(comment_id, board_answer);
-//		
-//		System.out.println("요청 결과"+result);
+		BoardCommentDao boardCommentDao = BoardCommentDao.getInstance();
+		boolean result = boardCommentDao.updateBoardComment(comment_id, board_answer);
+		
+		System.out.println("요청 결과"+result);
 		
 		String url ="";
 		response.sendRedirect(url);

@@ -125,59 +125,60 @@ function updateComment(btnElement) {
 	const board_id = boardId;
 	const commentElement = btnElement.parentNode;
 	const commentId = commentElement.id;
-	
-	const commentText = $('#'+commentId).children('#commentText').text();
-	$('#'+commentId).children('#commentText').hide();
-	$('#'+commentId).children('#date').hide();
-	$('#'+commentId).children('#bnt').hide();
-	
+
+	const commentText = $('#' + commentId).children('#commentText').text();
+	$('#' + commentId).children('#commentText').hide();
+	$('#' + commentId).children('#date').hide();
+	$('#' + commentId).children('#bnt').hide();
+
 	$(`#${commentId}`).append(
-		`<textarea class='update-area'>${commentText}</textarea>
+		`<textarea id='newComment' class='update-area'>${commentText}</textarea>
 		<button class='apply-bnt' value="등록">등록</button>
 		<button class='cancel-bnt' value="취소">취소</button>`
 	);
-	
+
 	// 등록 버튼 클릭시
-	$(`#${commentId}`).on('click', '.apply-bnt', function() {
-		const cT = $(`#${commentId}`).children('.update-area').text();
-		const data = {
-			'board_id': board_id,
-			'comment_id': commentId,
-			'commentText': cT
-		}
-		console.log(cT);
-		$.ajax({
-			"url": `/UpdateBoardComment`,
-			"method": 'POST',
-			"data": JSON.stringify(data),
-			"headers": {
-				"Content-Type": "application/json"
-			},
-			success: function(data) {
-				$('.update-area').remove();
-				$('.apply-bnt').remove();
-				$('.cancel-bnt').remove();
-				getComments();
-				
-			},
-			error: function(data) {
-				// error
-				console.log('update comment error');
+		$(`#${commentId}`).on('click', '.apply-bnt', function() {
+			const newCommentText = $('#newComment').val();
+			const cT = newCommentText;
+			const data = {
+				'board_id': board_id,
+				'comment_id': commentId,
+				'commentText': cT
 			}
+			console.log(cT);
+			$.ajax({
+				"url": `/UpdateBoardComment`,
+				"method": 'POST',
+				"data": JSON.stringify(data),
+				"headers": {
+				"Content-Type": "application/json"
+				},
+				success: function(data) {
+					$('.update-area').remove();
+					$('.apply-bnt').remove();
+					$('.cancel-bnt').remove();
+					getComments();
+
+				},
+				error: function(data) {
+					// error
+					console.log('update comment error');
+				}
+			});
+
 		});
-		
-	});
-	// 취소 버튼 클릭시
-	$('#' + commentId).on('click', '.cancel-bnt', function() {
-		$('#' + commentId).children('#commentText').show();
-		$('#' + commentId).children('#date').show();
-		$('#' + commentId).children('#bnt').show();
-		$('.update-area').remove();
-		$('.apply-bnt').remove();
-		$('.cancel-bnt').remove();
-	});
-	
-}
+		// 취소 버튼 클릭시
+		$('#' + commentId).on('click', '.cancel-bnt', function() {
+			$('#' + commentId).children('#commentText').show();
+			$('#' + commentId).children('#date').show();
+			$('#' + commentId).children('#bnt').show();
+			$('.update-area').remove();
+			$('.apply-bnt').remove();
+			$('.cancel-bnt').remove();
+		});
+
+	}
 
 function deleteBoard() {
     const urlParams = new URLSearchParams(window.location.search);
