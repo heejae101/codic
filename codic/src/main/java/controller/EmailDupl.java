@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import model.user.UserDao;
 
 /**
@@ -46,21 +48,29 @@ public class EmailDupl extends HttpServlet {
 		
 	  UserDao userDao=UserDao.getInstance();
 	  boolean dupl=userDao.duplEmail(email);
-	  PrintWriter out = response.getWriter();
-	  String msg="";
+
+	  Map<String, Object> responseData = new HashMap<>();
+		
+	  String resultJson = "";
+	
 		
 		if(!dupl) {
-			msg="YES";
-			out.print(msg);
+			responseData.put("msg", "이메일 사용 가능");
+			System.out.println("사용가능");
+            System.out.println("결과 :"+responseData.toString());
+	        
+	        resultJson = new Gson().toJson(responseData);
+	        
+	        response.setCharacterEncoding("UTF-8");
+	        response.setContentType("application/json; charset=utf-8");
 			System.out.println("사용가능");
 			
 		}else {
-			msg="NO";
-			out.print(msg);
+			
 			System.out.println("중복이메일");
 		}
 		
-		
+		response.getWriter().append(resultJson);
 	}
 	
 

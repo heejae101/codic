@@ -41,8 +41,8 @@ padding: 20px;
   }
 
 .square {
-    width: 70%;
-	margin: 5px;
+    width: 60%;
+	margin: 10px;
 	padding: 15px;
     border:1px solid lightgray;
     color: #666666;
@@ -56,12 +56,12 @@ padding: 20px;
 
 
 #sub-btn{
-    width: 65%;
-    margin-top: 20px;
+    width: 55%;
+    margin-top: 30px;
 	padding: 15px;
 	color: white;
 	border: none;
-	border-radius:4px;
+	border-radius:10px;
 	background:linear-gradient(25deg, #0c0074, #490e7c, #702184, #94358c) ;
 	cursor: pointer;
 	font-size: 1rem;
@@ -70,23 +70,26 @@ padding: 20px;
 }
 
 .join{
-	font-size: 0.8rem;
+	font-size: 1rem;
 }
 
 .join-btn{
   color: #94358c;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .find{
     padding: 10px;
 }
 
-.find a{
+.f-text{
 	margin: 0 10px;
 	font-size:0.9rem;
 	color:rgb(85, 85, 85); 
+}
+.f-text:visited{
+	color:inherit;
 }
 
 

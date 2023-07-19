@@ -2,12 +2,16 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
 
 import model.user.User;
 import model.user.UserDao;
@@ -45,21 +49,28 @@ public class NickNameDupl extends HttpServlet {
 		
 	  UserDao userDao=UserDao.getInstance();
 	  boolean dupl=userDao.duplNickname(nickname);
-	  PrintWriter out = response.getWriter();
-		String msg="";
+	  
+	  Map<String, Object> responseData = new HashMap<>();
+		
+	  String resultJson = "";
 		
 		if(!dupl) {
-			msg="YES";
-			out.print(msg);
+			responseData.put("msg", "이메일 사용 가능");
+			System.out.println("사용가능");
+            System.out.println("결과 :"+responseData.toString());
+	        
+	        resultJson = new Gson().toJson(responseData);
+	        
+	        response.setCharacterEncoding("UTF-8");
+	        response.setContentType("application/json; charset=utf-8");
 			System.out.println("사용가능");
 			
 		}else {
-			msg="NO";
-			out.print(msg);
+			
 			System.out.println("중복닉네임");
 		}
 		
-		
+		response.getWriter().append(resultJson);
 	}
 
 }

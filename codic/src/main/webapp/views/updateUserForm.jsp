@@ -87,7 +87,9 @@
 					onclick="checkValue(form)">
 
 			</form>
-			<a class="back" href="javascript:window.history.back();">뒤로가기></a>
+			<div class="back_box">
+			<a href="myPage"><span class="back">마이페이지로 이동</span></a>
+		</div>
 		</section>
 		<jsp:include page="/footer"></jsp:include>
 	</div>

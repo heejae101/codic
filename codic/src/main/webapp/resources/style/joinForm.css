@@ -6,21 +6,33 @@
 	padding: 0;
 }
 
-section#join-section {
-width: 80%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin:0 auto;
 
+
+#wrap{
+    max-width:900px;
+    padding: 10px 15px;
+    margin:0 auto;
+
+
+}
+section{
+margin:0 auto;
+padding: 0 10px;
+	
 }
 
 
 #join{
-    margin: 0 auto;
-    width: 80%;
+	display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    padding:30px 10px;
 }
+
+
+
+
 
 .square{
     width:100%;
@@ -39,6 +51,7 @@ margin:0 auto;
     margin-top: 50px;
     margin-bottom: 20px;
     font-size: 1.7rem;
+    text-align: center;
     color: #94358c;
     
 }
@@ -51,6 +64,9 @@ font-weight: bold;
    color: #94358c;
 }
 
+.err-box{
+	margin-bottom: 20px;
+}
 .err{
 font-size: 0.8rem;
 }
@@ -62,31 +78,33 @@ font-size: 0.8rem;
 }
 
 /*이메일*/
-.email{
-margin-top: 20px;
+.email_box{
+display: flex;
+align-items: center;	
 }
 
-.email_box{
+input[name="user_email"]{
+padding-right: 150px;	
+}
+
+.code_box{
+display: flex;
+align-items: center;	
 margin-top: 10px;
 margin-bottom: 20px;
+
 }
-
-
-
-
 input[name="code"]{
-	width: 60%;
-}
-input[name="user_email"]{
-width: 60%;	
+padding-right: 150px;	
 }
 
 
 /*버튼*/
 #user_email_dupl{
-	width: 20%;
+	width: 100%;
 	height: 30px;
 	padding: 0;
+	border-radius: 4px;
 	background-color: white;
 	color:#94358c;
 	border: 1px solid #94358c; 
@@ -95,10 +113,11 @@ width: 60%;
 }
 
 #email_ch{
-	width: 30%;
+	width: 100%;
 	height: 30px;
 	padding: 0;
-	margin-left: 10px;
+	margin-left:10px;
+    border-radius: 4px;
 	background-color: white;
 	color:#94358c;
 	border: 1px solid #94358c;
@@ -106,16 +125,21 @@ width: 60%;
     
 }
 
+.code-btn{
+display: flex;	
+}
 #code_ch{
-	width: 15%;
+	width: 30%;
 	height: 30px;
 	padding: 0;
 	margin-left: 5px;
+	border-radius: 4px;
 	background-color: white;
 	color:#94358c;
 	border: 1px solid #94358c; 
     cursor: pointer;
 }
+
 
 
 /*비밀번호*/
@@ -125,10 +149,15 @@ margin-top: 20px;
 }
 
 .pwd1_box{
+width: 100%;
 margin-top: 10px;
-margin-bottom: 20px;
+margin-bottom: 10px;
+
 }
 
+.pwd2{
+margin-top: 20px;	
+}
 .pwd2_box{
 margin-top: 10px;
 margin-bottom: 20px;
@@ -142,18 +171,21 @@ margin-bottom: 20px;
 
 /*닉네임*/
 .nickname_box{
+display: flex;
+align-items: center;	
 margin-top: 10px;
 margin-bottom: 20px;
 }
 
 input[name="user_nickname"]{
-width: 70%;	
+padding-right: 150px;
 }
 
 #user_nickname_dupl{
-	width: 20%;
+	width: 100%;
 	height: 30px;
 	padding: 0;
+	border-radius: 4px;
 	background-color: white;
 	color:#94358c;
 	border: 1px solid #94358c; 
@@ -164,19 +196,20 @@ width: 70%;
 /*이용약관 동의*/
 
 .label-wrapper{
-	margin-top: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	
 }
 input[type="checkbox"]{
-	width: 5%;
+	width: 7%;
 	margin:5px 0;
 }
 .agr{
-margin:10px 0;	
+margin:15px 0;	
 }
 
 .agr_text{
-font-size: 0.8rem;	
+font-size: 0.9rem;	
 }
 
 .term_title{
@@ -194,8 +227,13 @@ color: inherit;
 
 
 /*회원가입 버튼*/
+.join-btn-box{
+display: flex;
+justify-content: center;	
+}
+
 #join-btn{
-    width: 100%;
+    width: 60%;
     margin-top: 20px;
 	padding: 15px;
 	color: white;
@@ -207,11 +245,13 @@ color: inherit;
 	font-weight: bold;
 }
 
-/*뒤로가기*/
+/*메인페이지로 가기*/
 
 .back_box{
     margin-bottom: 30px;
-	margin-top:30px ;
+	margin-top:20px ;
+	display: flex;
+	justify-content: center;
 	
 }
 .back{
@@ -219,12 +259,12 @@ color: inherit;
 	font-size: 0.9rem;
 	font-weight: bold;
     line-height: 30px;
-  
 	color:black; 
 	border: 1px solid gainsboro;
     border-radius: 30px;
     text-align: center;
 }
+
 
 .back:hover{
 color: white;
@@ -233,7 +273,3 @@ background-color:#94358c ;
 
 
 
- @media(min-width:1024px){
-	 
-	 
-}

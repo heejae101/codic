@@ -3,6 +3,8 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import model.user.User;
 import model.user.UserDao;
@@ -45,11 +49,16 @@ public class JoinFormAction extends HttpServlet {
 			encryptPassword = null;
 		}
 		
+		
+		
+			
+		
 		if(encryptPassword != null) {
 			UserRequestDto user = new UserRequestDto(email, encryptPassword, name, nickname, check, status);
 			boolean result = userDao.createUser(user);
 			url = "login";
 		}
+		
 		response.sendRedirect(url);
 
 	}

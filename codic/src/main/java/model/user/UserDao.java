@@ -481,6 +481,35 @@ public class UserDao {
 		return user_kakaoToken;
 	}
 	
+	
+	// 이미지 업로드 하기
+		public boolean uploadProfile(String email, String new_profile) {
+			this.conn = DBManager.getConnection();
+			boolean result = false;
+
+			if (this.conn != null) {
+					String sql = "UPDATE user_info SET user_profile=? WHERE user_email=?";
+
+					try {
+						this.pstmt = this.conn.prepareStatement(sql);
+						this.pstmt.setString(1, new_profile);
+						this.pstmt.setString(2, email);
+						this.pstmt.execute();
+						result = true;
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						DBManager.close(this.conn, this.pstmt);
+					}
+
+				}
+			
+			return result;
+
+		}	
+	
+	
 //	// TODO userProfileList favorite
 //	public ArrayList<User> getfavoriteByEmail(){
 //		ArrayList<User> user = null;

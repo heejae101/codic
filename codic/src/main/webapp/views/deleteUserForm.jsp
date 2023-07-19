@@ -36,7 +36,10 @@
 					<input type="button" id="delete-btn" value="회원 탈퇴"
 						onclick="checkValue(form)">
 				</form>
-				<a class="back" href="javascript:window.history.back();">뒤로가기></a>
+				
+				<div class="back_box">
+				<a  href="myPage"><span class="back">마이페이지로 이동</span></a>
+			</div>
 			</div>
 		</section>
 		<jsp:include page="/footer"></jsp:include>
