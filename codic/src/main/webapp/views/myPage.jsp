@@ -25,10 +25,11 @@
 					</div>
 					<div class="Pbtn-box">
 					<button id="p-btn">
-							<a href="/views/uploadProfile.jsp" class="upload-profile">프로필 수정</a>
-							</button>
-							</div>
-				
+						<a href="/views/uploadProfile.jsp" class="upload-profile">프로필
+							수정</a>
+					</button>
+				</div>
+
 				<div class="myNickname">
 					<strong class="nickname">${sessionScope.nickname}<span class="nim">님</span></strong>
 					<button id="logout-btn">
@@ -65,10 +66,7 @@
 							<button class="btn">
 								<a href="/leave" class="mypage_title">회원탈퇴</a>
 							</button>
-
 						</div>
-
-
 					</div>
 				</div>
 				<div id="tab-2" class="tab-content">

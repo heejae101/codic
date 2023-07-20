@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import com.google.gson.Gson;
 
 import model.user.User;
 import model.user.UserDao;
+import model.user.UserFavoriteContent;
 import util.EncryptionDataManager;
 
 public class LoginFormAction extends HttpServlet {
@@ -49,22 +51,26 @@ public class LoginFormAction extends HttpServlet {
 		User user = userDao.getUserByEmail(email);
 		String nickname=userDao.getNicknameByEmail(email);
 		String name=userDao.getNameByEmail(email);
+		ArrayList<UserFavoriteContent> list = userDao.getfavoriteByEmail(email);
 		String profile=userDao.getProfileByEmail(email);
+
 		
 		String url="login";
+
 		
 		Map<String, Object> responseData = new HashMap<>();
-		
 		String resultJson = "";
+		
 		
 		if(user!=null && user.getUser_password().equals(password) && nickname!=null && name!=null &&profile!=null) {
 			url="main";//임시로
-			
-			
+
 			HttpSession session=request.getSession();
 			session.setAttribute("nickname",nickname);
 			session.setAttribute("email",email);
+
 			session.setAttribute("name",name);
+			session.setAttribute("favorite", list);
 			session.setAttribute("profile", profile);
 			responseData.put("result", true);
 			

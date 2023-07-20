@@ -138,8 +138,8 @@ function checkValue(htmlForm) {
 		check = false;
 	}
 	
-	userPwCheck(password);
-
+	if(userPwCheck(password));
+	
 	if (check && isNicknameChecked && isPasswordChecked) {
 		htmlForm.submit();
 	} else if (!isNicknameChecked) {

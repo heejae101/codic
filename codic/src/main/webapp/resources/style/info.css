@@ -19,6 +19,9 @@ padding: 50px;
 display: flex;
 align-items: center;
 }
+.card-body{
+	line-height: 20px;
+}
 
 .img-box{
 	width: 50%;

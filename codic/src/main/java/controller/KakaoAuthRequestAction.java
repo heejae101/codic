@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.JsonElement;
 import model.user.UserDao;
+import model.user.UserFavoriteContent;
 import model.user.UserRequestDto;
 import util.KaKaoAuthManager;
 
@@ -58,10 +60,13 @@ public class KakaoAuthRequestAction extends HttpServlet {
 			boolean kakaoResult = userDao.createKaKaoUser(user);
 		}
 		
+		ArrayList<UserFavoriteContent> list = userDao.getfavoriteByEmail(userEmail);
+		
 		HttpSession session=request.getSession();
 		session.setAttribute("nickname",nickName);
 		session.setAttribute("email",userEmail);
 		session.setAttribute("name",nickName);
+		session.setAttribute("favorite", list);
 		response.sendRedirect("main");
 
 	}

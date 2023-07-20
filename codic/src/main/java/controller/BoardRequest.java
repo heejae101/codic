@@ -28,7 +28,6 @@ public class BoardRequest extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int boardNo = Integer.parseInt(request.getParameter("board_No"));
-		
 		System.out.println("boardNo"+boardNo);
 		
 		BoardDao boardDao = BoardDao.getInstance();

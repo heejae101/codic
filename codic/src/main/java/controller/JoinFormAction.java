@@ -51,9 +51,7 @@ public class JoinFormAction extends HttpServlet {
 			e.printStackTrace();
 			encryptPassword = null;
 		}
-		
-		
-		
+
 		if(encryptPassword != null) {
 			UserRequestDto user = new UserRequestDto(email, encryptPassword, name, nickname, check, status,profile);
 			boolean result = userDao.createUser(user);

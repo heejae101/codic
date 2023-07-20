@@ -61,7 +61,7 @@
 		padding-top: 10px;
 		display: flex;
 	}
-	a {
+	header_body a {
 		text-decoration: none;
 		color: #94358c;
 	}
@@ -240,7 +240,7 @@
 		margin-top: 2px;
 		margin-right: 5px;
 	}
-	#text {
+	header #text {
 		border-radius: 10px;
 		background-color: rgb(219, 225, 230);
 		border: none;

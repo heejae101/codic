@@ -81,11 +81,13 @@ padding: 20px;
 
 .find{
     padding: 10px;
+    margin-top: 20px;
+    
 }
 
 .f-text{
 	margin: 0 10px;
-	font-size:0.9rem;
+	font-size:1rem;
 	color:rgb(85, 85, 85); 
 }
 .f-text:visited{
@@ -94,7 +96,8 @@ padding: 20px;
 
 
 .login_2{
-margin-bottom: 140px;
+margin-top: 60px ;
+margin-bottom: 50px;
 }
 .join{
 	padding: 10px;
