@@ -24,10 +24,10 @@
 						<span>작성자 : ${result.user_nickname}</span>
 					</div>
 					<c:if test="${sessionScope.nickname == result.user_nickname}">
-						<div class="board-btn">
+						<div class="board-btn" id="bnt1">
 							<button onclick="deleteBoard()">삭제하기</button>
 						</div>
-						<div class="board-btn">
+						<div class="board-btn" id="bnt2">
 							<button
 								onclick="window.location.href='/BoardUpdateRequest?boardId=${result.board_id}'">수정하기</button>
 						</div>
@@ -35,7 +35,6 @@
 				</div>
 
 				<div class="board-text">
-					<span>내용 : </span>
 					<p>${result.board_text}</p>
 				</div>
 			</div>

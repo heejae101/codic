@@ -65,6 +65,7 @@ public class UpdateBoardComment extends HttpServlet {
 		
 		System.out.println("요청 결과"+result);
 		
+		
 		String url ="";
 		response.sendRedirect(url);
 		

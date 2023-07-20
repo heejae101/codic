@@ -21,7 +21,7 @@ function getBoardList() {
 				const html = `
         		<ul id="board-sub-ul">
             		<li id="board-nums">${board_id}</li>
-            		<li><a href="/BoardContentView?board_id=${board_id}">${board_title}</a></li>
+            		<li id="board-title"><a href="/BoardContentView?board_id=${board_id}">${board_title}</a></li>
             		<li>${user_nickname}</li>
             		<li id="board-date">${modified_timestamp}</li>
             		<li>${board_view_count}</li>

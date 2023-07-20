@@ -26,7 +26,8 @@
 		<jsp:include page="/menuBar"></jsp:include>
 
 		<section id="board-list">
-			<h2>질문글</h2>
+			<h2>질문 게시판</h2>
+			<button id="write-bnt" onclick="location.href='/writeBoard'">글쓰기</button>
 			<div id="board-box">
 				<div id="board-sub-div">
 					<ul id="board-sub-ul">
@@ -46,20 +47,26 @@
 
 			<ul class="list-num">
 				<c:if test="${page-(page-1)%5 > 1}">
-					<li><a href="?p=${startNum-5}&t=&q=" class="next-btn">이전</a></li>
+					<li><a href="?p=${startNum-5}&t=&q=" class="next-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+</svg></a></li>
 				</c:if>
 				<c:forEach var="i" begin="0" end="4">
 					<li><a class="list-numA" href="?p=${startNum+i}&t=&q=">${startNum+i}</a></li>
 				</c:forEach>
 				<c:if test="${startNum+5 < lastNum}">
-					<li><a href="?p=${startNum+5}&t=&q=" class="next-btn">다음</a></li>
+					<li><a href="?p=${startNum+5}&t=&q=" class="next-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+</svg></a></li>
 				</c:if>
 				<c:if test="${startNum+5 >= lastNum}">
-					<li><a onclick="alert('다음 페이지가 없습니다.')" class="next-btn">다음</a></li>
+					<li><a onclick="alert('다음 페이지가 없습니다.')" class="next-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+</svg></a></li>
 				</c:if>
 				
 			</ul>
-			<button id="write-bnt" onclick="location.href='/writeBoard'">글쓰기</button>
+			
 			
 		</section>
 	</div>

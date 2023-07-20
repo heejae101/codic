@@ -20,7 +20,7 @@ function getComments() {
 		},
 		success: function(data) {
 			// success
-			$('#comment').empty(); // 기존에 출력된 댓글 제거
+			$('#comment').empty();
 			data.responseData.forEach(comment => {
 				const commentId = comment.comment_id;
 				const current_timestamp = comment.current_timestamp;
@@ -159,7 +159,6 @@ function updateComment(btnElement) {
 					$('.apply-bnt').remove();
 					$('.cancel-bnt').remove();
 					getComments();
-
 				},
 				error: function(data) {
 					// error
