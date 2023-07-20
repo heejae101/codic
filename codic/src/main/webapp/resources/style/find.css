@@ -13,7 +13,9 @@
 
 .text_box{
 text-align: center;	
+margin-top: 30px;
 }
+
 .find_text{
     margin-top: 70px;
     font-size: 1.7rem;
@@ -107,7 +109,8 @@ font-size: 0.8rem;
 .btn_box{
 display: flex;
 justify-content: center;
-margin-top: 30px;	
+margin-top: 30px;
+margin-bottom: 80px;	
 }
 
 /*이메일 버튼*/

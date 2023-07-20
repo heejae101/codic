@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+.container{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+ 
+
+}
+.title{
+	color: #702184;
+}
+
+.choose-box{
+	margin-top: 30px;
+
+
+#btn-p{
+	height: 30px;
+	padding: 15px;
+	border-radius: 4px;
+	background-color: white;
+	color:#94358c;
+	border: 1px solid #94358c; 
+	margin-left: 10px;
+	cursor: pointer;
+	text-align: center;
+	
+}
+.profile-file{
+	width: 100%;
+}
+
+/*.btn-upload {
+  width: 150px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid #94358c;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background: #94358c;
+    color: #fff;
+  }
+}
+
+.profile-file {
+  display: none;
+}
+
+/*input[type=file]::file-selector-button {
+  width: 150px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid #94358c; 
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+  
+    color: #fff;
+  }
+  }
+*/
+

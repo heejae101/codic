@@ -40,14 +40,15 @@ public class UserDao {
 		String nickname = userDto.getUser_nickname();
 		int check = userDto.getUser_check();
 		int status = userDto.getUser_status();
+		String profile=userDto.getUser_profile();
 
 		boolean confirm = true;
 
-		if (password != null && name != null && nickname != null && check != 0 && status != 0) {
+		if (password != null && name != null && nickname != null && check != 0 && status != 0 && profile!=null) {
 			this.conn = DBManager.getConnection();
 			if (this.conn != null) {
 				if (!email.equals("")) {// 이메일 값이 있을때
-					String sql = "INSERT INTO user_info(user_email, user_password, user_name, user_nickname,user_check,user_status)VALUES(?,?,?,?,?,?)";
+					String sql = "INSERT INTO user_info(user_email, user_password, user_name, user_nickname,user_check,user_status,user_profile)VALUES(?,?,?,?,?,?,?)";
 
 					try {
 						this.pstmt = this.conn.prepareStatement(sql);
@@ -57,6 +58,7 @@ public class UserDao {
 						this.pstmt.setString(4, nickname);
 						this.pstmt.setInt(5, check);
 						this.pstmt.setInt(6, status);
+						this.pstmt.setString(7, profile);
 
 						this.pstmt.execute();
 
@@ -199,8 +201,9 @@ public class UserDao {
 					int check = Integer.parseInt(this.rs.getString(5));
 					Timestamp joinDate = java.sql.Timestamp.valueOf(this.rs.getString(6));
 					int status = Integer.parseInt(this.rs.getString(7));
+					String profile=this.rs.getString(8);
 
-					user = new User(email, password, name, nickname, check, joinDate, status);
+					user = new User(email, password, name, nickname, check, joinDate, status,profile);
 
 				}
 			} catch (Exception e) {
@@ -321,8 +324,9 @@ public class UserDao {
 
 					int check = Integer.parseInt(this.rs.getString(5));
 					int status = Integer.parseInt(this.rs.getString(6));
+					String profile=this.rs.getString(7);
 
-					User user = new User(email, password, name, nickname, check, status);
+					User user = new User(email, password, name, nickname, check, status, profile);
 					list.add(user);
 				}
 
@@ -480,6 +484,37 @@ public class UserDao {
 		}
 		return user_kakaoToken;
 	}
+	
+	//이메일로 프로필이미지 불러오기
+		public String getProfileByEmail(String email) {
+			String profile = null;
+
+			this.conn = DBManager.getConnection();
+
+			if (this.conn != null) {
+				String sql = "SELECT user_profile FROM user_info WHERE user_email= ?";
+
+				try {
+					this.pstmt = this.conn.prepareStatement(sql);
+					this.pstmt.setString(1, email);
+
+					this.rs = this.pstmt.executeQuery();
+					if (this.rs.next()) {
+						String pro = this.rs.getString(1);
+						profile = pro;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+
+				} finally {
+					DBManager.close(this.conn, this.pstmt, this.rs);
+				}
+
+			}
+			return profile;
+
+		}
+
 	
 	
 	// 이미지 업로드 하기

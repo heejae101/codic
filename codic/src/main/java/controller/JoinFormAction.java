@@ -36,6 +36,9 @@ public class JoinFormAction extends HttpServlet {
 		String nickname = request.getParameter("user_nickname");
 		int check = Integer.parseInt(request.getParameter("user_check"));
 		int status = Integer.parseInt(request.getParameter("user_status"));
+		String profile=request.getParameter("user_profile");
+		
+		System.out.println("프로필:" + profile);
 
 		UserDao userDao = UserDao.getInstance();
 		EncryptionDataManager encrypt = new EncryptionDataManager();
@@ -48,9 +51,9 @@ public class JoinFormAction extends HttpServlet {
 			e.printStackTrace();
 			encryptPassword = null;
 		}
-		
+
 		if(encryptPassword != null) {
-			UserRequestDto user = new UserRequestDto(email, encryptPassword, name, nickname, check, status);
+			UserRequestDto user = new UserRequestDto(email, encryptPassword, name, nickname, check, status,profile);
 			boolean result = userDao.createUser(user);
 			url = "login";
 		}

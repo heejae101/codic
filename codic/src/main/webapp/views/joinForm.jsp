@@ -106,12 +106,12 @@
 						name="user_nickname"> <input type="button"
 						id="user_nickname_dupl" name="user_nickname_dupl" value="중복 확인"
 						onclick="duplCheck()">
-
+                      </div>
 					<ul>
 						<li class="error" id="error-nickname">닉네임은 필수정보입니다.</li>
 					</ul>
 					<span class="err" id="chkMsg" size="1"></span>
-				</div>
+				
 			</div>
 
 			<div class="label-wrapper">
@@ -145,6 +145,8 @@
 			</div>
 			<!-- 회원상태 -->
 			<input type="hidden" name="user_status" value="1"> 
+			<!--  -->
+			<input type="hidden" name="user_profile" value="../resources/img/nomalProfile.png">
 			<div class="join-btn-box">
 			<input
 				type="button" id="join-btn" value="회원가입" onclick="checkValue(form)">

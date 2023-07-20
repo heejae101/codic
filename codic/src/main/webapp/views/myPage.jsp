@@ -21,9 +21,9 @@
 		<div class="myPage-box">
 			<div class="nickname-box">
 				<div class="circle">
-					<img class="p-img" src="${sessionScope.user.new_profile}" alt="">
-				</div>
-				<div class="Pbtn-box">
+					<img class="p-img" src="${sessionScope.profile}" alt="">
+					</div>
+					<div class="Pbtn-box">
 					<button id="p-btn">
 						<a href="/views/uploadProfile.jsp" class="upload-profile">프로필
 							수정</a>

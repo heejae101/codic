@@ -11,6 +11,7 @@ public class User {
 	private int user_check;  //만 14세 미만 동의 R
 	private Timestamp user_joinDate; //가입 날짜
 	private int user_status; //회원 상태
+	private String user_profile;
 	
 	
 	//#생성자
@@ -28,12 +29,12 @@ public class User {
 		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_name = user_name;
-	this.user_nickname = user_nickname;
+	    this.user_nickname = user_nickname;
 	}
 
 
 	public User(String user_email, String user_password, String user_name, String user_nickname,
-			int user_check, int user_status) {
+			int user_check, int user_status, String user_profile) {
 		super();
 		this.user_email = user_email;
 		this.user_password = user_password;
@@ -41,11 +42,12 @@ public class User {
 		this.user_nickname = user_nickname;
 		this.user_check = user_check;
 		this.user_status = user_status;
+		this.user_profile=user_profile;
 	}
 
 
 	public User(String user_email, String user_password, String user_name, String user_nickname,
-			int user_check, Timestamp user_joinDate, int user_status) {
+			int user_check, Timestamp user_joinDate, int user_status,String user_profile) {
 		super();
 		this.user_email = user_email;
 		this.user_password = user_password;
@@ -54,8 +56,11 @@ public class User {
 		this.user_check = user_check;
 		this.user_joinDate = user_joinDate;
 		this.user_status = user_status;
+		this.user_profile=user_profile;
 	}
 
+
+	
 
 	//#getter
 	public String getUser_email() {
@@ -91,6 +96,10 @@ public class User {
 
 	public int getUser_status() {
 		return user_status;
+	}
+	
+	public String getUser_profile() {
+		return user_profile;
 	}
 
 
