@@ -44,10 +44,13 @@ function checkValue(htmlForm) {
 			url: "Login",
 			data: { user_email: email, user_password: password },
 			success: function(responseData) {
-				if (responseData !== "") {
-					alert('아이디와 비밀번호가 일치하지 않습니다.');
-				} else {
+				console.log(responseData);
+				if (responseData.result ===true) {
 					location.href = "main";
+					
+				} else {
+					alert('아이디와 비밀번호가 일치하지 않습니다.');
+					
 				}
 			}
 		});

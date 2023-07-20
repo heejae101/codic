@@ -26,8 +26,11 @@ public class LoginFormAction extends HttpServlet {
         super();
     }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		EncryptionDataManager encrypt = new EncryptionDataManager();
+		
+		    response.setCharacterEncoding("UTF-8");
+	        response.setContentType("application/json; charset=utf-8");
+	        request.setCharacterEncoding("UTF-8");
+	        EncryptionDataManager encrypt = new EncryptionDataManager();
 		
 		//jsp에서 입력한 값을 가져옴
 		String email=request.getParameter("user_email");
@@ -47,6 +50,7 @@ public class LoginFormAction extends HttpServlet {
 		String nickname=userDao.getNicknameByEmail(email);
 		String name=userDao.getNameByEmail(email);
 		String profile=userDao.getProfileByEmail(email);
+		
 		String url="login";
 		
 		Map<String, Object> responseData = new HashMap<>();
@@ -62,18 +66,16 @@ public class LoginFormAction extends HttpServlet {
 			session.setAttribute("email",email);
 			session.setAttribute("name",name);
 			session.setAttribute("profile", profile);
+			responseData.put("result", true);
 			
 		}else{
-			responseData.put("msg", "아이디와 비밀번호가 일치하지 않습니다.");
+			responseData.put("result", false);
+			System.out.println("결과 :" + responseData.toString());
 	        System.out.println("아이디와 비밀번호 일치안함");
-	        System.out.println("결과 :"+responseData.toString());
-	        
-	        resultJson = new Gson().toJson(responseData);
-	        
-	        response.setCharacterEncoding("UTF-8");
-	        response.setContentType("application/json; charset=utf-8");
+	    
+	       
 		}		
-		
+		resultJson = new Gson().toJson(responseData);
 		response.getWriter().append(resultJson);
 	}
 
