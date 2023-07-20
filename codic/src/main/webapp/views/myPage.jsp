@@ -21,7 +21,7 @@
 		<div class="myPage-box">
 			<div class="nickname-box">
 				<div class="circle">
-					<img class="p-img" src="${sessionScope.user.new_profile}" alt="">
+					<img class="p-img" src="${sessionScope.profile}" alt="">
 					</div>
 					<div class="Pbtn-box">
 					<button id="p-btn">

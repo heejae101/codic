@@ -20,7 +20,7 @@
 		<section id="delete-section">
 			<div class="delete">
 				<h2 class="delete_text">${sessionScope.nickname}님 정말떠나시나요?</h2>
-				<form id="delete" method="POST" action="/Leave">
+				<form id="delete">
 					<div>
 						<input type="text" class="square" id="user_email"
 							name="user_email" value="${sessionScope.email}" readonly>

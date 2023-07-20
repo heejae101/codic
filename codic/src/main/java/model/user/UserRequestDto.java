@@ -9,6 +9,15 @@ public class UserRequestDto {//복제품
 	private String user_password; //R
 	private String user_name;    //R
 	private String user_nickname;//R
+	
+
+	private int user_check;  
+	private Timestamp user_joinDate; //가입 날짜
+	private int user_status; //회원 상태
+	private String access_token;
+	private String user_profile;
+	
+		
 	public UserRequestDto(String user_email, String user_name, String user_nickname, String access_token) {
 		super();
 		this.user_email = user_email;
@@ -16,14 +25,9 @@ public class UserRequestDto {//복제품
 		this.user_nickname = user_nickname;
 		this.access_token = access_token;
 	}
-
-	private int user_check;  //만 14세 미만 동의
-	private Timestamp user_joinDate; //가입 날짜
-	private int user_status; //회원 상태
-	private String access_token;
-		
+	
     public UserRequestDto(String user_email, String user_password, String user_name, String user_nickname,
-			int user_check, Timestamp user_joinDate, int user_status, String access_token) {
+			int user_check, Timestamp user_joinDate, int user_status, String access_token, String user_profile) {
 		this.user_email = user_email;
 		this.user_password = user_password;
 		this.user_name = user_name;
@@ -32,7 +36,10 @@ public class UserRequestDto {//복제품
 		this.user_joinDate = user_joinDate;
 		this.user_status = user_status;
 		this.access_token = access_token;
+		this.user_profile=user_profile;
 	}
+
+	
 
 	//#생성자
 	public UserRequestDto(String user_email, String user_password, String user_nickname) {
@@ -64,6 +71,18 @@ public class UserRequestDto {//복제품
 	}
 	
 
+	public UserRequestDto(String user_email, String user_password, String user_name, String user_nickname,
+			int user_check, int user_status, String user_profile) {
+		super();
+		this.user_email = user_email;
+		this.user_password = user_password;
+		this.user_name = user_name;
+		this.user_nickname = user_nickname;
+		this.user_check = user_check;
+		this.user_status = user_status;
+		this.user_profile = user_profile;
+	}
+
 	public UserRequestDto(String user_email, String user_password, String user_name,
 			String user_nickname, int user_check, Timestamp user_joinDate, int user_status) {
 		super();
@@ -75,6 +94,9 @@ public class UserRequestDto {//복제품
 		this.user_joinDate = user_joinDate;
 		this.user_status = user_status;
 	}
+	
+	
+	
 
   //#getter &setter
 	public String getUser_email() {
@@ -162,6 +184,14 @@ public class UserRequestDto {//복제품
 
 	public void setUser_status(int user_status) {
 		this.user_status = user_status;
+	}
+	
+	public String getUser_profile() {
+		return user_profile;
+	}
+
+	public void setUser_profile(String user_profile) {
+		this.user_profile = user_profile;
 	}
 
 	@Override

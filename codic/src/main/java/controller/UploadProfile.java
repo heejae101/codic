@@ -45,35 +45,35 @@ public class UploadProfile extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession requestSession = request.getSession();
-		String realPath = request.getServletContext().getRealPath("resources");
+		request.setCharacterEncoding("UTF-8");
+		String realPath = request.getServletContext().getRealPath("resources/img");
 		String email = (String) requestSession.getAttribute("email");
 		String fileName=null;
-		String contextPath = request.getServletContext().getContextPath();
+		//String contextPath = request.getContextPath();
 		
 		String new_profile=null;
-		System.out.println("realPath"+realPath);
-		System.out.println("contextPath:" +contextPath);
+		//System.out.println("realPath"+realPath);
+		//System.out.println("contextPath:" +contextPath);
 		System.out.println(email+"님 프로필 바꾼다.");
 		
 		String url="/";
 		
 		 try {
 	         MultipartRequest multi = new MultipartRequest(
-	               request, realPath, 1024*1024*2, "UTF-8", new DefaultFileRenamePolicy());
+	               request, "C:\\Users\\주바리\\git\\codic\\codic\\src\\main\\webapp\\resources\\img", 1024*1024*2, "UTF-8", new DefaultFileRenamePolicy());
 	         fileName = multi.getFilesystemName("new_profile");
 	         System.out.println("fileName : " + fileName);
 	         
 	         email = multi.getParameter("user_email");
 	         
-	         new_profile = contextPath + "/img/" + fileName;
-	         System.out.println("new_profile"+new_profile);
+	         new_profile = "../resources/img"+"/"+fileName;
+	         System.out.println("new_profile:"+new_profile);
 	         UserDao userDao=UserDao.getInstance();
 	         boolean result=userDao.uploadProfile(email, new_profile);
 	         
 	         if (result) {
 	            HttpSession session = request.getSession();
-	            User user = userDao.getUserByEmail(email);
-	            session.setAttribute("user", user);
+	            session.setAttribute("profile", new_profile);
 	            url="myPage";
 	            
 	            

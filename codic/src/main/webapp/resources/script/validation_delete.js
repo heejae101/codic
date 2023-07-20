@@ -25,8 +25,20 @@ function checkValue(htmlForm) {
 	}
 
 	if (check === true) {
-		htmlForm.submit();
-
+		$.ajax({
+			method: "POST",
+			url: "Leave",
+			data: { user_email: email, user_password: password },
+			success: function(responseData) {
+				if (responseData.msg !== "") {
+					alert('비밀번호가 올바르지 않습니다.');
+				} else {
+					console.
+					location.href = "main";
+				}
+			}
+		});
 	}
 
 }
+

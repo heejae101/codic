@@ -17,6 +17,9 @@
 
 	<div id="root">
 		<jsp:include page="/header"></jsp:include>
+		<c:if test="${ empty sessionScope.nickname }">
+			<c:redirect url="login"></c:redirect>
+		</c:if>
 		<section id="update-section">
 
 			<h2 class="update_text">회원정보 수정</h2>
@@ -74,17 +77,17 @@
 							name="user_nickname" value="${requestScope.nickname}"> <input
 							type="button" id="user_nickname_dupl" name="user_nickname_dupl"
 							value="중복 체크" onclick="duplCheck()"></input>
+						</div>
 						<ul>
 							<li class="error" id="error-nickname">닉네임은 필수정보입니다.</li>
 						</ul>
 						<span class="err" id="chkMsg" size="1"></span>
 					</div>
-				</div>
 
 
-
+                 <div class="join-btn-box">
 				<input type="button" id="update-btn" value="회원정보 수정"
-					onclick="checkValue(form)">
+					onclick="checkValue(form)"></div>
 
 			</form>
 			<div class="back_box">

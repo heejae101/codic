@@ -1,12 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import model.user.User;
 import model.user.UserDao;
@@ -37,21 +42,38 @@ public class DeleteUserFormAction extends HttpServlet {
 		boolean result = userDao.deleteUserByEmail(email, password);
 
 		String url = "leave";
+		
+        Map<String, Object> responseData = new HashMap<>();
+		
+		String resultJson = "";
+		
 		if (user.getUser_password().equals(password)) {
 			if (result) {
+				 resultJson="";
 				request.getSession().invalidate();
 				url = "main";
 				System.out.println("삭제");
 			} else {
-				request.setAttribute("text", "비밀번호가 올바르지 않습니다.");
-				url = "leave";
 				System.out.println("삭제 실패");
+			
 			}
+		}else {
+			responseData.put("msg", "비밀번호가 올바르지 않습니다.");
+	        System.out.println("비밀번호 옳지않음");
+	        System.out.println("결과 :"+responseData.toString());
+	        
+	        resultJson = new Gson().toJson(responseData);
+	        
+	        response.setCharacterEncoding("UTF-8");
+	        response.setContentType("application/json; charset=utf-8");
+			
+			
 		}
 		
 		HttpSession session=request.getSession();
 		session.invalidate();
-		response.sendRedirect(url);
+		response.getWriter().append(resultJson);
+
 	}
 
 }

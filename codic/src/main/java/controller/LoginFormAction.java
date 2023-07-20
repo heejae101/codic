@@ -41,17 +41,19 @@ public class LoginFormAction extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		
 		UserDao userDao=UserDao.getInstance();
 		User user = userDao.getUserByEmail(email);
 		String nickname=userDao.getNicknameByEmail(email);
 		String name=userDao.getNameByEmail(email);
+		String profile=userDao.getProfileByEmail(email);
 		String url="login";
 		
 		Map<String, Object> responseData = new HashMap<>();
 		
 		String resultJson = "";
 		
-		if(user!=null && user.getUser_password().equals(password) && nickname!=null && name!=null) {
+		if(user!=null && user.getUser_password().equals(password) && nickname!=null && name!=null &&profile!=null) {
 			url="main";//임시로
 			
 			
@@ -59,6 +61,7 @@ public class LoginFormAction extends HttpServlet {
 			session.setAttribute("nickname",nickname);
 			session.setAttribute("email",email);
 			session.setAttribute("name",name);
+			session.setAttribute("profile", profile);
 			
 		}else{
 			responseData.put("msg", "아이디와 비밀번호가 일치하지 않습니다.");
