@@ -6,15 +6,25 @@ public class Content {
 	private String content_title;
 	private int content_views;
 	private String file_path;
+	private String content_path;
 
-	public Content(int content_id, String category_name, String content_title, int content_views, String file_path) {
+	public Content(int content_id, String category_name, String content_title, int content_views, String file_path, String content_path) {
 		this.content_id = content_id;
 		this.category_name = category_name;
 		this.content_title = content_title;
 		this.content_views = content_views;
 		this.file_path = file_path;
+		this.content_path = content_path;
 	}
 	
+	public Content(int content_id, String content_title, int content_views, String content_path) {
+		super();
+		this.content_id = content_id;
+		this.content_title = content_title;
+		this.content_views = content_views;
+		this.content_path = content_path;
+	}
+
 	public int getContent_id() {
 		return content_id;
 	}
@@ -25,6 +35,15 @@ public class Content {
 
 	public String getCategory_name() {
 		return category_name;
+	}
+	
+
+	public String getContent_path() {
+		return content_path;
+	}
+
+	public void setContent_path(String content_path) {
+		this.content_path = content_path;
 	}
 
 	public void setCategory_name(String category_name) {
@@ -57,7 +76,9 @@ public class Content {
 
 	@Override
 	public String toString() {
-	    return String.format("content_id:%d\ncategory_name:%s\ncontent_title:%s\ncontent_views:%d\nfile_path:%s\n",content_id,category_name,content_title,content_views,file_path);
+		return "Content [content_id=" + content_id + ", category_name=" + category_name + ", content_title="
+				+ content_title + ", content_views=" + content_views + ", file_path=" + file_path + ", content_path="
+				+ content_path + "]";
 	}
 	
 }

@@ -508,30 +508,36 @@ public class UserDao {
 			return result;
 
 		}	
+		
+		
 	
 	
-//	// TODO userProfileList favorite
-//	public ArrayList<User> getfavoriteByEmail(){
-//		ArrayList<User> user = null;
-//		this.conn = DBManager.getConnection();
-//		if (this.conn != null) {
-//			String sql = "SELECT user_kakaoToken FROM user_info WHERE user_email = ?";
-//
-//			try {
-//				this.pstmt = this.conn.prepareStatement(sql);
-//				this.pstmt.setString(1, user_email);
-//				this.rs = this.pstmt.executeQuery();
-//				if(rs.next()){
-//					user_kakaoToken = this.rs.getString(1);
-//				}
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			} finally {
-//				DBManager.close(this.conn, this.pstmt, this.rs);
-//			}
-//		}
-//		return user; 
-//	}
+	// TODO userProfileList favorite
+	public ArrayList<UserFavoriteContent> getfavoriteByEmail(String user_email){
+		ArrayList<UserFavoriteContent> list = new ArrayList<UserFavoriteContent>();
+		this.conn = DBManager.getConnection();
+		if (this.conn != null) {
+			String sql = "SELECT content_like_id,content_id FROM content_like WHERE user_email = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, user_email);
+				this.rs = this.pstmt.executeQuery();
+				while (this.rs.next()) {
+					int content_like_id = Integer.parseInt(this.rs.getString(1));
+					int content_id = Integer.parseInt(this.rs.getString(2));
+					
+					UserFavoriteContent content = new UserFavoriteContent(content_like_id, content_id, user_email);
+					list.add(content);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(this.conn, this.pstmt, this.rs);
+			}
+		}
+		return list; 
+	}
 //	
 //	//TODO UserImage
 //	public ArrayList<User> getImageByEmail(){

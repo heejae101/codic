@@ -25,6 +25,16 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>UserAddFavorite</servlet-name>
+		<servlet-class>controller.UserAddFavorite</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UserAddFavorite</servlet-name>
+		<url-pattern>/UserAddFavorite</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>UserPasswordCheck</servlet-name>
 		<servlet-class>controller.UserPasswordCheck</servlet-class>
 	</servlet>
@@ -270,7 +280,7 @@
 	
 	<servlet>
 		<servlet-name>definitionHtml</servlet-name>
-		<jsp-file>/views/definitionHtml.jsp</jsp-file>
+		<jsp-file>/views/Content/definitionHtml.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
@@ -280,7 +290,7 @@
 	
 	<servlet>
 		<servlet-name>definitionCss</servlet-name>
-		<jsp-file>/views/definitionCss.jsp</jsp-file>
+		<jsp-file>/views/Content/definitionCss.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
@@ -290,7 +300,7 @@
 	
 	<servlet>
 		<servlet-name>definitionJavascript</servlet-name>
-		<jsp-file>/views/definitionJavascript.jsp</jsp-file>
+		<jsp-file>/views/Content/definitionJavascript.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
@@ -300,7 +310,7 @@
 	
 	<servlet>
 		<servlet-name>definitionJava</servlet-name>
-		<jsp-file>/views/definitionJava.jsp</jsp-file>
+		<jsp-file>/views/Content/definitionJava.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
@@ -310,7 +320,7 @@
 	
 	<servlet>
 		<servlet-name>definitionDB</servlet-name>
-		<jsp-file>/views/definitionDB.jsp</jsp-file>
+		<jsp-file>/views/Content/definitionDB.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>

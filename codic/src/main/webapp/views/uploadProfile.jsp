@@ -15,7 +15,7 @@
 <div class="d-flex justify-content-center">
    <form action="/UploadProfile" method="post" enctype="multipart/form-data">
       <div class="form-group">
-         <img id = "img__wrap"  src="${sessionScope.user.new_profile}" width="350px" height="300px" />
+         <img id = "img__wrap" src="${sessionScope.user.new_profile}" width="350px" height="300px" />
       </div>
       <div class= "form-group">
          <input type="file" name="new_profile" id="img__preview" />

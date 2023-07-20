@@ -103,7 +103,8 @@
 		  						<path
 									d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z" />
 							</svg>
-						</div> <span>DATABASE</span>
+						</div>
+						<span>DATABASE</span>
 				</a></li>
 			</ul>
 		</div>
@@ -118,7 +119,44 @@
 			</c:if>
 			<div id="populer-content">
 				<h2>인기 게시글 ✨</h2>
-				
+				<div class="slider5">
+					<div class="slide">
+						<a href="https://www.youtube.com/watch?v=5Cof240DvuA"> <img
+							src="./image/guide_img_list/guide_img_list_1.jpg">
+						</a> <span>노년의 여행, 어떻게 시작해야할까?</span>
+					</div>
+					<div class="slide">
+						<a href="https://www.youtube.com/watch?v=EhxfrVG8hy0"><img
+							src="./image/guide_img_list/guide_img_list_2.jpg"
+							decoding="async"></a> <span>우리나라 맞아?! 이국적인 국내 여행지 7</span>
+					</div>
+					<div class="slide">
+						<a href="https://www.youtube.com/watch?v=2301iEVzZ6o"><img
+							src="./image/guide_img_list/guide_img_list_3.jpg"
+							decoding="async"></a> <span>부모님과 함께 하는 여행, 여기로 가세요~</span>
+					</div>
+					<div class="slide">
+						<a href="https://www.youtube.com/watch?v=QAioYjzghJE"><img
+							src="./image/guide_img_list/guide_img_list_4.jpg"
+							decoding="async"></a> <span>비행기 탑승, 어렵지 않아요!</span>
+					</div>
+					<div class="slide">
+						<a href="https://www.youtube.com/watch?v=53_skoilpQQ"><img
+							src="./image/guide_img_list/guide_img_list_5.jpg"
+							decoding="async"></a> <span>박물관, 조승연 작가님이 알려드립니다!</span>
+					</div>
+					<div class="slide">
+						<a href="https://www.youtube.com/watch?v=6b22TCB33tA"><img
+							src="./image/guide_img_list/guide_img_list_6.jpg"
+							decoding="async"></a> <span>일본여행, 이 영상 하나만 보고 가세요!</span>
+					</div>
+				</div>
+				<div class="left_arrow_area">
+					<img src="image/arrow-left.png" class="left_arrow_img">
+				</div>
+				<div class="right_arrow_area">
+					<img src="image/arrow-right.png" class="right_arrow_img">
+				</div>
 			</div>
 		</div>
 	</section>

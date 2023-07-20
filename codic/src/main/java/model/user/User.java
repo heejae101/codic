@@ -8,7 +8,6 @@ public class User {
 	private String user_password; //R
 	private String user_name;    //R
 	private String user_nickname;//R
-	
 	private int user_check;  //만 14세 미만 동의 R
 	private Timestamp user_joinDate; //가입 날짜
 	private int user_status; //회원 상태

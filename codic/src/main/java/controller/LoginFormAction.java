@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import com.google.gson.Gson;
 
 import model.user.User;
 import model.user.UserDao;
+import model.user.UserFavoriteContent;
 import util.EncryptionDataManager;
 
 public class LoginFormAction extends HttpServlet {
@@ -45,20 +47,17 @@ public class LoginFormAction extends HttpServlet {
 		User user = userDao.getUserByEmail(email);
 		String nickname=userDao.getNicknameByEmail(email);
 		String name=userDao.getNameByEmail(email);
-		String url="login";
+		ArrayList<UserFavoriteContent> list = userDao.getfavoriteByEmail(email);
 		
 		Map<String, Object> responseData = new HashMap<>();
-		
 		String resultJson = "";
 		
 		if(user!=null && user.getUser_password().equals(password) && nickname!=null && name!=null) {
-			url="main";//임시로
-			
-			
 			HttpSession session=request.getSession();
 			session.setAttribute("nickname",nickname);
 			session.setAttribute("email",email);
 			session.setAttribute("name",name);
+			session.setAttribute("favorite", list);
 			
 		}else{
 			responseData.put("msg", "아이디와 비밀번호가 일치하지 않습니다.");
