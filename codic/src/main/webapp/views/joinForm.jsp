@@ -35,7 +35,7 @@
 					</div>
 					<div class="err-box">
 					<ul>
-						<li class="error" id="error-email">이메일을 입력해주세요</li>
+						<li class="error" id="error-email">이메일을 입력해주세요.</li>
 					</ul>
 					<span class="err" id="chkEmail" size="1"></span> <span class="err"
 						id="chkMsgEmail" size="1"></span>

@@ -15,5 +15,34 @@
 
 .card{
 margin: 0 auto;
-padding: 50px;	
+padding: 50px;
+display: flex;
+align-items: center;
+}
+
+.img-box{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.text-box{
+	padding: 0px 100px;
+}
+
+.card-title{
+font-size: 1.5rem;
+margin-bottom: 20px;	
+}
+
+.card-text{
+	color:#94358c ;
+	font-weight: bold;
+}
+.email-text{
+	color: black;
+}
+.ad{
+	color: black;
 }
