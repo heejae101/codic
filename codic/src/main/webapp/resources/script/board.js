@@ -1,8 +1,12 @@
+
 function getBoardList() {
 	const boardId = $('#boardId').val(); // 게시글 ID
 	const sessionWriter = $('#writer').val();
-	
-	$.ajax({
+	document.addEventListener("DOMContentLoaded", function() {
+  		var page = document.getElementById("page").value;
+  		console.log("Page Value:", page);
+  		
+  			$.ajax({
 		url: `/BoardListRequest`,
 		method: 'GET',
 		data: {
@@ -11,7 +15,7 @@ function getBoardList() {
 		success: function(data) {
 			// success
 			$('#board-list-area').empty(); // 기존에 출력된 댓글 제거
-			for (let i = 0; i < 10; i++) {
+			for (let i = (page-1)*10; i < page*10; i++) {
 				const comment = data.result[i];
 				const board_id = comment.board_id;
 				const board_title = comment.board_title;
@@ -35,6 +39,13 @@ function getBoardList() {
 			console.log('get comments error');
 		}
 	});
+  		
+  		
+  		
+  		
+  		
+		});
+
 }
 
 

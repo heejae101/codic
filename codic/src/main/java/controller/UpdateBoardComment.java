@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -60,14 +63,19 @@ public class UpdateBoardComment extends HttpServlet {
 	    
 		String user_email = (String) request.getSession().getAttribute("email");
 		
+		Map<String, Object> responseData = new HashMap<>();
+		
 		BoardCommentDao boardCommentDao = BoardCommentDao.getInstance();
 		boolean result = boardCommentDao.updateBoardComment(comment_id, board_answer);
 		
 		System.out.println("요청 결과"+result);
+		responseData.put("result", "CREATE_SUCCESS");
 		
 		
-		String url ="";
-		response.sendRedirect(url);
+		String resultJson = new Gson().toJson(responseData);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(resultJson);
 		
 	}
 
