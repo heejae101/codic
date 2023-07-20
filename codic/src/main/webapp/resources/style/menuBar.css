@@ -15,7 +15,9 @@
 .menu span{
 	cursor : pointer;
 }
-
+.menu span:hover{
+	color : #94358c;
+}
 
 
 .menu ul{
