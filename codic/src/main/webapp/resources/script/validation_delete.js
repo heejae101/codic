@@ -21,7 +21,6 @@ function checkValue(htmlForm) {
 		$('#error-password').show();
 		$('#user_password').focus();//포커스 이동시켜서 다시 입력하라고
 		check = false;
-
 	}
 
 	if (check === true) {
