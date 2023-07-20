@@ -26,9 +26,16 @@ public class DeleteUserFormAction extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+
 		request.setCharacterEncoding("UTF-8");
 		EncryptionDataManager encrypt = new EncryptionDataManager();
-		String email = request.getParameter("user_email");
+
+		HttpSession session = request.getSession();
+
+//		String email = request.getParameter("user_email");
+		String email = (String) session.getAttribute("email");
 		String password = request.getParameter("user_password");
 
 		try {
@@ -42,36 +49,29 @@ public class DeleteUserFormAction extends HttpServlet {
 		boolean result = userDao.deleteUserByEmail(email, password);
 
 		String url = "leave";
-		
-        Map<String, Object> responseData = new HashMap<>();
-		
+
+		Map<String, Object> responseData = new HashMap<>();
+
 		String resultJson = "";
-		
-		if (user.getUser_password().equals(password)) {
+
+		if (user != null && user.getUser_password().equals(password)) {
 			if (result) {
-				 resultJson="";
-				request.getSession().invalidate();
-				url = "main";
+				session.invalidate();
+				responseData.put("result", true);
 				System.out.println("삭제");
+
 			} else {
 				System.out.println("삭제 실패");
-			
+
 			}
-		}else {
-			responseData.put("msg", "비밀번호가 올바르지 않습니다.");
-	        System.out.println("비밀번호 옳지않음");
-	        System.out.println("결과 :"+responseData.toString());
-	        
-	        resultJson = new Gson().toJson(responseData);
-	        
-	        response.setCharacterEncoding("UTF-8");
-	        response.setContentType("application/json; charset=utf-8");
-			
-			
+		} else {
+			System.out.println("비밀번호 옳지않음");
+			System.out.println("결과 :" + responseData.toString());
+
+			responseData.put("result", false);
 		}
-		
-		HttpSession session=request.getSession();
-		session.invalidate();
+
+		resultJson = new Gson().toJson(responseData);
 		response.getWriter().append(resultJson);
 
 	}

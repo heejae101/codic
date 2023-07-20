@@ -30,11 +30,13 @@ function checkValue(htmlForm) {
 			url: "Leave",
 			data: { user_email: email, user_password: password },
 			success: function(responseData) {
-				if (responseData.msg !== "") {
-					alert('비밀번호가 올바르지 않습니다.');
-				} else {
-					console.
+				
+				console.log(responseData);
+				
+				if (responseData.result === true) {
 					location.href = "main";
+				} else {
+					alert("비밀번호가 올바르지 않습니다.");
 				}
 			}
 		});
