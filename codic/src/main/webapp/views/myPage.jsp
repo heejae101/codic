@@ -23,12 +23,7 @@
 				<div class="circle">
 					<img class="p-img" src="${sessionScope.profile}" alt="">
 					</div>
-					<div class="Pbtn-box">
-					<button id="p-btn">
-						<a href="/views/uploadProfile.jsp" class="upload-profile">프로필
-							수정</a>
-					</button>
-				</div>
+	
 
 				<div class="myNickname">
 					<strong class="nickname">${sessionScope.nickname}<span class="nim">님</span></strong>
