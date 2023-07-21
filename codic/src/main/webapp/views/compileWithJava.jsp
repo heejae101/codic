@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>JAVA 컴파일이란?</title>
 </head>
 <body>
+<style>
+.theme-default-content{
+	display:grid;
+	margin-top:30px; 
+}
+</style>
+<jsp:include page="/header"></jsp:include>
+<jsp:include page="/menuBar"></jsp:include>
 	<div class="theme-default-content content__default">
 		<h1 id="java-컴파일-과정">
 			<a href="#java-컴파일-과정" class="header-anchor">#</a> [Java] 컴파일
@@ -105,6 +113,7 @@
 				</p></li>
 		</ul>
 	</div>
-
+	<div class="contents-comment"></div>
+	<jsp:include page="/footer"></jsp:include>
 </body>
 </html>

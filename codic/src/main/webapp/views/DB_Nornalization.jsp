@@ -161,6 +161,5 @@
 	</div>
 	<div class="contents-comment"></div>
 	<jsp:include page="/footer"></jsp:include>
-
 </body>
 </html>
