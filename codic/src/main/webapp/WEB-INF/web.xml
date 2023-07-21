@@ -563,5 +563,66 @@
 		<url-pattern>/info</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>DB_Normal</servlet-name>
+		<jsp-file>/views/DB_Normalization.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DB_Normal</servlet-name>
+		<url-pattern>/DB_Normal</url-pattern>
+	</servlet-mapping>
+	
+		
+	<servlet>
+		<servlet-name>Inheritance</servlet-name>
+		<jsp-file>/views/Insert_Inheritance.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Inheritance</servlet-name>
+		<url-pattern>/Inheritance</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InsertContent</servlet-name>
+		<jsp-file>/views/InsertContent.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InsertContent</servlet-name>
+		<url-pattern>/InsertContent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Transaction</servlet-name>
+		<jsp-file>/views/Transaction.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Transaction</servlet-name>
+		<url-pattern>/Transaction</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>JavaCasting</servlet-name>
+		<jsp-file>/views/JavaCasting.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JavaCasting</servlet-name>
+		<url-pattern>/JavaCasting</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Compile</servlet-name>
+		<jsp-file>/views/compileWithJava.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Compile</servlet-name>
+		<url-pattern>/Compile</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
 
