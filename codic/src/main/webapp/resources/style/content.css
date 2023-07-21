@@ -13,8 +13,8 @@
 	display: grid;
     gap: 32px;
     padding: 30px;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1200px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1100px;
 }
 
 .content-area > a{

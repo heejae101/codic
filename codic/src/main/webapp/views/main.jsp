@@ -110,7 +110,9 @@
 			</c:if>
 			<div id="populer-content">
 				<h2>인기 게시글 ✨</h2>
-				<div class="content-area"></div>
+				<div class="content-area">
+					
+				</div>
 			</div>
 		</div>
 	</section>
