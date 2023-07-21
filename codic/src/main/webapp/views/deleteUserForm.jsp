@@ -9,6 +9,10 @@
 <!-- 스타일 연결 -->
 <link rel="stylesheet" href="../resources/style/reset.css">
 <link rel="stylesheet" href="../resources/style/delete.css">
+<link rel="shortcut icon" href="/resources/img/fav/favicon.png">
+<meta property="og:title" content="CODIC">
+<meta property="og:description" content="알아두면 쓸데있고 신기한 코딩사전">
+<meta property="og:image" content="http://codicblog.site/">
 <title>회원 탈퇴</title>
 </head>
 <body>

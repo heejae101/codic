@@ -10,6 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="../resources/style/test.js" defer></script>
+    <link rel="shortcut icon" href="/resources/img/fav/favicon.png">
+<meta property="og:title" content="CODIC">
+<meta property="og:description" content="알아두면 쓸데있고 신기한 코딩사전">
+<meta property="og:image" content="http://codicblog.site/">
   </head>
   <body>
     <div class="wrapper">

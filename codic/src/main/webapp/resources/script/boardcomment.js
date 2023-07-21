@@ -6,6 +6,7 @@ $(window).on('load', function() {
 	urlParams = new URLSearchParams(window.location.search);
 	boardId = urlParams.get('board_id');
 	console.log('check')
+	
 })
 
 function getComments() {

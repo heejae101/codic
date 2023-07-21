@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.google.gson.Gson;
 
 import model.board.Board;
@@ -39,6 +38,10 @@ public class BoardListRequest extends HttpServlet {
 		
 		BoardDao boardDao = BoardDao.getInstance();	
 		ArrayList<Board> list = boardDao.getBoard();
+		
+		// 게시글 리스트 갯수
+		int listSize = list.size();
+		requestSession.setAttribute("listSize", listSize);
 		
 		boolean result = list != null ? true : false;
 		System.out.println("요청 결과 : "+result);

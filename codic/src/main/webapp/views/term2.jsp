@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <!-- 스타일시트 -->
 <link rel="stylesheet" href="../resources/style/term.css">
+<link rel="shortcut icon" href="/resources/img/fav/favicon.png">
+<meta property="og:title" content="CODIC">
+<meta property="og:description" content="알아두면 쓸데있고 신기한 코딩사전">
+<meta property="og:image" content="http://codicblog.site/">
 <title>개인정보처리방침</title>
 </head>
 <body>
