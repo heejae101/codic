@@ -17,6 +17,10 @@
 <link href="../resources/style/reset.css" rel="stylesheet">
 <link href="../resources/style/boardList.css" rel="stylesheet">
 <meta charset="UTF-8">
+<link rel="shortcut icon" href="/resources/img/fav/favicon.png">
+<meta property="og:title" content="CODIC">
+<meta property="og:description" content="알아두면 쓸데있고 신기한 코딩사전">
+<meta property="og:image" content="http://codicblog.site/">
 <title>목록</title>
 
 </head>
@@ -53,7 +57,9 @@
 					</svg></a></li>
 				</c:if>
 				<c:forEach var="i" begin="0" end="4">
+				<c:if test="${startNum+i <= lastNum}">
 					<li><a class="list-numA" href="?p=${startNum+i}&t=&q=" onclick="checkValue()">${startNum+i}</a></li>
+				</c:if>
 				</c:forEach>
 				<c:if test="${startNum+5 < lastNum}">
 					<li><a href="?p=${startNum+5}&t=&q=" class="next-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">

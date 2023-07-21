@@ -9,6 +9,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href="../resources/style/reset.css" rel="stylesheet">
 <link href="../resources/style/writeUpdateBoard.css" rel="stylesheet">
+<link rel="shortcut icon" href="/resources/img/fav/favicon.png">
+<meta property="og:title" content="CODIC">
+<meta property="og:description" content="알아두면 쓸데있고 신기한 코딩사전">
+<meta property="og:image" content="http://codicblog.site/">
 <title>게시글 수정</title>
 </head>
 <body>
