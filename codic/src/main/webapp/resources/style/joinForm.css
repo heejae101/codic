@@ -82,7 +82,7 @@ align-items: center;
 }
 
 input[name="user_email"]{
-padding-right: 150px;	
+padding-right: 100px;	
 }
 
 .code_box{
@@ -93,7 +93,7 @@ margin-bottom: 20px;
 
 }
 input[name="code"]{
-padding-right: 150px;	
+padding-right: 100px;	
 }
 
 
@@ -142,7 +142,7 @@ display: flex;
 /*비밀번호*/
 
 .pwd1{
-margin-top: 20px;
+margin-top: 30px;
 }
 
 .pwd1_box{
