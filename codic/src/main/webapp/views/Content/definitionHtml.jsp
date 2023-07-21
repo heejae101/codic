@@ -9,7 +9,7 @@
 <title>HTML이란?</title>
 </head>
 <body>
-	<style>
+<style>
 .theme-default-content {
 	display: grid;
 	margin-top: 30px;

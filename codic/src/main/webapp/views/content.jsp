@@ -24,7 +24,7 @@
 		</c:when>
 		<c:otherwise>
 			<c:set var="page" value="${(param.page == null || empty(param.page))?1:param.page}" />
-			<c:set var="itemsPerPage" value="6" />
+			<c:set var="itemsPerPage" value="8" />
 			<c:set var="startIndex" value="${(page - 1) * itemsPerPage}" />
 			<c:set var="endIndex" value="${startIndex + itemsPerPage}" />
 			<!--  줄바꿈은 css를 통해서 하는것이 베스트이다.  -->

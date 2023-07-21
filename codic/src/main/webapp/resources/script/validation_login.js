@@ -37,7 +37,6 @@ function checkValue(htmlForm) {
 
 	}
 
-
 	if (check === true) {
 		$.ajax({
 			method: "POST",
@@ -45,12 +44,10 @@ function checkValue(htmlForm) {
 			data: { user_email: email, user_password: password },
 			success: function(responseData) {
 				console.log(responseData);
-				if (responseData.result ===true) {
-					location.href = "main";
-					
+				if (responseData.result === true) {
+				   location.href = "main";
 				} else {
-					alert('아이디와 비밀번호가 일치하지 않습니다.');
-					
+				   alert('아이디와 비밀번호가 일치하지 않습니다.');
 				}
 			}
 		});
@@ -68,7 +65,3 @@ document.addEventListener('keypress', e => {
 	}
 
 });
-
-
-
-

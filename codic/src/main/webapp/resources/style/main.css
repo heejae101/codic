@@ -90,6 +90,7 @@ section{
     align-items: center;
     gap:12px;
     text-decoration: none;
+    color: black;
 }
 
 .category-area .li-icon-area{
@@ -109,7 +110,7 @@ section{
 }
 
 .category-area a:visited {
-  color: inherit;
+  color: black;
 }
 
 .category-area span{
@@ -122,22 +123,6 @@ section{
 	font-weight : 700;
 }
 
-#populer-content{
-	display: flex;
-	flex-direction: column;
-	gap:30px;
-}
-
-#populer-content ul{
-	display: flex;
-	height: 250px;
-	justify-content: space-around;
-}
-
-#populer-content li{
-	width: 220px;
-	height: 100%;
-}
 
 
 
