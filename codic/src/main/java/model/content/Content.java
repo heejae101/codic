@@ -24,6 +24,16 @@ public class Content {
 		this.content_views = content_views;
 		this.content_path = content_path;
 	}
+	
+	
+
+	public Content(int content_id, String content_title, int content_views, String file_path, String content_path) {
+		this.content_id = content_id;
+		this.content_title = content_title;
+		this.content_views = content_views;
+		this.file_path = file_path;
+		this.content_path = content_path;
+	}
 
 	public int getContent_id() {
 		return content_id;

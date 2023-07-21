@@ -12,6 +12,7 @@
 <meta property="og:title" content="CODIC">
 <meta property="og:description" content="알아두면 쓸데있고 신기한 코딩사전">
 <meta property="og:image" content="http://codicblog.site/">
+<script src="../resources/script/main.js"></script>
 <title>알뜰신코📖</title>
 </head>
 <body>
@@ -110,14 +111,11 @@
 			</c:if>
 			<div id="populer-content">
 				<h2>인기 게시글 ✨</h2>
-				<div class="content-area">
-					
+				<div id="populer-detail-content">
 				</div>
 			</div>
 		</div>
 	</section>
-	
 	<jsp:include page="/footer"></jsp:include>
-	<script src="../resources/script/main.js"></script>
 </body>
 </html>

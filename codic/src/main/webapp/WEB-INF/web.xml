@@ -25,6 +25,16 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>PopularContentAction</servlet-name>
+		<servlet-class>controller.PopularContentAction</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PopularContentAction</servlet-name>
+		<url-pattern>/PopularContent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>UserAddFavorite</servlet-name>
 		<servlet-class>controller.UserAddFavorite</servlet-class>
 	</servlet>

@@ -203,4 +203,44 @@ public class ContentDao {
 	}
 	
 	
+	public ArrayList<Content> popularContent(){
+		this.conn = DBManager.getConnection();
+		ArrayList<Content> list = new ArrayList<Content>();
+		Content content = null;
+		int selectNum = 3;
+		
+		if(this.conn != null) {
+			String sql = "SELECT con.content_id, con.content_title, con.content_text, con.content_views, img.file_path, img.file_name, img.file_extends\r\n"
+					+ "FROM content as con \r\n"
+					+ "LEFT JOIN content_img AS img ON con.category_no = img.category_no\r\n"
+					+ "ORDER BY content_views DESC LIMIT ?";
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setInt(1, selectNum);
+				this.rs = this.pstmt.executeQuery();
+				
+				while(this.rs.next()) {
+					int content_id = this.rs.getInt(1);
+					String content_title = this.rs.getString(2);
+					String content_path = this.rs.getString(3);
+					int content_views = this.rs.getInt(4);
+					String file_path = this.rs.getString(5);
+					String file_name = this.rs.getString(6);
+					String file_extends = this.rs.getString(7);
+					
+					String final_file_path = file_path+file_name+"."+file_extends;
+					
+					content = new Content(content_id, content_title, content_views, final_file_path, content_path);
+					list.add(content);
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+		return list;
+	}
+	
 }
