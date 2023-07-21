@@ -14,7 +14,7 @@ import com.google.gson.JsonParser;
 public class KaKaoAuthManager {
 	
 	public String client_id = "eb5be89f3a2f5e6fd160e4a68ac204a8";
-	public String redirect_uri = "http://localhost:8080/KakaoAuthRequestAction";
+	public String redirect_uri = "http:/codicblog.site/KakaoAuthRequestAction";
 
 	public String getKakaoAccessToken(String code) {
         String access_Token = "";

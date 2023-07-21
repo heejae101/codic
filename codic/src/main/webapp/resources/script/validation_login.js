@@ -3,7 +3,6 @@ $('#user_email').on('change', e => {
 	if (email !== "") {
 		$('#error-id').hide();
 	}
-
 });
 
 $('#user_password').on('change', e => {
