@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../resources/style/reset.css">
 <link href="../resources/style/header.css" rel="stylesheet">
+
 </head>
 
 <body>

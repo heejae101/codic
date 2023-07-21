@@ -43,7 +43,7 @@
 			<c:set var="page" value="${(param.p==null) ? 1 : param.p}" />
 			<c:set var="totalBoard" value="${result.size()}" />
 			<c:set var="startNum" value="${page-(page-1)%5 }" />
-			<c:set var="lastNum" value="23" />
+			<c:set var="lastNum" value="${(sessionScope.listSize%10==0) ? (sessionScope.listSize / 10) : (sessionScope.listSize / 10 + 1)}" />
 			
 
 			<ul class="list-num">
