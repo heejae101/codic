@@ -13,7 +13,7 @@
 }
 /*닉네임 박스*/
 .nickname-box {
-  width: 80%;
+  width: 70%;
   height: 300px;
   margin:0 auto;
   box-shadow: 2px 2px 14px 0 #94358c;   
@@ -119,8 +119,9 @@ margin-bottom: 20px;
 }
 
 .codic-text{
-	margin-left: 20px;
-margin-bottom: 30px;
+margin-top: 30px;
+margin-left: 20px;
+margin-bottom: 40px;
 }
 
 
@@ -135,7 +136,7 @@ margin-bottom: 30px;
 
 /*탭메뉴*/
 .container {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -196,8 +197,26 @@ border-top: 1px solid lightgray;
 .line {
   width: 100% ;
   color: black;
-  padding: 20px;
-  
+  padding: 20px;  
+}
+
+.text{
+	margin-top: 10px;
+	margin-left: 10px;
+	
+	
+	
+}
+.comment{
+font-size: 1.0rem;
+font-weight: bold;
+color: black;
+}
+
+.nim{
+margin-left: 5px;
+color:#94358c ;		
+	
 }
 
 /*즐겨찾기*/

@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+	display: flex;
+	justify-content: center;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.card{
+margin: 0 auto;
+padding: 50px;
+display: flex;
+align-items: center;
+}
+.card-body{
+	line-height: 20px;
+}
+
+.img-box{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.text-box{
+	padding: 0px 100px;
+}
+
+.card-title{
+font-size: 1.5rem;
+margin-bottom: 20px;	
+}
+
+.card-text{
+	color:#94358c ;
+	font-weight: bold;
+}
+.email-text{
+	color: black;
+}
+.ad{
+	color: black;
+}

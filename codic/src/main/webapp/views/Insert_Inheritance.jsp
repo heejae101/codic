@@ -7,6 +7,14 @@
 <title>상속</title>
 </head>
 <body>
+<style>
+.theme-default-content{
+	display:grid;
+	margin-top:30px; 
+}
+</style>
+<jsp:include page="/header"></jsp:include>
+<jsp:include page="/menuBar"></jsp:include>
 <div class="theme-default-content content__default">
 		<h1 id="삽입-정렬-insertion-sort">
 			<a href="#삽입-정렬-insertion-sort" class="header-anchor">#</a>
@@ -207,6 +215,8 @@
 						<span class="sr-only">(opens new window)</span></span></a></li>
 		</ul>
 	</div>
+	<div class="contents-comment"></div>
+	<jsp:include page="/footer"></jsp:include>
 
 </body>
 </html>

@@ -55,7 +55,7 @@ public class LoginFormAction extends HttpServlet {
 
 		Map<String, Object> responseData = new HashMap<>();
 		String resultJson = "";
-
+		
 		if (user != null && user.getUser_password().equals(password) && nickname != null && name != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("nickname", nickname);

@@ -23,21 +23,16 @@
 				<div class="circle">
 					<img class="p-img" src="${sessionScope.profile}" alt="">
 					</div>
-					<div class="Pbtn-box">
-					<button id="p-btn">
-						<a href="/views/uploadProfile.jsp" class="upload-profile">프로필
-							수정</a>
-					</button>
-				</div>
+	
 
 				<div class="myNickname">
-					<strong class="nickname">${sessionScope.nickname}님</strong>
+					<strong class="nickname">${sessionScope.nickname}<span class="nim">님</span></strong>
 					<button id="logout-btn">
 						<a href="/Logout">로그아웃</a>
 					</button>
 				</div>
 				<div class="codic-text">
-					<p>알쓸신코! CODIC!에서 함께 공부해 봐요!</p>
+					<p class="comment">알쓸신코! CODIC!에서 함께 공부해 봐요!</p>
 				</div>
 			</div>
 
@@ -53,9 +48,9 @@
 					<div class="myInfo">
 						<ul class="myProfile">
 
-							<li class="line"><strong>이름</strong> ${sessionScope.name}</li>
+							<li class="line"><strong>이름</strong><p class="text"> ${sessionScope.name}</p></li>
 							<li class="line" id="email-text"><strong>이메일</strong>
-								${sessionScope.email}</li>
+								<p class="text">${sessionScope.email}</p></li>
 						</ul>
 
 

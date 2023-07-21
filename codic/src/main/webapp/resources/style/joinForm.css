@@ -7,14 +7,13 @@
 }
 
 
-
 #wrap{
     max-width:900px;
     padding: 10px 15px;
     margin:0 auto;
 
-
 }
+
 .section{
 margin:0 auto;
 padding: 0 10px;
@@ -64,6 +63,7 @@ font-weight: bold;
 
 .err-box{
 	margin-bottom: 20px;
+	line-height: 20px;
 }
 .err{
 font-size: 0.8rem;
@@ -82,7 +82,7 @@ align-items: center;
 }
 
 input[name="user_email"]{
-padding-right: 150px;	
+padding-right: 100px;	
 }
 
 .code_box{
@@ -93,7 +93,7 @@ margin-bottom: 20px;
 
 }
 input[name="code"]{
-padding-right: 150px;	
+padding-right: 100px;	
 }
 
 
@@ -142,7 +142,7 @@ display: flex;
 /*비밀번호*/
 
 .pwd1{
-margin-top: 20px;
+margin-top: 30px;
 }
 
 .pwd1_box{
