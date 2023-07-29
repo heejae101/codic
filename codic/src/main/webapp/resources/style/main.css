@@ -16,6 +16,7 @@
 	    display: flex;
 	    align-items: center;
 	    justify-content: center;
+	    margin: 100px;
 	}
 	.word-area h1 {
 		font-size: 2rem;
@@ -101,7 +102,6 @@
 
 .category-area {
 	width: 60vw;
-	height: 100px;
 	margin: 25px auto;
 }
 
@@ -157,16 +157,11 @@
 }
 
 .content-area {
-	margin: 170px auto;
-	height: 300px;
 	font-weight: 700;
 }
 
-#populer-content{
-	display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
+.populer-content{
+	margin-top:100px;
 }
 
 #populer-detail-content {
@@ -206,6 +201,10 @@
 	justify-content: space-between;
 	padding: 10px;
 	border-top: 1px solid #dce1e5;
+}
+
+#populer-detail-content #content-views{
+	display: flex;
 }
 
 #populer-detail-content #content-title {

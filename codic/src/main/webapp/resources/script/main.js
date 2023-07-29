@@ -69,11 +69,8 @@ function getContent() {
                         <div id="text-area">
 							<div id="content-title">
 								<h3>${content_title}</h3>
-								<div>
-									<span>${content_title}</span>
-								</div>
 							</div>
-							<div>
+							<div id="content-views">
 								<span>조회수 : ${views}</span>
 							</div>
 						</div>
