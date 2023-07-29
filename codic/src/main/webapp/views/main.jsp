@@ -18,8 +18,11 @@
 <body>
 	<jsp:include page="/header"></jsp:include>
 	<section>
-		<div class="img-area">
+		<!-- <div class="img-area">
 			<img src="../resources/img/main.jpg">
+		</div> -->
+		<div class="word-area">
+			<h1>Coding is <span></span></h1>
 		</div>
 		
 		<div class="text-area">
@@ -109,10 +112,9 @@
 						</ul>
 					</div>
 			</c:if>
-			<div id="populer-content">
+			<div class="populer-content">
 				<h2>인기 게시글 ✨</h2>
-				<div id="populer-detail-content">
-				</div>
+				<div id="populer-detail-content"></div>
 			</div>
 		</div>
 	</section>
