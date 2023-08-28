@@ -22,3 +22,6 @@
 
 ### 주요기능
 ![image](https://github.com/heejae101/codic/assets/81417568/a21ae4df-2817-4e9d-8f98-c17df0cfc194)
+
+### 메인 페이지
+![image](https://github.com/heejae101/codic/assets/81417568/677d09cd-f2ca-42d6-b328-092f8eaf0641)
