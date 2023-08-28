@@ -17,5 +17,8 @@
 ### 테스크 툴 (노션)
 ![image](https://github.com/heejae101/codic/assets/81417568/9a20a574-56a3-4e65-bfc2-5b4e3a3ed295)
 
+### FLOW CHART
+![image](https://github.com/heejae101/codic/assets/81417568/f339862c-6328-47ce-86b3-83360f0a5cf7)
+
 ### 주요기능
 ![image](https://github.com/heejae101/codic/assets/81417568/a21ae4df-2817-4e9d-8f98-c17df0cfc194)
