@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 public class DBManager {
 	public static Connection getConnection() {
 		Connection conn = null;
-		String url = "jdbc:mysql://database-1.cydw0hkrffj9.ap-northeast-2.rds.amazonaws.com:3306/CODIC?serverTimeZone=UTC";
-		String username = "admin";
-		String password = "0*uqeSic#mu8rIta4iWr";		
+		String url = "jdbc:mysql://YOUR_ADDRES.amazonaws.com:3306/CODIC?serverTimeZone=UTC";
+		String username = "YOUR_RDS_NAME";
+		String password = "YOUR_RDS_PASSWORD";		
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

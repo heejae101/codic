@@ -35,8 +35,8 @@ public class EmailVerificationAction extends HttpServlet {
         String verificationCode = encrypt.generateActivationCode();
         String verificationDuration = auth.getVerificationDuration1();
         String host = "smtp.gmail.com";
-        String user = "oeglks601@gmail.com";
-        String password = "vzfawgfmsmyconwx";
+        String user = "YOUR_GOOGLE_EMAIL";
+        String password = "YOUR_GOOGLE_PASSWORD";
 
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
